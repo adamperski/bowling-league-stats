@@ -1,0 +1,936 @@
+{
+  "data": [
+    {
+      "_id": "64eeaea625fbdc6a5da46388",
+      "name": "Trey Erickson",
+      "firstName": "Trey",
+      "lastName": "Erickson",
+      "dexterity": 0,
+      "average": 190,
+      "averages": [
+        {
+          "_id": "64eeaf7f3d74e155142ad669",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "league": "64d2b443a9304a7d2dc029ee",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 170
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "66b408025dbb6ac34d1523ad",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 192
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "6898c8040bd718dd744cd6b5",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 190
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a82319d249ddaa00e029a0d",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 190
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "birthDate": "1981-01-10T07:00:00.000Z",
+      "bowlerId": "",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        214,
+        177,
+        200,
+        211,
+        212,
+        169
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              169,
+              212,
+              211,
+              712
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e674fe5295daed70cf33c",
+            "weekIdx": 0,
+            "games": [
+              200,
+              177,
+              214,
+              711
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 9,
+      "highGame": 214,
+      "highGameHdcp": 254,
+      "highSeries": 592,
+      "highSeriesHdcp": 712,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 190,
+      "realAvgFloat": 0,
+      "enteringAvg": 190,
+      "gamesPlayed": 6,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "6a82319a249ddaa00e0299f1",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1183,
+      "hdcp": 40
+    },
+    {
+      "_id": "62f334a90535cd0b078ddb3b",
+      "name": "Chuck Dreux",
+      "bowlerId": "",
+      "lastName": "Dreux",
+      "firstName": "Chuck",
+      "dexterity": 0,
+      "average": 193,
+      "averages": [
+        {
+          "league": "6897a6f07cb471a57fea4abf",
+          "team": "6897a6fa7cb471a57fea4b3b",
+          "_id": "68b21da53b33749e3fd225c8",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 201
+        },
+        {
+          "league": "64cc15b6f79631de7f0f0493",
+          "team": "64fa15c0673e9a07523ef4f9",
+          "_id": "68b21da53b33749e3fd225c9",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "68b21da53b33749e3fd225ca",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 191
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "68b21da53b33749e3fd225cb",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "645eb3e6d759801b5dacc5d9",
+          "team": "645eb7656f8a54a612da9d4d",
+          "_id": "68b21da53b33749e3fd225cc",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "66395613857152c7178d16fa",
+          "team": "6639562c0a1fe8603687e05a",
+          "_id": "68b21da53b33749e3fd225cd",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "68b21da53b33749e3fd225ce",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 201
+        },
+        {
+          "league": "66d8a62188f60f3711eb2a66",
+          "team": "66d8b8b0773af87d612f88f9",
+          "_id": "68b21da53b33749e3fd225cf",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 187
+        },
+        {
+          "league": "6819279b4b2a23f018207dd1",
+          "team": "68192ba2391faa1d322e23be",
+          "_id": "68b21da53b33749e3fd225d0",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 201
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "68b21da53b33749e3fd225d1",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 192
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "69f8f2351b4591f463ae9741",
+          "_id": "69fe3bf37b69ce8f4684622a",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a74e9d0623bc22027b8eb84",
+          "team": "6a74e9d4623bc22027b8ebbb",
+          "_id": "6a74e9d6623bc22027b8ebcd",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 196
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a82319d249ddaa00e029a0f",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 193
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": null,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        177,
+        194,
+        215,
+        254,
+        193,
+        202
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              202,
+              193,
+              254,
+              760
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e674fe5295daed70cf33c",
+            "weekIdx": 0,
+            "games": [
+              215,
+              194,
+              177,
+              697
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 6,
+      "highGame": 254,
+      "highGameHdcp": 291,
+      "highSeries": 649,
+      "highSeriesHdcp": 760,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 193,
+      "realAvgFloat": 0,
+      "enteringAvg": 193,
+      "gamesPlayed": 6,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "6a82319a249ddaa00e0299f1",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1235,
+      "hdcp": 37
+    },
+    {
+      "_id": "681ed89818e4ed281d278c6d",
+      "name": "Tim Pester",
+      "bowlerId": "",
+      "birthDate": null,
+      "firstName": "Tim",
+      "lastName": "Pester",
+      "average": 220,
+      "averages": [
+        {
+          "league": "6819279b4b2a23f018207dd1",
+          "team": "68192ba1391faa1d322e23a0",
+          "_id": "681ed89818e4ed281d278c72",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 198
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "68a5fb18c93cd9d754b40944",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 214
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "6a02212835b5dbbc51202686",
+          "_id": "6a02b6967a37736b68a86e3d",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a82319c249ddaa00e029a03",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 220
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "useNickname": false,
+      "dontIdentify": false,
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dexterity": 0,
+      "games": [
+        247,
+        277,
+        236,
+        233,
+        206,
+        217
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              217,
+              206,
+              233,
+              695
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e674fe5295daed70cf33c",
+            "weekIdx": 0,
+            "games": [
+              236,
+              277,
+              247,
+              799
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 9,
+      "highGame": 277,
+      "highGameHdcp": 290,
+      "highSeries": 760,
+      "highSeriesHdcp": 799,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 220,
+      "realAvgFloat": 0,
+      "enteringAvg": 220,
+      "gamesPlayed": 6,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "6a82319a249ddaa00e0299f1",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1416,
+      "hdcp": 13
+    },
+    {
+      "_id": "681ed898b3ac54d151948968",
+      "name": "Bryan Keller",
+      "bowlerId": "",
+      "birthDate": null,
+      "firstName": "Bryan",
+      "lastName": "Keller",
+      "average": 214,
+      "averages": [
+        {
+          "league": "6819279b4b2a23f018207dd1",
+          "team": "68192ba1391faa1d322e23a0",
+          "_id": "681ed898b3ac54d15194896b",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 193
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "689bb5320353accc35f939f0",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 213
+        },
+        {
+          "league": "68b748f31d6d9e1d635d530f",
+          "team": "68b7491ec002b7e618f024ff",
+          "_id": "68b759aab840a1db153ada51",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "6a02212835b5dbbc51202686",
+          "_id": "6a02b69542b9ae6b621b2697",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a82319c249ddaa00e0299fc",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 214
+        }
+      ],
+      "subs": [
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "substitute": "68b77f7954b4395d022cab44",
+          "_id": "68b77fbf17f361531e0735f6"
+        }
+      ],
+      "nickNames": [
+        "Bryan Keller"
+      ],
+      "useNickname": false,
+      "dontIdentify": false,
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dexterity": 0,
+      "games": [
+        216,
+        185,
+        184,
+        255,
+        243,
+        257
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              257,
+              243,
+              255,
+              809
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e674fe5295daed70cf33c",
+            "weekIdx": 0,
+            "games": [
+              184,
+              185,
+              216,
+              639
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 6,
+      "highGame": 257,
+      "highGameHdcp": 275,
+      "highSeries": 755,
+      "highSeriesHdcp": 809,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 214,
+      "realAvgFloat": 0,
+      "enteringAvg": 214,
+      "gamesPlayed": 6,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "6a82319a249ddaa00e0299f1",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1340,
+      "hdcp": 18
+    },
+    {
+      "_id": "68ef81eb3e56d7c425b96e3f",
+      "name": "Jordan Yancey",
+      "bowlerId": "",
+      "birthDate": null,
+      "firstName": "Jordan",
+      "lastName": "Yancey",
+      "average": 225,
+      "averages": [
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "68ef81ec3e56d7c425b96e42",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 232
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a82319c249ddaa00e029a08",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 225
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "useNickname": false,
+      "dontIdentify": false,
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dexterity": 0,
+      "games": [
+        274,
+        216,
+        223
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e674fe5295daed70cf33c",
+            "weekIdx": 0,
+            "games": [
+              223,
+              216,
+              274,
+              740
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 4,
+      "highGame": 274,
+      "highGameHdcp": 283,
+      "highSeries": 713,
+      "highSeriesHdcp": 740,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 225,
+      "realAvgFloat": 0,
+      "enteringAvg": 225,
+      "gamesPlayed": 3,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "6a82319a249ddaa00e0299f1",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 713,
+      "hdcp": 9
+    },
+    {
+      "_id": "68b8745b0e9100654eee1e29",
+      "name": "Erin Marchant",
+      "bowlerId": "",
+      "birthDate": null,
+      "firstName": "Erin",
+      "lastName": "Marchant",
+      "average": 203,
+      "averages": [
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c7e20bd718dd744cd4ef",
+          "_id": "68b8745b0e9100654eee1e2c",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "6a02212835b5dbbc51202686",
+          "_id": "6a1ebda9041cc42961c32a17",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a823171249ddaa00e02981f",
+          "_id": "6a823174249ddaa00e029830",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 203
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a84ab475fce8ab908a435fc",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 203
+        }
+      ],
+      "subs": [
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "substitute": "6a84a2544aed7c4d75cd59de",
+          "_id": "6a84ab485fce8ab908a435fd"
+        }
+      ],
+      "nickNames": [
+        "Erin Marchant"
+      ],
+      "useNickname": false,
+      "dontIdentify": false,
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dexterity": 0,
+      "games": [
+        192,
+        243,
+        196
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              196,
+              243,
+              192,
+              715
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 4,
+      "highGame": 243,
+      "highGameHdcp": 271,
+      "highSeries": 631,
+      "highSeriesHdcp": 715,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 203,
+      "realAvgFloat": 0,
+      "enteringAvg": 203,
+      "gamesPlayed": 3,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "6a82319a249ddaa00e0299f1",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 631,
+      "hdcp": 28
+    }
+  ]
+}

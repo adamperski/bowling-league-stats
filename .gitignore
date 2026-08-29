@@ -1,0 +1,10 @@
+# Generated outputs - rebuilt any time from data\raw\
+/data/out/
+/dashboard.html
+
+# Keep the raw snapshots (data\raw\) - that's the whole point of the archive.
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+*.swp

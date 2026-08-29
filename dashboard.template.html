@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>League Stats</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#ffffff; --ink:#1a1d21; --muted:#5b6470; --line:#e2e5ea;
+    --accent:#1f6feb; --accent-soft:#e7f0fe; --good:#1a7f37; --bad:#c0392b; --bar:#c9d6e8;
+    --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0d1117; --panel:#161b22; --ink:#e6edf3; --muted:#8b949e; --line:#2a3038;
+      --accent:#4f9dff; --accent-soft:#16324f; --good:#3fb950; --bad:#f85149; --bar:#2f3b4d;
+      --shadow:0 1px 3px rgba(0,0,0,.4);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--accent)}
+  .wrap{max-width:1120px;margin:0 auto;padding:20px 16px 80px}
+  header h1{margin:0 0 2px;font-size:22px}
+  header .sub{color:var(--muted);font-size:13px}
+  .banner{margin:14px 0 0;padding:10px 14px;border-radius:8px;background:var(--accent-soft);
+    color:var(--ink);font-size:13px;border:1px solid var(--line)}
+  nav{display:flex;gap:4px;flex-wrap:wrap;margin:18px 0 16px;border-bottom:1px solid var(--line)}
+  nav button{appearance:none;border:0;background:none;color:var(--muted);font:inherit;font-weight:600;
+    padding:9px 14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  nav button:hover{color:var(--ink)}
+  nav button.active{color:var(--accent);border-color:var(--accent)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+    padding:4px;margin-bottom:18px;overflow:hidden}
+  .panel h2{font-size:14px;margin:12px 12px 4px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:right;padding:8px 10px;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;
+    position:sticky;top:0;background:var(--panel);user-select:none}
+  th.sortable::after{content:"\2195";opacity:.35;margin-left:4px}
+  th.asc::after{content:"\2191";opacity:.9}
+  th.desc::after{content:"\2193";opacity:.9}
+  tbody tr{border-top:1px solid var(--line)}
+  tbody tr:hover{background:var(--accent-soft)}
+  td.num{font-variant-numeric:tabular-nums}
+  .pos{color:var(--good)} .neg{color:var(--bad)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:12px 14px}
+  .card h3{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .lb{list-style:none;margin:0;padding:0}
+  .lb li{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-top:1px solid var(--line);font-size:14px}
+  .lb li:first-child{border-top:0}
+  .lb .r{color:var(--muted);width:1.6em;display:inline-block;text-align:right;font-variant-numeric:tabular-nums}
+  .lb .nm{flex:1;overflow:hidden;text-overflow:ellipsis}
+  .lb .tm{color:var(--muted);font-size:12px}
+  .lb .v{font-weight:700;font-variant-numeric:tabular-nums}
+  .toolbar{display:flex;gap:10px;align-items:center;margin:0 12px 8px;flex-wrap:wrap}
+  input[type=search]{flex:1;min-width:180px;padding:7px 10px;border:1px solid var(--line);border-radius:7px;
+    background:var(--bg);color:var(--ink);font:inherit}
+  .bar{display:inline-block;height:8px;border-radius:4px;background:var(--accent);vertical-align:middle}
+  .barbg{display:inline-block;width:120px;height:8px;border-radius:4px;background:var(--bar);vertical-align:middle;overflow:hidden}
+  .barbg > i{display:block;height:100%;background:var(--accent)}
+  tr.detail td{background:var(--bg);padding:0}
+  .weeks{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px}
+  .wk{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--panel)}
+  .wk b{font-variant-numeric:tabular-nums}
+  .wk .d{color:var(--muted);font-size:11px}
+  .muted{color:var(--muted)}
+  footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  @media (max-width:640px){ th,td{padding:7px 6px} .hide-sm{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="ttl">League Stats</h1>
+    <div class="sub" id="sub"></div>
+    <div class="banner" id="banner" hidden></div>
+  </header>
+
+  <nav id="nav"></nav>
+  <div id="view"></div>
+
+  <footer>
+    Generated locally from a LeaguePals public-data snapshot. Not affiliated with LeaguePals.
+  </footer>
+</div>
+
+<script>/*DATA*/</script>
+<script>
+(function(){
+  const D = window.LEAGUE_DATA;
+  const $ = (s,el=document)=>el.querySelector(s);
+  const el = (t,a={},...kids)=>{const n=document.createElement(t);
+    for(const k in a){ if(k==='class')n.className=a[k]; else if(k==='html')n.innerHTML=a[k]; else n.setAttribute(k,a[k]); }
+    for(const c of kids.flat()){ if(c!=null) n.append(c.nodeType?c:document.createTextNode(c)); } return n;};
+  const num = n => (n==null||n==='')?'':(''+n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  const signed = n => n==null?'':(n>0?'+':'')+n;
+  // PowerShell's ConvertTo-Json turns a 1-element array into an object and an
+  // empty array into "" / null — coerce everything we iterate back to an array.
+  const A = x => Array.isArray(x) ? x : (x==null||x==='') ? [] : [x];
+
+  $('#ttl').textContent = D.meta.league;
+  $('#sub').textContent = D.meta.center + '  •  Week ' + D.meta.weekNum
+      + '  •  snapshot ' + D.meta.snapshot + '  •  ' + D.bowlers.length + ' bowlers / ' + D.standings.length + ' teams';
+  if(!D.meta.counting){
+    const b=$('#banner'); b.hidden=false;
+    b.textContent='Season is still in the average-establishing phase — no weeks are counting toward points/standings yet. '
+      + 'Scores shown are from practice/position weeks. Handicap = ('+D.meta.hcBase+' − average) × '+D.meta.hcPct+'%.';
+  }
+
+  const TABS = [
+    ['standings','Standings', viewStandings],
+    ['leaders','Leaderboards', viewLeaders],
+    ['averages','Averages', viewAverages],
+    ['bowlers','Bowlers', viewBowlers],
+    ['teams','Teams', viewTeams],
+  ];
+  const nav = $('#nav');
+  TABS.forEach(([id,label],i)=>{
+    const btn = el('button',{}, label);
+    btn.onclick = ()=>{ [...nav.children].forEach(c=>c.classList.remove('active')); btn.classList.add('active');
+      const v=$('#view'); v.innerHTML=''; TABS[i][2](v); };
+    nav.append(btn);
+    if(i===0) btn.click();
+  });
+
+  // ---- sortable table helper ----
+  function table(cols, rows, opts={}){
+    // cols: [{k,label,fmt,cls,def}]  rows: array of objects
+    rows = A(rows);
+    const t = el('table');
+    const thead = el('thead'); const tr = el('tr');
+    let sortK = opts.sort || cols[0].k, sortDir = opts.dir || -1;
+    cols.forEach(c=>{
+      const th = el('th',{class:'sortable'}, c.label);
+      th.onclick = ()=>{ if(sortK===c.k) sortDir*=-1; else { sortK=c.k; sortDir=(c.def||-1); } render(); };
+      th._k = c.k; tr.append(th);
+    });
+    thead.append(tr); t.append(thead);
+    const tb = el('tbody'); t.append(tb);
+    function render(){
+      [...tr.children].forEach(th=>{ th.classList.remove('asc','desc');
+        if(th._k===sortK) th.classList.add(sortDir>0?'asc':'desc'); });
+      const sorted = rows.slice().sort((a,b)=>{
+        let x=a[sortK], y=b[sortK];
+        if(x==null) x=-Infinity; if(y==null) y=-Infinity;
+        if(typeof x==='string'||typeof y==='string') return (''+x).localeCompare(''+y)*sortDir;
+        return (x-y)*sortDir;
+      });
+      tb.innerHTML='';
+      sorted.forEach(r=>{
+        const row = el('tr');
+        cols.forEach(c=>{
+          const raw = r[c.k];
+          const cell = c.fmt ? c.fmt(raw,r) : (raw==null?'':raw);
+          const td = el('td',{class:(c.cls||'')}, cell && cell.nodeType ? cell : (''+ (cell==null?'':cell)) );
+          row.append(td);
+        });
+        tb.append(row);
+        if(opts.expand){
+          row.style.cursor='pointer';
+          row.onclick = ()=>{
+            const nx = row.nextSibling;
+            if(nx && nx.classList && nx.classList.contains('detail')){ nx.remove(); return; }
+            const dr = el('tr',{class:'detail'}); const dtd = el('td',{colspan:cols.length});
+            dtd.append(opts.expand(r)); dr.append(dtd); row.after(dr);
+          };
+        }
+      });
+    }
+    render();
+    return t;
+  }
+
+  function viewStandings(v){
+    const p = el('div',{class:'panel'});
+    p.append(table([
+      {k:'rank',label:'#',cls:'num',def:1},
+      {k:'name',label:'Team'},
+      {k:'record',label:'W-L-T',fmt:(_,r)=>`${r.wins}-${r.losses}-${r.ties}`},
+      {k:'pointsWon',label:'Pts Won',cls:'num',fmt:num},
+      {k:'pointsLost',label:'Pts Lost',cls:'num',fmt:num},
+      {k:'pctWon',label:'Pts %',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+      {k:'teamAvg',label:'Team Avg',cls:'num hide-sm',fmt:num},
+      {k:'teamHdcp',label:'Team Hdcp',cls:'num hide-sm',fmt:num},
+    ], D.standings, {sort:'rank',dir:1,expand:r=>{
+      const d = el('div',{class:'weeks'});
+      d.append(el('div',{class:'wk'}, el('span',{class:'d'},'Roster'), el('br'), A(r.roster).join(', ')));
+      return d;
+    }}));
+    v.append(p);
+  }
+
+  function lbCard(title, list, fmt){
+    const c = el('div',{class:'card'}, el('h3',{},title));
+    const ul = el('ul',{class:'lb'});
+    const items = A(list);
+    items.forEach((it,i)=>{
+      ul.append(el('li',{},
+        el('span',{class:'r'}, (i+1)+''),
+        el('span',{class:'nm'}, it.name, it.team? el('span',{class:'tm'},'  '+it.team):null),
+        el('span',{class:'v'}, fmt?fmt(it.value):num(it.value))
+      ));
+    });
+    if(!items.length) ul.append(el('li',{class:'muted'},'— no data yet —'));
+    c.append(ul); return c;
+  }
+
+  function viewLeaders(v){
+    const g = el('div',{class:'grid'});
+    const L = D.leaderboards, T = D.teamLeaderboards;
+    g.append(lbCard('High Game (scratch)', L.highGame));
+    g.append(lbCard('High Series (scratch)', L.highSeries));
+    g.append(lbCard('High Game (handicap)', L.highGameHdcp));
+    g.append(lbCard('High Series (handicap)', L.highSeriesHdcp));
+    g.append(lbCard('Top Average (this season)', L.topSeasonAvg, x=>x==null?'':x.toFixed(1)));
+    g.append(lbCard('Top Average (book)', L.topBookAvg));
+    g.append(lbCard('Most Improved', L.mostImproved, signed));
+    g.append(lbCard('Biggest Drop', L.mostDeclined, signed));
+    g.append(lbCard('Individual Points', L.indPoints));
+    g.append(lbCard('Team High Game (scratch)', T.teamGame));
+    g.append(lbCard('Team High Series (scratch)', T.teamSeries));
+    g.append(lbCard('Team High Game (handicap)', T.teamGameHdcp));
+    g.append(lbCard('Team High Series (handicap)', T.teamSeriesHdcp));
+    g.append(lbCard('Team Points', T.teamPoints));
+    v.append(g);
+  }
+
+  function viewAverages(v){
+    const p = el('div',{class:'panel'});
+    const max = Math.max(...D.bowlers.map(b=>b.bookAvg||0), 1);
+    p.append(table([
+      {k:'name',label:'Bowler'},
+      {k:'team',label:'Team',cls:'hide-sm'},
+      {k:'bookAvg',label:'Book',cls:'num',fmt:(x)=>{
+        const w = Math.round((x/max)*120);
+        return el('span',{}, x+' ', el('span',{class:'barbg'}, el('i',{style:`width:${w}px`})));
+      }},
+      {k:'seasonAvg',label:'Season',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+      {k:'improve',label:'+/-',cls:'num',fmt:(x)=> x==null?'': el('span',{class:x>0?'pos':(x<0?'neg':'')}, signed(x))},
+      {k:'gamesBowled',label:'Gm',cls:'num'},
+      {k:'hdcp',label:'Hdcp',cls:'num hide-sm'},
+    ], D.bowlers, {sort:'bookAvg'}));
+    v.append(p);
+  }
+
+  function viewBowlers(v){
+    const p = el('div',{class:'panel'});
+    const tb = el('div',{class:'toolbar'});
+    const search = el('input',{type:'search',placeholder:'Filter bowlers or teams…'});
+    tb.append(search); p.append(tb);
+    const host = el('div'); p.append(host);
+    function draw(q){
+      host.innerHTML='';
+      const rows = D.bowlers.filter(b=> !q ||
+        b.name.toLowerCase().includes(q) || b.team.toLowerCase().includes(q));
+      host.append(table([
+        {k:'name',label:'Bowler'},
+        {k:'team',label:'Team',cls:'hide-sm'},
+        {k:'bookAvg',label:'Avg',cls:'num'},
+        {k:'gamesBowled',label:'Gm',cls:'num'},
+        {k:'highGame',label:'Hi Gm',cls:'num'},
+        {k:'highSeries',label:'Hi Ser',cls:'num'},
+        {k:'highGameHdcp',label:'Hi Gm+H',cls:'num hide-sm'},
+        {k:'highSeriesHdcp',label:'Hi Ser+H',cls:'num hide-sm'},
+        {k:'stdev',label:'σ',cls:'num hide-sm',fmt:x=>x==null?'':x},
+        {k:'indPoints',label:'Pts',cls:'num'},
+      ], rows, {sort:'bookAvg', expand:r=>{
+        const d = el('div',{class:'weeks'});
+        const wks = A(r.weeks);
+        wks.forEach(w=>{
+          d.append(el('div',{class:'wk'},
+            el('span',{class:'d'}, w.date + (w.isMatch?' • counts':'')), el('br'),
+            w.absent ? el('span',{class:'muted'},'absent')
+                     : el('b',{}, A(w.games).join('  ') + '   = ' + w.series)
+          ));
+        });
+        if(!wks.length) d.append(el('span',{class:'muted'},'no games'));
+        return d;
+      }}));
+    }
+    draw('');
+    search.oninput = ()=>draw(search.value.trim().toLowerCase());
+    v.append(p);
+  }
+
+  function viewTeams(v){
+    const g = el('div',{class:'grid'});
+    D.standings.forEach(t=>{
+      const c = el('div',{class:'card'});
+      c.append(el('h3',{}, '#'+t.rank+'  '+t.name));
+      c.append(el('div',{class:'muted',html:
+        `${t.wins}-${t.losses}-${t.ties} &nbsp;•&nbsp; ${num(t.pointsWon)} pts (${t.pctWon.toFixed(1)}%) `
+        +`&nbsp;•&nbsp; team avg ${num(t.teamAvg)}`}));
+      const ul = el('ul',{class:'lb'});
+      A(t.roster).forEach(nm=>{
+        const b = D.bowlers.find(x=>x.name===nm && x.team===t.name) || {};
+        ul.append(el('li',{},
+          el('span',{class:'nm'}, nm),
+          el('span',{class:'v'}, b.bookAvg!=null?b.bookAvg:'')
+        ));
+      });
+      c.append(ul);
+      g.append(c);
+    });
+    v.append(g);
+  }
+})();
+</script>
+</body>
+</html>
