@@ -133,7 +133,8 @@ Get-ChildItem $SnapshotDir -Filter 'team_*.json' | ForEach-Object {
         $lowGame  = if ($gamesBowled -gt 0) { ($g | Measure-Object -Minimum).Minimum } else { 0 }
         $seriesVals = @($weeks | Where-Object { -not $_.absent -and $_.games.Count -ge 3 } | ForEach-Object { $_.series })
         $highSeries = if ($seriesVals.Count) { ($seriesVals | Measure-Object -Maximum).Maximum } else { 0 }
-        $hdcp = Get-Hdcp $bookAvg
+        # No established average yet -> handicap is not meaningful.
+        $hdcp = if ($bookAvg -gt 0) { Get-Hdcp $bookAvg } else { $null }
 
         [void]$bowlers.Add([pscustomobject]@{
             id             = $b._id
