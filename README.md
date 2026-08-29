@@ -1,7 +1,7 @@
 # Pioneer I 2026-2027 - League Stats
 
 Tools to archive and analyze data for the **Pioneer I 2026-2027** league at
-**Lucky Strike Wheat Ridge**, tracked on LeaguePals.
+**Lucky Strike Wheat Ridge** (home team: **Sloppy Hookers**), tracked on LeaguePals.
 
 ## How the data gets here
 
@@ -77,10 +77,14 @@ Reads the newest snapshot under `data\raw\` (or pass `-Date 2026-09-08`) and wri
   series, whether it counts.
 - `data\out\<date>\teams.csv` - standings with points, record, team avg/handicap, roster.
 - `data\out\<date>\leaderboards.csv` - every leaderboard flattened.
+- `data\out\<date>\matchups.csv` - one row per team-vs-team matchup: scratch &
+  handicap series, team/individual/total points each side, winner.
+- `data\out\<date>\headtohead_bowlers.csv` - one row per position pairing:
+  both bowlers' games, series, handicap, points.
 - `dashboard.html` - a **self-contained** page (no server, no internet). Open it
-  in any browser. Tabs: Standings / Leaderboards / Averages / Bowlers / Teams.
-  Sortable tables; click a bowler or team row to expand week-by-week detail.
-  Also copied to `data\out\<date>\dashboard.html`.
+  in any browser. Tabs: Standings / Head-to-Head / Leaderboards / Averages /
+  Bowlers / Teams. Sortable tables; click a bowler, team, or matchup row to
+  expand detail. Also copied to `data\out\<date>\dashboard.html`.
 
 `dashboard.template.html` is the layout/JS; `Build-Stats.ps1` injects the data.
 Edit the template to change how the dashboard looks.
@@ -99,10 +103,30 @@ git add data/raw && git commit -m "week of <date>"
 and recoverable. Generated files (`data\out\`, `dashboard.html`) are gitignored -
 they rebuild from the raw data any time.
 
+## Head-to-head (how the schedule is rebuilt)
+
+LeaguePals has no public "match result" endpoint, so `Build-Stats.ps1`
+reconstructs the schedule:
+
+1. every bowler's week carries a `match_id`; a team's real `match_id` for a
+   week is the one shared by the bowlers who actually bowled (absentees keep a
+   stale id), decided by majority vote.
+2. two teams sharing a `(week, match_id)` are that week's matchup.
+3. team points (3 / 3 / 3 / 6) and individual points (1 / 1 / 1 / 2) are
+   recomputed from the league's own rules on the handicap scores.
+
+**Individual pairings are inferred from lineup position** (team-file order) -
+LeaguePals doesn't publish who bowled whom. Once real weeks start counting,
+LeaguePals' own `pointsWon` / `individualPoints` become authoritative; the
+reconstructed numbers stay useful as a live/what-if view and a cross-check.
+Matchups with a short lineup or a missing game are flagged `estimated`.
+
 ## Config
 
-Edit `config.json` to point at a different league (the `leagueId` is the `id=`
-in the `league-info` URL).
+Edit `config.json`:
+- `leagueId` - the `id=` in the `league-info` URL (point at a different league).
+- `favoriteTeam` - your team; the dashboard floats its matchups to the top and
+  pre-selects it in the Head-to-Head pickers.
 
 ## Known nuance
 
@@ -111,7 +135,6 @@ dashboard shows them as stored. Totals, averages, and highs are unaffected.
 
 ## Ideas for later
 
-- Head-to-head: which bowler/team you faced each week (derivable from the
-  `matches` list in `league_full.json` + `match_id` in each week's games).
 - Points pace / projected final standings once weeks start counting.
 - Publish `dashboard.html` as a shareable link instead of emailing the file.
+- Season-long H2H records table (all opponents at a glance).
