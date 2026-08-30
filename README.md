@@ -82,10 +82,12 @@ Reads the newest snapshot under `data\raw\` (or pass `-Date 2026-09-08`) and wri
 - `data\out\<date>\headtohead_bowlers.csv` - one row per position pairing:
   both bowlers' games, series, handicap, points, and kind (bowler/partial/sub/blind).
 - `data\out\<date>\lineup_review.csv` - every unresolved sub/blind/missed-game flag.
+- `data\out\<date>\trends.csv` - team & bowler series by week with running average,
+  vs-form, vs-season, and week rank.
 - `dashboard.html` - a **self-contained** page (no server, no internet). Open it
-  in any browser. Tabs: Standings / Head-to-Head / Leaderboards / Averages /
-  Bowlers / Teams. Sortable tables; click a bowler, team, or matchup row to
-  expand detail. Also copied to `data\out\<date>\dashboard.html`.
+  in any browser. Tabs: Standings / Head-to-Head / Trends / Leaderboards /
+  Averages / Bowlers / Teams. Sortable tables; click a bowler, team, or matchup
+  row to expand detail. Also copied to `data\out\<date>\dashboard.html`.
 
 `dashboard.template.html` is the layout/JS; `Build-Stats.ps1` injects the data.
 Edit the template to change how the dashboard looks.
@@ -225,8 +227,27 @@ Edit `config.json`:
 Within a week, LeaguePals stores the 3 games in the order it stores them; the
 dashboard shows them as stored. Totals, averages, and highs are unaffected.
 
+## Trends tab
+
+For a selected team or bowler, their **series each week** vs the rest of the
+season, on scratch or handicap:
+
+- **vs form** - that week minus the running (to-date) average, i.e. how it
+  compared to where they stood at that point.
+- **vs season** - that week minus the full-season average.
+- **week rank** - where that series placed among all teams / all full-3-game
+  bowlers that week.
+- Bar chart: green above the season average, red below; blue line traces the
+  running average. Partial weeks are faint and excluded from the baselines.
+
 ## Ideas for later
 
-- Points pace / projected final standings once weeks start counting.
+- **Points pace** - cumulative points vs the 20-per-week "even" line; projected
+  final standing.
+- **Position-round splits** - performance in position weeks vs regular weeks.
+- **Handicap trend** - team/bowler handicap shrinking = averages rising.
+- **Anchor analysis** - which lineup position earns the most points.
+- **Clutch** - record in matchups decided by <=4 points.
+- **First half vs second half** of the season.
+- **Streaks** - consecutive weeks above the season average / winning the matchup.
 - Publish `dashboard.html` as a shareable link instead of emailing the file.
-- Season-long H2H records table (all opponents at a glance).

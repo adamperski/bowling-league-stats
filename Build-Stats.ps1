@@ -599,6 +599,108 @@ Write-Host "  reconstructed $($schedule.Count) matchups across $($mDates.Count) 
 # computed individual-points board (excludes points won as a blind) - populated above
 $ldr['indPointsComp'] = Top (@($bowlers | Where-Object { $_.compIndPoints -gt 0 })) 'compIndPoints' 20
 
+# ---- trends: each week vs the rest of the season ------------------------
+# For a team or bowler: their series each week, the running (to-date) average,
+# and how that week compares both to form-so-far and to the full-season average.
+# Only "full" weeks (team: always; bowler: 3 games) feed the baseline averages.
+function Trend-Series($rows) {
+    # rows (ordered): @{ date; value; games; full }
+    $base = @($rows | Where-Object { $_.full } | ForEach-Object { [double]$_.value })
+    $seasonAvg = if ($base.Count) { ($base | Measure-Object -Average).Average } else { $null }
+    $run = 0.0; $cnt = 0
+    $out = foreach ($r in $rows) {
+        $td = $null; $vsTd = $null; $vsSe = $null
+        if ($r.full) {
+            $run += [double]$r.value; $cnt++
+            $td = $run / $cnt
+            $vsTd = [int][math]::Round([double]$r.value - $td)
+            if ($seasonAvg -ne $null) { $vsSe = [int][math]::Round([double]$r.value - $seasonAvg) }
+        }
+        [pscustomobject]@{
+            date      = $r.date
+            value     = [int][math]::Round([double]$r.value)
+            games     = [int]$r.games
+            full      = [bool]$r.full
+            perGame   = if ($r.games) { [math]::Round([double]$r.value / $r.games, 1) } else { $null }
+            toDateAvg = if ($td -ne $null) { [int][math]::Round($td) } else { $null }
+            vsToDate  = $vsTd
+            vsSeason  = $vsSe
+        }
+    }
+    $out = @($out)
+    $full = @($out | Where-Object { $_.full })
+    [pscustomobject]@{
+        weeks     = $out
+        seasonAvg = if ($seasonAvg -ne $null) { [int][math]::Round($seasonAvg) } else { $null }
+        stdev     = Stat-StdDev $base
+        best      = if ($full.Count) { $full | Sort-Object value -Descending | Select-Object -First 1 } else { $null }
+        worst     = if ($full.Count) { $full | Sort-Object value | Select-Object -First 1 } else { $null }
+    }
+}
+function Rank-In($field, $val) { (@($field | Where-Object { [double]$_ -gt [double]$val }).Count) + 1 }
+
+# team weekly series from the reconstructed matchups
+$teamSer = @{}   # teamId -> ordered [{date; scr; hcp; opp; pts}]
+foreach ($m in $schedule) {
+    foreach ($p in @(@($m.a, $m.b), @($m.b, $m.a))) {
+        $s = $p[0]; $o = $p[1]
+        if (-not $teamSer.ContainsKey($s.teamId)) { $teamSer[$s.teamId] = @() }
+        $teamSer[$s.teamId] += [pscustomobject]@{ date = $m.date; scr = [int]$s.ser; hcp = [int]$s.serH; opp = $o.team; pts = [double]$s.total }
+    }
+}
+$wkTeamScr = @{}; $wkTeamHcp = @{}
+foreach ($tid in $teamSer.Keys) { foreach ($r in $teamSer[$tid]) {
+    if (-not $wkTeamScr.ContainsKey($r.date)) { $wkTeamScr[$r.date] = @(); $wkTeamHcp[$r.date] = @() }
+    $wkTeamScr[$r.date] += $r.scr; $wkTeamHcp[$r.date] += $r.hcp
+} }
+
+# bowler weekly series + league-wide field per week (full 3-game weeks only)
+$wkBwlScr = @{}; $wkBwlHcp = @{}
+foreach ($b in $bowlers) { foreach ($w in @($b.weeks)) {
+    if ($w.absent -or $w.games.Count -lt 3) { continue }
+    if (-not $wkBwlScr.ContainsKey($w.date)) { $wkBwlScr[$w.date] = @(); $wkBwlHcp[$w.date] = @() }
+    $wkBwlScr[$w.date] += [int]$w.scrSer; $wkBwlHcp[$w.date] += [int]$w.hcpSer
+} }
+
+$trendTeams = New-Object System.Collections.ArrayList
+foreach ($tid in $teamSer.Keys) {
+    $rows = @($teamSer[$tid] | Sort-Object date)
+    $scrT = Trend-Series (@($rows | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.scr; games = 15; full = $true } }))
+    $hcpT = Trend-Series (@($rows | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.hcp; games = 15; full = $true } }))
+    for ($i = 0; $i -lt $rows.Count; $i++) {
+        $d = $rows[$i].date
+        $scrT.weeks[$i] | Add-Member -Force opp $rows[$i].opp
+        $scrT.weeks[$i] | Add-Member -Force pts $rows[$i].pts
+        $scrT.weeks[$i] | Add-Member -Force rank  (Rank-In $wkTeamScr[$d] $rows[$i].scr)
+        $scrT.weeks[$i] | Add-Member -Force field ($wkTeamScr[$d].Count)
+        $hcpT.weeks[$i] | Add-Member -Force opp $rows[$i].opp
+        $hcpT.weeks[$i] | Add-Member -Force rank  (Rank-In $wkTeamHcp[$d] $rows[$i].hcp)
+        $hcpT.weeks[$i] | Add-Member -Force field ($wkTeamHcp[$d].Count)
+    }
+    [void]$trendTeams.Add([pscustomobject]@{ teamId = $tid; name = $teamById[$tid].team.name; scr = $scrT; hcp = $hcpT })
+}
+$trendTeams = @($trendTeams | Sort-Object name)
+
+$trendBowlers = New-Object System.Collections.ArrayList
+foreach ($b in $bowlers) {
+    $wk = @($b.weeks | Where-Object { -not $_.absent } | Sort-Object date)
+    if ($wk.Count -eq 0) { continue }
+    $scrT = Trend-Series (@($wk | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.scrSer; games = $_.games.Count; full = ($_.games.Count -ge 3) } }))
+    $hcpT = Trend-Series (@($wk | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.hcpSer; games = $_.games.Count; full = ($_.games.Count -ge 3) } }))
+    for ($i = 0; $i -lt $wk.Count; $i++) {
+        $d = $wk[$i].date
+        if ($wk[$i].games.Count -ge 3) {
+            $scrT.weeks[$i] | Add-Member -Force rank  (Rank-In $wkBwlScr[$d] $wk[$i].scrSer)
+            $scrT.weeks[$i] | Add-Member -Force field ($wkBwlScr[$d].Count)
+            $hcpT.weeks[$i] | Add-Member -Force rank  (Rank-In $wkBwlHcp[$d] $wk[$i].hcpSer)
+            $hcpT.weeks[$i] | Add-Member -Force field ($wkBwlHcp[$d].Count)
+        }
+    }
+    [void]$trendBowlers.Add([pscustomobject]@{ id = $b.id; name = $b.name; team = $b.team; bookAvg = $b.bookAvg; scr = $scrT; hcp = $hcpT })
+}
+$trendBowlers = @($trendBowlers | Sort-Object name)
+$trends = [pscustomobject]@{ teams = $trendTeams; bowlers = $trendBowlers }
+
 # ---- write CSVs ---------------------------------------------------------
 $outDir = Join-Path $scriptDir (Join-Path 'data\out' $snapDate)
 New-Item -ItemType Directory -Force -Path $outDir | Out-Null
@@ -661,6 +763,24 @@ if ($reviewsOut.Count) {
     } | Export-Csv (Join-Path $outDir 'lineup_review.csv') -NoTypeInformation
 }
 
+$trendRows = foreach ($grp in @(@{ set = $trendTeams; kind = 'team' }, @{ set = $trendBowlers; kind = 'bowler' })) {
+    foreach ($e in $grp.set) {
+        foreach ($metric in 'scr', 'hcp') {
+            foreach ($w in @($e.$metric.weeks)) {
+                [pscustomobject]@{
+                    kind = $grp.kind; name = $e.name; team = $(if ($grp.kind -eq 'bowler') { $e.team } else { '' })
+                    metric = $(if ($metric -eq 'scr') { 'scratch' } else { 'handicap' })
+                    date = $w.date; series = $w.value; perGame = $w.perGame; games = $w.games
+                    toDateAvg = $w.toDateAvg; vsToDate = $w.vsToDate
+                    seasonAvg = $e.$metric.seasonAvg; vsSeason = $w.vsSeason
+                    weekRank = $w.rank; weekField = $w.field
+                }
+            }
+        }
+    }
+}
+$trendRows | Export-Csv (Join-Path $outDir 'trends.csv') -NoTypeInformation
+
 Write-Host "  CSVs -> $outDir"
 
 # ---- build dashboard data + HTML --------------------------------------
@@ -687,8 +807,9 @@ $data = [ordered]@{
     teamLeaderboards = $teamLdr
     schedule     = $schedule
     reviews      = $reviewsOut
+    trends       = $trends
 }
-$json = $data | ConvertTo-Json -Depth 25 -Compress
+$json = $data | ConvertTo-Json -Depth 30 -Compress
 
 $tplPath = Join-Path $scriptDir 'dashboard.template.html'
 $tpl = [IO.File]::ReadAllText($tplPath, [Text.UTF8Encoding]::new($false))
