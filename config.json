@@ -6,6 +6,9 @@
   "requestDelaySeconds": 1.0,
   "pointsPerWeek": 40,
   "favoriteTeam": "Sloppy Hookers",
+  "seasonWeeks": 34,
+  "positionRoundParity": 1,
+  "positionRoundComment": "A week counts as a position round when (weekIndex mod 2) == positionRoundParity, weekIndex 0-based. Set to 0 or 1 to match your schedule; -1 disables the split.",
   "blindRules": {
     "deltaPerGame": 10,
     "getsHandicap": true,

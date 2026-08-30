@@ -103,6 +103,15 @@
   .ktag.sub{background:var(--accent);color:#fff}
   .ktag.part{background:#7a4bb5;color:#fff}
   .chartwrap{padding:8px 14px 2px;overflow-x:auto}
+  .card h3{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  table.kv{width:100%;border-collapse:collapse;font-size:13px}
+  table.kv td{padding:3px 6px;border:0;text-align:right}
+  table.kv td:first-child{text-align:left;color:var(--muted)}
+  table.kv tr{border:0}
+  .anchorrow{display:flex;align-items:center;gap:8px;padding:2px 0;font-size:13px}
+  .anchorrow .ap{width:3.4em;color:var(--muted)}
+  .anchorrow .av{width:2.6em;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+  h3{color:var(--ink)}
   @media (max-width:640px){ th,td{padding:7px 6px} .hide-sm{display:none}
     .pair{grid-template-columns:1fr auto 1.4em auto 1fr} .pair .pg{display:none} }
 </style>
@@ -583,9 +592,56 @@
     return table(cols, weeks, {sort:'date',dir:1});
   }
 
+  function lineChart(rows, a, b){
+    // rows: [{date}], a/b: {key,label,color,dash}  -> two overlaid polylines
+    if(rows.length<1) return el('div',{class:'muted',style:'padding:10px 14px'},'not enough weeks yet');
+    const W=680,H=140,pad=10,base=H-16;
+    const vals = rows.flatMap(r=>[r[a.key], b?r[b.key]:null]).filter(x=>x!=null);
+    const lo=Math.min(...vals), hi=Math.max(...vals), rng=(hi-lo)||1;
+    const yOf=v=> pad + (1-(v-lo)/rng)*(base-pad);
+    const xOf=i=> pad + (rows.length===1? (W-2*pad)/2 : i*(W-2*pad)/(rows.length-1));
+    const poly = s => rows.map((r,i)=> r[s.key]==null?null:`${xOf(i).toFixed(1)},${yOf(r[s.key]).toFixed(1)}`).filter(Boolean).join(' ');
+    let svg='';
+    if(b) svg += `<polyline points="${poly(b)}" fill="none" style="stroke:var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>`;
+    svg += `<polyline points="${poly(a)}" fill="none" style="stroke:var(--accent)" stroke-width="2"/>`;
+    rows.forEach((r,i)=>{
+      if(r[a.key]!=null) svg += `<circle cx="${xOf(i).toFixed(1)}" cy="${yOf(r[a.key]).toFixed(1)}" r="2.5" style="fill:var(--accent)"/>`;
+      svg += `<text x="${xOf(i).toFixed(1)}" y="${H-3}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${r.date.slice(5)}</text>`;
+    });
+    const last = rows[rows.length-1];
+    if(last[a.key]!=null) svg += `<text x="${W-pad}" y="${(yOf(last[a.key])-4).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--accent)">${a.label} ${num(Math.round(last[a.key]))}</text>`;
+    return el('div',{class:'chartwrap',html:`<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;max-width:${W}px">${svg}</svg>`});
+  }
+  function spark(byWeek, key){
+    const vals = A(byWeek).map(w=>w[key]).filter(x=>x!=null);
+    if(vals.length<2) return el('span',{class:'muted'},'—');
+    const W=120,H=26,lo=Math.min(...vals),hi=Math.max(...vals),rng=(hi-lo)||1;
+    const pts = A(byWeek).map((w,i)=> w[key]==null?null:`${(2+i*(W-4)/(A(byWeek).length-1)).toFixed(1)},${(2+(1-(w[key]-lo)/rng)*(H-4)).toFixed(1)}`).filter(Boolean).join(' ');
+    return el('span',{html:`<svg viewBox="0 0 ${W} ${H}" style="width:${W}px;height:${H}px;vertical-align:middle"><polyline points="${pts}" fill="none" style="stroke:var(--accent)" stroke-width="1.5"/></svg>`});
+  }
+  function stat(title, ...body){
+    const c = el('div',{class:'card'}); c.append(el('h3',{},title), ...body.flat().filter(Boolean)); return c;
+  }
+  function kv(pairs){
+    const t = el('table',{class:'kv'});
+    pairs.forEach(([k,...vs])=>{
+      const tr=el('tr'); tr.append(el('td',{},k));
+      vs.forEach(vv=>tr.append(el('td',{class:'num'}, vv==null||vv===''? '—' : (vv.nodeType?vv:''+vv))));
+      t.append(tr);
+    });
+    return t;
+  }
+  function delta(n, unit){ if(n==null) return el('span',{class:'muted'},'—');
+    return el('span',{class:n>0?'pos':(n<0?'neg':'muted')}, signed(n)+(unit||'')); }
+
   function viewTrends(v){
     const fav = D.meta.favoriteTeam || '';
-    let metric = 'scr';   // 'scr' | 'hcp'
+    let metric = 'scr';
+    const AT = A(D.analysis.teams), AB = A(D.analysis.bowlers), NT = AT.length;
+    const projRank = {};
+    AT.map(t=>({id:t.teamId,p:(t.pace&&t.pace.projectedTotal)||0})).sort((a,b)=>b.p-a.p)
+      .forEach((r,i)=>projRank[r.id]=i+1);
+    const nfmt = D.analysis.posParity>=0;
 
     const bar = el('div',{class:'toolbar'});
     const mkM = (id,label)=>{ const b=el('button',{class:'wkbtn'+(metric===id?' active':'')}, label);
@@ -594,46 +650,122 @@
     bar.append(el('span',{class:'muted',style:'align-self:center'},'Metric:'), mkM('scr','Scratch'), mkM('hcp','Handicap'));
     v.append(bar);
 
-    // --- team ---
     const teams = D.trends.teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
-    const pT = el('div',{class:'panel'}); pT.append(el('h2',{},'Team — series by week'));
+    const pT = el('div',{class:'panel'}); pT.append(el('h2',{},'Team analysis'));
     const tSel = mkSelect(teams.map(t=>t.name));
     if(fav && teams.some(t=>t.name===fav)) tSel.value = fav;
-    const tbT = el('div',{class:'toolbar'}); tbT.append(tSel); pT.append(tbT);
-    const tHost = el('div'); pT.append(tHost);
-    v.append(pT);
+    pT.append(el('div',{class:'toolbar'}, tSel));
+    const tHost = el('div'); pT.append(tHost); v.append(pT);
 
-    // --- bowler ---
     const bwls = D.trends.bowlers.slice().sort((a,b)=>a.name.localeCompare(b.name));
-    const pB = el('div',{class:'panel'}); pB.append(el('h2',{},'Bowler — series by week'));
+    const pB = el('div',{class:'panel'}); pB.append(el('h2',{},'Bowler analysis'));
     const bSel = mkSelect(bwls.map(b=>({label:b.name+'  ('+b.team+')', value:b.id})));
     if(fav){ const fb = bwls.find(b=>b.team===fav); if(fb) bSel.value = fb.id; }
-    const tbB = el('div',{class:'toolbar'}); tbB.append(bSel); pB.append(tbB);
-    const bHost = el('div'); pB.append(bHost);
-    v.append(pB);
+    pB.append(el('div',{class:'toolbar'}, bSel));
+    const bHost = el('div'); pB.append(bHost); v.append(pB);
 
-    function panelFor(entity, host){
-      host.innerHTML='';
-      if(!entity){ host.append(el('div',{class:'muted',style:'padding:12px'},'no data')); return; }
-      const t = entity[metric];
+    function seriesBlock(host, t){
       const weeks = A(t.weeks);
-      if(!weeks.length){ host.append(el('div',{class:'muted',style:'padding:12px'},'no weeks bowled yet')); return; }
+      host.append(el('h3',{style:'margin:14px 12px 2px'},'Series by week'));
+      if(!weeks.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no weeks bowled yet')); return; }
       const parts = [`season avg ${num(t.seasonAvg)}`];
       if(t.best)  parts.push(`best ${t.best.date.slice(5)} ${signed(t.best.vsSeason)}`);
       if(t.worst && (!t.best || t.worst.date!==t.best.date)) parts.push(`worst ${t.worst.date.slice(5)} ${signed(t.worst.vsSeason)}`);
       if(t.stdev!=null) parts.push(`consistency σ ${t.stdev}`);
       host.append(el('div',{class:'summary'}, parts.join('   ·   ')));
       host.append(trendChart(weeks, t.seasonAvg));
-      host.append(el('div',{class:'muted',style:'padding:2px 14px 8px;font-size:11px'},
-        'Bars: green above the season average, red below. Blue line = running average through that week (“form”). Faint bars = partial weeks, excluded from the averages.'));
+      host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},
+        'Green above the season average, red below. Blue line = running average (“form”). Faint = partial weeks.'));
       host.append(trendTable(weeks));
     }
-    function renderAll(){
-      panelFor(teams.find(t=>t.name===tSel.value), tHost);
-      panelFor(bwls.find(b=>b.id===bSel.value), bHost);
+
+    function paceBlock(host, pace, isTeam, teamId){
+      if(!pace || !A(pace.rows).length) return;
+      host.append(el('h3',{style:'margin:16px 12px 2px'}, isTeam?'Points pace':'Your points pace'));
+      const bits = [`${signed(pace.currentVsEven)} vs the even line`];
+      if(isTeam && pace.projectedTotal!=null)
+        bits.push(`projected ${num(pace.projectedTotal)} over ${pace.seasonWeeks} weeks` + (projRank[teamId]?` — would rank ${projRank[teamId]} / ${NT}`:''));
+      host.append(el('div',{class:'summary'}, bits.join('   ·   ')));
+      host.append(lineChart(A(pace.rows), {key:'cum',label:'points'}, {key:'even',label:'even'}));
+      host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},
+        'Solid = cumulative points. Dashed = the even line ('+(isTeam?(D.meta.pointsPerWeek/2):2.5)+'/week).'));
     }
-    tSel.onchange = ()=>panelFor(teams.find(t=>t.name===tSel.value), tHost);
-    bSel.onchange = ()=>panelFor(bwls.find(b=>b.id===bSel.value), bHost);
+
+    function cardsFor(host, an, isTeam){
+      const g = el('div',{class:'grid'});
+      // position rounds
+      if(an.positionRounds && an.positionRounds.enabled){
+        const pr = an.positionRounds;
+        const rows = [['Avg points', pr.posAvgPts, pr.regAvgPts], ['Avg series', pr.posAvgSer, pr.regAvgSer]];
+        if(isTeam) rows.push(['Record', pr.posRecord, pr.regRecord]);
+        g.append(stat('Position rounds vs regular',
+          kv([['', el('b',{},'Position'), el('b',{},'Regular')], ...rows]),
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, `${pr.posWeeks} position / ${pr.regWeeks} regular weeks`)));
+      }
+      // anchor (team only)
+      if(isTeam && an.anchor){
+        const mx = Math.max(...an.anchor.map(a=>a.avgPts||0), 0.1);
+        const rows = an.anchor.map(a=> el('div',{class:'anchorrow'},
+          el('span',{class:'ap'}, 'Pos '+a.pos),
+          el('span',{class:'barbg',style:'flex:1'}, el('i',{style:`width:${Math.round((a.avgPts||0)/mx*100)}%`})),
+          el('span',{class:'av'}, a.avgPts==null?'—':a.avgPts)));
+        g.append(stat('Points by lineup position',
+          ...rows, el('div',{class:'muted',style:'font-size:11px;margin-top:4px'},'avg individual points earned per week, this season')));
+      }
+      // handicap trend
+      if(an.handicap){
+        const h = an.handicap;
+        g.append(stat('Handicap trend',
+          el('div',{}, (h.first==null?'—':h.first)+' → '+(h.last==null?'—':h.last)+'  ', delta(h.delta)),
+          el('div',{style:'margin-top:4px'}, spark(h.byWeek,'hdcp')),
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, h.delta<0?'handicap falling — average rising':(h.delta>0?'handicap rising — average slipping':'flat'))));
+      }
+      // clutch (team only)
+      if(isTeam && an.clutch){
+        const c = an.clutch;
+        const body = [el('div',{}, `${c.wins}–${c.losses} in matchups decided by ≤ 4 points`)];
+        A(c.list).forEach(x=> body.push(el('div',{class:'muted',style:'font-size:12px'},
+          `${x.date.slice(5)} vs ${x.opp} — ${x.won?'won':'lost'} by ${Math.abs(x.margin)}`)));
+        if(!A(c.list).length) body.push(el('div',{class:'muted',style:'font-size:11px'},'no close matchups yet'));
+        g.append(stat('Clutch', ...body));
+      }
+      // halves
+      if(an.halves){
+        const h = an.halves;
+        const rows = [['Avg series', h.h1Ser, h.h2Ser]];
+        if(h.h1Pts!=null || h.h2Pts!=null) rows.unshift(['Avg points', h.h1Pts, h.h2Pts]);
+        g.append(stat('Season halves',
+          kv([['', el('b',{},'1st half'), el('b',{},'2nd half')], ...rows]),
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, `split at week ${Math.ceil(D.analysis.seasonWeeks/2)} of ${D.analysis.seasonWeeks}`)));
+      }
+      // streaks
+      if(an.streaks){
+        const s = an.streaks, body=[];
+        body.push(el('div',{}, `Above season avg series — longest ${s.aboveSeason.longest}, current ${s.aboveSeason.current}`));
+        if(s.matchupWins) body.push(el('div',{}, `Matchup wins — longest ${s.matchupWins.longest}, current ${s.matchupWins.current}`));
+        g.append(stat('Streaks', ...body));
+      }
+      host.append(g);
+    }
+
+    function drawTeam(){
+      tHost.innerHTML='';
+      const tr = teams.find(t=>t.name===tSel.value);
+      if(!tr){ tHost.append(el('div',{class:'muted',style:'padding:12px'},'no data')); return; }
+      const an = AT.find(a=>a.teamId===tr.teamId);
+      seriesBlock(tHost, tr[metric]);
+      if(an){ paceBlock(tHost, an.pace, true, tr.teamId); cardsFor(tHost, an, true); }
+    }
+    function drawBowler(){
+      bHost.innerHTML='';
+      const tr = bwls.find(b=>b.id===bSel.value);
+      if(!tr){ bHost.append(el('div',{class:'muted',style:'padding:12px'},'no data')); return; }
+      const an = AB.find(a=>a.id===tr.id);
+      seriesBlock(bHost, tr[metric]);
+      if(an){ paceBlock(bHost, an.pace, false); cardsFor(bHost, an, false); }
+    }
+    function renderAll(){ drawTeam(); drawBowler(); }
+    tSel.onchange = drawTeam; bSel.onchange = drawBowler;
     renderAll();
   }
 })();
