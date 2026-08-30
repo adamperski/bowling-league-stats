@@ -1,0 +1,82 @@
+name: League site
+
+# What this does
+#   - Tuesday ~10:30 PM Mountain: pull a fresh LeaguePals snapshot, rebuild the
+#     dashboard, commit it, and publish to GitHub Pages.
+#   - Any push to main: rebuild the dashboard from committed data and republish.
+#   - "Run workflow" button (Actions tab): do the full pull + rebuild + publish
+#     on demand, any time.
+
+on:
+  schedule:
+    # GitHub cron is UTC and has no daylight-saving. These two lines both mean
+    # "Tuesday 10:30 PM in Colorado" - one for MDT (summer/fall), one for MST
+    # (winter). The run that finds no new scores just commits nothing.
+    - cron: '30 4 * * 3'   # Wed 04:30 UTC = Tue 22:30 MDT
+    - cron: '30 5 * * 3'   # Wed 05:30 UTC = Tue 22:30 MST
+  workflow_dispatch: {}     # manual "Run workflow" button
+  push:
+    branches: [main]
+
+permissions:
+  contents: write   # commit the new snapshot back
+  pages: write      # publish to GitHub Pages
+  id-token: write   # required by deploy-pages
+
+concurrency:
+  group: league-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull fresh snapshot from LeaguePals
+        if: github.event_name != 'push'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+          $tz = [TimeZoneInfo]::FindSystemTimeZoneById('Mountain Standard Time')
+          $mt = [TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, $tz)
+          $date = $mt.ToString('yyyy-MM-dd')
+          Write-Host "Mountain time now: $($mt.ToString('yyyy-MM-dd HH:mm')) -> snapshot $date"
+          .\Fetch-LeaguePals.ps1 -Date $date
+
+      - name: Build dashboard
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+          .\Build-Stats.ps1
+
+      - name: Commit new snapshot
+        if: github.event_name != 'push'
+        shell: powershell
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if (git status --porcelain) {
+            git commit -m "Auto update $(Get-Date -Format yyyy-MM-dd)"
+            git push
+          } else {
+            Write-Host "No new data this run."
+          }
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

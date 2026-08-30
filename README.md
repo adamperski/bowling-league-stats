@@ -92,13 +92,28 @@ Edit the template to change how the dashboard looks.
 
 ### Weekly routine
 
+If the GitHub Action is set up (see below), the Tuesday-night run does the fetch,
+build, commit and publish for you. Your only job is to resolve any **Needs
+Review** lineups it flags:
+
+```powershell
+git pull                                                   # get the auto-committed snapshot
+# edit data\lineups\<date>.json - fix subs/blinds, set "resolved": true
+powershell -ExecutionPolicy Bypass -File .\Build-Stats.ps1  # rebuild with your fixes
+git add -A
+git commit -m "resolve lineups, week of <date>"
+git push                                                    # republishes automatically
+```
+
+Doing it entirely by hand (no Action):
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\Fetch-LeaguePals.ps1
 powershell -ExecutionPolicy Bypass -File .\Build-Stats.ps1
-# resolve any Needs Review items in data\lineups\<date>.json, then re-run Build-Stats.ps1
+# resolve Needs Review items, re-run Build-Stats.ps1
 git add -A
 git commit -m "week of <date>"
-git push          # if you've set up a remote (see below)
+git push
 ```
 
 ## The archive is a git repo
@@ -107,28 +122,44 @@ git push          # if you've set up a remote (see below)
 and recoverable. `dashboard.html` and `data\out\` are gitignored (they rebuild
 from the raw data any time); `docs\index.html` and `data\lineups\` are committed.
 
-## Publishing the dashboard with GitHub Pages
+## Publishing + auto-updating with GitHub Actions
 
-`Build-Stats.ps1` also writes `docs\index.html`. To serve it:
+`.github\workflows\league-site.yml` runs the whole pipeline in the cloud:
 
-1. Create a GitHub repo (github.com -> New repository). Private is fine; Pages
-   still works on private repos for personal accounts... **but the published
-   site itself is public** on the free/Pro plan. This dashboard shows 245 real
-   names + scores, so decide before enabling it. Alternatives: keep the repo
-   private and just send people `dashboard.html` (it's self-contained), or use a
-   host with password protection (Cloudflare Pages Access, Netlify).
-2. Point this repo at it and push:
+- **Tuesday ~10:30 PM Mountain** - pulls a fresh snapshot, rebuilds, commits it,
+  publishes to GitHub Pages. (Two cron lines cover MDT and MST; the run with no
+  new scores commits nothing.)
+- **Any push to `main`** - rebuilds the dashboard from committed data and
+  republishes (so your manual `git push` after resolving lineups goes live).
+- **"Run workflow" button** - full pull + rebuild + publish on demand.
+
+> The published site is **public and Google-indexable** (true even on a private
+> repo, on the free/Pro plan). It shows 245 real names + scores. If that's not
+> OK: don't enable Pages - just send people `dashboard.html` (self-contained),
+> or use a password-protected host (Cloudflare Pages Access, Netlify).
+
+### One-time setup on GitHub
+
+1. **Settings -> Actions -> General -> Workflow permissions** -> "Read and write
+   permissions" -> Save. (Lets the Tuesday run commit the new snapshot back.)
+2. **Settings -> Pages -> Build and deployment -> Source: GitHub Actions.**
+3. Push this repo (the workflow file has to be on `main` before it can run):
    ```
-   git branch -M main
-   git remote add origin https://github.com/<you>/bowling-league-stats.git
-   git push -u origin main
+   git push
    ```
-3. On GitHub: **Settings -> Pages -> Build and deployment -> Source: Deploy from
-   a branch**, Branch: `main`, Folder: `/docs`. Save.
-4. Wait ~1 min. Site is at `https://<you>.github.io/bowling-league-stats/`.
+4. First publish: **Actions** tab -> **League site** -> **Run workflow** ->
+   Branch `main` -> green **Run workflow**. ~3 min later the site is at
+   `https://<you>.github.io/bowling-league-stats/`.
 
-Each week after `Build-Stats.ps1`, `git add -A && git commit && git push` and
-Pages redeploys automatically.
+### Running it manually any time
+
+**Actions** tab -> **League site** (left sidebar) -> **Run workflow** button
+(right side) -> keep branch `main` -> **Run workflow**. Watch it under the runs
+list; the `deploy` job's summary links the live URL.
+
+The live site is always current. The `docs\index.html` committed in the repo
+catches up on the next Tuesday run - or immediately if you run `Build-Stats.ps1`
+locally before you push (the weekly routine below already does).
 
 ## Head-to-head (how the schedule is rebuilt)
 
