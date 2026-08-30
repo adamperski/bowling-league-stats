@@ -218,7 +218,11 @@ regenerable output.
 Edit `config.json`:
 - `leagueId` - the `id=` in the `league-info` URL (point at a different league).
 - `favoriteTeam` - your team; the dashboard floats its matchups to the top and
-  pre-selects it in the Head-to-Head pickers.
+  pre-selects it in the Head-to-Head and Trends pickers.
+- `seasonWeeks` - total bowling weeks in the season (used for pace projection).
+- `positionRoundParity` - `0` or `1`: a week is a position round when
+  `(0-based week index) mod 2` equals this. `-1` turns the split off. **Check it
+  against your actual schedule** - the public data doesn't mark position weeks.
 - `blindRules` - blind delta, whether the blind gets handicap, strict-beat, and
   whether blind points count toward the matchup total / season individual total.
 
@@ -229,25 +233,32 @@ dashboard shows them as stored. Totals, averages, and highs are unaffected.
 
 ## Trends tab
 
-For a selected team or bowler, their **series each week** vs the rest of the
-season, on scratch or handicap:
+Pick a team or a bowler (defaults to your `favoriteTeam`), toggle scratch /
+handicap, and get:
 
-- **vs form** - that week minus the running (to-date) average, i.e. how it
-  compared to where they stood at that point.
-- **vs season** - that week minus the full-season average.
-- **week rank** - where that series placed among all teams / all full-3-game
-  bowlers that week.
-- Bar chart: green above the season average, red below; blue line traces the
-  running average. Partial weeks are faint and excluded from the baselines.
+- **Series by week** - the week's series, `vs form` (minus the running to-date
+  average), `vs season` (minus the full-season average), and `week rank` among
+  all teams / all full-3-game bowlers. Bar chart: green above the season
+  average, red below; blue line = running average. Partial weeks are faint and
+  excluded from the baselines.
+- **Points pace** - cumulative points vs the even line (20/week for teams,
+  2.5/week for a bowler); for teams, the projected season total and where that
+  would rank.
+- **Position rounds vs regular** - average points, average series, and record in
+  position-round weeks vs regular weeks. (Which weeks are position rounds is set
+  by `positionRoundParity` in config - **verify it against your schedule**.)
+- **Points by lineup position** (teams) - average individual points each of the
+  five slots earns per week.
+- **Handicap trend** - first -> latest, with a sparkline. Falling = average rising.
+- **Clutch** (teams) - record in matchups decided by <= 4 of the 40 points.
+- **Season halves** - 1st half vs 2nd half average points and series.
+- **Streaks** - longest / current run of weeks above the season-average series,
+  and (teams) of matchup wins.
+
+`trends.csv` and `team_analysis.csv` carry the numbers for spreadsheet work.
 
 ## Ideas for later
 
-- **Points pace** - cumulative points vs the 20-per-week "even" line; projected
-  final standing.
-- **Position-round splits** - performance in position weeks vs regular weeks.
-- **Handicap trend** - team/bowler handicap shrinking = averages rising.
-- **Anchor analysis** - which lineup position earns the most points.
-- **Clutch** - record in matchups decided by <=4 points.
-- **First half vs second half** of the season.
-- **Streaks** - consecutive weeks above the season average / winning the matchup.
 - Publish `dashboard.html` as a shareable link instead of emailing the file.
+- Lane / pair-of-lanes performance, once a schedule with lane assignments is available.
+- "On pace to make/miss the cut" once the prize/cut line is known.
