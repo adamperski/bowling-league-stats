@@ -96,14 +96,39 @@ Edit the template to change how the dashboard looks.
 powershell -ExecutionPolicy Bypass -File .\Fetch-LeaguePals.ps1
 powershell -ExecutionPolicy Bypass -File .\Build-Stats.ps1
 # resolve any Needs Review items in data\lineups\<date>.json, then re-run Build-Stats.ps1
-git add data/raw data/lineups && git commit -m "week of <date>"
+git add -A
+git commit -m "week of <date>"
+git push          # if you've set up a remote (see below)
 ```
 
 ## The archive is a git repo
 
 `data\raw\` is committed to git so every week's snapshot is version-controlled
-and recoverable. Generated files (`data\out\`, `dashboard.html`) are gitignored -
-they rebuild from the raw data any time.
+and recoverable. `dashboard.html` and `data\out\` are gitignored (they rebuild
+from the raw data any time); `docs\index.html` and `data\lineups\` are committed.
+
+## Publishing the dashboard with GitHub Pages
+
+`Build-Stats.ps1` also writes `docs\index.html`. To serve it:
+
+1. Create a GitHub repo (github.com -> New repository). Private is fine; Pages
+   still works on private repos for personal accounts... **but the published
+   site itself is public** on the free/Pro plan. This dashboard shows 245 real
+   names + scores, so decide before enabling it. Alternatives: keep the repo
+   private and just send people `dashboard.html` (it's self-contained), or use a
+   host with password protection (Cloudflare Pages Access, Netlify).
+2. Point this repo at it and push:
+   ```
+   git branch -M main
+   git remote add origin https://github.com/<you>/bowling-league-stats.git
+   git push -u origin main
+   ```
+3. On GitHub: **Settings -> Pages -> Build and deployment -> Source: Deploy from
+   a branch**, Branch: `main`, Folder: `/docs`. Save.
+4. Wait ~1 min. Site is at `https://<you>.github.io/bowling-league-stats/`.
+
+Each week after `Build-Stats.ps1`, `git add -A && git commit && git push` and
+Pages redeploys automatically.
 
 ## Head-to-head (how the schedule is rebuilt)
 

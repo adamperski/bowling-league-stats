@@ -698,7 +698,13 @@ $dashRepo = Join-Path $scriptDir 'dashboard.html'
 [IO.File]::WriteAllText($dashRepo, $html, [Text.UTF8Encoding]::new($false))
 [IO.File]::WriteAllText((Join-Path $outDir 'dashboard.html'), $html, [Text.UTF8Encoding]::new($false))
 
-Write-Host "  dashboard -> $dashRepo"
+# docs\index.html is what GitHub Pages serves (Settings -> Pages -> Source: /docs).
+# It is committed; enable Pages only if you're OK with the roster being public.
+$docsDir = Join-Path $scriptDir 'docs'
+New-Item -ItemType Directory -Force -Path $docsDir | Out-Null
+[IO.File]::WriteAllText((Join-Path $docsDir 'index.html'), $html, [Text.UTF8Encoding]::new($false))
+
+Write-Host "  dashboard -> $dashRepo  (also docs\index.html for GitHub Pages)"
 Write-Host "`nDone. $($bowlers.Count) bowlers, $($teams.Count) teams."
 if (-not $anyCounting) {
     Write-Host "Note: no counting weeks yet - season is still in the average-establishing phase." -ForegroundColor Yellow
