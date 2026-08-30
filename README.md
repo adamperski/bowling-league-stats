@@ -140,6 +140,9 @@ best it can and written to **`data\lineups\<date>.json`**:
   average.
 - **partial** - a present bowler who missed a game; the missed game is scored at
   their own average - 10.
+- **blind vs blind** - when both teams are missing the same position, those five
+  individual points follow the matching team contest (team game 1 point -> team
+  game 1 winner, etc.), so every week still totals 40.
 
 The dashboard's **Needs Review** panel (top of Head-to-Head) lists every
 unresolved case with the file to edit. Open `data\lineups\<date>.json`, fix the

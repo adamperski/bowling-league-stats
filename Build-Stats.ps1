@@ -500,12 +500,18 @@ function Resolve-Slots($teamId, $date) {
     @($out | Sort-Object pos)
 }
 
-function Beat($a, $b, $av, $bv, $pts) {
+function Beat($a, $b, $av, $bv, $pts, $tcw) {
     # -> @(aMatchupPts, bMatchupPts, aSeasonPts, bSeasonPts)
+    # $tcw = winner of the matching TEAM contest ('A'/'B'/'T'); used when the
+    # individual pairing can't be judged on its own (blind vs blind, or a game
+    # missing on both sides) so every point is still awarded -> week totals 40.
     $aWin = $false; $bWin = $false; $tie = $false
-    if ($a.blind -and -not $b.blind) { if ($blindStrict) { if ($bv -gt $av) { $bWin = $true } else { $aWin = $true } } else { if ($bv -ge $av) { $bWin = $true } else { $aWin = $true } } }
+    $useTeam = ($a.blind -and $b.blind) -or ($av -eq $null) -or ($bv -eq $null)
+    if ($useTeam) {
+        if ($tcw -eq 'A') { $aWin = $true } elseif ($tcw -eq 'B') { $bWin = $true } else { $tie = $true }
+    }
+    elseif ($a.blind -and -not $b.blind) { if ($blindStrict) { if ($bv -gt $av) { $bWin = $true } else { $aWin = $true } } else { if ($bv -ge $av) { $bWin = $true } else { $aWin = $true } } }
     elseif ($b.blind -and -not $a.blind) { if ($blindStrict) { if ($av -gt $bv) { $aWin = $true } else { $bWin = $true } } else { if ($av -ge $bv) { $aWin = $true } else { $bWin = $true } } }
-    elseif ($a.blind -and $b.blind) { }
     else { if ($av -gt $bv) { $aWin = $true } elseif ($bv -gt $av) { $bWin = $true } else { $tie = $true } }
     $ap = 0.0; $bp = 0.0
     if ($tie) { $ap = $pts / 2; $bp = $pts / 2 } elseif ($aWin) { $ap = $pts } elseif ($bWin) { $bp = $pts }
@@ -514,14 +520,14 @@ function Beat($a, $b, $av, $bv, $pts) {
     if ($b.blind -and -not $blindToMatchup) { $bmt = 0 }
     @($amt, $bmt, $(if ($a.seasonEligible) { $ap } else { 0 }), $(if ($b.seasonEligible) { $bp } else { 0 }))
 }
-function Compare-Slot($a, $b) {
+function Win-Of($x, $y) { if ($x -gt $y) { 'A' } elseif ($y -gt $x) { 'B' } else { 'T' } }
+function Compare-Slot($a, $b, $tgw, $tsw) {
     $r = @(0.0, 0.0, 0.0, 0.0)
     for ($g = 0; $g -lt 3; $g++) {
-        if ($a.gameH[$g] -eq $null -or $b.gameH[$g] -eq $null) { continue }
-        $x = Beat $a $b $a.gameH[$g] $b.gameH[$g] $ptIndGame
+        $x = Beat $a $b $a.gameH[$g] $b.gameH[$g] $ptIndGame $tgw[$g]
         for ($j = 0; $j -lt 4; $j++) { $r[$j] += $x[$j] }
     }
-    $x = Beat $a $b $a.serH $b.serH $ptIndSer
+    $x = Beat $a $b $a.serH $b.serH $ptIndSer $tsw
     for ($j = 0; $j -lt 4; $j++) { $r[$j] += $x[$j] }
     $r
 }
@@ -546,6 +552,9 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
     if (-not $sa.Count -or -not $sb.Count) { continue }
     $ta = Team-Calc $sa; $tb = Team-Calc $sb
 
+    # team contests (handicap) + their winners for blind-vs-blind fallback
+    $tgw = @(); for ($g = 0; $g -lt 3; $g++) { $tgw += (Win-Of $ta.gameH[$g] $tb.gameH[$g]) }
+    $tsw = Win-Of $ta.serH $tb.serH
     $aTeam = 0.0; $bTeam = 0.0
     for ($g = 0; $g -lt 3; $g++) { $r = Award $ta.gameH[$g] $tb.gameH[$g] $ptTeamGame; $aTeam += $r[0]; $bTeam += $r[1] }
     $r = Award $ta.serH $tb.serH $ptTeamSer; $aTeam += $r[0]; $bTeam += $r[1]
@@ -556,7 +565,7 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
         $pa = $sa | Where-Object { $_.pos -eq $i } | Select-Object -First 1
         $pb = $sb | Where-Object { $_.pos -eq $i } | Select-Object -First 1
         if (-not $pa -or -not $pb) { continue }
-        $c = Compare-Slot $pa $pb
+        $c = Compare-Slot $pa $pb $tgw $tsw
         $aInd += $c[0]; $bInd += $c[1]
         if ($pa.id -and $pa.seasonEligible) { $bowlerById[$pa.id].compIndPoints += $c[2] }
         if ($pb.id -and $pb.seasonEligible) { $bowlerById[$pb.id].compIndPoints += $c[3] }
