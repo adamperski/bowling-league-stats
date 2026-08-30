@@ -221,9 +221,11 @@ Edit `config.json`:
   pre-selects it in the Head-to-Head and Trends pickers.
 - `seasonWeeks` - total bowling weeks in the season (used for pace projection).
 - `positionRoundWeeks` - 1-based league week numbers that are position rounds
-  (e.g. `[5,10,15,20,25,30,35,36]`). Week number = `round((bowl date -
-  seasonStart) / 7) + 1`. Empty list turns the split off. The public data
-  doesn't mark position weeks, so this is manual.
+  (e.g. `[5,10,15,20,25,30,35,36]`). Empty list turns the split off. The public
+  data doesn't mark position weeks, so this is manual.
+- `skipWeeks` - Tuesdays with no league (holidays), e.g. `["2026-12-29"]`. Week
+  number = calendar weeks since `seasonStart`, minus the skipped Tuesdays before
+  that date - so week numbers stay aligned with the printed schedule.
 - `blindRules` - blind delta, whether the blind gets handicap, strict-beat, and
   whether blind points count toward the matchup total / season individual total.
 

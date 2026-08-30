@@ -261,9 +261,15 @@ $seasonWeeks = if ($cfg.seasonWeeks) { [int]$cfg.seasonWeeks }
 $posRoundWeeks = @()
 if ($cfg.PSObject.Properties['positionRoundWeeks']) { $posRoundWeeks = @($cfg.positionRoundWeeks | ForEach-Object { [int]$_ }) }
 $posEnabled = ($posRoundWeeks.Count -gt 0)
+$skipWeeks = @()
+if ($cfg.PSObject.Properties['skipWeeks']) { $skipWeeks = @($cfg.skipWeeks | ForEach-Object { [datetime]$_ }) }
 $halfWeek = [math]::Ceiling($seasonWeeks / 2)
-# league week number from the bowl date (week 1 = season start)
-function Week-Num($date) { [int][math]::Round(([datetime]$date - $seasonStart).TotalDays / 7) + 1 }
+# league week number: calendar weeks since season start, less any skipped Tuesdays before this date
+function Week-Num($date) {
+    $d = [datetime]$date
+    $cal = [int][math]::Round(($d - $seasonStart).TotalDays / 7) + 1
+    $cal - @($skipWeeks | Where-Object { $_ -lt $d }).Count
+}
 function Is-PosRound($date) { $posEnabled -and ($posRoundWeeks -contains (Week-Num $date)) }
 
 # ---- head-to-head: reconstruct the schedule + matchup results ------------

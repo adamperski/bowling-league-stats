@@ -8,7 +8,8 @@
   "favoriteTeam": "Sloppy Hookers",
   "seasonWeeks": 36,
   "positionRoundWeeks": [5, 10, 15, 20, 25, 30, 35, 36],
-  "positionRoundComment": "1-based league week numbers that are position rounds. Week number = round((bowl date - seasonStart) / 7) + 1. Empty list disables the position-round split.",
+  "skipWeeks": ["2026-12-29"],
+  "positionRoundComment": "positionRoundWeeks: 1-based league week numbers that are position rounds. Week number = calendar weeks since seasonStart, minus any skipWeeks dates that fall before the bowl date. skipWeeks: Tuesdays with no league (holidays).",
   "blindRules": {
     "deltaPerGame": 10,
     "getsHandicap": true,
