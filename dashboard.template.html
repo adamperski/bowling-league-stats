@@ -580,7 +580,7 @@
 
   function trendTable(weeks){
     const hasOpp = weeks.some(w=>w.opp);
-    const cols = [{k:'date',label:'Week'}];
+    const cols = [{k:'date',label:'Week',fmt:(x,r)=> r.weekNum ? el('span',{}, x+' ', r.isPos? el('span',{class:'ktag',style:'background:var(--accent);color:#fff'},'pos') : el('span',{class:'muted',style:'font-size:11px'},'w'+r.weekNum)) : x}];
     if(hasOpp) cols.push({k:'opp',label:'Opp',cls:'hide-sm'});
     cols.push(
       {k:'value',label:'Series',cls:'num',fmt:(x,r)=> r.full? num(x) : el('span',{class:'muted'}, num(x)+' ('+r.games+'g)')},
@@ -641,7 +641,6 @@
     const projRank = {};
     AT.map(t=>({id:t.teamId,p:(t.pace&&t.pace.projectedTotal)||0})).sort((a,b)=>b.p-a.p)
       .forEach((r,i)=>projRank[r.id]=i+1);
-    const nfmt = D.analysis.posParity>=0;
 
     const bar = el('div',{class:'toolbar'});
     const mkM = (id,label)=>{ const b=el('button',{class:'wkbtn'+(metric===id?' active':'')}, label);
@@ -698,9 +697,11 @@
         const pr = an.positionRounds;
         const rows = [['Avg points', pr.posAvgPts, pr.regAvgPts], ['Avg series', pr.posAvgSer, pr.regAvgSer]];
         if(isTeam) rows.push(['Record', pr.posRecord, pr.regRecord]);
+        const pw = A(D.analysis.positionRoundWeeks).join(', ');
         g.append(stat('Position rounds vs regular',
           kv([['', el('b',{},'Position'), el('b',{},'Regular')], ...rows]),
-          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, `${pr.posWeeks} position / ${pr.regWeeks} regular weeks`)));
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'},
+            `${pr.posWeeks} position / ${pr.regWeeks} regular weeks bowled` + (pw?` · position weeks: ${pw}`:''))));
       }
       // anchor (team only)
       if(isTeam && an.anchor){
@@ -736,7 +737,7 @@
         if(h.h1Pts!=null || h.h2Pts!=null) rows.unshift(['Avg points', h.h1Pts, h.h2Pts]);
         g.append(stat('Season halves',
           kv([['', el('b',{},'1st half'), el('b',{},'2nd half')], ...rows]),
-          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, `split at week ${Math.ceil(D.analysis.seasonWeeks/2)} of ${D.analysis.seasonWeeks}`)));
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, `weeks 1–${D.analysis.halfWeek} vs ${D.analysis.halfWeek+1}–${D.analysis.seasonWeeks}`)));
       }
       // streaks
       if(an.streaks){

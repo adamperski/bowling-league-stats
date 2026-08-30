@@ -254,6 +254,18 @@ $teamLdr = [ordered]@{
 
 $weekDates = @($bowlers | ForEach-Object { $_.weeks } | ForEach-Object { $_.date } | Sort-Object -Unique)
 
+# ---- league-week numbering + position rounds -----------------------------
+$seasonWeeks = if ($cfg.seasonWeeks) { [int]$cfg.seasonWeeks }
+               elseif ($league.paymentWeeks) { [int]$league.paymentWeeks }
+               else { [int][math]::Round(($seasonEnd - $seasonStart).TotalDays / 7) }
+$posRoundWeeks = @()
+if ($cfg.PSObject.Properties['positionRoundWeeks']) { $posRoundWeeks = @($cfg.positionRoundWeeks | ForEach-Object { [int]$_ }) }
+$posEnabled = ($posRoundWeeks.Count -gt 0)
+$halfWeek = [math]::Ceiling($seasonWeeks / 2)
+# league week number from the bowl date (week 1 = season start)
+function Week-Num($date) { [int][math]::Round(([datetime]$date - $seasonStart).TotalDays / 7) + 1 }
+function Is-PosRound($date) { $posEnabled -and ($posRoundWeeks -contains (Week-Num $date)) }
+
 # ---- head-to-head: reconstruct the schedule + matchup results ------------
 # No public "match result" endpoint, so we rebuild it:
 #   1. team roster POSITION is known: standings bowlerInfos are ordered and the
@@ -669,11 +681,13 @@ foreach ($tid in $teamSer.Keys) {
     $scrT = Trend-Series (@($rows | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.scr; games = 15; full = $true } }))
     $hcpT = Trend-Series (@($rows | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.hcp; games = 15; full = $true } }))
     for ($i = 0; $i -lt $rows.Count; $i++) {
-        $d = $rows[$i].date
+        $d = $rows[$i].date; $wn = Week-Num $d; $ip = Is-PosRound $d
+        $scrT.weeks[$i] | Add-Member -Force weekNum $wn; $scrT.weeks[$i] | Add-Member -Force isPos $ip
         $scrT.weeks[$i] | Add-Member -Force opp $rows[$i].opp
         $scrT.weeks[$i] | Add-Member -Force pts $rows[$i].pts
         $scrT.weeks[$i] | Add-Member -Force rank  (Rank-In $wkTeamScr[$d] $rows[$i].scr)
         $scrT.weeks[$i] | Add-Member -Force field ($wkTeamScr[$d].Count)
+        $hcpT.weeks[$i] | Add-Member -Force weekNum $wn; $hcpT.weeks[$i] | Add-Member -Force isPos $ip
         $hcpT.weeks[$i] | Add-Member -Force opp $rows[$i].opp
         $hcpT.weeks[$i] | Add-Member -Force rank  (Rank-In $wkTeamHcp[$d] $rows[$i].hcp)
         $hcpT.weeks[$i] | Add-Member -Force field ($wkTeamHcp[$d].Count)
@@ -689,7 +703,9 @@ foreach ($b in $bowlers) {
     $scrT = Trend-Series (@($wk | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.scrSer; games = $_.games.Count; full = ($_.games.Count -ge 3) } }))
     $hcpT = Trend-Series (@($wk | ForEach-Object { [pscustomobject]@{ date = $_.date; value = $_.hcpSer; games = $_.games.Count; full = ($_.games.Count -ge 3) } }))
     for ($i = 0; $i -lt $wk.Count; $i++) {
-        $d = $wk[$i].date
+        $d = $wk[$i].date; $wn = Week-Num $d; $ip = Is-PosRound $d
+        $scrT.weeks[$i] | Add-Member -Force weekNum $wn; $scrT.weeks[$i] | Add-Member -Force isPos $ip
+        $hcpT.weeks[$i] | Add-Member -Force weekNum $wn; $hcpT.weeks[$i] | Add-Member -Force isPos $ip
         if ($wk[$i].games.Count -ge 3) {
             $scrT.weeks[$i] | Add-Member -Force rank  (Rank-In $wkBwlScr[$d] $wk[$i].scrSer)
             $scrT.weeks[$i] | Add-Member -Force field ($wkBwlScr[$d].Count)
@@ -703,21 +719,10 @@ $trendBowlers = @($trendBowlers | Sort-Object name)
 $trends = [pscustomobject]@{ teams = $trendTeams; bowlers = $trendBowlers }
 
 # ---- deeper analysis: pace, position rounds, anchor, handicap, clutch, halves, streaks
-$seasonWeeks = if ($cfg.seasonWeeks) { [int]$cfg.seasonWeeks }
-               elseif ($league.paymentWeeks) { [int]$league.paymentWeeks }
-               else { [int][math]::Round(($seasonEnd - $seasonStart).TotalDays / 7) }
-$posParity = if ($cfg.PSObject.Properties['positionRoundParity']) { [int]$cfg.positionRoundParity } else { -1 }
-$weekOrder = @($weekDates)   # already sorted
-$weekIdxOf = @{}
-for ($i = 0; $i -lt $weekOrder.Count; $i++) { $weekIdxOf[$weekOrder[$i]] = $i }
-function Is-PosRound($date) {
-    if ($posParity -lt 0) { return $false }
-    $wi = $weekIdxOf[$date]
-    ($wi -ne $null) -and (($wi % 2) -eq $posParity)
+function Mean($nums) {
+    $a = @($nums | Where-Object { $_ -ne $null })
+    if ($a.Count) { [math]::Round((($a | Measure-Object -Average).Average), 1) } else { $null }
 }
-$halfIdx = [math]::Ceiling($seasonWeeks / 2)
-
-function Mean($nums) { $a = @($nums); if ($a.Count) { [math]::Round((($a | Measure-Object -Average).Average), 1) } else { $null } }
 function Streaks($bools) {
     # $bools ordered oldest->newest; returns @{ longest; current }
     $long = 0; $cur = 0; $run = 0
@@ -753,7 +758,7 @@ foreach ($t in $teams) {
             if ($pi -ge 0 -and $pi -lt 5) { $posPts[$pi] += $(if ($isA) { $p.aPts } else { $p.bPts }); $posCnt[$pi]++ }
         }
         $wk += [pscustomobject]@{
-            date = $m.date; weekIdx = $weekIdxOf[$m.date]; isPos = (Is-PosRound $m.date)
+            date = $m.date; weekNum = (Week-Num $m.date); isPos = (Is-PosRound $m.date)
             total = $me.total; teamPts = $me.teamPts; indPts = $me.indPts
             ser = $me.ser; serH = $me.serH; hdcp = $me.hdcp
             opp = $op.team; margin = [math]::Round($margin, 1)
@@ -779,7 +784,7 @@ foreach ($t in $teams) {
     # clutch
     $close = @($wk | Where-Object { [math]::Abs($_.margin) -le 4 })
     # halves
-    $h1 = @($wk | Where-Object { $_.weekIdx -lt $halfIdx }); $h2 = @($wk | Where-Object { $_.weekIdx -ge $halfIdx })
+    $h1 = @($wk | Where-Object { $_.weekNum -le $halfWeek }); $h2 = @($wk | Where-Object { $_.weekNum -gt $halfWeek })
     # streaks
     $stAbove = Streaks (@($wk | ForEach-Object { $seasonSer -ne $null -and $_.ser -gt $seasonSer }))
     $stWin   = Streaks (@($wk | ForEach-Object { $_.won }))
@@ -790,7 +795,7 @@ foreach ($t in $teams) {
         pace = [pscustomobject]@{ rows = $pace; projectedTotal = $projTotal; weeksBowled = $n; seasonWeeks = $seasonWeeks
             currentVsEven = $(if ($n) { $pace[$n - 1].vsEven } else { 0 }) }
         positionRounds = [pscustomobject]@{
-            enabled = ($posParity -ge 0)
+            enabled = $posEnabled
             posWeeks = $posW.Count; regWeeks = $regW.Count
             posAvgPts = (Mean ($posW | ForEach-Object { $_.total })); regAvgPts = (Mean ($regW | ForEach-Object { $_.total }))
             posAvgSer = (Mean ($posW | ForEach-Object { $_.ser }));   regAvgSer = (Mean ($regW | ForEach-Object { $_.ser }))
@@ -821,7 +826,7 @@ foreach ($b in $bowlers) {
         $pts = if ($bwWkPts.ContainsKey("$($b.id)|$($w.date)")) { [double]$bwWkPts["$($b.id)|$($w.date)"] } else { $null }
         if ($pts -ne $null) { $cum += $pts }
         $wk += [pscustomobject]@{
-            date = $w.date; weekIdx = $weekIdxOf[$w.date]; isPos = (Is-PosRound $w.date)
+            date = $w.date; weekNum = (Week-Num $w.date); isPos = (Is-PosRound $w.date)
             scrSer = $w.scrSer; hcpSer = $w.hcpSer; games = $w.games.Count; partial = $w.partial
             hdcp = $w.wkHdcp; pts = $pts; cum = [math]::Round($cum, 1)
         }
@@ -835,7 +840,7 @@ foreach ($b in $bowlers) {
         $pace += [pscustomobject]@{ date = $w.date; cum = [math]::Round($pc, 1); even = [math]::Round($even, 1); vsEven = [math]::Round($pc - $even, 1) }
     }
     $posW = @($full | Where-Object { $_.isPos }); $regW = @($full | Where-Object { -not $_.isPos })
-    $h1 = @($full | Where-Object { $_.weekIdx -lt $halfIdx }); $h2 = @($full | Where-Object { $_.weekIdx -ge $halfIdx })
+    $h1 = @($full | Where-Object { $_.weekNum -le $halfWeek }); $h2 = @($full | Where-Object { $_.weekNum -gt $halfWeek })
     $hd = @($wk | Where-Object { $_.hdcp -ne $null })
     $stAbove = Streaks (@($full | ForEach-Object { $seasonSer -ne $null -and $_.scrSer -gt $seasonSer }))
 
@@ -844,7 +849,7 @@ foreach ($b in $bowlers) {
         pace = [pscustomobject]@{ rows = $pace; total = [math]::Round($pc, 1); weeks = $cnt
             currentVsEven = $(if ($pace.Count) { $pace[$pace.Count - 1].vsEven } else { 0 }) }
         positionRounds = [pscustomobject]@{
-            enabled = ($posParity -ge 0); posWeeks = $posW.Count; regWeeks = $regW.Count
+            enabled = $posEnabled; posWeeks = $posW.Count; regWeeks = $regW.Count
             posAvgSer = (Mean ($posW | ForEach-Object { $_.scrSer })); regAvgSer = (Mean ($regW | ForEach-Object { $_.scrSer }))
             posAvgPts = (Mean ($posW | ForEach-Object { $_.pts }));    regAvgPts = (Mean ($regW | ForEach-Object { $_.pts }))
         }
@@ -858,7 +863,8 @@ foreach ($b in $bowlers) {
     })
 }
 $aBowlers = @($aBowlers | Sort-Object name)
-$analysis = [pscustomobject]@{ teams = $aTeams; bowlers = $aBowlers; seasonWeeks = $seasonWeeks; posParity = $posParity }
+$analysis = [pscustomobject]@{ teams = $aTeams; bowlers = $aBowlers; seasonWeeks = $seasonWeeks
+    positionRoundsEnabled = $posEnabled; positionRoundWeeks = $posRoundWeeks; halfWeek = $halfWeek }
 
 # ---- write CSVs ---------------------------------------------------------
 $outDir = Join-Path $scriptDir (Join-Path 'data\out' $snapDate)
@@ -929,7 +935,7 @@ $trendRows = foreach ($grp in @(@{ set = $trendTeams; kind = 'team' }, @{ set = 
                 [pscustomobject]@{
                     kind = $grp.kind; name = $e.name; team = $(if ($grp.kind -eq 'bowler') { $e.team } else { '' })
                     metric = $(if ($metric -eq 'scr') { 'scratch' } else { 'handicap' })
-                    date = $w.date; series = $w.value; perGame = $w.perGame; games = $w.games
+                    date = $w.date; weekNum = $w.weekNum; positionRound = $w.isPos; series = $w.value; perGame = $w.perGame; games = $w.games
                     toDateAvg = $w.toDateAvg; vsToDate = $w.vsToDate
                     seasonAvg = $e.$metric.seasonAvg; vsSeason = $w.vsSeason
                     weekRank = $w.rank; weekField = $w.field

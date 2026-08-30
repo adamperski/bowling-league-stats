@@ -6,9 +6,9 @@
   "requestDelaySeconds": 1.0,
   "pointsPerWeek": 40,
   "favoriteTeam": "Sloppy Hookers",
-  "seasonWeeks": 34,
-  "positionRoundParity": 1,
-  "positionRoundComment": "A week counts as a position round when (weekIndex mod 2) == positionRoundParity, weekIndex 0-based. Set to 0 or 1 to match your schedule; -1 disables the split.",
+  "seasonWeeks": 36,
+  "positionRoundWeeks": [5, 10, 15, 20, 25, 30, 35, 36],
+  "positionRoundComment": "1-based league week numbers that are position rounds. Week number = round((bowl date - seasonStart) / 7) + 1. Empty list disables the position-round split.",
   "blindRules": {
     "deltaPerGame": 10,
     "getsHandicap": true,

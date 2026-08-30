@@ -220,9 +220,10 @@ Edit `config.json`:
 - `favoriteTeam` - your team; the dashboard floats its matchups to the top and
   pre-selects it in the Head-to-Head and Trends pickers.
 - `seasonWeeks` - total bowling weeks in the season (used for pace projection).
-- `positionRoundParity` - `0` or `1`: a week is a position round when
-  `(0-based week index) mod 2` equals this. `-1` turns the split off. **Check it
-  against your actual schedule** - the public data doesn't mark position weeks.
+- `positionRoundWeeks` - 1-based league week numbers that are position rounds
+  (e.g. `[5,10,15,20,25,30,35,36]`). Week number = `round((bowl date -
+  seasonStart) / 7) + 1`. Empty list turns the split off. The public data
+  doesn't mark position weeks, so this is manual.
 - `blindRules` - blind delta, whether the blind gets handicap, strict-beat, and
   whether blind points count toward the matchup total / season individual total.
 
@@ -245,8 +246,8 @@ handicap, and get:
   2.5/week for a bowler); for teams, the projected season total and where that
   would rank.
 - **Position rounds vs regular** - average points, average series, and record in
-  position-round weeks vs regular weeks. (Which weeks are position rounds is set
-  by `positionRoundParity` in config - **verify it against your schedule**.)
+  position-round weeks vs regular weeks. Position weeks are listed in
+  `config.json` -> `positionRoundWeeks`.
 - **Points by lineup position** (teams) - average individual points each of the
   five slots earns per week.
 - **Handicap trend** - first -> latest, with a sparkline. Falling = average rising.
