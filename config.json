@@ -5,5 +5,13 @@
   "baseUrl": "https://www.leaguepals.com",
   "requestDelaySeconds": 1.0,
   "pointsPerWeek": 40,
-  "favoriteTeam": "Sloppy Hookers"
+  "favoriteTeam": "Sloppy Hookers",
+  "blindRules": {
+    "deltaPerGame": 10,
+    "getsHandicap": true,
+    "presentMustBeatStrictly": true,
+    "blindPointsCountToMatchupTotal": true,
+    "blindPointsCountToSeasonIndividual": false,
+    "missedGameUsesOwnAverageMinusDelta": true
+  }
 }

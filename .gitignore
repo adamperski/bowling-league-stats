@@ -2,7 +2,9 @@
 /data/out/
 /dashboard.html
 
-# Keep the raw snapshots (data\raw\) - that's the whole point of the archive.
+# Keep, do NOT ignore:
+#   data\raw\      - the snapshot archive
+#   data\lineups\  - your manual sub/blind resolutions
 
 # OS / editor cruft
 Thumbs.db

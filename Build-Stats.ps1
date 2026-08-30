@@ -122,11 +122,18 @@ Get-ChildItem $SnapshotDir -Filter 'team_*.json' | ForEach-Object {
         $allGames = New-Object System.Collections.ArrayList
         foreach ($p in $b.weekGames.PSObject.Properties) {
             foreach ($wk in @($p.Value)) {
+                # raw = [g1, g2, g3, tail]; "-" = game not bowled.
+                # tail = scratch(bowled) + perGameHandicap * (#games bowled).
                 $raw = @($wk.games)
-                $series = if ($raw.Count -ge 4) { [int]$raw[-1] } else { 0 }
-                $gs = @($raw[0..([math]::Max(0,$raw.Count-2))] | Where-Object { $_ -ne '-' -and $_ -ne $null } | ForEach-Object { [int]$_ })
-                if ($raw.Count -lt 4) { $gs = @($raw | Where-Object { $_ -ne '-' } | ForEach-Object { [int]$_ }) }
-                $absent = ($gs.Count -eq 0)
+                $gs = @($raw[0..([math]::Max(0, $raw.Count - 2))] |
+                        Where-Object { $_ -ne '-' -and $_ -ne $null } | ForEach-Object { [int]$_ })
+                $tail   = if ($raw.Count -ge 4) { [int]$raw[-1] } else { 0 }
+                $scrSer = ($gs | Measure-Object -Sum).Sum
+                $wkHdcp = if ($gs.Count -gt 0 -and $tail -ge $scrSer) {
+                              [int][math]::Round(($tail - $scrSer) / $gs.Count)
+                          } else { $null }
+                $absent  = ($gs.Count -eq 0)
+                $partial = (-not $absent -and $gs.Count -lt 3)
                 foreach ($g in $gs) { [void]$allGames.Add($g) }
                 if ($wk.isMatch) { $script:anyCounting = $true }
                 [void]$weeks.Add([pscustomobject]@{
@@ -134,8 +141,11 @@ Get-ChildItem $SnapshotDir -Filter 'team_*.json' | ForEach-Object {
                     weekIdx = [int]$wk.weekIdx
                     isMatch = [bool]$wk.isMatch
                     games   = $gs
-                    series  = if ($series -gt 0) { $series } else { ($gs | Measure-Object -Sum).Sum }
+                    scrSer  = $scrSer
+                    hcpSer  = if ($tail -gt 0) { $tail } else { $scrSer }
+                    wkHdcp  = $wkHdcp
                     absent  = $absent
+                    partial = $partial
                     matchId = [string]$wk.match_id
                 })
             }
@@ -148,10 +158,15 @@ Get-ChildItem $SnapshotDir -Filter 'team_*.json' | ForEach-Object {
         $seasonAvg = if ($gamesBowled -gt 0) { [math]::Round($pins / $gamesBowled, 1) } else { $null }
         $highGame = if ($gamesBowled -gt 0) { ($g | Measure-Object -Maximum).Maximum } else { 0 }
         $lowGame  = if ($gamesBowled -gt 0) { ($g | Measure-Object -Minimum).Minimum } else { 0 }
-        $seriesVals = @($weeks | Where-Object { -not $_.absent -and $_.games.Count -ge 3 } | ForEach-Object { $_.series })
+        $seriesVals = @($weeks | Where-Object { -not $_.absent -and -not $_.partial } | ForEach-Object { $_.scrSer })
         $highSeries = if ($seriesVals.Count) { ($seriesVals | Measure-Object -Maximum).Maximum } else { 0 }
+        # per-week handicap LeaguePals actually used (median of derived values)
+        $hdcpSamples = @($weeks | Where-Object { $_.wkHdcp -ne $null } | ForEach-Object { [int]$_.wkHdcp } | Sort-Object)
+        $wkHdcpEff = if ($hdcpSamples.Count) { $hdcpSamples[[int]([math]::Floor($hdcpSamples.Count / 2))] } else { $null }
         # No established average yet -> handicap is not meaningful.
-        $hdcp = if ($bookAvg -gt 0) { Get-Hdcp $bookAvg } else { $null }
+        $hdcp = if ($wkHdcpEff -ne $null) { $wkHdcpEff }
+                elseif ($bookAvg -gt 0) { Get-Hdcp $bookAvg }
+                else { $null }
 
         [void]$bowlers.Add([pscustomobject]@{
             id             = $b._id
@@ -170,11 +185,12 @@ Get-ChildItem $SnapshotDir -Filter 'team_*.json' | ForEach-Object {
             highGame       = [int]$highGame
             lowGame        = [int]$lowGame
             highSeries     = [int]$highSeries
-            highGameHdcp   = if ($gamesBowled -gt 0) { [int]$highGame + $hdcp } else { 0 }
-            highSeriesHdcp = if ($highSeries -gt 0) { [int]$highSeries + 3 * $hdcp } else { 0 }
+            highGameHdcp   = if ($gamesBowled -gt 0 -and $hdcp -ne $null) { [int]$highGame + [int]$hdcp } else { 0 }
+            highSeriesHdcp = if ($highSeries -gt 0 -and $hdcp -ne $null) { [int]$highSeries + 3 * [int]$hdcp } else { 0 }
             stdev          = Stat-StdDev $g
             improve        = if ($seasonAvg -ne $null) { [math]::Round($seasonAvg - $bookAvg, 1) } else { $null }
             indPoints      = if ($rec) { [double]$rec.individualPoints } else { 0 }
+            compIndPoints  = 0.0
             weeks          = $weeks
         })
     }
@@ -239,18 +255,134 @@ $teamLdr = [ordered]@{
 $weekDates = @($bowlers | ForEach-Object { $_.weeks } | ForEach-Object { $_.date } | Sort-Object -Unique)
 
 # ---- head-to-head: reconstruct the schedule + matchup results ------------
-# LeaguePals exposes no public "match result" endpoint, so we rebuild it:
-#   1. each bowler's week carries a match_id; a team's real match_id for a week
-#      is the one shared by the bowlers who actually bowled (absentees keep a
-#      stale id), so we take the majority vote.
-#   2. two teams sharing a (week, match_id) are that week's matchup.
-#   3. team + individual points are recomputed from the league's own rules.
-# Once weeks start counting, LeaguePals' pointsWon / individualPoints become the
-# authoritative numbers; these stay useful as a live/what-if view and a check.
+# No public "match result" endpoint, so we rebuild it:
+#   1. team roster POSITION is known: standings bowlerInfos are ordered and the
+#      masked email "bowlerN@teamM" gives position N (0-4). Position i faces
+#      position i (fullPointsAmongTeammates = false).
+#   2. a team's match_id for a week = the id shared by the bowlers who actually
+#      bowled (absentees keep a stale id) -> majority vote. Two teams sharing a
+#      (week, match_id) are that matchup.
+#   3. blanks are resolved to sub / blind / missed-game, with anything uncertain
+#      written to data\lineups\<date>.json for manual review.
+#   4. points recomputed from league rules + config.blindRules.
+# When weeks start counting, LeaguePals' own pointsWon / individualPoints are
+# authoritative; these stay a live/what-if view and a cross-check.
+
+$br             = $cfg.blindRules
+$blindDelta     = if ($br -and $br.deltaPerGame -ne $null) { [int]$br.deltaPerGame }
+                  elseif ($league.againstBlindScore) { [int]$league.againstBlindScore } else { 10 }
+$blindGetsHdcp  = -not ($br -and $br.getsHandicap -eq $false)
+$blindStrict    = -not ($br -and $br.presentMustBeatStrictly -eq $false)
+$blindToMatchup = -not ($br -and $br.blindPointsCountToMatchupTotal -eq $false)
+$missUsesBlind  = -not ($br -and $br.missedGameUsesOwnAverageMinusDelta -eq $false)
+$noAvgBlindFill = if ($league.vacancyScore) { [int]$league.vacancyScore } else { 150 }
+
+function Blind-BaseAvg($avg) { if ([int]$avg -gt 0) { [int]$avg } else { $noAvgBlindFill } }
 
 $bwWeek = @{}
-foreach ($b in $bowlers) { foreach ($w in @($b.weeks)) { $bwWeek["$($b.id)|$($w.date)"] = $w } }
+$bowlerById = @{}
+foreach ($b in $bowlers) {
+    $bowlerById[$b.id] = $b
+    foreach ($w in @($b.weeks)) {
+        $kk = "$($b.id)|$($w.date)"
+        $ex = $bwWeek[$kk]
+        # a bowler can appear in two team files (regular + sub elsewhere) - keep the played week
+        if (-not $ex -or ($ex.absent -and -not $w.absent)) { $bwWeek[$kk] = $w }
+    }
+}
+$bowlerByName = @{}
+foreach ($b in $bowlers) { if (-not $bowlerByName.ContainsKey($b.name)) { $bowlerByName[$b.name] = $b } }
 
+# roster position per team (index in bowlerInfos, cross-checked against the email tag)
+$teamRoster = @{}
+foreach ($row in $standings.standings) {
+    if (-not $row.team._id) { continue }
+    $slots = @(); $i = 0
+    foreach ($bi in $row.bowlerInfos) {
+        $pos = if ("$($bi.email)" -match '^bowler(\d+)@') { [int]$Matches[1] } else { $i }
+        $slots += [pscustomobject]@{ pos = $pos; id = $bi._id; avg = [int]$bi.average }
+        $i++
+    }
+    $teamRoster[$row.team._id] = @($slots | Sort-Object pos)
+}
+
+function Get-Week($id, $date) { $bwWeek["$id|$date"] }
+function Hdcp-Of($bw, $w) {
+    if ($w -and $w.wkHdcp -ne $null) { return [int]$w.wkHdcp }
+    if ($bw -and $bw.hdcp -ne $null) { return [int]$bw.hdcp }
+    if ($bw -and $bw.bookAvg -gt 0) { return (Get-Hdcp $bw.bookAvg) }
+    0
+}
+
+function New-BowlerSlot($pos, $name, $id, $w, $avg, $isSub) {
+    $bw = if ($id) { $bowlerById[$id] } else { $null }
+    $h = Hdcp-Of $bw $w
+    $games = @(); $missFill = $false
+    for ($g = 0; $g -lt 3; $g++) {
+        if ($w -and $w.games.Count -gt $g -and $w.games[$g] -ne $null) { $games += [int]$w.games[$g] }
+        elseif ($missUsesBlind -and $avg -gt 0) { $games += [int]($avg - $blindDelta); $missFill = $true }
+        else { $games += $null; $missFill = $true }
+    }
+    $gh = @(); foreach ($x in $games) { $gh += $(if ($x -ne $null) { [int]$x + $h } else { $null }) }
+    $scrSer = (@($games | Where-Object { $_ -ne $null }) | Measure-Object -Sum).Sum
+    [pscustomobject]@{
+        pos = [int]$pos; kind = $(if ($isSub) { 'sub' } elseif ($missFill) { 'partial' } else { 'bowler' })
+        name = $name; id = $id; hdcp = [int]$h; games = $games; gameH = $gh
+        scrSer = [int]$scrSer; serH = [int]$scrSer + 3 * [int]$h
+        blind = $false; seasonEligible = (-not $isSub)
+    }
+}
+function New-BlindSlot($pos, $regName, $avg) {
+    $reg = $bowlerByName["$regName"]
+    $base = Blind-BaseAvg $avg
+    $h = if ($blindGetsHdcp) { if ([int]$avg -gt 0) { Hdcp-Of $reg $null } else { Get-Hdcp $base } } else { 0 }
+    $per = [int]($base - $blindDelta)
+    [pscustomobject]@{
+        pos = [int]$pos; kind = 'blind'; name = "$regName (blind)"; id = $(if ($reg) { $reg.id } else { $null }); hdcp = [int]$h
+        games = @($per, $per, $per); gameH = @(($per + $h), ($per + $h), ($per + $h))
+        scrSer = 3 * $per; serH = 3 * $per + 3 * $h
+        blind = $true; seasonEligible = $false
+    }
+}
+
+function Build-AutoLineup($teamId, $date) {
+    $roster = @($teamRoster[$teamId])
+    $regIds = @($roster | ForEach-Object { $_.id })
+    $subs = @($bowlers | Where-Object { $_.teamId -eq $teamId -and $regIds -notcontains $_.id } | ForEach-Object {
+        $w = Get-Week $_.id $date; if ($w -and -not $w.absent) { $_ } })
+    $flags = New-Object System.Collections.ArrayList
+    $props = @()
+    $open = @()
+    foreach ($r in $roster) {
+        $bw = $bowlerById[$r.id]; $w = Get-Week $r.id $date
+        $slot = [ordered]@{ pos = $r.pos; kind = 'bowler'; name = $bw.name; id = $r.id; avg = $r.avg; subName = $null; subId = $null; subAvg = $null }
+        if ($w -and -not $w.absent) {
+            if ($w.partial) { $slot.kind = 'partial'; [void]$flags.Add("pos$($r.pos + 1) $($bw.name) bowled $($w.games.Count) of 3 - missing game(s) scored at avg-$blindDelta") }
+        } else {
+            $slot.kind = 'open'; $open += $slot
+        }
+        $props += [pscustomobject]$slot
+    }
+    $openSlots = @($props | Where-Object { $_.kind -eq 'open' } | Sort-Object pos)
+    for ($k = 0; $k -lt $openSlots.Count; $k++) {
+        $o = $openSlots[$k]
+        if ($k -lt $subs.Count) {
+            $s = $subs[$k]
+            $o.kind = 'sub'; $o.subName = $s.name; $o.subId = $s.id; $o.subAvg = $s.bookAvg
+            $conf = if ($subs.Count -eq 1 -and $openSlots.Count -eq 1) { 'confirm position' } else { 'GUESSED position - verify' }
+            [void]$flags.Add("pos$($o.pos + 1) SUB $($s.name) (avg $($s.bookAvg)) for $($o.name) - $conf")
+        } else {
+            $o.kind = 'blind'
+            $bl = (Blind-BaseAvg $o.avg) - $blindDelta
+            $tag = if ([int]$o.avg -gt 0) { "avg $($o.avg)" } else { "NO established avg - using vacancy fill" }
+            [void]$flags.Add("pos$($o.pos + 1) BLIND for $($o.name) ($tag, scores $bl/game +hdcp)")
+        }
+    }
+    if ($subs.Count -gt $openSlots.Count) { [void]$flags.Add("$($subs.Count) subs present but only $($openSlots.Count) open position(s) - check lineup") }
+    [pscustomobject]@{ slots = @($props | Sort-Object pos); flags = @($flags) }
+}
+
+# ---- match_id grouping -> pairings ----
 $tmTally = @{}
 foreach ($b in $bowlers) {
     foreach ($w in @($b.weeks)) {
@@ -261,40 +393,147 @@ foreach ($b in $bowlers) {
         $tmTally[$k][$w.matchId]++
     }
 }
-$teamWeekMatch = @{}
-foreach ($k in $tmTally.Keys) {
-    $teamWeekMatch[$k] = ($tmTally[$k].GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 1).Key
-}
 $mg = @{}
-foreach ($k in $teamWeekMatch.Keys) {
+foreach ($k in $tmTally.Keys) {
+    $mid = ($tmTally[$k].GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 1).Key
     $parts = $k -split '\|'
-    $gk = "$($parts[1])|$($teamWeekMatch[$k])"
+    $gk = "$($parts[1])|$mid"
     if (-not $mg.ContainsKey($gk)) { $mg[$gk] = New-Object System.Collections.ArrayList }
     [void]$mg[$gk].Add($parts[0])
 }
+$mDates = @($mg.Keys | ForEach-Object { ($_ -split '\|')[0] } | Sort-Object -Unique)
 
-function Get-Lineup($teamId, $date) {
-    @($bowlers | Where-Object { $_.teamId -eq $teamId } | ForEach-Object {
-        $w = $bwWeek["$($_.id)|$date"]
-        if ($w -and -not $w.absent) { [pscustomobject]@{ b = $_; w = $w } }
-    } | Sort-Object { [int]$_.b.rosterPos })
-}
-function Side-Calc($entries) {
-    $hdcp = 0; $miss = $false
-    $scr = @(0, 0, 0)
-    foreach ($e in $entries) {
-        $hdcp += [int]$e.b.hdcp
-        for ($g = 0; $g -lt 3; $g++) {
-            if ($e.w.games.Count -gt $g -and $e.w.games[$g] -ne $null) { $scr[$g] += [int]$e.w.games[$g] }
-            else { $miss = $true; $scr[$g] += [int]$e.b.bookAvg }   # rough blind fill
+# ---- lineup review files (data\lineups\<date>.json) ----
+$lineupDir = Join-Path $scriptDir 'data\lineups'
+New-Item -ItemType Directory -Force -Path $lineupDir | Out-Null
+$manualLineups = @{}   # "date|teamId" -> file entry
+$resolvedMap   = @{}   # "date|teamId" -> bool
+$reviews = New-Object System.Collections.ArrayList
+
+foreach ($date in $mDates) {
+    $file = Join-Path $lineupDir "$date.json"
+    $teamIdsThatDate = @()
+    foreach ($gk in $mg.Keys) { if (($gk -split '\|')[0] -eq $date) { $teamIdsThatDate += @($mg[$gk]) } }
+    $teamIdsThatDate = @($teamIdsThatDate | Sort-Object -Unique)
+
+    if (Test-Path $file) {
+        $doc = Get-Content -Raw $file | ConvertFrom-Json
+        foreach ($tp in $doc.teams.PSObject.Properties) {
+            $tid = ($standings.standings | Where-Object { $_.team.name -eq $tp.Name } | Select-Object -First 1).team._id
+            if (-not $tid) { continue }
+            $manualLineups["$date|$tid"] = $tp.Value
+            $resolvedMap["$date|$tid"] = [bool]$tp.Value.resolved
+            if (-not $tp.Value.resolved) {
+                [void]$reviews.Add([pscustomobject]@{ date = $date; team = $tp.Name; resolved = $false; flags = @($tp.Value.autoFlags) })
+            }
+        }
+    } else {
+        $teamsBlock = [ordered]@{}
+        foreach ($tid in $teamIdsThatDate) {
+            $auto = Build-AutoLineup $tid $date
+            if (-not @($auto.flags).Count) { continue }
+            $tname = $teamById[$tid].team.name
+            $teamsBlock["$tname"] = [ordered]@{
+                resolved  = $false
+                autoFlags = @($auto.flags)
+                lineup    = @($auto.slots | ForEach-Object {
+                    [ordered]@{
+                        pos      = $_.pos + 1
+                        kind     = $_.kind
+                        name     = if ($_.kind -eq 'sub') { $_.subName } else { $_.name }
+                        blindFor = if ($_.kind -eq 'blind') { $_.name } else { $null }
+                        subFor   = if ($_.kind -eq 'sub') { $_.name } else { $null }
+                        avg      = if ($_.kind -eq 'sub') { $_.subAvg } else { $_.avg }
+                    }
+                })
+            }
+            [void]$reviews.Add([pscustomobject]@{ date = $date; team = $tname; resolved = $false; flags = @($auto.flags) })
+        }
+        if ($teamsBlock.Count) {
+            ([ordered]@{
+                date  = $date
+                _help = "Weeks with a blind / sub / missed game. Fix each team's lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate."
+                teams = $teamsBlock
+            } | ConvertTo-Json -Depth 8) | Set-Content -Encoding utf8 $file
+            Write-Host "  lineup review needed: $file"
         }
     }
-    $serScr = $scr[0] + $scr[1] + $scr[2]
-    [pscustomobject]@{
-        hdcp = $hdcp; scr = $scr; serScr = $serScr
-        gameH = @(($scr[0] + $hdcp), ($scr[1] + $hdcp), ($scr[2] + $hdcp))
-        serH = $serScr + (3 * $hdcp); est = $miss
+}
+
+function Resolve-Slots($teamId, $date) {
+    $key = "$date|$teamId"
+    $roster = @($teamRoster[$teamId])
+    if ($manualLineups.ContainsKey($key)) {
+        $out = @()
+        foreach ($ln in @($manualLineups[$key].lineup)) {
+            $pos0 = [int]$ln.pos - 1
+            switch ("$($ln.kind)") {
+                'blind' {
+                    $rn = if ($ln.blindFor) { "$($ln.blindFor)" } else { "$($ln.name)" }
+                    $reg = $roster | Where-Object { $bowlerById[$_.id].name -eq $rn } | Select-Object -First 1
+                    $avg = if ($ln.avg) { [int]$ln.avg } elseif ($reg) { $reg.avg } else { 0 }
+                    $out += New-BlindSlot $pos0 $rn $avg
+                }
+                'sub' {
+                    $sb = $bowlerByName["$($ln.name)"]
+                    $avg = if ($ln.avg) { [int]$ln.avg } elseif ($sb) { $sb.bookAvg } else { 0 }
+                    $w = if ($sb) { Get-Week $sb.id $date } else { $null }
+                    $out += New-BowlerSlot $pos0 "$($ln.name)" $(if ($sb) { $sb.id }) $w $avg $true
+                }
+                default {
+                    $sb = $bowlerByName["$($ln.name)"]
+                    $reg = $roster | Where-Object { $_.id -eq $sb.id } | Select-Object -First 1
+                    $w = if ($sb) { Get-Week $sb.id $date } else { $null }
+                    $out += New-BowlerSlot $pos0 "$($ln.name)" $(if ($sb) { $sb.id }) $w $(if ($reg) { $reg.avg } elseif ($sb) { $sb.bookAvg } else { 0 }) $false
+                }
+            }
+        }
+        return @($out | Sort-Object pos)
     }
+    $auto = Build-AutoLineup $teamId $date
+    $out = @()
+    foreach ($s in $auto.slots) {
+        if ($s.kind -eq 'blind') { $out += New-BlindSlot $s.pos $s.name $s.avg }
+        elseif ($s.kind -eq 'sub') { $out += New-BowlerSlot $s.pos $s.subName $s.subId (Get-Week $s.subId $date) $s.subAvg $true }
+        else { $out += New-BowlerSlot $s.pos $s.name $s.id (Get-Week $s.id $date) $s.avg $false }
+    }
+    @($out | Sort-Object pos)
+}
+
+function Beat($a, $b, $av, $bv, $pts) {
+    # -> @(aMatchupPts, bMatchupPts, aSeasonPts, bSeasonPts)
+    $aWin = $false; $bWin = $false; $tie = $false
+    if ($a.blind -and -not $b.blind) { if ($blindStrict) { if ($bv -gt $av) { $bWin = $true } else { $aWin = $true } } else { if ($bv -ge $av) { $bWin = $true } else { $aWin = $true } } }
+    elseif ($b.blind -and -not $a.blind) { if ($blindStrict) { if ($av -gt $bv) { $aWin = $true } else { $bWin = $true } } else { if ($av -ge $bv) { $aWin = $true } else { $bWin = $true } } }
+    elseif ($a.blind -and $b.blind) { }
+    else { if ($av -gt $bv) { $aWin = $true } elseif ($bv -gt $av) { $bWin = $true } else { $tie = $true } }
+    $ap = 0.0; $bp = 0.0
+    if ($tie) { $ap = $pts / 2; $bp = $pts / 2 } elseif ($aWin) { $ap = $pts } elseif ($bWin) { $bp = $pts }
+    $amt = $ap; $bmt = $bp
+    if ($a.blind -and -not $blindToMatchup) { $amt = 0 }
+    if ($b.blind -and -not $blindToMatchup) { $bmt = 0 }
+    @($amt, $bmt, $(if ($a.seasonEligible) { $ap } else { 0 }), $(if ($b.seasonEligible) { $bp } else { 0 }))
+}
+function Compare-Slot($a, $b) {
+    $r = @(0.0, 0.0, 0.0, 0.0)
+    for ($g = 0; $g -lt 3; $g++) {
+        if ($a.gameH[$g] -eq $null -or $b.gameH[$g] -eq $null) { continue }
+        $x = Beat $a $b $a.gameH[$g] $b.gameH[$g] $ptIndGame
+        for ($j = 0; $j -lt 4; $j++) { $r[$j] += $x[$j] }
+    }
+    $x = Beat $a $b $a.serH $b.serH $ptIndSer
+    for ($j = 0; $j -lt 4; $j++) { $r[$j] += $x[$j] }
+    $r
+}
+function Team-Calc($slots) {
+    $scr = @(0, 0, 0); $h = 0
+    foreach ($s in $slots) {
+        $h += [int]$s.hdcp
+        for ($g = 0; $g -lt 3; $g++) { $v = $s.games[$g]; if ($v -eq $null) { $v = 0 }; $scr[$g] += [int]$v }
+    }
+    $ser = $scr[0] + $scr[1] + $scr[2]
+    [pscustomobject]@{ scr = $scr; ser = $ser; hdcp = $h
+        gameH = @(($scr[0] + $h), ($scr[1] + $h), ($scr[2] + $h)); serH = $ser + 3 * $h }
 }
 
 $schedule = New-Object System.Collections.ArrayList
@@ -303,49 +542,53 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
     if ($tids.Count -ne 2) { continue }
     $date = ($gk -split '\|')[0]
     $A = $tids[0]; $B = $tids[1]
-    $la = @(Get-Lineup $A $date); $lb = @(Get-Lineup $B $date)
-    if (-not $la.Count -or -not $lb.Count) { continue }
-    $ca = Side-Calc $la
-    $cb = Side-Calc $lb
+    $sa = @(Resolve-Slots $A $date); $sb = @(Resolve-Slots $B $date)
+    if (-not $sa.Count -or -not $sb.Count) { continue }
+    $ta = Team-Calc $sa; $tb = Team-Calc $sb
 
     $aTeam = 0.0; $bTeam = 0.0
-    for ($g = 0; $g -lt 3; $g++) { $r = Award $ca.gameH[$g] $cb.gameH[$g] $ptTeamGame; $aTeam += $r[0]; $bTeam += $r[1] }
-    $r = Award $ca.serH $cb.serH $ptTeamSer; $aTeam += $r[0]; $bTeam += $r[1]
+    for ($g = 0; $g -lt 3; $g++) { $r = Award $ta.gameH[$g] $tb.gameH[$g] $ptTeamGame; $aTeam += $r[0]; $bTeam += $r[1] }
+    $r = Award $ta.serH $tb.serH $ptTeamSer; $aTeam += $r[0]; $bTeam += $r[1]
 
     $aInd = 0.0; $bInd = 0.0
     $pairs = New-Object System.Collections.ArrayList
-    $n = [math]::Min($la.Count, $lb.Count)
-    for ($i = 0; $i -lt $n; $i++) {
-        $ea = $la[$i]; $eb = $lb[$i]
-        $ap = 0.0; $bp = 0.0
-        for ($g = 0; $g -lt 3; $g++) {
-            if ($ea.w.games.Count -le $g -or $eb.w.games.Count -le $g) { continue }
-            $rr = Award ([int]$ea.w.games[$g] + [int]$ea.b.hdcp) ([int]$eb.w.games[$g] + [int]$eb.b.hdcp) $ptIndGame
-            $ap += $rr[0]; $bp += $rr[1]
-        }
-        if ($ea.w.games.Count -ge 3 -and $eb.w.games.Count -ge 3) {
-            $rr = Award ([int]$ea.w.series + 3 * [int]$ea.b.hdcp) ([int]$eb.w.series + 3 * [int]$eb.b.hdcp) $ptIndSer
-            $ap += $rr[0]; $bp += $rr[1]
-        }
-        $aInd += $ap; $bInd += $bp
+    for ($i = 0; $i -lt 5; $i++) {
+        $pa = $sa | Where-Object { $_.pos -eq $i } | Select-Object -First 1
+        $pb = $sb | Where-Object { $_.pos -eq $i } | Select-Object -First 1
+        if (-not $pa -or -not $pb) { continue }
+        $c = Compare-Slot $pa $pb
+        $aInd += $c[0]; $bInd += $c[1]
+        if ($pa.id -and $pa.seasonEligible) { $bowlerById[$pa.id].compIndPoints += $c[2] }
+        if ($pb.id -and $pb.seasonEligible) { $bowlerById[$pb.id].compIndPoints += $c[3] }
         [void]$pairs.Add([pscustomobject]@{
-            aName = $ea.b.name; aId = $ea.b.id; aGames = @($ea.w.games); aSer = [int]$ea.w.series; aHdcp = [int]$ea.b.hdcp; aPts = $ap
-            bName = $eb.b.name; bId = $eb.b.id; bGames = @($eb.w.games); bSer = [int]$eb.w.series; bHdcp = [int]$eb.b.hdcp; bPts = $bp
+            aName = $pa.name; aId = $pa.id; aKind = $pa.kind; aGames = @($pa.games); aSer = $pa.scrSer; aHdcp = $pa.hdcp; aPts = $c[0]
+            bName = $pb.name; bId = $pb.id; bKind = $pb.kind; bGames = @($pb.games); bSer = $pb.scrSer; bHdcp = $pb.hdcp; bPts = $c[1]
         })
     }
     $aTot = $aTeam + $aInd; $bTot = $bTeam + $bInd
+    $revA = @($reviews | Where-Object { $_.date -eq $date -and $_.team -eq $teamById[$A].team.name })
+    $revB = @($reviews | Where-Object { $_.date -eq $date -and $_.team -eq $teamById[$B].team.name })
+    $flags = @(); $flags += @($revA | ForEach-Object { $_.flags }); $flags += @($revB | ForEach-Object { $_.flags })
+    $kinds = @($sa + $sb | ForEach-Object { $_.kind }) | Sort-Object -Unique
+
     [void]$schedule.Add([pscustomobject]@{
-        date      = $date
-        counts    = [bool]$la[0].w.isMatch
-        estimated = ($ca.est -or $cb.est -or $la.Count -ne $lb.Count)
-        a = [pscustomobject]@{ team = $teamById[$A].team.name; teamId = $A; scr = $ca.scr; ser = $ca.serScr; hdcp = $ca.hdcp; gameH = $ca.gameH; serH = $ca.serH; teamPts = $aTeam; indPts = $aInd; total = $aTot; lineup = $la.Count }
-        b = [pscustomobject]@{ team = $teamById[$B].team.name; teamId = $B; scr = $cb.scr; ser = $cb.serScr; hdcp = $cb.hdcp; gameH = $cb.gameH; serH = $cb.serH; teamPts = $bTeam; indPts = $bInd; total = $bTot; lineup = $lb.Count }
-        result    = if ($aTot -gt $bTot) { 'A' } elseif ($bTot -gt $aTot) { 'B' } else { 'T' }
-        pairs     = $pairs
+        date        = $date
+        counts      = [bool]($sa | Where-Object { $_.id } | ForEach-Object { (Get-Week $_.id $date).isMatch } | Where-Object { $_ } | Select-Object -First 1)
+        estimated   = ($kinds -contains 'blind' -or $kinds -contains 'partial' -or $kinds -contains 'sub')
+        needsReview = ($revA.Count -gt 0 -or $revB.Count -gt 0)
+        flags       = @($flags)
+        a = [pscustomobject]@{ team = $teamById[$A].team.name; teamId = $A; scr = $ta.scr; ser = $ta.ser; hdcp = $ta.hdcp; gameH = $ta.gameH; serH = $ta.serH; teamPts = $aTeam; indPts = $aInd; total = $aTot }
+        b = [pscustomobject]@{ team = $teamById[$B].team.name; teamId = $B; scr = $tb.scr; ser = $tb.ser; hdcp = $tb.hdcp; gameH = $tb.gameH; serH = $tb.serH; teamPts = $bTeam; indPts = $bInd; total = $bTot }
+        result      = if ($aTot -gt $bTot) { 'A' } elseif ($bTot -gt $aTot) { 'B' } else { 'T' }
+        pairs       = $pairs
     })
 }
 $schedule = @($schedule | Sort-Object -Property date, @{ Expression = { $_.a.team } })
-Write-Host "  reconstructed $($schedule.Count) matchups across $(@($schedule | Select-Object -Expand date -Unique).Count) weeks"
+$reviewsOut = @($reviews | Sort-Object date, team)
+Write-Host "  reconstructed $($schedule.Count) matchups across $($mDates.Count) weeks; $($reviewsOut.Count) lineup(s) need review"
+
+# computed individual-points board (excludes points won as a blind) - populated above
+$ldr['indPointsComp'] = Top (@($bowlers | Where-Object { $_.compIndPoints -gt 0 })) 'compIndPoints' 20
 
 # ---- write CSVs ---------------------------------------------------------
 $outDir = Join-Path $scriptDir (Join-Path 'data\out' $snapDate)
@@ -363,7 +606,8 @@ $rows = foreach ($b in $bowlers) {
             date = $w.date; weekIdx = $w.weekIdx; counts = $w.isMatch
             bowler = $b.name; team = $b.team
             g1 = $w.games[0]; g2 = $w.games[1]; g3 = $w.games[2]
-            series = $w.series; absent = $w.absent
+            scratchSeries = $w.scrSer; hdcpSeries = $w.hcpSer
+            absent = $w.absent; partial = $w.partial
         }
     }
 }
@@ -379,7 +623,7 @@ $lbRows | Export-Csv (Join-Path $outDir 'leaderboards.csv') -NoTypeInformation
 
 $schedule | ForEach-Object {
     [pscustomobject]@{
-        date = $_.date; counts = $_.counts; estimated = $_.estimated
+        date = $_.date; counts = $_.counts; estimated = $_.estimated; needsReview = $_.needsReview
         teamA = $_.a.team; teamB = $_.b.team
         aScratchSeries = $_.a.ser; bScratchSeries = $_.b.ser
         aHdcpSeries = $_.a.serH; bHdcpSeries = $_.b.serH
@@ -394,12 +638,19 @@ $pairRows = foreach ($m in $schedule) {
     foreach ($p in @($m.pairs)) {
         [pscustomobject]@{
             date = $m.date; teamA = $m.a.team; teamB = $m.b.team
-            bowlerA = $p.aName; aGames = (@($p.aGames) -join ' '); aSeries = $p.aSer; aHdcp = $p.aHdcp; aPts = $p.aPts
-            bowlerB = $p.bName; bGames = (@($p.bGames) -join ' '); bSeries = $p.bSer; bHdcp = $p.bHdcp; bPts = $p.bPts
+            bowlerA = $p.aName; aKind = $p.aKind; aGames = (@($p.aGames) -join ' '); aSeries = $p.aSer; aHdcp = $p.aHdcp; aPts = $p.aPts
+            bowlerB = $p.bName; bKind = $p.bKind; bGames = (@($p.bGames) -join ' '); bSeries = $p.bSer; bHdcp = $p.bHdcp; bPts = $p.bPts
         }
     }
 }
 $pairRows | Export-Csv (Join-Path $outDir 'headtohead_bowlers.csv') -NoTypeInformation
+
+if ($reviewsOut.Count) {
+    $reviewsOut | ForEach-Object {
+        $d = $_.date; $t = $_.team
+        foreach ($f in @($_.flags)) { [pscustomobject]@{ date = $d; team = $t; flag = $f } }
+    } | Export-Csv (Join-Path $outDir 'lineup_review.csv') -NoTypeInformation
+}
 
 Write-Host "  CSVs -> $outDir"
 
@@ -426,6 +677,7 @@ $data = [ordered]@{
     leaderboards = $ldr
     teamLeaderboards = $teamLdr
     schedule     = $schedule
+    reviews      = $reviewsOut
 }
 $json = $data | ConvertTo-Json -Depth 25 -Compress
 

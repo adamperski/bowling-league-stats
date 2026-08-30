@@ -74,13 +74,14 @@ Reads the newest snapshot under `data\raw\` (or pass `-Date 2026-09-08`) and wri
 - `data\out\<date>\bowlers.csv` - one row per bowler: book avg, season avg,
   +/-, games, high game/series (scratch + handicap), std-dev, individual points.
 - `data\out\<date>\bowler_weeks.csv` - one row per bowler per week: the 3 games,
-  series, whether it counts.
+  scratch & handicap series, absent / partial flags.
 - `data\out\<date>\teams.csv` - standings with points, record, team avg/handicap, roster.
 - `data\out\<date>\leaderboards.csv` - every leaderboard flattened.
 - `data\out\<date>\matchups.csv` - one row per team-vs-team matchup: scratch &
-  handicap series, team/individual/total points each side, winner.
+  handicap series, team/individual/total points each side, winner, needs-review flag.
 - `data\out\<date>\headtohead_bowlers.csv` - one row per position pairing:
-  both bowlers' games, series, handicap, points.
+  both bowlers' games, series, handicap, points, and kind (bowler/partial/sub/blind).
+- `data\out\<date>\lineup_review.csv` - every unresolved sub/blind/missed-game flag.
 - `dashboard.html` - a **self-contained** page (no server, no internet). Open it
   in any browser. Tabs: Standings / Head-to-Head / Leaderboards / Averages /
   Bowlers / Teams. Sortable tables; click a bowler, team, or matchup row to
@@ -94,7 +95,8 @@ Edit the template to change how the dashboard looks.
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\Fetch-LeaguePals.ps1
 powershell -ExecutionPolicy Bypass -File .\Build-Stats.ps1
-git add data/raw && git commit -m "week of <date>"
+# resolve any Needs Review items in data\lineups\<date>.json, then re-run Build-Stats.ps1
+git add data/raw data/lineups && git commit -m "week of <date>"
 ```
 
 ## The archive is a git repo
@@ -106,20 +108,49 @@ they rebuild from the raw data any time.
 ## Head-to-head (how the schedule is rebuilt)
 
 LeaguePals has no public "match result" endpoint, so `Build-Stats.ps1`
-reconstructs the schedule:
+reconstructs it:
 
-1. every bowler's week carries a `match_id`; a team's real `match_id` for a
+1. **Position is known.** The standings feed lists each team's five bowlers in
+   order and the masked email `bowlerN@teamM` gives position `N`. Position *i*
+   faces position *i* (`fullPointsAmongTeammates = false`). No guessing for the
+   regular five.
+2. **Pairings.** Each bowler's week carries a `match_id`; a team's real id for a
    week is the one shared by the bowlers who actually bowled (absentees keep a
-   stale id), decided by majority vote.
-2. two teams sharing a `(week, match_id)` are that week's matchup.
-3. team points (3 / 3 / 3 / 6) and individual points (1 / 1 / 1 / 2) are
-   recomputed from the league's own rules on the handicap scores.
+   stale id) - majority vote. Two teams sharing a `(week, match_id)` are that
+   matchup.
+3. **Points** (team 3/3/3/6, individual 1/1/1/2) are recomputed on the handicap
+   scores. LeaguePals' 4th games value is `scratch + perGameHdcp x games`, so
+   the per-week handicap is derived from it directly (more accurate than the
+   formula, and it tracks the average as it moves).
 
-**Individual pairings are inferred from lineup position** (team-file order) -
-LeaguePals doesn't publish who bowled whom. Once real weeks start counting,
-LeaguePals' own `pointsWon` / `individualPoints` become authoritative; the
-reconstructed numbers stay useful as a live/what-if view and a cross-check.
-Matchups with a short lineup or a missing game are flagged `estimated`.
+Once real weeks count, LeaguePals' own `pointsWon` / `individualPoints` are
+authoritative; the reconstruction stays a live/what-if view and a cross-check.
+
+### Subs, blinds, missed games - the review workflow
+
+Anything that isn't "all five regulars bowled three games" is auto-resolved as
+best it can and written to **`data\lineups\<date>.json`**:
+
+- **blind** - an absent regular with no sub. Blind score = that bowler's
+  average - 10 per game, plus their handicap. The present opponent must beat it
+  to take the point; if not, the point goes to the blind (it counts toward the
+  matchup's 40 but **not** toward the blind bowler's season individual total).
+- **sub** - a non-roster bowler who bowled. One sub + one open slot is
+  auto-assigned; multiple are guessed and flagged. Sub bowls off their own book
+  average.
+- **partial** - a present bowler who missed a game; the missed game is scored at
+  their own average - 10.
+
+The dashboard's **Needs Review** panel (top of Head-to-Head) lists every
+unresolved case with the file to edit. Open `data\lineups\<date>.json`, fix the
+`lineup` entries (swap a sub's `pos`, correct a `name`/`avg`, change a `kind`),
+set that team's `"resolved": true`, and re-run `Build-Stats.ps1`. Your edits are
+never overwritten; delete a file to regenerate it from scratch.
+
+Blind behaviour is configurable in `config.json` -> `blindRules`.
+
+`data\lineups\` is committed to git alongside `data\raw\` - it's your work, not
+regenerable output.
 
 ## Config
 
@@ -127,6 +158,8 @@ Edit `config.json`:
 - `leagueId` - the `id=` in the `league-info` URL (point at a different league).
 - `favoriteTeam` - your team; the dashboard floats its matchups to the top and
   pre-selects it in the Head-to-Head pickers.
+- `blindRules` - blind delta, whether the blind gets handicap, strict-beat, and
+  whether blind points count toward the matchup total / season individual total.
 
 ## Known nuance
 
