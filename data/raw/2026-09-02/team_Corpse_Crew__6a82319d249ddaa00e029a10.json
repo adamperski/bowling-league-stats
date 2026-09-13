@@ -1,0 +1,962 @@
+{
+  "data": [
+    {
+      "_id": "66c54f0b6b7cba2d19fcc42e",
+      "name": "Kayla Osei",
+      "firstName": "Kayla",
+      "lastName": "Osei",
+      "dexterity": 0,
+      "average": 185,
+      "averages": [
+        {
+          "_id": "66c550cda8b949ac1b6e6d50",
+          "team": "66b408105dbb6ac34d152490",
+          "league": "66b407e25dbb6ac34d152150",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "683f5652ed09f1e3755bc958",
+          "team": "68470bc7a5a30d2e451e8adf",
+          "_id": "68470bc8a5a30d2e451e8ae5",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c83a0bd718dd744cd8f1",
+          "_id": "6898c83b0bd718dd744cd904",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 184
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "69f8f2341b4591f463ae96db",
+          "_id": "6a15169abd967bdc5a0416ee",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "69f8f2351b4591f463ae9759",
+          "_id": "6a71cb3e705b0a7e01f17f78",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319d249ddaa00e029a10",
+          "_id": "6a82319f249ddaa00e029a24",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 185
+        }
+      ],
+      "subs": [
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "substitute": "6a158692e270f0d65aab76f2",
+          "_id": "6a71cb3e705b0a7e01f17f79"
+        }
+      ],
+      "nickNames": [
+        "Kayla Osei"
+      ],
+      "isJunior": false,
+      "isFemale": true,
+      "avatar": "https%3A%2F%2Fleaguepals-users.s3.amazonaws.com%2Fbowler%2F66c54f0b6b7cba2d19fcc42e%2Fprofile_image%3Fid%3D1729992429727",
+      "birthDate": "1987-12-13T07:00:00.000Z",
+      "bowlerId": "",
+      "useNickname": false,
+      "dontIdentify": false,
+      "games": [
+        166,
+        164,
+        238,
+        175,
+        191,
+        200
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              200,
+              191,
+              175,
+              701
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e6763e5295daed70cf57e",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3887bbdfb65e119b029",
+            "weekIdx": 0,
+            "games": [
+              238,
+              164,
+              166,
+              703
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 6,
+      "highGame": 238,
+      "highGameHdcp": 283,
+      "highSeries": 568,
+      "highSeriesHdcp": 703,
+      "blindWeeksTotal": 1,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 185,
+      "realAvgFloat": 0,
+      "enteringAvg": 185,
+      "gamesPlayed": 6,
+      "teamName": "Corpse Crew",
+      "classification": "",
+      "team": "6a82319d249ddaa00e029a10",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1134,
+      "hdcp": 45
+    },
+    {
+      "_id": "62f330150535cd0b078d8857",
+      "name": "Randy Cleghorn",
+      "bowlerId": "",
+      "lastName": "Cleghorn",
+      "firstName": "Randy",
+      "dexterity": 0,
+      "average": 189,
+      "averages": [
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408105dbb6ac34d152490",
+          "_id": "66c52539b49833cc639b56db",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "663d1324e560b325217682c4",
+          "team": "663d14e6d089cdfe7ed31ca7",
+          "_id": "66c52539b49833cc639b56dc",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6819279b4b2a23f018207dd1",
+          "team": "68192b9e391faa1d322e2352",
+          "_id": "681ed88125eb482a1d8e8c17",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c83a0bd718dd744cd8f1",
+          "_id": "6898c83c0bd718dd744cd906",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 172
+        },
+        {
+          "league": "68bf3aba09a391f55ee6a51d",
+          "team": "68bf431d5a54cca901ec239a",
+          "_id": "68bf44d95a54cca901ec23c8",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 172
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "69f8f2351b4591f463ae972f",
+          "_id": "69fe3bed0c0c3c8e4690d954",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319d249ddaa00e029a10",
+          "_id": "6a82319f249ddaa00e029a25",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 189
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "1979-08-07T00:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        207,
+        170,
+        232,
+        166,
+        141,
+        223,
+        256,
+        184,
+        200
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              200,
+              184,
+              256,
+              763
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e6763e5295daed70cf57e",
+            "weekIdx": 0,
+            "games": [
+              223,
+              141,
+              166,
+              653
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3887bbdfb65e119b029",
+            "weekIdx": 0,
+            "games": [
+              232,
+              170,
+              207,
+              732
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 6,
+      "highGame": 256,
+      "highGameHdcp": 297,
+      "highSeries": 640,
+      "highSeriesHdcp": 763,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 189,
+      "realAvgFloat": 0,
+      "enteringAvg": 189,
+      "gamesPlayed": 9,
+      "teamName": "Corpse Crew",
+      "classification": "",
+      "team": "6a82319d249ddaa00e029a10",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1779,
+      "hdcp": 41
+    },
+    {
+      "_id": "62e6cdaa55b9a0101c2def84",
+      "name": "Paul Quinn",
+      "bowlerId": "",
+      "lastName": "Quinn",
+      "firstName": "Paul",
+      "dexterity": 0,
+      "average": 0,
+      "averages": [
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319d249ddaa00e029a10",
+          "_id": "6a84927b9e92cd6342792eda",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "1988-07-30T00:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3887bbdfb65e119b029",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 0,
+      "highGame": 0,
+      "highGameHdcp": 0,
+      "highSeries": 0,
+      "highSeriesHdcp": 0,
+      "blindWeeksTotal": 1,
+      "blindWeeksRow": 1,
+      "averageFloat": 0,
+      "realAvg": 0,
+      "realAvgFloat": 0,
+      "enteringAvg": 0,
+      "gamesPlayed": 0,
+      "teamName": "Corpse Crew",
+      "classification": "",
+      "team": "6a82319d249ddaa00e029a10",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 0
+    },
+    {
+      "_id": "62e6cecba520cb3d64534c51",
+      "name": "Tanya Craig",
+      "bowlerId": "",
+      "lastName": "Craig",
+      "firstName": "Tanya",
+      "dexterity": 0,
+      "average": 171,
+      "averages": [
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "69f8f2351b4591f463ae9759",
+          "_id": "6a0bdd7d2f687fb453d0ffd7",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319d249ddaa00e029a10",
+          "_id": "6a84927b9e92cd6342792edb",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 171
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": true,
+      "birthDate": "1975-04-06T00:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        169,
+        184,
+        175,
+        113,
+        136,
+        142,
+        119,
+        104,
+        146
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              146,
+              104,
+              119,
+              540
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e6763e5295daed70cf57e",
+            "weekIdx": 0,
+            "games": [
+              142,
+              136,
+              113,
+              562
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3887bbdfb65e119b029",
+            "weekIdx": 0,
+            "games": [
+              175,
+              184,
+              169,
+              699
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 0,
+      "highGame": 184,
+      "highGameHdcp": 241,
+      "highSeries": 528,
+      "highSeriesHdcp": 699,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 171,
+      "realAvgFloat": 0,
+      "enteringAvg": 171,
+      "gamesPlayed": 9,
+      "teamName": "Corpse Crew",
+      "classification": "",
+      "team": "6a82319d249ddaa00e029a10",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1288,
+      "hdcp": 57
+    },
+    {
+      "_id": "634194b51ddb835f3dd6a8cd",
+      "name": "Josh Henshaw",
+      "firstName": "Josh",
+      "lastName": "Henshaw",
+      "dexterity": 0,
+      "average": 197,
+      "averages": [
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319d249ddaa00e029a10",
+          "_id": "6a8e2b47950a49077647ade8",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "69f8f2341b4591f463ae9729",
+          "_id": "6a8e2b47950a49077647ade9",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6819279b4b2a23f018207dd1",
+          "team": "68192ba2391faa1d322e23b8",
+          "_id": "6a8e2b47950a49077647adea",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 191
+        },
+        {
+          "league": "62e6924155b9a0101c2da95d",
+          "team": "62f7f1d1cdf4e23f5709a478",
+          "_id": "6a8e2b47950a49077647adeb",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "64fa0c57320e86ba5b31d8da",
+          "team": "64fa0c7feec90d5d59f156a9",
+          "_id": "6a8e2b47950a49077647adec",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "66395613857152c7178d16fa",
+          "team": "6639562d0a1fe8603687e0b4",
+          "_id": "6a8e2b47950a49077647aded",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 181
+        },
+        {
+          "league": "66d8e9fe3b6604523efea511",
+          "team": "66d8ea193b6604523efea644",
+          "_id": "6a8e2b47950a49077647adee",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "68b748f31d6d9e1d635d530f",
+          "team": "68b7491dc002b7e618f024ea",
+          "_id": "6a8e2b47950a49077647adef",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "2022-10-08T15:18:13.164Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        201,
+        210,
+        183,
+        193,
+        169,
+        236
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              236,
+              169,
+              193,
+              700
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e6763e5295daed70cf57e",
+            "weekIdx": 0,
+            "games": [
+              183,
+              210,
+              201,
+              696
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3887bbdfb65e119b029",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 4,
+      "highGame": 236,
+      "highGameHdcp": 270,
+      "highSeries": 598,
+      "highSeriesHdcp": 700,
+      "blindWeeksTotal": 1,
+      "blindWeeksRow": 1,
+      "averageFloat": 0,
+      "realAvg": 197,
+      "realAvgFloat": 0,
+      "enteringAvg": 197,
+      "gamesPlayed": 6,
+      "teamName": "Corpse Crew",
+      "classification": "",
+      "team": "6a82319d249ddaa00e029a10",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1192,
+      "hdcp": 34
+    },
+    {
+      "_id": "651b88d1ebbebfb560364950",
+      "name": "Joe Panetta",
+      "bowlerId": "",
+      "birthDate": null,
+      "firstName": "Joe",
+      "lastName": "Panetta",
+      "dexterity": 0,
+      "average": 82,
+      "averages": [
+        {
+          "league": "64ff5ca6c6e5d1a230b4d573",
+          "team": "64ff5cdda3455c3d71c4b78f",
+          "_id": "651b88d1ebbebfb560364953",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b466a9304a7d2dc02c99",
+          "_id": "6538a56c39d3bd4d1e559d63",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b4081e5dbb6ac34d152525",
+          "_id": "66b4081f5dbb6ac34d152538",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319d249ddaa00e029a10",
+          "_id": "6a97a789d4c1762a0a8b09a4",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        }
+      ],
+      "subs": [
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "substitute": "64f80b47c2aaf1766b8ed78c",
+          "_id": "6538a56c39d3bd4d1e559d64"
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "substitute": "6a97a34d14e19d5a06838dea",
+          "_id": "6a97a789d4c1762a0a8b09a5"
+        }
+      ],
+      "nickNames": [
+        "Joe Panetta",
+        "JOE PANETTA"
+      ],
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "games": [
+        75,
+        80,
+        92
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 0,
+      "highGame": 92,
+      "highGameHdcp": 229,
+      "highSeries": 247,
+      "highSeriesHdcp": 658,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 82.33333333333333,
+      "realAvg": 82,
+      "realAvgFloat": 82.33,
+      "enteringAvg": 0,
+      "gamesPlayed": 3,
+      "teamName": "Corpse Crew",
+      "classification": "",
+      "team": "6a82319d249ddaa00e029a10",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 247,
+      "hdcp": 137
+    }
+  ]
+}

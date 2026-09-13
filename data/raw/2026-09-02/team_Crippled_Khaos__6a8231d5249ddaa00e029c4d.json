@@ -1,0 +1,838 @@
+{
+  "data": [
+    {
+      "_id": "62ec9a8fce65adc409f54f90",
+      "name": "Mark Donner",
+      "bowlerId": "",
+      "lastName": "Donner",
+      "firstName": "Mark",
+      "dexterity": 0,
+      "average": 184,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99e0535cd0b078d6e7a",
+          "_id": "62fac79240d4183408112f25",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 185
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b452a9304a7d2dc02b48",
+          "_id": "64d2b453a9304a7d2dc02b5d",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 190
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408245dbb6ac34d15257c",
+          "_id": "66b408255dbb6ac34d15258d",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 186
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c80c0bd718dd744cd709",
+          "_id": "6898c80d0bd718dd744cd719",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 191
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231d5249ddaa00e029c4d",
+          "_id": "6a8231d7249ddaa00e029c5c",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 184
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "1959-11-30T00:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        204,
+        173,
+        170,
+        168,
+        143,
+        180,
+        152,
+        168,
+        192
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538222fe9873e6c628e73",
+            "weekIdx": 0,
+            "games": [
+              192,
+              168,
+              152,
+              647
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e676ce5295daed70cf678",
+            "weekIdx": 0,
+            "games": [
+              180,
+              143,
+              168,
+              626
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3957bbdfb65e119b173",
+            "weekIdx": 0,
+            "games": [
+              170,
+              173,
+              204,
+              682
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 2,
+      "highGame": 204,
+      "highGameHdcp": 249,
+      "highSeries": 547,
+      "highSeriesHdcp": 682,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 184,
+      "realAvgFloat": 0,
+      "enteringAvg": 184,
+      "gamesPlayed": 9,
+      "teamName": "Crippled Khaos",
+      "classification": "",
+      "team": "6a8231d5249ddaa00e029c4d",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1550,
+      "hdcp": 45
+    },
+    {
+      "_id": "630eb986fc8aa5df31df358a",
+      "name": "Gregory Fistell",
+      "firstName": "Gregory",
+      "lastName": "Fistell",
+      "dexterity": 0,
+      "average": 202,
+      "averages": [
+        {
+          "league": "64b5c77a94cb509524dad3a2",
+          "team": "64b5c7a294cb509524dad3c1",
+          "_id": "65108393b35ff83a151ccde5",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "62e6924955b9a0101c2daf8b",
+          "team": "631a85841815bd381c9a8ad6",
+          "_id": "65108393b35ff83a151ccde6",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "62e6924955b9a0101c2daf8b",
+          "team": "631a85841815bd381c9a8aca",
+          "_id": "65108393b35ff83a151ccde7",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99e0535cd0b078d6e7a",
+          "_id": "65108393b35ff83a151ccde8",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 203
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b452a9304a7d2dc02b48",
+          "_id": "65108393b35ff83a151ccde9",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 193
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408245dbb6ac34d15257c",
+          "_id": "66b408255dbb6ac34d15258e",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 202
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c80c0bd718dd744cd709",
+          "_id": "6898c80e0bd718dd744cd723",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 206
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231d5249ddaa00e029c4d",
+          "_id": "6a8231d7249ddaa00e029c5e",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 202
+        }
+      ],
+      "subs": [],
+      "nickNames": [
+        "Greg Fistell",
+        "Greg Fistell"
+      ],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "2022-08-31T01:29:42.675Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        235,
+        215,
+        233,
+        180,
+        180,
+        188,
+        236,
+        259,
+        236
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538222fe9873e6c628e73",
+            "weekIdx": 0,
+            "games": [
+              236,
+              259,
+              236,
+              818
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e676ce5295daed70cf678",
+            "weekIdx": 0,
+            "games": [
+              188,
+              180,
+              180,
+              635
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3957bbdfb65e119b173",
+            "weekIdx": 0,
+            "games": [
+              233,
+              215,
+              235,
+              770
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 7,
+      "highGame": 259,
+      "highGameHdcp": 288,
+      "highSeries": 731,
+      "highSeriesHdcp": 818,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 202,
+      "realAvgFloat": 0,
+      "enteringAvg": 202,
+      "gamesPlayed": 9,
+      "teamName": "Crippled Khaos",
+      "classification": "",
+      "team": "6a8231d5249ddaa00e029c4d",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1962,
+      "hdcp": 29
+    },
+    {
+      "_id": "6306d8c59f126c5958628335",
+      "name": "Stephanie David",
+      "firstName": "Stephanie",
+      "lastName": "David",
+      "dexterity": 0,
+      "average": 193,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99e0535cd0b078d6e7a",
+          "_id": "6306db21802bebb45941c690",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 184
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b452a9304a7d2dc02b48",
+          "_id": "64d2b454a9304a7d2dc02b62",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 186
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408245dbb6ac34d15257c",
+          "_id": "66b408265dbb6ac34d152591",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 185
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c80c0bd718dd744cd709",
+          "_id": "6898c80e0bd718dd744cd724",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 182
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231d5249ddaa00e029c4d",
+          "_id": "6a8231d7249ddaa00e029c5f",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 193
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": true,
+      "birthDate": "2022-08-25T02:04:53.913Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        157,
+        182,
+        203,
+        171,
+        185,
+        170,
+        185,
+        269,
+        162
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538222fe9873e6c628e73",
+            "weekIdx": 0,
+            "games": [
+              162,
+              269,
+              185,
+              727
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e676ce5295daed70cf678",
+            "weekIdx": 0,
+            "games": [
+              170,
+              185,
+              171,
+              637
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3957bbdfb65e119b173",
+            "weekIdx": 0,
+            "games": [
+              203,
+              182,
+              157,
+              653
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 5,
+      "highGame": 269,
+      "highGameHdcp": 306,
+      "highSeries": 616,
+      "highSeriesHdcp": 727,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 193,
+      "realAvgFloat": 0,
+      "enteringAvg": 193,
+      "gamesPlayed": 9,
+      "teamName": "Crippled Khaos",
+      "classification": "",
+      "team": "6a8231d5249ddaa00e029c4d",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1684,
+      "hdcp": 37
+    },
+    {
+      "_id": "62ec9a8fce65adc409f54cdb",
+      "name": "William Kondrotis",
+      "bowlerId": "",
+      "lastName": "Kondrotis",
+      "firstName": "William",
+      "dexterity": 0,
+      "average": 207,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99e0535cd0b078d6e7a",
+          "_id": "6306dbac8938486e20315ed8",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 207
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b452a9304a7d2dc02b48",
+          "_id": "64d2b453a9304a7d2dc02b57",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 207
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408245dbb6ac34d15257c",
+          "_id": "66b408265dbb6ac34d152593",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 209
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c80c0bd718dd744cd709",
+          "_id": "6898c80e0bd718dd744cd721",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 211
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231d5249ddaa00e029c4d",
+          "_id": "6a8231d7249ddaa00e029c62",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 207
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "1988-12-30T00:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        234,
+        205,
+        154,
+        202,
+        194,
+        231,
+        181,
+        183,
+        199
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538222fe9873e6c628e73",
+            "weekIdx": 0,
+            "games": [
+              199,
+              183,
+              181,
+              638
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e676ce5295daed70cf678",
+            "weekIdx": 0,
+            "games": [
+              231,
+              194,
+              202,
+              702
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3957bbdfb65e119b173",
+            "weekIdx": 0,
+            "games": [
+              154,
+              205,
+              234,
+              668
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 8,
+      "highGame": 234,
+      "highGameHdcp": 259,
+      "highSeries": 627,
+      "highSeriesHdcp": 702,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 207,
+      "realAvgFloat": 0,
+      "enteringAvg": 207,
+      "gamesPlayed": 9,
+      "teamName": "Crippled Khaos",
+      "classification": "",
+      "team": "6a8231d5249ddaa00e029c4d",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1783,
+      "hdcp": 25
+    },
+    {
+      "_id": "672b08c1988a5e245fbd096e",
+      "name": "Stephen Sutton",
+      "bowlerId": "",
+      "birthDate": null,
+      "firstName": "Stephen",
+      "lastName": "Sutton",
+      "dexterity": 0,
+      "average": 211,
+      "averages": [
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408245dbb6ac34d15257c",
+          "_id": "672b08c2988a5e245fbd0971",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 212
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c80c0bd718dd744cd709",
+          "_id": "6898c80e0bd718dd744cd722",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 217
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231d5249ddaa00e029c4d",
+          "_id": "6a8231d7249ddaa00e029c5d",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 211
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "useNickname": false,
+      "dontIdentify": false,
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "games": [
+        225,
+        238,
+        238,
+        207,
+        174,
+        192
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538222fe9873e6c628e73",
+            "weekIdx": 0,
+            "games": [
+              192,
+              174,
+              207,
+              636
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a8e676ce5295daed70cf678",
+            "weekIdx": 0,
+            "games": [
+              238,
+              238,
+              225,
+              764
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a97a3957bbdfb65e119b173",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 6,
+      "highGame": 238,
+      "highGameHdcp": 259,
+      "highSeries": 701,
+      "highSeriesHdcp": 764,
+      "blindWeeksTotal": 1,
+      "blindWeeksRow": 1,
+      "averageFloat": 0,
+      "realAvg": 211,
+      "realAvgFloat": 0,
+      "enteringAvg": 211,
+      "gamesPlayed": 6,
+      "teamName": "Crippled Khaos",
+      "classification": "",
+      "team": "6a8231d5249ddaa00e029c4d",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1274,
+      "hdcp": 21
+    }
+  ]
+}
