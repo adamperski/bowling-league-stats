@@ -91,6 +91,9 @@
   .pair .pg{color:var(--muted);font-variant-numeric:tabular-nums}
   .pair .pp{font-weight:700;font-variant-numeric:tabular-nums}
   .pair .pvs{color:var(--muted);text-align:center}
+  .pair.unsure{opacity:0.55}
+  .mc-unconfirmed{margin:8px 14px;padding:8px 10px;border-radius:8px;background:var(--accent-soft);
+    border:1px solid var(--bad);font-size:12px;line-height:1.5}
   .review{border-color:var(--bad)}
   .review h2{color:var(--bad)}
   .rv-date{font-weight:700;font-size:13px;padding:10px 14px 2px;font-variant-numeric:tabular-nums}
@@ -331,7 +334,7 @@
       }}));
       if(D.bowlers.some(b=>b.indPoints===0 && b.compIndPoints>0))
         host.append(el('div',{class:'muted',style:'padding:6px 12px;font-size:12px'},
-          '* computed individual points (LeaguePals hasn’t posted official points yet); excludes points won as a blind.'));
+          '* computed individual points (LeaguePals hasn’t posted official points yet); only counts weeks where the lineup pairing was confirmed (no sub/blind, or manually verified in data\\lineups\\), and excludes points won as a blind.'));
     }
     draw('');
     search.oninput = ()=>draw(search.value.trim().toLowerCase());
@@ -380,9 +383,10 @@
         el('div',{class:'mc-team'}, s.team),
         el('div',{class:'mc-pts'}, num(s.total)));
     };
+    const confirmed = m.pairingConfirmed !== false;
     const head = el('div',{class:'mc-head'},
       mkSide(m.a,'A'),
-      el('div',{class:'mc-vs'}, m.needsReview?'⚠':(m.result==='T'?'tie':'vs')),
+      el('div',{class:'mc-vs'}, !confirmed?'⚠':(m.needsReview?'⚠':(m.result==='T'?'tie':'vs'))),
       mkSide(m.b,'B'));
     const meta = el('div',{class:'mc-meta muted'},
       `scratch series ${m.a.ser}–${m.b.ser}   ·   hcp series ${m.a.serH}–${m.b.serH}`
@@ -390,12 +394,19 @@
       + (m.estimated?'   ·   estimated (short lineup / missing games)':'')
       + (m.counts?'':'   ·   practice week'));
     const det = el('div',{class:'mc-pairs'}); det.hidden = true;
+    if(!confirmed){
+      det.append(el('div',{class:'mc-unconfirmed'},
+        '⚠ Individual pairing not confirmed this week — a sub or blind was involved and LeaguePals doesn’t publish real seating order, '
+        + 'so who-faced-who below is a best guess (an absence can shift other seats too, not just the empty one). '
+        + 'Team totals above are exact either way. To fix: check the real score sheet / recap sheet and edit the matching team in '
+        + 'data\\lineups\\'+m.date+'.json with the true lineup, then set "resolved": true.'));
+    }
     const kindTag = k => k==='blind' ? el('span',{class:'ktag blind'},'blind')
                        : k==='sub' ? el('span',{class:'ktag sub'},'sub')
                        : k==='partial' ? el('span',{class:'ktag part'},'part') : null;
     const gtxt = g => A(g).map(x=>x==null?'–':x).join(' ');
     A(m.pairs).forEach(p=>{
-      det.append(el('div',{class:'pair'},
+      det.append(el('div',{class:'pair'+(confirmed?'':' unsure')},
         el('span',{class:'pn'}, p.aName, kindTag(p.aKind)),
         el('span',{class:'pg'}, gtxt(p.aGames)),
         el('span',{class:'pp'}, num(p.aPts)),
@@ -514,11 +525,12 @@
       h3.innerHTML='';
       const A1=a3.value, B1=b3.value;
       if(A1===B1){ h3.append(el('div',{class:'muted',style:'padding:12px'},'Pick two different bowlers.')); return; }
-      const rows=[];
+      const rows=[]; let unconfirmedHits=0;
       D.schedule.forEach(m=>{
         A(m.pairs).forEach(pr=>{
           const hit = (pr.aId===A1&&pr.bId===B1)||(pr.aId===B1&&pr.bId===A1);
           if(!hit) return;
+          if(m.pairingConfirmed===false){ unconfirmedHits++; return; }
           const flip = pr.aId===B1;
           const gj = g => A(g).map(x=>x==null?'–':x).join(' ');
           const X = flip?{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind}:{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind};
@@ -529,12 +541,13 @@
         });
       });
       const nA = (bl.find(x=>x.value===A1)||{}).label||'', nB = (bl.find(x=>x.value===B1)||{}).label||'';
+      const unsureNote = unconfirmedHits ? ` (${unconfirmedHits} more week${unconfirmedHits>1?'s':''} had a sub/blind that week — excluded, pairing unconfirmed)` : '';
       if(!rows.length){ h3.append(el('div',{class:'muted',style:'padding:12px'},
-        nA.split('  (')[0]+' and '+nB.split('  (')[0]+' haven’t been in the same matchup (by position) yet.')); return; }
+        nA.split('  (')[0]+' and '+nB.split('  (')[0]+' haven’t had a confirmed matchup (by position) yet.'+unsureNote)); return; }
       let aP=0,bP=0; rows.forEach(r=>{aP+=r.aPts;bP+=r.bPts});
       h3.append(el('div',{class:'summary'},
         `${nA.split('  (')[0]}  ${num(aP)} – ${num(bP)}  ${nB.split('  (')[0]}`,
-        el('br'), el('span',{class:'muted'}, `${rows.length} head-to-head week${rows.length>1?'s':''}`)));
+        el('br'), el('span',{class:'muted'}, `${rows.length} confirmed head-to-head week${rows.length>1?'s':''}${unsureNote}`)));
       h3.append(table([
         {k:'date',label:'Week'},
         {k:'aLine',label:nA.split('  (')[0]},

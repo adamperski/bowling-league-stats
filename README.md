@@ -165,24 +165,38 @@ locally before you push (the weekly routine below already does).
 
 ## Head-to-head (how the schedule is rebuilt)
 
-LeaguePals has no public "match result" endpoint, so `Build-Stats.ps1`
-reconstructs it:
+LeaguePals has no public "match result" endpoint and doesn't expose real
+per-week seating order anywhere in the public feed, so `Build-Stats.ps1`
+reconstructs a best effort:
 
-1. **Position is known.** The standings feed lists each team's five bowlers in
-   order and the masked email `bowlerN@teamM` gives position `N`. Position *i*
-   faces position *i* (`fullPointsAmongTeammates = false`). No guessing for the
-   regular five.
-2. **Pairings.** Each bowler's week carries a `match_id`; a team's real id for a
-   week is the one shared by the bowlers who actually bowled (absentees keep a
-   stale id) - majority vote. Two teams sharing a `(week, match_id)` are that
-   matchup.
+1. **Team pairing is solid.** Each bowler's week carries a `match_id`; a team's
+   real id for a week is the one shared by the bowlers who actually bowled
+   (absentees keep a stale id) - majority vote. Two teams sharing a
+   `(week, match_id)` are that matchup. This part is verified reliable.
+2. **Individual position is a guess, not a fact.** The standings feed lists each
+   team's five roster bowlers in order (masked email `bowlerN@teamM` gives slot
+   `N`), and we pair position *i* vs position *i* (`fullPointsAmongTeammates =
+   false`). **This only matches reality when both sides bowl at full strength.**
+   Confirmed against real recap sheets: the moment a bowler is absent, the real
+   lineup order can shift for *other* bowlers too (not just fill the empty
+   slot), and LeaguePals' own recap/score-sheet report - the actual source of
+   truth - is a manager-only PDF export, not available through this pipeline.
 3. **Points** (team 3/3/3/6, individual 1/1/1/2) are recomputed on the handicap
    scores. LeaguePals' 4th games value is `scratch + perGameHdcp x games`, so
-   the per-week handicap is derived from it directly (more accurate than the
-   formula, and it tracks the average as it moves).
+   the per-week handicap is derived from it directly.
 
-Once real weeks count, LeaguePals' own `pointsWon` / `individualPoints` are
-authoritative; the reconstruction stays a live/what-if view and a cross-check.
+Because of (2), every matchup carries a **`pairingConfirmed`** flag: true only
+when both sides bowled all five regulars that week (or a side was hand-verified
+- see below). Team totals and results are exact regardless of this flag; only
+the *who-faced-who* breakdown and anything built from it (individual points,
+bowler-vs-bowler history, the computed points leaderboard) are gated by it.
+Unconfirmed matchups show a clear warning in the dashboard instead of a
+confident-looking wrong answer.
+
+Once real weeks count, LeaguePals' own `pointsWon` / `individualPoints` would be
+authoritative for the point totals - but its `individualPoints` field has
+stayed `0` all season even as real standings advance, so in practice it never
+becomes available through the public feed. The reconstruction is what you get.
 
 ### Subs, blinds, missed games - the review workflow
 
@@ -207,6 +221,14 @@ unresolved case with the file to edit. Open `data\lineups\<date>.json`, fix the
 `lineup` entries (swap a sub's `pos`, correct a `name`/`avg`, change a `kind`),
 set that team's `"resolved": true`, and re-run `Build-Stats.ps1`. Your edits are
 never overwritten; delete a file to regenerate it from scratch.
+
+**Marking `resolved: true` is a claim, not a dismissal.** Only set it once
+you've checked the real order (LeaguePals -> your league -> Scoring tab -> that
+week -> your matchup -> "View Score Sheet" - or the manager's recap-sheet PDF)
+and edited the `lineup` array to match. Once resolved, that side counts as
+`pairingConfirmed` for that week even though a sub/blind was involved. Resolving
+a flag just to clear it without checking the real order will make that week
+look confirmed when it isn't - leave it unresolved instead if you're not sure.
 
 Blind behaviour is configurable in `config.json` -> `blindRules`.
 

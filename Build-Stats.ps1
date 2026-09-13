@@ -94,8 +94,13 @@ foreach ($row in $standings.standings) {
 }
 
 # ---- bowlers ---------------------------------------------------------------
+# NB: the per-bowler `isMatch` flag in weekGames stays false even for weeks
+# that plainly DO count (confirmed: standings wins/losses/pointsWon advance
+# from week 1 while isMatch never flips true) - so it's not a usable "does
+# this week count" signal. Use the standings themselves instead: once any
+# team shows a real win/loss/tie, the league is counting.
+$anyCounting = [bool](@($standings.standings | Where-Object { ($_.wins + $_.losses + $_.ties) -gt 0 }).Count)
 $bowlers = New-Object System.Collections.ArrayList
-$anyCounting = $false
 
 Get-ChildItem $SnapshotDir -Filter 'team_*.json' | ForEach-Object {
     $teamData = (Get-Content -Raw $_.FullName | ConvertFrom-Json).data
@@ -135,11 +140,10 @@ Get-ChildItem $SnapshotDir -Filter 'team_*.json' | ForEach-Object {
                 $absent  = ($gs.Count -eq 0)
                 $partial = (-not $absent -and $gs.Count -lt 3)
                 foreach ($g in $gs) { [void]$allGames.Add($g) }
-                if ($wk.isMatch) { $script:anyCounting = $true }
                 [void]$weeks.Add([pscustomobject]@{
                     date    = $p.Name
                     weekIdx = [int]$wk.weekIdx
-                    isMatch = [bool]$wk.isMatch
+                    isMatch = $anyCounting
                     games   = $gs
                     scrSer  = $scrSer
                     hcpSer  = if ($tail -gt 0) { $tail } else { $scrSer }
@@ -570,6 +574,18 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
     if (-not $sa.Count -or -not $sb.Count) { continue }
     $ta = Team-Calc $sa; $tb = Team-Calc $sb
 
+    # Individual (position) pairing is only trustworthy when a side is at full
+    # strength - a sub or blind proves LeaguePals doesn't expose real seating
+    # order, and an absence can shift *everyone else's* seat too (confirmed
+    # against real recap sheets: a team missing bowler 1 did not simply have
+    # bowlers 2-5 stay put with a sub added at the end). A side manually
+    # resolved in data\lineups\<date>.json is trusted as ground truth instead.
+    $sideAClean = -not (@($sa | Where-Object { $_.kind -eq 'sub' -or $_.kind -eq 'blind' }).Count)
+    $sideBClean = -not (@($sb | Where-Object { $_.kind -eq 'sub' -or $_.kind -eq 'blind' }).Count)
+    $sideAConfirmed = $sideAClean -or [bool]$resolvedMap["$date|$A"]
+    $sideBConfirmed = $sideBClean -or [bool]$resolvedMap["$date|$B"]
+    $pairingConfirmed = $sideAConfirmed -and $sideBConfirmed
+
     # team contests (handicap) + their winners for blind-vs-blind fallback
     $tgw = @(); for ($g = 0; $g -lt 3; $g++) { $tgw += (Win-Of $ta.gameH[$g] $tb.gameH[$g]) }
     $tsw = Win-Of $ta.serH $tb.serH
@@ -585,8 +601,10 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
         if (-not $pa -or -not $pb) { continue }
         $c = Compare-Slot $pa $pb $tgw $tsw
         $aInd += $c[0]; $bInd += $c[1]
-        if ($pa.id -and $pa.seasonEligible) { $bowlerById[$pa.id].compIndPoints += $c[2] }
-        if ($pb.id -and $pb.seasonEligible) { $bowlerById[$pb.id].compIndPoints += $c[3] }
+        if ($pairingConfirmed) {
+            if ($pa.id -and $pa.seasonEligible) { $bowlerById[$pa.id].compIndPoints += $c[2] }
+            if ($pb.id -and $pb.seasonEligible) { $bowlerById[$pb.id].compIndPoints += $c[3] }
+        }
         [void]$pairs.Add([pscustomobject]@{
             pos = $i
             aName = $pa.name; aId = $pa.id; aKind = $pa.kind; aGames = @($pa.games); aSer = $pa.scrSer; aHdcp = $pa.hdcp; aPts = $c[0]
@@ -603,6 +621,7 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
         date        = $date
         counts      = [bool]($sa | Where-Object { $_.id } | ForEach-Object { (Get-Week $_.id $date).isMatch } | Where-Object { $_ } | Select-Object -First 1)
         estimated   = ($kinds -contains 'blind' -or $kinds -contains 'partial' -or $kinds -contains 'sub')
+        pairingConfirmed = $pairingConfirmed
         needsReview = ($revA.Count -gt 0 -or $revB.Count -gt 0)
         flags       = @($flags)
         a = [pscustomobject]@{ team = $teamById[$A].team.name; teamId = $A; scr = $ta.scr; ser = $ta.ser; hdcp = $ta.hdcp; gameH = $ta.gameH; serH = $ta.serH; teamPts = $aTeam; indPts = $aInd; total = $aTot }
@@ -737,12 +756,17 @@ function Streaks($bools) {
     [pscustomobject]@{ longest = $long; current = $cur }
 }
 
-# individual points earned per bowler per week (from reconstructed pairings)
+# individual points earned per bowler per week (from reconstructed pairings) -
+# only from matchups where the position pairing is actually confirmed; a
+# guessed pairing shouldn't feed a bowler's points pace.
 $bwWkPts = @{}
-foreach ($m in $schedule) { foreach ($p in @($m.pairs)) {
-    if ($p.aId) { $bwWkPts["$($p.aId)|$($m.date)"] = [double]$p.aPts }
-    if ($p.bId) { $bwWkPts["$($p.bId)|$($m.date)"] = [double]$p.bPts }
-} }
+foreach ($m in $schedule) {
+    if (-not $m.pairingConfirmed) { continue }
+    foreach ($p in @($m.pairs)) {
+        if ($p.aId) { $bwWkPts["$($p.aId)|$($m.date)"] = [double]$p.aPts }
+        if ($p.bId) { $bwWkPts["$($p.bId)|$($m.date)"] = [double]$p.bPts }
+    }
+}
 
 $aTeams = New-Object System.Collections.ArrayList
 foreach ($t in $teams) {
@@ -906,6 +930,7 @@ $lbRows | Export-Csv (Join-Path $outDir 'leaderboards.csv') -NoTypeInformation
 $schedule | ForEach-Object {
     [pscustomobject]@{
         date = $_.date; counts = $_.counts; estimated = $_.estimated; needsReview = $_.needsReview
+        pairingConfirmed = $_.pairingConfirmed
         teamA = $_.a.team; teamB = $_.b.team
         aScratchSeries = $_.a.ser; bScratchSeries = $_.b.ser
         aHdcpSeries = $_.a.serH; bHdcpSeries = $_.b.serH
@@ -919,7 +944,7 @@ $schedule | ForEach-Object {
 $pairRows = foreach ($m in $schedule) {
     foreach ($p in @($m.pairs)) {
         [pscustomobject]@{
-            date = $m.date; teamA = $m.a.team; teamB = $m.b.team
+            date = $m.date; teamA = $m.a.team; teamB = $m.b.team; pairingConfirmed = $m.pairingConfirmed
             bowlerA = $p.aName; aKind = $p.aKind; aGames = (@($p.aGames) -join ' '); aSeries = $p.aSer; aHdcp = $p.aHdcp; aPts = $p.aPts
             bowlerB = $p.bName; bKind = $p.bKind; bGames = (@($p.bGames) -join ' '); bSeries = $p.bSer; bHdcp = $p.bHdcp; bPts = $p.bPts
         }
