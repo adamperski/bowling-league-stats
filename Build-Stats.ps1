@@ -336,9 +336,14 @@ function Hdcp-Of($bw, $w) {
     0
 }
 
-function New-BowlerSlot($pos, $name, $id, $w, $avg, $isSub) {
+function New-BowlerSlot($pos, $name, $id, $w, $avg, $isSub, $trustAvg = $false) {
     $bw = if ($id) { $bowlerById[$id] } else { $null }
-    $h = Hdcp-Of $bw $w
+    # LeaguePals recalculates a bowler's stored per-week handicap using their
+    # CURRENT average, not their average as of that week - fine for stable
+    # bowlers, wrong for a rarely-bowling sub whose average is still moving.
+    # A hand-verified lineup entry (resolved:true, avg taken off the real score
+    # sheet) is trusted over that live recalculation.
+    $h = if ($trustAvg -and $avg -gt 0) { Get-Hdcp $avg } else { Hdcp-Of $bw $w }
     $games = @(); $missFill = $false
     for ($g = 0; $g -lt 3; $g++) {
         if ($w -and $w.games.Count -gt $g -and $w.games[$g] -ne $null) { $games += [int]$w.games[$g] }
@@ -354,10 +359,13 @@ function New-BowlerSlot($pos, $name, $id, $w, $avg, $isSub) {
         blind = $false; seasonEligible = (-not $isSub)
     }
 }
-function New-BlindSlot($pos, $regName, $avg) {
+function New-BlindSlot($pos, $regName, $avg, $trustAvg = $false) {
     $reg = $bowlerByName["$regName"]
     $base = Blind-BaseAvg $avg
-    $h = if ($blindGetsHdcp) { if ([int]$avg -gt 0) { Hdcp-Of $reg $null } else { Get-Hdcp $base } } else { 0 }
+    $h = if (-not $blindGetsHdcp) { 0 }
+         elseif ($trustAvg -and [int]$avg -gt 0) { Get-Hdcp $base }
+         elseif ([int]$avg -gt 0) { Hdcp-Of $reg $null }
+         else { Get-Hdcp $base }
     $per = [int]($base - $blindDelta)
     [pscustomobject]@{
         pos = [int]$pos; kind = 'blind'; name = "$regName (blind)"; id = $(if ($reg) { $reg.id } else { $null }); hdcp = [int]$h
@@ -486,6 +494,9 @@ function Resolve-Slots($teamId, $date) {
     $key = "$date|$teamId"
     $roster = @($teamRoster[$teamId])
     if ($manualLineups.ContainsKey($key)) {
+        # Only a hand-verified (resolved:true) entry earns the right to override
+        # LeaguePals' live-recalculated handicap with the avg you typed in.
+        $trust = [bool]$manualLineups[$key].resolved
         $out = @()
         foreach ($ln in @($manualLineups[$key].lineup)) {
             $pos0 = [int]$ln.pos - 1
@@ -494,19 +505,20 @@ function Resolve-Slots($teamId, $date) {
                     $rn = if ($ln.blindFor) { "$($ln.blindFor)" } else { "$($ln.name)" }
                     $reg = $roster | Where-Object { $bowlerById[$_.id].name -eq $rn } | Select-Object -First 1
                     $avg = if ($ln.avg) { [int]$ln.avg } elseif ($reg) { $reg.avg } else { 0 }
-                    $out += New-BlindSlot $pos0 $rn $avg
+                    $out += New-BlindSlot $pos0 $rn $avg $trust
                 }
                 'sub' {
                     $sb = $bowlerByName["$($ln.name)"]
                     $avg = if ($ln.avg) { [int]$ln.avg } elseif ($sb) { $sb.bookAvg } else { 0 }
                     $w = if ($sb) { Get-Week $sb.id $date } else { $null }
-                    $out += New-BowlerSlot $pos0 "$($ln.name)" $(if ($sb) { $sb.id }) $w $avg $true
+                    $out += New-BowlerSlot $pos0 "$($ln.name)" $(if ($sb) { $sb.id }) $w $avg $true $trust
                 }
                 default {
                     $sb = $bowlerByName["$($ln.name)"]
                     $reg = $roster | Where-Object { $_.id -eq $sb.id } | Select-Object -First 1
                     $w = if ($sb) { Get-Week $sb.id $date } else { $null }
-                    $out += New-BowlerSlot $pos0 "$($ln.name)" $(if ($sb) { $sb.id }) $w $(if ($reg) { $reg.avg } elseif ($sb) { $sb.bookAvg } else { 0 }) $false
+                    $avg = if ($ln.avg) { [int]$ln.avg } elseif ($reg) { $reg.avg } elseif ($sb) { $sb.bookAvg } else { 0 }
+                    $out += New-BowlerSlot $pos0 "$($ln.name)" $(if ($sb) { $sb.id }) $w $avg $false $trust
                 }
             }
         }

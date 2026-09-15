@@ -230,6 +230,18 @@ and edited the `lineup` array to match. Once resolved, that side counts as
 a flag just to clear it without checking the real order will make that week
 look confirmed when it isn't - leave it unresolved instead if you're not sure.
 
+**Put the real per-week average in `avg` when you resolve a flag**, not just
+the name. LeaguePals recalculates a bowler's stored handicap using their
+*current* average, not their average as of that week - fine for a stable
+regular, wrong for an occasional sub whose average is still moving. A
+`resolved: true` entry's `avg` is trusted over that live recalculation, so
+copying the average straight off the real score sheet (rather than leaving
+the auto-guess) is what makes the numbers match exactly. Verified end-to-end
+against a real "View Score Sheet" screenshot (Sloppy Hookers vs The Bowler
+Depot, 2026-09-08): once the true lineup and per-week averages were entered,
+every individual pairing, both teams' handicaps, and the 25-15 final score
+reproduced exactly.
+
 Blind behaviour is configurable in `config.json` -> `blindRules`.
 
 `data\lineups\` is committed to git alongside `data\raw\` - it's your work, not

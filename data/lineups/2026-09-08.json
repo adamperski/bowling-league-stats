@@ -3,42 +3,42 @@
     "_help":  "Weeks with a blind / sub / missed game. Fix each team\u0027s lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate.",
     "teams":  {
                   "The Bowler Depot":  {
-                                           "resolved":  false,
+                                           "resolved":  true,
                                            "autoFlags":  [
                                                              "pos1 SUB Audrey Johnson (avg 151) for Anthony Allen - confirm position"
                                                          ],
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
-                                                              "kind":  "sub",
-                                                              "name":  "Audrey Johnson",
-                                                              "blindFor":  null,
-                                                              "subFor":  "Anthony Allen",
-                                                              "avg":  151
-                                                          },
-                                                          {
-                                                              "pos":  2,
                                                               "kind":  "bowler",
                                                               "name":  "Jo Struble",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  206
+                                                              "avg":  210
+                                                          },
+                                                          {
+                                                              "pos":  2,
+                                                              "kind":  "sub",
+                                                              "name":  "Audrey Johnson",
+                                                              "blindFor":  null,
+                                                              "subFor":  "Anthony Allen",
+                                                              "avg":  165
                                                           },
                                                           {
                                                               "pos":  3,
                                                               "kind":  "bowler",
-                                                              "name":  "Adam D Sakowski",
+                                                              "name":  "Roger Wahler",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  219
+                                                              "avg":  209
                                                           },
                                                           {
                                                               "pos":  4,
                                                               "kind":  "bowler",
-                                                              "name":  "Roger Wahler",
+                                                              "name":  "Adam D Sakowski",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  206
+                                                              "avg":  217
                                                           },
                                                           {
                                                               "pos":  5,
@@ -46,9 +46,10 @@
                                                               "name":  "Cody Vaughn",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  232
+                                                              "avg":  223
                                                           }
-                                                      ]
+                                                      ],
+                                           "verifiedFrom":  "LeaguePals View Score Sheet screenshot, provided by user 2026-09-15"
                                        },
                   "Light \u0027Em Up":  {
                                             "resolved":  false,
