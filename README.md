@@ -173,22 +173,25 @@ reconstructs a best effort:
    real id for a week is the one shared by the bowlers who actually bowled
    (absentees keep a stale id) - majority vote. Two teams sharing a
    `(week, match_id)` are that matchup. This part is verified reliable.
-2. **Individual position is a guess, not a fact.** The standings feed lists each
-   team's five roster bowlers in order (masked email `bowlerN@teamM` gives slot
-   `N`), and we pair position *i* vs position *i* (`fullPointsAmongTeammates =
-   false`). **This only matches reality when both sides bowl at full strength.**
-   Confirmed against real recap sheets: the moment a bowler is absent, the real
-   lineup order can shift for *other* bowlers too (not just fill the empty
-   slot), and LeaguePals' own recap/score-sheet report - the actual source of
-   truth - is a manager-only PDF export, not available through this pipeline.
+2. **Individual position is always a guess until you say otherwise.** The
+   standings feed lists each team's five roster bowlers in order (masked email
+   `bowlerN@teamM` gives slot `N`), and the fallback guess pairs position *i*
+   vs position *i* (`fullPointsAmongTeammates = false`). **A full 5-of-5
+   lineup does NOT mean this guess is right** - teams can and do reorder even
+   a full-strength lineup week to week (matchups, rivalries), so "nobody was
+   absent" is not evidence the roster-slot order was actually used that night.
+   The real order only exists on LeaguePals' own recap/score-sheet report,
+   which needs a login to view (see below) - so nothing is trusted here unless
+   you've verified it against that report.
 3. **Points** (team 3/3/3/6, individual 1/1/1/2) are recomputed on the handicap
    scores. LeaguePals' 4th games value is `scratch + perGameHdcp x games`, so
    the per-week handicap is derived from it directly.
 
 Because of (2), every matchup carries a **`pairingConfirmed`** flag: true only
-when both sides bowled all five regulars that week (or a side was hand-verified
-- see below). Team totals and results are exact regardless of this flag; only
-the *who-faced-who* breakdown and anything built from it (individual points,
+when **both sides have been hand-verified** for that week in
+`data\lineups\<date>.json` (see below) - never inferred just because nobody was
+absent. Team totals and results are exact regardless of this flag; only the
+*who-faced-who* breakdown and anything built from it (individual points,
 bowler-vs-bowler history, the computed points leaderboard) are gated by it.
 Unconfirmed matchups show a clear warning in the dashboard instead of a
 confident-looking wrong answer.
@@ -246,6 +249,29 @@ Blind behaviour is configurable in `config.json` -> `blindRules`.
 
 `data\lineups\` is committed to git alongside `data\raw\` - it's your work, not
 regenerable output.
+
+### Getting the real data: score sheets and full-week reports
+
+- **Per-matchup**: LeaguePals -> your league -> Scoring tab -> pick the week ->
+  your matchup -> "View Score Sheet". Needs a login.
+- **Whole week at once**: a league manager can print a full report PDF covering
+  all matchups for a week (one page per matchup - same score-sheet layout).
+  Adam gets these; if you can too, one PDF is worth more than a screenshot per
+  matchup.
+- **A public URL exists**: each week's full report links to
+  `https://www.leaguepals.com/currentscores?id=<reportId>` (visible at the
+  bottom of every page of the printed PDF), and that page **loads with no
+  login** - verified by fetching it cold. The catch: `reportId` isn't derivable
+  from the public feed this pipeline already pulls (checked the Angular API
+  factory - not defined there, so it's built elsewhere in the app), so it's
+  only known once someone generates/views the report. If you can grab that
+  URL each week (from the PDF, or from wherever the app shows it before you
+  print), it's worth exploring a proper parser for it - the HTML/DOM is far
+  more reliable to parse than PDF text layout, and one URL covers the entire
+  week in one fetch instead of a screenshot per matchup. Not yet built.
+- Extracting text from a PDF report locally: `pdftotext.exe` ships with Git for
+  Windows at `C:\Program Files\Git\mingw64\bin\pdftotext.exe` (no separate
+  install needed on this machine) - `pdftotext -layout file.pdf out.txt`.
 
 ## Config
 

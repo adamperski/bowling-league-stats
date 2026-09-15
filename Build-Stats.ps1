@@ -586,16 +586,15 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
     if (-not $sa.Count -or -not $sb.Count) { continue }
     $ta = Team-Calc $sa; $tb = Team-Calc $sb
 
-    # Individual (position) pairing is only trustworthy when a side is at full
-    # strength - a sub or blind proves LeaguePals doesn't expose real seating
-    # order, and an absence can shift *everyone else's* seat too (confirmed
-    # against real recap sheets: a team missing bowler 1 did not simply have
-    # bowlers 2-5 stay put with a sub added at the end). A side manually
-    # resolved in data\lineups\<date>.json is trusted as ground truth instead.
-    $sideAClean = -not (@($sa | Where-Object { $_.kind -eq 'sub' -or $_.kind -eq 'blind' }).Count)
-    $sideBClean = -not (@($sb | Where-Object { $_.kind -eq 'sub' -or $_.kind -eq 'blind' }).Count)
-    $sideAConfirmed = $sideAClean -or [bool]$resolvedMap["$date|$A"]
-    $sideBConfirmed = $sideBClean -or [bool]$resolvedMap["$date|$B"]
+    # Individual (position) pairing is NEVER assumed - only trusted when a side
+    # has been hand-verified in data\lineups\<date>.json against the real
+    # score sheet. A full 5-of-5 lineup with no sub/blind is NOT enough on its
+    # own: teams can and do reorder a full-strength lineup week to week
+    # (matchups, rivalries), so "nobody was absent" doesn't imply "bowlerInfos
+    # order was used". Verified end-to-end against a real score sheet once the
+    # true order + averages were entered (see README).
+    $sideAConfirmed = [bool]$resolvedMap["$date|$A"]
+    $sideBConfirmed = [bool]$resolvedMap["$date|$B"]
     $pairingConfirmed = $sideAConfirmed -and $sideBConfirmed
 
     # team contests (handicap) + their winners for blind-vs-blind fallback
