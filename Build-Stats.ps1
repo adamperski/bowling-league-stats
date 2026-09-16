@@ -313,7 +313,13 @@ foreach ($b in $bowlers) {
     }
 }
 $bowlerByName = @{}
-foreach ($b in $bowlers) { if (-not $bowlerByName.ContainsKey($b.name)) { $bowlerByName[$b.name] = $b } }
+foreach ($b in $bowlers) {
+    # index by display name (nickname, if useNickname is set) AND by the raw
+    # full name - a hand-typed lineup entry (from a score sheet, which prints
+    # the real name) won't know a bowler is shown under a nickname elsewhere.
+    if (-not $bowlerByName.ContainsKey($b.name)) { $bowlerByName[$b.name] = $b }
+    if ($b.fullName -and -not $bowlerByName.ContainsKey($b.fullName)) { $bowlerByName[$b.fullName] = $b }
+}
 
 # roster position per team (index in bowlerInfos, cross-checked against the email tag)
 $teamRoster = @{}
