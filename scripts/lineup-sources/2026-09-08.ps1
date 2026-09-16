@@ -1,18 +1,13 @@
 <#
-    One-off import: full week-4 (2026-09-08) report, transcribed from the
-    league's printed PDF (all 20 matchups) and cross-checked against each
-    team's known roster to classify bowler / sub / blind. See chat history /
-    memory for the extraction method (pdftotext, both -layout and raw dumps,
-    arithmetic-validated against each block's handicap math).
-#>
-$ErrorActionPreference = 'Stop'
-$root = Split-Path -Parent $PSScriptRoot
-$date = '2026-09-08'
-$file = Join-Path $root "data\lineups\$date.json"
+    Week 4 (2026-09-08) lineups, transcribed from the full-week report PDF
+    the user printed and attached (20 matchups / 40 teams). Run via:
 
-function T($name, $avg, $kind = 'bowler', $subFor = $null, $blindFor = $null) {
-    [ordered]@{ name = $name; kind = $kind; avg = $avg; subFor = $subFor; blindFor = $blindFor }
-}
+        .\scripts\Import-WeekReport.ps1 -Date 2026-09-08 `
+            -DataFile scripts\lineup-sources\2026-09-08.ps1 `
+            -Source "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15"
+
+    T() is provided by Import-WeekReport.ps1 (dot-sourced into its scope).
+#>
 
 # teamName -> ordered 5 entries (pos 1..5 = array order)
 $teams = [ordered]@{
@@ -297,33 +292,3 @@ $teams = [ordered]@{
         T 'Santino DeLeon' 162 'sub' 'Derek Gonzales'
     )
 }
-
-$doc = if (Test-Path $file) { Get-Content -Raw $file | ConvertFrom-Json } else {
-    [pscustomobject]@{ date = $date; _help = 'Full week import from the printed report PDF.'; teams = [ordered]@{} }
-}
-if (-not $doc.teams) { $doc | Add-Member -Force teams ([pscustomobject]@{}) }
-
-foreach ($tname in $teams.Keys) {
-    $roster = @($teams[$tname])
-    $lineup = @()
-    for ($i = 0; $i -lt $roster.Count; $i++) {
-        $lineup += [ordered]@{
-            pos      = $i + 1
-            kind     = $roster[$i].kind
-            name     = $roster[$i].name
-            blindFor = $roster[$i].blindFor
-            subFor   = $roster[$i].subFor
-            avg      = $roster[$i].avg
-        }
-    }
-    $entry = [ordered]@{
-        resolved     = $true
-        autoFlags    = @()
-        verifiedFrom = 'Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15'
-        lineup       = $lineup
-    }
-    $doc.teams | Add-Member -Force $tname $entry
-}
-
-$doc | ConvertTo-Json -Depth 10 | Set-Content -Encoding utf8 $file
-Write-Host "Wrote $($teams.Count) verified team-lineups into $file"

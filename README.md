@@ -258,20 +258,54 @@ regenerable output.
   all matchups for a week (one page per matchup - same score-sheet layout).
   Adam gets these; if you can too, one PDF is worth more than a screenshot per
   matchup.
-- **A public URL exists**: each week's full report links to
-  `https://www.leaguepals.com/currentscores?id=<reportId>` (visible at the
-  bottom of every page of the printed PDF), and that page **loads with no
-  login** - verified by fetching it cold. The catch: `reportId` isn't derivable
-  from the public feed this pipeline already pulls (checked the Angular API
-  factory - not defined there, so it's built elsewhere in the app), so it's
-  only known once someone generates/views the report. If you can grab that
-  URL each week (from the PDF, or from wherever the app shows it before you
-  print), it's worth exploring a proper parser for it - the HTML/DOM is far
-  more reliable to parse than PDF text layout, and one URL covers the entire
-  week in one fetch instead of a screenshot per matchup. Not yet built.
+- **A public URL exists, but it's not a stable data source**: each week's
+  full report links to `https://www.leaguepals.com/currentscores?id=<reportId>`
+  (visible at the bottom of every page of the printed PDF), and that page
+  **loads with no login** - verified by fetching it cold. However, `reportId`
+  is generated fresh, server-side, only when you click the print icon on a
+  "View Score Sheet" and select matchups to print - it's not derivable from
+  the public feed and not a stable per-week identifier, so it can't be
+  automated or pre-fetched. Treat it the same as the PDF: something you hand
+  over when you happen to print one, not something this pipeline can go get
+  on its own.
 - Extracting text from a PDF report locally: `pdftotext.exe` ships with Git for
   Windows at `C:\Program Files\Git\mingw64\bin\pdftotext.exe` (no separate
-  install needed on this machine) - `pdftotext -layout file.pdf out.txt`.
+  install needed on this machine) - `pdftotext -layout file.pdf out.txt`. If a
+  block's columns come out misaligned (numbers not lined up with names),
+  re-extract just that page without `-layout` (`pdftotext -f N -l N file.pdf
+  page.txt`) and use the raw column-major token order instead; cross-check
+  each bowler's printed handicap total against
+  `scratchTotal + 3*floor((235-avg)*0.9)` to confirm which numbers are theirs
+  before transcribing.
+
+### Importing a full-week report
+
+`scripts\Import-WeekReport.ps1` writes a full week's hand-transcribed lineups
+(all 40 teams) into `data\lineups\<date>.json` as `resolved: true` entries in
+one shot, instead of hand-editing each team. To use it:
+
+1. Transcribe the printed report into its own small data file under
+   `scripts\lineup-sources\<date>.ps1` (see `2026-09-08.ps1` for the format -
+   one `T name avg [kind] [subFor] [blindFor]` line per bowler, grouped by
+   team name).
+2. Run:
+   ```powershell
+   .\scripts\Import-WeekReport.ps1 -Date 2026-09-08 `
+       -DataFile scripts\lineup-sources\2026-09-08.ps1 `
+       -Source "Full week report PDF, printed 2026-09-15"
+   ```
+
+It sanity-checks the transcription before writing: flags any team name that
+doesn't match the latest snapshot (typo), any lineup that isn't exactly 5
+entries, any bowler listed twice on the same team, and any known team the
+import doesn't cover - review those warnings before trusting the result.
+
+A hand-verified import still can't recover individual game scores for a
+bowler with **no `weekGames` record at all** under their identity for that
+date (seen for a couple of first-time subs) - the lineup position/pairing is
+correctly confirmed, but their 3 games still fall back to a blind-average
+estimate, since the schema stores name/avg/kind, not raw per-game scores.
+This is a LeaguePals data gap, not a bug.
 
 ## Config
 
