@@ -2,6 +2,55 @@
     "date":  "2026-09-08",
     "_help":  "Weeks with a blind / sub / missed game. Fix each team\u0027s lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate.",
     "teams":  {
+                  "Pocket Pounders":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "sub",
+                                                             "name":  "Erin Marchant",
+                                                             "blindFor":  null,
+                                                             "subFor":  "Jordan Yancey",
+                                                             "avg":  203
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "bowler",
+                                                             "name":  "Trey Erickson",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  190
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Chuck Dreux",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  193
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "Tim Pester",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  220
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "Bryan Keller",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  214
+                                                         }
+                                                     ]
+                                      },
                   "Wheelhouse":  {
                                      "resolved":  true,
                                      "autoFlags":  [
@@ -1129,7 +1178,7 @@
                                                        }
                                                    ]
                                     },
-                  "Pocket Pounders":  {
+                  "Mother Chuckers":  {
                                           "resolved":  true,
                                           "autoFlags":  [
 
@@ -1441,7 +1490,7 @@
                                                          {
                                                              "pos":  2,
                                                              "kind":  "bowler",
-                                                             "name":  "Sarah Garafano",
+                                                             "name":  "Sarah Garofano",
                                                              "blindFor":  null,
                                                              "subFor":  null,
                                                              "avg":  173

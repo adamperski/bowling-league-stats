@@ -53,6 +53,25 @@ if ($latestSnap) {
         $knownTeams = @($standings.standings | Where-Object { -not $_.team.isBye -and -not $_.team.isPacer } | ForEach-Object { $_.team.name })
     }
 }
+# Every name a bowler could legitimately be transcribed under: their raw full
+# name AND their display name (nickname, when useNickname is set) - a report
+# printed under either form should resolve, same as Build-Stats.ps1's
+# $bowlerByName. A name matching NEITHER almost always means either a typo or
+# a nickname/suffix mismatch (the exact bug that silently blind-filled Rick
+# Armstrong (Showtime) earlier - see memory/README).
+$knownBowlerNames = $null
+if ($latestSnap) {
+    $knownBowlerNames = New-Object System.Collections.Generic.HashSet[string]
+    Get-ChildItem $latestSnap.FullName -Filter 'team_*.json' | ForEach-Object {
+        foreach ($b in (Get-Content -Raw $_.FullName | ConvertFrom-Json).data) {
+            [void]$knownBowlerNames.Add("$($b.name)")
+            $display = if ($b.useNickname -and $b.nickNames -and $b.nickNames[0]) { "$($b.nickNames[0])" }
+                       elseif ($b.dontIdentify) { $null }
+                       else { "$($b.name)" }
+            if ($display) { [void]$knownBowlerNames.Add($display) }
+        }
+    }
+}
 $warnings = @()
 foreach ($tname in $teams.Keys) {
     $roster = @($teams[$tname])
@@ -60,6 +79,13 @@ foreach ($tname in $teams.Keys) {
     $dupes = @($roster | ForEach-Object { $_.name } | Group-Object | Where-Object Count -gt 1)
     foreach ($d in $dupes) { $warnings += "'$tname' lists '$($d.Name)' more than once" }
     if ($knownTeams -and $knownTeams -notcontains $tname) { $warnings += "'$tname' doesn't match any team name in the latest snapshot ($($latestSnap.Name)) - typo?" }
+    if ($knownBowlerNames) {
+        foreach ($r in $roster) {
+            if ($r.kind -in @('bowler', 'blind') -and $r.name -ne 'Vacant' -and -not $knownBowlerNames.Contains("$($r.name)")) {
+                $warnings += "'$tname': '$($r.name)' ($($r.kind)) doesn't match any known bowler name/nickname in the latest snapshot - transcription mismatch?"
+            }
+        }
+    }
 }
 if ($knownTeams) {
     $missingTeams = @($knownTeams | Where-Object { $teams.Keys -notcontains $_ })

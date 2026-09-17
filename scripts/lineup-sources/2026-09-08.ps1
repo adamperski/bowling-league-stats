@@ -172,7 +172,7 @@ $teams = [ordered]@{
         T 'Shawn Claussen' 215
         T 'Noah Werner' 218
     )
-    'Pocket Pounders' = @(
+    'Mother Chuckers' = @( # renamed from "Pocket Pounders" sometime after week 4; Build-Stats.ps1 keys lineup files by CURRENT team name
         T 'Erin Marchant' 203 'sub' 'Jordan Yancey'
         T 'Trey Erickson' 190
         T 'Chuck Dreux' 193
@@ -216,7 +216,7 @@ $teams = [ordered]@{
     )
     'Chicken Nuggies' = @(
         T 'William Reynolds' 209
-        T 'Sarah Garafano' 173
+        T 'Sarah Garofano' 173
         T 'Justyne Jansen' 202
         T 'Brian Douglass' 220
         T 'Dante Lundy' 239 'sub' 'Isabel Ping'

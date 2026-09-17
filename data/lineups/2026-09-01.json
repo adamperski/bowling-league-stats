@@ -2,294 +2,6 @@
     "date":  "2026-09-01",
     "_help":  "Weeks with a blind / sub / missed game. Fix each team\u0027s lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate.",
     "teams":  {
-                  "Luxury Box Sports":  {
-                                            "resolved":  false,
-                                            "autoFlags":  [
-                                                              "pos1 BLIND for Jamaal Calhoun (avg 213, scores 203/game +hdcp)"
-                                                          ],
-                                            "lineup":  [
-                                                           {
-                                                               "pos":  1,
-                                                               "kind":  "blind",
-                                                               "name":  "Jamaal Calhoun",
-                                                               "blindFor":  "Jamaal Calhoun",
-                                                               "subFor":  null,
-                                                               "avg":  213
-                                                           },
-                                                           {
-                                                               "pos":  2,
-                                                               "kind":  "bowler",
-                                                               "name":  "Aaron Chilton",
-                                                               "blindFor":  null,
-                                                               "subFor":  null,
-                                                               "avg":  214
-                                                           },
-                                                           {
-                                                               "pos":  3,
-                                                               "kind":  "bowler",
-                                                               "name":  "Rayvone Hackshaw",
-                                                               "blindFor":  null,
-                                                               "subFor":  null,
-                                                               "avg":  205
-                                                           },
-                                                           {
-                                                               "pos":  4,
-                                                               "kind":  "bowler",
-                                                               "name":  "Jeffrey Jones",
-                                                               "blindFor":  null,
-                                                               "subFor":  null,
-                                                               "avg":  214
-                                                           },
-                                                           {
-                                                               "pos":  5,
-                                                               "kind":  "bowler",
-                                                               "name":  "Benjie Garrison",
-                                                               "blindFor":  null,
-                                                               "subFor":  null,
-                                                               "avg":  223
-                                                           }
-                                                       ]
-                                        },
-                  "Bowlscore.com":  {
-                                        "resolved":  false,
-                                        "autoFlags":  [
-                                                          "pos1 BLIND for Adam Philp (avg 215, scores 205/game +hdcp)"
-                                                      ],
-                                        "lineup":  [
-                                                       {
-                                                           "pos":  1,
-                                                           "kind":  "blind",
-                                                           "name":  "Adam Philp",
-                                                           "blindFor":  "Adam Philp",
-                                                           "subFor":  null,
-                                                           "avg":  215
-                                                       },
-                                                       {
-                                                           "pos":  2,
-                                                           "kind":  "bowler",
-                                                           "name":  "Ed Cutshaw",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  212
-                                                       },
-                                                       {
-                                                           "pos":  3,
-                                                           "kind":  "bowler",
-                                                           "name":  "Rodwyn Lyons Sr",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  206
-                                                       },
-                                                       {
-                                                           "pos":  4,
-                                                           "kind":  "bowler",
-                                                           "name":  "Lee Schwartz",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  211
-                                                       },
-                                                       {
-                                                           "pos":  5,
-                                                           "kind":  "bowler",
-                                                           "name":  "Ted Vargas",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  200
-                                                       }
-                                                   ]
-                                    },
-                  "PIN-A-TRATORS":  {
-                                        "resolved":  false,
-                                        "autoFlags":  [
-                                                          "pos2 BLIND for Greg Hydle (avg 203, scores 193/game +hdcp)"
-                                                      ],
-                                        "lineup":  [
-                                                       {
-                                                           "pos":  1,
-                                                           "kind":  "bowler",
-                                                           "name":  "Benjamin Morgan",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  222
-                                                       },
-                                                       {
-                                                           "pos":  2,
-                                                           "kind":  "blind",
-                                                           "name":  "Greg Hydle",
-                                                           "blindFor":  "Greg Hydle",
-                                                           "subFor":  null,
-                                                           "avg":  203
-                                                       },
-                                                       {
-                                                           "pos":  3,
-                                                           "kind":  "bowler",
-                                                           "name":  "David Owens",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  201
-                                                       },
-                                                       {
-                                                           "pos":  4,
-                                                           "kind":  "bowler",
-                                                           "name":  "Greg Morgan",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  223
-                                                       },
-                                                       {
-                                                           "pos":  5,
-                                                           "kind":  "bowler",
-                                                           "name":  "Deon Fleming",
-                                                           "blindFor":  null,
-                                                           "subFor":  null,
-                                                           "avg":  225
-                                                       }
-                                                   ]
-                                    },
-                  "Chicken Nuggies":  {
-                                          "resolved":  false,
-                                          "autoFlags":  [
-                                                            "pos1 SUB Dante Lundy (avg 239) for Isabel Ping - confirm position"
-                                                        ],
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "sub",
-                                                             "name":  "Dante Lundy",
-                                                             "blindFor":  null,
-                                                             "subFor":  "Isabel Ping",
-                                                             "avg":  239
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "bowler",
-                                                             "name":  "Justyne Jansen",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  202
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "bowler",
-                                                             "name":  "Brian Douglass",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  220
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "Sarah Garafano",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  173
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "bowler",
-                                                             "name":  "William Reynolds",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  209
-                                                         }
-                                                     ]
-                                      },
-                  "Apex Auto Glass":  {
-                                          "resolved":  false,
-                                          "autoFlags":  [
-                                                            "pos2 SUB Jerry Navasack (avg 157) for Ying Singchaichana - confirm position"
-                                                        ],
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "bowler",
-                                                             "name":  "Tham Namvong",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  217
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "sub",
-                                                             "name":  "Jerry Navasack",
-                                                             "blindFor":  null,
-                                                             "subFor":  "Ying Singchaichana",
-                                                             "avg":  157
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "bowler",
-                                                             "name":  "Bounethai Novankham",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  198
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "Somdeth Sinouansai",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  214
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "bowler",
-                                                             "name":  "John Gwynn",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  237
-                                                         }
-                                                     ]
-                                      },
-                  "Throw A Better Ball":  {
-                                              "resolved":  false,
-                                              "autoFlags":  [
-                                                                "pos2 SUB Mariah Salinas (avg 154) for William A Gotwald - confirm position"
-                                                            ],
-                                              "lineup":  [
-                                                             {
-                                                                 "pos":  1,
-                                                                 "kind":  "bowler",
-                                                                 "name":  "Damion Rangel",
-                                                                 "blindFor":  null,
-                                                                 "subFor":  null,
-                                                                 "avg":  199
-                                                             },
-                                                             {
-                                                                 "pos":  2,
-                                                                 "kind":  "sub",
-                                                                 "name":  "Mariah Salinas",
-                                                                 "blindFor":  null,
-                                                                 "subFor":  "William A Gotwald",
-                                                                 "avg":  154
-                                                             },
-                                                             {
-                                                                 "pos":  3,
-                                                                 "kind":  "bowler",
-                                                                 "name":  "Adam Salinas",
-                                                                 "blindFor":  null,
-                                                                 "subFor":  null,
-                                                                 "avg":  196
-                                                             },
-                                                             {
-                                                                 "pos":  4,
-                                                                 "kind":  "bowler",
-                                                                 "name":  "Andrew Schlehuber",
-                                                                 "blindFor":  null,
-                                                                 "subFor":  null,
-                                                                 "avg":  207
-                                                             },
-                                                             {
-                                                                 "pos":  5,
-                                                                 "kind":  "bowler",
-                                                                 "name":  "Mario Vigil",
-                                                                 "blindFor":  null,
-                                                                 "subFor":  null,
-                                                                 "avg":  213
-                                                             }
-                                                         ]
-                                          },
                   "Pocket Pounders":  {
                                           "resolved":  false,
                                           "autoFlags":  [
@@ -338,455 +50,117 @@
                                                          }
                                                      ]
                                       },
-                  "Corpse Crew":  {
-                                      "resolved":  false,
-                                      "autoFlags":  [
-                                                        "pos3 BLIND for Paul Quinn (NO established avg - using vacancy fill, scores 160/game +hdcp)",
-                                                        "pos5 BLIND for Josh Henshaw (avg 197, scores 187/game +hdcp)"
-                                                    ],
-                                      "lineup":  [
-                                                     {
-                                                         "pos":  1,
-                                                         "kind":  "bowler",
-                                                         "name":  "Kayla Osei",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  185
-                                                     },
-                                                     {
-                                                         "pos":  2,
-                                                         "kind":  "bowler",
-                                                         "name":  "Randy Cleghorn",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  189
-                                                     },
-                                                     {
-                                                         "pos":  3,
-                                                         "kind":  "blind",
-                                                         "name":  "Paul Quinn",
-                                                         "blindFor":  "Paul Quinn",
-                                                         "subFor":  null,
-                                                         "avg":  0
-                                                     },
-                                                     {
-                                                         "pos":  4,
-                                                         "kind":  "bowler",
-                                                         "name":  "Tanya Craig",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  171
-                                                     },
-                                                     {
-                                                         "pos":  5,
-                                                         "kind":  "blind",
-                                                         "name":  "Josh Henshaw",
-                                                         "blindFor":  "Josh Henshaw",
-                                                         "subFor":  null,
-                                                         "avg":  197
-                                                     }
-                                                 ]
-                                  },
-                  "Panetta Heating":  {
-                                          "resolved":  false,
+                  "Luxury Box Sports":  {
+                                            "resolved":  true,
+                                            "autoFlags":  [
+
+                                                          ],
+                                            "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                            "lineup":  [
+                                                           {
+                                                               "pos":  1,
+                                                               "kind":  "bowler",
+                                                               "name":  "Jamaal Calhoun",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  213
+                                                           },
+                                                           {
+                                                               "pos":  2,
+                                                               "kind":  "bowler",
+                                                               "name":  "Aaron Chilton",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  214
+                                                           },
+                                                           {
+                                                               "pos":  3,
+                                                               "kind":  "bowler",
+                                                               "name":  "Rayvone Hackshaw",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  205
+                                                           },
+                                                           {
+                                                               "pos":  4,
+                                                               "kind":  "bowler",
+                                                               "name":  "Jeffrey Jones",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  214
+                                                           },
+                                                           {
+                                                               "pos":  5,
+                                                               "kind":  "bowler",
+                                                               "name":  "Benjie Garrison",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  223
+                                                           }
+                                                       ]
+                                        },
+                  "Sweetman Racing":  {
+                                          "resolved":  true,
                                           "autoFlags":  [
-                                                            "pos4 SUB Gianna E Panetta (avg 195) for Robert Gieck - confirm position"
+
                                                         ],
+                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
                                                              "kind":  "bowler",
-                                                             "name":  "Tony Panetta",
+                                                             "name":  "Van Vasquez",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  163
+                                                             "avg":  174
                                                          },
                                                          {
                                                              "pos":  2,
                                                              "kind":  "bowler",
-                                                             "name":  "Jeffrie Delaney",
+                                                             "name":  "Rich Lista",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  223
+                                                             "avg":  197
                                                          },
                                                          {
                                                              "pos":  3,
                                                              "kind":  "bowler",
-                                                             "name":  "Rocco Panetta",
+                                                             "name":  "Kevin Sweetman",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  202
+                                                             "avg":  193
                                                          },
                                                          {
                                                              "pos":  4,
-                                                             "kind":  "sub",
-                                                             "name":  "Gianna E Panetta",
+                                                             "kind":  "bowler",
+                                                             "name":  "James Eisenhauer",
                                                              "blindFor":  null,
-                                                             "subFor":  "Robert Gieck",
-                                                             "avg":  195
+                                                             "subFor":  null,
+                                                             "avg":  187
                                                          },
                                                          {
                                                              "pos":  5,
                                                              "kind":  "bowler",
-                                                             "name":  "Randy Wood",
+                                                             "name":  "Alex Gott",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  238
+                                                             "avg":  197
                                                          }
                                                      ]
                                       },
-                  "No Llores":  {
-                                    "resolved":  false,
-                                    "autoFlags":  [
-                                                      "pos1 SUB Chris Imel (avg 204) for Tonya Garcia - confirm position"
-                                                  ],
-                                    "lineup":  [
-                                                   {
-                                                       "pos":  1,
-                                                       "kind":  "sub",
-                                                       "name":  "Chris Imel",
-                                                       "blindFor":  null,
-                                                       "subFor":  "Tonya Garcia",
-                                                       "avg":  204
-                                                   },
-                                                   {
-                                                       "pos":  2,
-                                                       "kind":  "bowler",
-                                                       "name":  "Jesus Meraz",
-                                                       "blindFor":  null,
-                                                       "subFor":  null,
-                                                       "avg":  199
-                                                   },
-                                                   {
-                                                       "pos":  3,
-                                                       "kind":  "bowler",
-                                                       "name":  "Robb Vigil",
-                                                       "blindFor":  null,
-                                                       "subFor":  null,
-                                                       "avg":  199
-                                                   },
-                                                   {
-                                                       "pos":  4,
-                                                       "kind":  "bowler",
-                                                       "name":  "Eric Cummings",
-                                                       "blindFor":  null,
-                                                       "subFor":  null,
-                                                       "avg":  216
-                                                   },
-                                                   {
-                                                       "pos":  5,
-                                                       "kind":  "bowler",
-                                                       "name":  "Derek Gonzales",
-                                                       "blindFor":  null,
-                                                       "subFor":  null,
-                                                       "avg":  203
-                                                   }
-                                               ]
-                                },
-                  "SHARKS":  {
-                                 "resolved":  false,
-                                 "autoFlags":  [
-                                                   "pos4 BLIND for Todd Sanders (avg 212, scores 202/game +hdcp)"
-                                               ],
-                                 "lineup":  [
-                                                {
-                                                    "pos":  1,
-                                                    "kind":  "bowler",
-                                                    "name":  "Matt Padilla",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  219
-                                                },
-                                                {
-                                                    "pos":  2,
-                                                    "kind":  "bowler",
-                                                    "name":  "David Padilla",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  201
-                                                },
-                                                {
-                                                    "pos":  3,
-                                                    "kind":  "bowler",
-                                                    "name":  "Vincent Padilla",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  195
-                                                },
-                                                {
-                                                    "pos":  4,
-                                                    "kind":  "blind",
-                                                    "name":  "Todd Sanders",
-                                                    "blindFor":  "Todd Sanders",
-                                                    "subFor":  null,
-                                                    "avg":  212
-                                                },
-                                                {
-                                                    "pos":  5,
-                                                    "kind":  "bowler",
-                                                    "name":  "Mark Hoffman",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  218
-                                                }
-                                            ]
-                             },
-                  "Last Minute":  {
-                                      "resolved":  false,
-                                      "autoFlags":  [
-                                                        "pos1 SUB Laszlo Soos (avg 197) for Gabby Pineda - GUESSED position - verify",
-                                                        "pos3 BLIND for Joshua Blair (avg 198, scores 188/game +hdcp)"
-                                                    ],
-                                      "lineup":  [
-                                                     {
-                                                         "pos":  1,
-                                                         "kind":  "sub",
-                                                         "name":  "Laszlo Soos",
-                                                         "blindFor":  null,
-                                                         "subFor":  "Gabby Pineda",
-                                                         "avg":  197
-                                                     },
-                                                     {
-                                                         "pos":  2,
-                                                         "kind":  "bowler",
-                                                         "name":  "Dru Martin",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  205
-                                                     },
-                                                     {
-                                                         "pos":  3,
-                                                         "kind":  "blind",
-                                                         "name":  "Joshua Blair",
-                                                         "blindFor":  "Joshua Blair",
-                                                         "subFor":  null,
-                                                         "avg":  198
-                                                     },
-                                                     {
-                                                         "pos":  4,
-                                                         "kind":  "bowler",
-                                                         "name":  "Fred Pedroza",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  200
-                                                     },
-                                                     {
-                                                         "pos":  5,
-                                                         "kind":  "bowler",
-                                                         "name":  "Erick Podwill",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  213
-                                                     }
-                                                 ]
-                                  },
-                  "The Money Team":  {
-                                         "resolved":  false,
-                                         "autoFlags":  [
-                                                           "pos5 BLIND for Blair Watkins (avg 202, scores 192/game +hdcp)"
-                                                       ],
-                                         "lineup":  [
-                                                        {
-                                                            "pos":  1,
-                                                            "kind":  "bowler",
-                                                            "name":  "John Laws",
-                                                            "blindFor":  null,
-                                                            "subFor":  null,
-                                                            "avg":  211
-                                                        },
-                                                        {
-                                                            "pos":  2,
-                                                            "kind":  "bowler",
-                                                            "name":  "Bobby Hurtado",
-                                                            "blindFor":  null,
-                                                            "subFor":  null,
-                                                            "avg":  199
-                                                        },
-                                                        {
-                                                            "pos":  3,
-                                                            "kind":  "bowler",
-                                                            "name":  "Matthew Quintana",
-                                                            "blindFor":  null,
-                                                            "subFor":  null,
-                                                            "avg":  172
-                                                        },
-                                                        {
-                                                            "pos":  4,
-                                                            "kind":  "bowler",
-                                                            "name":  "Joseph Guinn",
-                                                            "blindFor":  null,
-                                                            "subFor":  null,
-                                                            "avg":  206
-                                                        },
-                                                        {
-                                                            "pos":  5,
-                                                            "kind":  "blind",
-                                                            "name":  "Blair Watkins",
-                                                            "blindFor":  "Blair Watkins",
-                                                            "subFor":  null,
-                                                            "avg":  202
-                                                        }
-                                                    ]
-                                     },
-                  "Multiple Scorgasms":  {
-                                             "resolved":  false,
-                                             "autoFlags":  [
-                                                               "pos2 SUB Frank Ramirez (avg 193) for Orlando Garcia - GUESSED position - verify",
-                                                               "pos4 BLIND for Antonio Garcia (avg 204, scores 194/game +hdcp)"
-                                                           ],
-                                             "lineup":  [
-                                                            {
-                                                                "pos":  1,
-                                                                "kind":  "bowler",
-                                                                "name":  "Bobby Torrez",
-                                                                "blindFor":  null,
-                                                                "subFor":  null,
-                                                                "avg":  194
-                                                            },
-                                                            {
-                                                                "pos":  2,
-                                                                "kind":  "sub",
-                                                                "name":  "Frank Ramirez",
-                                                                "blindFor":  null,
-                                                                "subFor":  "Orlando Garcia",
-                                                                "avg":  193
-                                                            },
-                                                            {
-                                                                "pos":  3,
-                                                                "kind":  "bowler",
-                                                                "name":  "Mike Chavez",
-                                                                "blindFor":  null,
-                                                                "subFor":  null,
-                                                                "avg":  208
-                                                            },
-                                                            {
-                                                                "pos":  4,
-                                                                "kind":  "blind",
-                                                                "name":  "Antonio Garcia",
-                                                                "blindFor":  "Antonio Garcia",
-                                                                "subFor":  null,
-                                                                "avg":  204
-                                                            },
-                                                            {
-                                                                "pos":  5,
-                                                                "kind":  "bowler",
-                                                                "name":  "Phoenix Chavez",
-                                                                "blindFor":  null,
-                                                                "subFor":  null,
-                                                                "avg":  215
-                                                            }
-                                                        ]
-                                         },
-                  "Rocky Mountain Tap \u0026 Garden":  {
-                                                           "resolved":  false,
-                                                           "autoFlags":  [
-                                                                             "pos1 SUB Becky Gee (avg 163) for Max Landis - GUESSED position - verify",
-                                                                             "pos2 BLIND for Chris Landis (avg 215, scores 205/game +hdcp)",
-                                                                             "pos3 BLIND for Doug Mclaughlin (avg 196, scores 186/game +hdcp)"
-                                                                         ],
-                                                           "lineup":  [
-                                                                          {
-                                                                              "pos":  1,
-                                                                              "kind":  "sub",
-                                                                              "name":  "Becky Gee",
-                                                                              "blindFor":  null,
-                                                                              "subFor":  "Max Landis",
-                                                                              "avg":  163
-                                                                          },
-                                                                          {
-                                                                              "pos":  2,
-                                                                              "kind":  "blind",
-                                                                              "name":  "Chris Landis",
-                                                                              "blindFor":  "Chris Landis",
-                                                                              "subFor":  null,
-                                                                              "avg":  215
-                                                                          },
-                                                                          {
-                                                                              "pos":  3,
-                                                                              "kind":  "blind",
-                                                                              "name":  "Doug Mclaughlin",
-                                                                              "blindFor":  "Doug Mclaughlin",
-                                                                              "subFor":  null,
-                                                                              "avg":  196
-                                                                          },
-                                                                          {
-                                                                              "pos":  4,
-                                                                              "kind":  "bowler",
-                                                                              "name":  "Troy Wilson",
-                                                                              "blindFor":  null,
-                                                                              "subFor":  null,
-                                                                              "avg":  195
-                                                                          },
-                                                                          {
-                                                                              "pos":  5,
-                                                                              "kind":  "bowler",
-                                                                              "name":  "Terry Conklin",
-                                                                              "blindFor":  null,
-                                                                              "subFor":  null,
-                                                                              "avg":  201
-                                                                          }
-                                                                      ]
-                                                       },
-                  "Kamikaze Keglers":  {
-                                           "resolved":  false,
-                                           "autoFlags":  [
-                                                             "pos4 SUB Dave Eddy (avg 212) for Jon Hanson - confirm position"
-                                                         ],
-                                           "lineup":  [
-                                                          {
-                                                              "pos":  1,
-                                                              "kind":  "bowler",
-                                                              "name":  "Zachary Knight",
-                                                              "blindFor":  null,
-                                                              "subFor":  null,
-                                                              "avg":  185
-                                                          },
-                                                          {
-                                                              "pos":  2,
-                                                              "kind":  "bowler",
-                                                              "name":  "JJ Harnke",
-                                                              "blindFor":  null,
-                                                              "subFor":  null,
-                                                              "avg":  187
-                                                          },
-                                                          {
-                                                              "pos":  3,
-                                                              "kind":  "bowler",
-                                                              "name":  "Brian Garramone",
-                                                              "blindFor":  null,
-                                                              "subFor":  null,
-                                                              "avg":  218
-                                                          },
-                                                          {
-                                                              "pos":  4,
-                                                              "kind":  "sub",
-                                                              "name":  "Dave Eddy",
-                                                              "blindFor":  null,
-                                                              "subFor":  "Jon Hanson",
-                                                              "avg":  212
-                                                          },
-                                                          {
-                                                              "pos":  5,
-                                                              "kind":  "bowler",
-                                                              "name":  "Spenser Hanson",
-                                                              "blindFor":  null,
-                                                              "subFor":  null,
-                                                              "avg":  204
-                                                          }
-                                                      ]
-                                       },
                   "LET\u0027S GET IT!":  {
-                                             "resolved":  false,
+                                             "resolved":  true,
                                              "autoFlags":  [
-                                                               "pos1 SUB Robert Coleman (avg 182) for Sharon Coleman - confirm position"
+
                                                            ],
+                                             "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
                                              "lineup":  [
                                                             {
                                                                 "pos":  1,
-                                                                "kind":  "sub",
+                                                                "kind":  "bowler",
                                                                 "name":  "Robert Coleman",
                                                                 "blindFor":  null,
-                                                                "subFor":  "Sharon Coleman",
+                                                                "subFor":  null,
                                                                 "avg":  182
                                                             },
                                                             {
@@ -808,26 +182,1742 @@
                                                             {
                                                                 "pos":  4,
                                                                 "kind":  "bowler",
-                                                                "name":  "Ishmael Smittie",
+                                                                "name":  "Rick Armstrong (Showtime)",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  197
+                                                                "avg":  204
                                                             },
                                                             {
                                                                 "pos":  5,
                                                                 "kind":  "bowler",
-                                                                "name":  "Showtime",
+                                                                "name":  "Ishmael Smittie",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  204
+                                                                "avg":  197
                                                             }
                                                         ]
                                          },
-                  "Crippled Khaos":  {
-                                         "resolved":  false,
+                  "Multiple Scorgasms":  {
+                                             "resolved":  true,
+                                             "autoFlags":  [
+
+                                                           ],
+                                             "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                             "lineup":  [
+                                                            {
+                                                                "pos":  1,
+                                                                "kind":  "bowler",
+                                                                "name":  "Phoenix Chavez",
+                                                                "blindFor":  null,
+                                                                "subFor":  null,
+                                                                "avg":  215
+                                                            },
+                                                            {
+                                                                "pos":  2,
+                                                                "kind":  "bowler",
+                                                                "name":  "Bobby Torrez",
+                                                                "blindFor":  null,
+                                                                "subFor":  null,
+                                                                "avg":  194
+                                                            },
+                                                            {
+                                                                "pos":  3,
+                                                                "kind":  "bowler",
+                                                                "name":  "Frank Ramirez",
+                                                                "blindFor":  null,
+                                                                "subFor":  null,
+                                                                "avg":  182
+                                                            },
+                                                            {
+                                                                "pos":  4,
+                                                                "kind":  "blind",
+                                                                "name":  "Antonio Garcia",
+                                                                "blindFor":  "Antonio Garcia",
+                                                                "subFor":  null,
+                                                                "avg":  204
+                                                            },
+                                                            {
+                                                                "pos":  5,
+                                                                "kind":  "bowler",
+                                                                "name":  "Mike Chavez",
+                                                                "blindFor":  null,
+                                                                "subFor":  null,
+                                                                "avg":  208
+                                                            }
+                                                        ]
+                                         },
+                  "Rocky Mountain Tap \u0026 Garden":  {
+                                                           "resolved":  true,
+                                                           "autoFlags":  [
+
+                                                                         ],
+                                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                                           "lineup":  [
+                                                                          {
+                                                                              "pos":  1,
+                                                                              "kind":  "bowler",
+                                                                              "name":  "Becky Gee",
+                                                                              "blindFor":  null,
+                                                                              "subFor":  null,
+                                                                              "avg":  153
+                                                                          },
+                                                                          {
+                                                                              "pos":  2,
+                                                                              "kind":  "bowler",
+                                                                              "name":  "Linda Conklin",
+                                                                              "blindFor":  null,
+                                                                              "subFor":  null,
+                                                                              "avg":  149
+                                                                          },
+                                                                          {
+                                                                              "pos":  3,
+                                                                              "kind":  "bowler",
+                                                                              "name":  "Courtney Hayes",
+                                                                              "blindFor":  null,
+                                                                              "subFor":  null,
+                                                                              "avg":  191
+                                                                          },
+                                                                          {
+                                                                              "pos":  4,
+                                                                              "kind":  "bowler",
+                                                                              "name":  "Troy Wilson",
+                                                                              "blindFor":  null,
+                                                                              "subFor":  null,
+                                                                              "avg":  195
+                                                                          },
+                                                                          {
+                                                                              "pos":  5,
+                                                                              "kind":  "bowler",
+                                                                              "name":  "Terry Conklin",
+                                                                              "blindFor":  null,
+                                                                              "subFor":  null,
+                                                                              "avg":  201
+                                                                          }
+                                                                      ]
+                                                       },
+                  "Schissler\u0027s Army":  {
+                                                "resolved":  true,
+                                                "autoFlags":  [
+
+                                                              ],
+                                                "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                                "lineup":  [
+                                                               {
+                                                                   "pos":  1,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Zach Joslin",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  202
+                                                               },
+                                                               {
+                                                                   "pos":  2,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "John Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  191
+                                                               },
+                                                               {
+                                                                   "pos":  3,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Aaron Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  203
+                                                               },
+                                                               {
+                                                                   "pos":  4,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Derek Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  210
+                                                               },
+                                                               {
+                                                                   "pos":  5,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Ricky Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  222
+                                                               }
+                                                           ]
+                                            },
+                  "Motiv":  {
+                                "resolved":  true,
+                                "autoFlags":  [
+
+                                              ],
+                                "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                "lineup":  [
+                                               {
+                                                   "pos":  1,
+                                                   "kind":  "bowler",
+                                                   "name":  "Katrina Suthers",
+                                                   "blindFor":  null,
+                                                   "subFor":  null,
+                                                   "avg":  193
+                                               },
+                                               {
+                                                   "pos":  2,
+                                                   "kind":  "bowler",
+                                                   "name":  "Julian Torres",
+                                                   "blindFor":  null,
+                                                   "subFor":  null,
+                                                   "avg":  196
+                                               },
+                                               {
+                                                   "pos":  3,
+                                                   "kind":  "bowler",
+                                                   "name":  "Nick Fritchell",
+                                                   "blindFor":  null,
+                                                   "subFor":  null,
+                                                   "avg":  206
+                                               },
+                                               {
+                                                   "pos":  4,
+                                                   "kind":  "bowler",
+                                                   "name":  "Nicholas B Todack",
+                                                   "blindFor":  null,
+                                                   "subFor":  null,
+                                                   "avg":  211
+                                               },
+                                               {
+                                                   "pos":  5,
+                                                   "kind":  "bowler",
+                                                   "name":  "Johnny Camacho",
+                                                   "blindFor":  null,
+                                                   "subFor":  null,
+                                                   "avg":  215
+                                               }
+                                           ]
+                            },
+                  "Throw A Better Ball":  {
+                                              "resolved":  true,
+                                              "autoFlags":  [
+
+                                                            ],
+                                              "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                              "lineup":  [
+                                                             {
+                                                                 "pos":  1,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Damion Rangel",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  199
+                                                             },
+                                                             {
+                                                                 "pos":  2,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Mariah Salinas",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  154
+                                                             },
+                                                             {
+                                                                 "pos":  3,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Adam Salinas",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  196
+                                                             },
+                                                             {
+                                                                 "pos":  4,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Andrew Schlehuber",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  207
+                                                             },
+                                                             {
+                                                                 "pos":  5,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Mario Vigil",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  213
+                                                             }
+                                                         ]
+                                          },
+                  "Bowlscore.com":  {
+                                        "resolved":  true,
+                                        "autoFlags":  [
+
+                                                      ],
+                                        "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                        "lineup":  [
+                                                       {
+                                                           "pos":  1,
+                                                           "kind":  "bowler",
+                                                           "name":  "Ted Vargas",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  200
+                                                       },
+                                                       {
+                                                           "pos":  2,
+                                                           "kind":  "bowler",
+                                                           "name":  "Rodwyn Lyons Sr",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  206
+                                                       },
+                                                       {
+                                                           "pos":  3,
+                                                           "kind":  "bowler",
+                                                           "name":  "Lee Schwartz",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  211
+                                                       },
+                                                       {
+                                                           "pos":  4,
+                                                           "kind":  "bowler",
+                                                           "name":  "Ed Cutshaw",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  212
+                                                       },
+                                                       {
+                                                           "pos":  5,
+                                                           "kind":  "bowler",
+                                                           "name":  "Guy Blunt",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  221
+                                                       }
+                                                   ]
+                                    },
+                  "Hot XXX":  {
+                                  "resolved":  true,
+                                  "autoFlags":  [
+
+                                                ],
+                                  "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                  "lineup":  [
+                                                 {
+                                                     "pos":  1,
+                                                     "kind":  "bowler",
+                                                     "name":  "Brian Farrell",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  168
+                                                 },
+                                                 {
+                                                     "pos":  2,
+                                                     "kind":  "bowler",
+                                                     "name":  "Aaron Levine",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  198
+                                                 },
+                                                 {
+                                                     "pos":  3,
+                                                     "kind":  "bowler",
+                                                     "name":  "Cameron Alcorn",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  178
+                                                 },
+                                                 {
+                                                     "pos":  4,
+                                                     "kind":  "bowler",
+                                                     "name":  "Timothy Lehl",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  212
+                                                 },
+                                                 {
+                                                     "pos":  5,
+                                                     "kind":  "bowler",
+                                                     "name":  "Mark Umscheid",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  226
+                                                 }
+                                             ]
+                              },
+                  "Leave Your Mark Pro Shop":  {
+                                                   "resolved":  true,
+                                                   "autoFlags":  [
+
+                                                                 ],
+                                                   "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                                   "lineup":  [
+                                                                  {
+                                                                      "pos":  1,
+                                                                      "kind":  "bowler",
+                                                                      "name":  "Marco Popovich",
+                                                                      "blindFor":  null,
+                                                                      "subFor":  null,
+                                                                      "avg":  226
+                                                                  },
+                                                                  {
+                                                                      "pos":  2,
+                                                                      "kind":  "bowler",
+                                                                      "name":  "Brenna Tripp",
+                                                                      "blindFor":  null,
+                                                                      "subFor":  null,
+                                                                      "avg":  208
+                                                                  },
+                                                                  {
+                                                                      "pos":  3,
+                                                                      "kind":  "bowler",
+                                                                      "name":  "Hailey Howard",
+                                                                      "blindFor":  null,
+                                                                      "subFor":  null,
+                                                                      "avg":  202
+                                                                  },
+                                                                  {
+                                                                      "pos":  4,
+                                                                      "kind":  "bowler",
+                                                                      "name":  "Aaron Howard",
+                                                                      "blindFor":  null,
+                                                                      "subFor":  null,
+                                                                      "avg":  221
+                                                                  },
+                                                                  {
+                                                                      "pos":  5,
+                                                                      "kind":  "bowler",
+                                                                      "name":  "Timothy Tripp",
+                                                                      "blindFor":  null,
+                                                                      "subFor":  null,
+                                                                      "avg":  231
+                                                                  }
+                                                              ]
+                                               },
+                  "Buzz Roofing":  {
+                                       "resolved":  true,
+                                       "autoFlags":  [
+
+                                                     ],
+                                       "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                       "lineup":  [
+                                                      {
+                                                          "pos":  1,
+                                                          "kind":  "bowler",
+                                                          "name":  "Brett Elliott",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  205
+                                                      },
+                                                      {
+                                                          "pos":  2,
+                                                          "kind":  "bowler",
+                                                          "name":  "Galen Sisto",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  193
+                                                      },
+                                                      {
+                                                          "pos":  3,
+                                                          "kind":  "bowler",
+                                                          "name":  "Lu Busnardo",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  189
+                                                      },
+                                                      {
+                                                          "pos":  4,
+                                                          "kind":  "bowler",
+                                                          "name":  "Keith Kondratko",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  207
+                                                      },
+                                                      {
+                                                          "pos":  5,
+                                                          "kind":  "bowler",
+                                                          "name":  "Frank Busnardo",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  213
+                                                      }
+                                                  ]
+                                   },
+                  "PIN-A-TRATORS":  {
+                                        "resolved":  true,
+                                        "autoFlags":  [
+
+                                                      ],
+                                        "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                        "lineup":  [
+                                                       {
+                                                           "pos":  1,
+                                                           "kind":  "bowler",
+                                                           "name":  "Benjamin Morgan",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  222
+                                                       },
+                                                       {
+                                                           "pos":  2,
+                                                           "kind":  "bowler",
+                                                           "name":  "Jayden Cary",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  205
+                                                       },
+                                                       {
+                                                           "pos":  3,
+                                                           "kind":  "bowler",
+                                                           "name":  "David Owens",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  201
+                                                       },
+                                                       {
+                                                           "pos":  4,
+                                                           "kind":  "bowler",
+                                                           "name":  "Greg Morgan",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  223
+                                                       },
+                                                       {
+                                                           "pos":  5,
+                                                           "kind":  "bowler",
+                                                           "name":  "Deon Fleming",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  225
+                                                       }
+                                                   ]
+                                    },
+                  "StarDust Lounge":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "bowler",
+                                                             "name":  "John Lund",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  206
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "bowler",
+                                                             "name":  "Rene Movilion",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  184
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Bob Burkhead",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  207
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "Ian Pike",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  220
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "Greg Davies Jr",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  222
+                                                         }
+                                                     ]
+                                      },
+                  "The Money Team":  {
+                                         "resolved":  true,
                                          "autoFlags":  [
-                                                           "pos5 BLIND for Stephen Sutton (avg 211, scores 201/game +hdcp)"
+
                                                        ],
+                                         "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                         "lineup":  [
+                                                        {
+                                                            "pos":  1,
+                                                            "kind":  "bowler",
+                                                            "name":  "John Laws",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  211
+                                                        },
+                                                        {
+                                                            "pos":  2,
+                                                            "kind":  "bowler",
+                                                            "name":  "Bobby Hurtado",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  199
+                                                        },
+                                                        {
+                                                            "pos":  3,
+                                                            "kind":  "bowler",
+                                                            "name":  "Nicole Demonte",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  124
+                                                        },
+                                                        {
+                                                            "pos":  4,
+                                                            "kind":  "bowler",
+                                                            "name":  "Matthew Quintana",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  172
+                                                        },
+                                                        {
+                                                            "pos":  5,
+                                                            "kind":  "bowler",
+                                                            "name":  "Joseph Guinn",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  206
+                                                        }
+                                                    ]
+                                     },
+                  "Aftermath":  {
+                                    "resolved":  true,
+                                    "autoFlags":  [
+
+                                                  ],
+                                    "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                    "lineup":  [
+                                                   {
+                                                       "pos":  1,
+                                                       "kind":  "bowler",
+                                                       "name":  "Nick Sandoval",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  201
+                                                   },
+                                                   {
+                                                       "pos":  2,
+                                                       "kind":  "bowler",
+                                                       "name":  "Jennifer Davis",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  198
+                                                   },
+                                                   {
+                                                       "pos":  3,
+                                                       "kind":  "bowler",
+                                                       "name":  "Eddie Lara",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  203
+                                                   },
+                                                   {
+                                                       "pos":  4,
+                                                       "kind":  "bowler",
+                                                       "name":  "Dion Griego",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  206
+                                                   },
+                                                   {
+                                                       "pos":  5,
+                                                       "kind":  "bowler",
+                                                       "name":  "Geno Lavigna",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  215
+                                                   }
+                                               ]
+                                },
+                  "J. Crew":  {
+                                  "resolved":  true,
+                                  "autoFlags":  [
+
+                                                ],
+                                  "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                  "lineup":  [
+                                                 {
+                                                     "pos":  1,
+                                                     "kind":  "bowler",
+                                                     "name":  "Craig Stout",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  207
+                                                 },
+                                                 {
+                                                     "pos":  2,
+                                                     "kind":  "bowler",
+                                                     "name":  "Pierre Lopez",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  177
+                                                 },
+                                                 {
+                                                     "pos":  3,
+                                                     "kind":  "bowler",
+                                                     "name":  "Robert Gift",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  210
+                                                 },
+                                                 {
+                                                     "pos":  4,
+                                                     "kind":  "bowler",
+                                                     "name":  "Lee Ripley",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  217
+                                                 },
+                                                 {
+                                                     "pos":  5,
+                                                     "kind":  "bowler",
+                                                     "name":  "Michael Ligeski",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  221
+                                                 }
+                                             ]
+                              },
+                  "Matrix Auto Body":  {
+                                           "resolved":  true,
+                                           "autoFlags":  [
+
+                                                         ],
+                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "lineup":  [
+                                                          {
+                                                              "pos":  1,
+                                                              "kind":  "bowler",
+                                                              "name":  "Scott Bruce",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  204
+                                                          },
+                                                          {
+                                                              "pos":  2,
+                                                              "kind":  "bowler",
+                                                              "name":  "Richard Isaacs",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  196
+                                                          },
+                                                          {
+                                                              "pos":  3,
+                                                              "kind":  "bowler",
+                                                              "name":  "Dave Simpson",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  205
+                                                          },
+                                                          {
+                                                              "pos":  4,
+                                                              "kind":  "bowler",
+                                                              "name":  "Brandon May",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  201
+                                                          },
+                                                          {
+                                                              "pos":  5,
+                                                              "kind":  "bowler",
+                                                              "name":  "Larry May",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  212
+                                                          }
+                                                      ]
+                                       },
+                  "Mother Chuckers":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "bowler",
+                                                             "name":  "Erin Marchant",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  203
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "bowler",
+                                                             "name":  "Trey Erickson",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  190
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Chuck Dreux",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  193
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "Tim Pester",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  220
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "Bryan Keller",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  214
+                                                         }
+                                                     ]
+                                      },
+                  "Last Minute":  {
+                                      "resolved":  true,
+                                      "autoFlags":  [
+
+                                                    ],
+                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                      "lineup":  [
+                                                     {
+                                                         "pos":  1,
+                                                         "kind":  "bowler",
+                                                         "name":  "Erick Podwill",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  213
+                                                     },
+                                                     {
+                                                         "pos":  2,
+                                                         "kind":  "bowler",
+                                                         "name":  "Laszlo Soos",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  197
+                                                     },
+                                                     {
+                                                         "pos":  3,
+                                                         "kind":  "bowler",
+                                                         "name":  "Shawn Clements",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  206
+                                                     },
+                                                     {
+                                                         "pos":  4,
+                                                         "kind":  "bowler",
+                                                         "name":  "Fred Pedroza",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  200
+                                                     },
+                                                     {
+                                                         "pos":  5,
+                                                         "kind":  "bowler",
+                                                         "name":  "Dru Martin",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  205
+                                                     }
+                                                 ]
+                                  },
+                  "SASQUATCHED":  {
+                                      "resolved":  true,
+                                      "autoFlags":  [
+
+                                                    ],
+                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                      "lineup":  [
+                                                     {
+                                                         "pos":  1,
+                                                         "kind":  "bowler",
+                                                         "name":  "Greg Wobbema",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  217
+                                                     },
+                                                     {
+                                                         "pos":  2,
+                                                         "kind":  "bowler",
+                                                         "name":  "Blaize Walker",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  207
+                                                     },
+                                                     {
+                                                         "pos":  3,
+                                                         "kind":  "bowler",
+                                                         "name":  "Chris Naab",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  202
+                                                     },
+                                                     {
+                                                         "pos":  4,
+                                                         "kind":  "bowler",
+                                                         "name":  "Anthony Unrein IV",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  210
+                                                     },
+                                                     {
+                                                         "pos":  5,
+                                                         "kind":  "bowler",
+                                                         "name":  "Sam Johns",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  203
+                                                     }
+                                                 ]
+                                  },
+                  "Over the Line":  {
+                                        "resolved":  true,
+                                        "autoFlags":  [
+
+                                                      ],
+                                        "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                        "lineup":  [
+                                                       {
+                                                           "pos":  1,
+                                                           "kind":  "bowler",
+                                                           "name":  "Kelly Lawson",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  199
+                                                       },
+                                                       {
+                                                           "pos":  2,
+                                                           "kind":  "bowler",
+                                                           "name":  "Shawn Claussen",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  215
+                                                       },
+                                                       {
+                                                           "pos":  3,
+                                                           "kind":  "bowler",
+                                                           "name":  "Rey Rodriguez",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  189
+                                                       },
+                                                       {
+                                                           "pos":  4,
+                                                           "kind":  "bowler",
+                                                           "name":  "Noah Werner",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  218
+                                                       },
+                                                       {
+                                                           "pos":  5,
+                                                           "kind":  "bowler",
+                                                           "name":  "Jon Brockett",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  211
+                                                       }
+                                                   ]
+                                    },
+                  "The Bowler Depot":  {
+                                           "resolved":  true,
+                                           "autoFlags":  [
+
+                                                         ],
+                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "lineup":  [
+                                                          {
+                                                              "pos":  1,
+                                                              "kind":  "bowler",
+                                                              "name":  "Anthony Allen",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  206
+                                                          },
+                                                          {
+                                                              "pos":  2,
+                                                              "kind":  "bowler",
+                                                              "name":  "Jo Struble",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  210
+                                                          },
+                                                          {
+                                                              "pos":  3,
+                                                              "kind":  "bowler",
+                                                              "name":  "Adam D Sakowski",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  217
+                                                          },
+                                                          {
+                                                              "pos":  4,
+                                                              "kind":  "bowler",
+                                                              "name":  "Roger Wahler",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  209
+                                                          },
+                                                          {
+                                                              "pos":  5,
+                                                              "kind":  "bowler",
+                                                              "name":  "Cody Vaughn",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  223
+                                                          }
+                                                      ]
+                                       },
+                  "Better Than Gold":  {
+                                           "resolved":  true,
+                                           "autoFlags":  [
+
+                                                         ],
+                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "lineup":  [
+                                                          {
+                                                              "pos":  1,
+                                                              "kind":  "bowler",
+                                                              "name":  "Eric Phillips",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  212
+                                                          },
+                                                          {
+                                                              "pos":  2,
+                                                              "kind":  "bowler",
+                                                              "name":  "Chad Schneider",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  189
+                                                          },
+                                                          {
+                                                              "pos":  3,
+                                                              "kind":  "bowler",
+                                                              "name":  "Taryn Frenzel",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  204
+                                                          },
+                                                          {
+                                                              "pos":  4,
+                                                              "kind":  "bowler",
+                                                              "name":  "Craig Moravy",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  212
+                                                          },
+                                                          {
+                                                              "pos":  5,
+                                                              "kind":  "bowler",
+                                                              "name":  "Lee Kastberg",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  218
+                                                          }
+                                                      ]
+                                       },
+                  "Chicken Nuggies":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "bowler",
+                                                             "name":  "William Reynolds",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  209
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "bowler",
+                                                             "name":  "Sarah Garofano",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  173
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Justyne Jansen",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  202
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "Brian Douglass",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  220
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "Dante Lundy",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  239
+                                                         }
+                                                     ]
+                                      },
+                  "Sloppy Hookers":  {
+                                         "resolved":  true,
+                                         "autoFlags":  [
+
+                                                       ],
+                                         "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                         "lineup":  [
+                                                        {
+                                                            "pos":  1,
+                                                            "kind":  "bowler",
+                                                            "name":  "Rich Pennal",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  187
+                                                        },
+                                                        {
+                                                            "pos":  2,
+                                                            "kind":  "bowler",
+                                                            "name":  "John Crowder",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  166
+                                                        },
+                                                        {
+                                                            "pos":  3,
+                                                            "kind":  "bowler",
+                                                            "name":  "Robert McQuoid",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  203
+                                                        },
+                                                        {
+                                                            "pos":  4,
+                                                            "kind":  "bowler",
+                                                            "name":  "Adam Perski",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  218
+                                                        },
+                                                        {
+                                                            "pos":  5,
+                                                            "kind":  "bowler",
+                                                            "name":  "Trey Simpson",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  199
+                                                        }
+                                                    ]
+                                     },
+                  "Pocket Aces":  {
+                                      "resolved":  true,
+                                      "autoFlags":  [
+
+                                                    ],
+                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                      "lineup":  [
+                                                     {
+                                                         "pos":  1,
+                                                         "kind":  "bowler",
+                                                         "name":  "Aj Woodvine",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  217
+                                                     },
+                                                     {
+                                                         "pos":  2,
+                                                         "kind":  "bowler",
+                                                         "name":  "Greg Baldassar",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  205
+                                                     },
+                                                     {
+                                                         "pos":  3,
+                                                         "kind":  "bowler",
+                                                         "name":  "Brian Moss",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  211
+                                                     },
+                                                     {
+                                                         "pos":  4,
+                                                         "kind":  "bowler",
+                                                         "name":  "Jason Busnardo",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  223
+                                                     },
+                                                     {
+                                                         "pos":  5,
+                                                         "kind":  "bowler",
+                                                         "name":  "Roman Archuleta",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  233
+                                                     }
+                                                 ]
+                                  },
+                  "Lamorie Painting":  {
+                                           "resolved":  true,
+                                           "autoFlags":  [
+
+                                                         ],
+                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "lineup":  [
+                                                          {
+                                                              "pos":  1,
+                                                              "kind":  "bowler",
+                                                              "name":  "Rudy Lamorie",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  205
+                                                          },
+                                                          {
+                                                              "pos":  2,
+                                                              "kind":  "bowler",
+                                                              "name":  "Gary Losh",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  190
+                                                          },
+                                                          {
+                                                              "pos":  3,
+                                                              "kind":  "bowler",
+                                                              "name":  "Justin Phillips",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  208
+                                                          },
+                                                          {
+                                                              "pos":  4,
+                                                              "kind":  "bowler",
+                                                              "name":  "Nicholas Peterson-Pedroza (Nick Pedroza)",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  210
+                                                          },
+                                                          {
+                                                              "pos":  5,
+                                                              "kind":  "bowler",
+                                                              "name":  "Eric Hernlund",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  217
+                                                          }
+                                                      ]
+                                       },
+                  "Panetta Heating":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "bowler",
+                                                             "name":  "Rocco Panetta",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  202
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "bowler",
+                                                             "name":  "Jeffrie Delaney",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  223
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Tony Panetta",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  163
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "Gianna E Panetta",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  195
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "Randy Wood",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  238
+                                                         }
+                                                     ]
+                                      },
+                  "Rocky Mountain High":  {
+                                              "resolved":  true,
+                                              "autoFlags":  [
+
+                                                            ],
+                                              "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                              "lineup":  [
+                                                             {
+                                                                 "pos":  1,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Bob Johnson",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  166
+                                                             },
+                                                             {
+                                                                 "pos":  2,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Scott Carothers",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  208
+                                                             },
+                                                             {
+                                                                 "pos":  3,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Mike Vasquez",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  188
+                                                             },
+                                                             {
+                                                                 "pos":  4,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Nolan Carothers",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  176
+                                                             },
+                                                             {
+                                                                 "pos":  5,
+                                                                 "kind":  "bowler",
+                                                                 "name":  "Mike Hinsley",
+                                                                 "blindFor":  null,
+                                                                 "subFor":  null,
+                                                                 "avg":  216
+                                                             }
+                                                         ]
+                                          },
+                  "Kamikaze Keglers":  {
+                                           "resolved":  true,
+                                           "autoFlags":  [
+
+                                                         ],
+                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "lineup":  [
+                                                          {
+                                                              "pos":  1,
+                                                              "kind":  "bowler",
+                                                              "name":  "Zach Knight (Zachary Knight)",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  185
+                                                          },
+                                                          {
+                                                              "pos":  2,
+                                                              "kind":  "bowler",
+                                                              "name":  "JJ Harnke",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  187
+                                                          },
+                                                          {
+                                                              "pos":  3,
+                                                              "kind":  "bowler",
+                                                              "name":  "Spenser Hanson",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  204
+                                                          },
+                                                          {
+                                                              "pos":  4,
+                                                              "kind":  "bowler",
+                                                              "name":  "Dave Eddy",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  212
+                                                          },
+                                                          {
+                                                              "pos":  5,
+                                                              "kind":  "bowler",
+                                                              "name":  "Brian Garramone",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  218
+                                                          }
+                                                      ]
+                                       },
+                  "Corpse Crew":  {
+                                      "resolved":  true,
+                                      "autoFlags":  [
+
+                                                    ],
+                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                      "lineup":  [
+                                                     {
+                                                         "pos":  1,
+                                                         "kind":  "bowler",
+                                                         "name":  "Kayla Osei",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  185
+                                                     },
+                                                     {
+                                                         "pos":  2,
+                                                         "kind":  "bowler",
+                                                         "name":  "Randy Cleghorn",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  189
+                                                     },
+                                                     {
+                                                         "pos":  3,
+                                                         "kind":  "bowler",
+                                                         "name":  "Joe Panetta",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  82
+                                                     },
+                                                     {
+                                                         "pos":  4,
+                                                         "kind":  "bowler",
+                                                         "name":  "Tanya Craig",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  171
+                                                     },
+                                                     {
+                                                         "pos":  5,
+                                                         "kind":  "blind",
+                                                         "name":  "Josh Henshaw",
+                                                         "blindFor":  "Josh Henshaw",
+                                                         "subFor":  null,
+                                                         "avg":  197
+                                                     }
+                                                 ]
+                                  },
+                  "SHARKS":  {
+                                 "resolved":  true,
+                                 "autoFlags":  [
+
+                                               ],
+                                 "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                 "lineup":  [
+                                                {
+                                                    "pos":  1,
+                                                    "kind":  "blind",
+                                                    "name":  "Todd Sanders",
+                                                    "blindFor":  "Todd Sanders",
+                                                    "subFor":  null,
+                                                    "avg":  212
+                                                },
+                                                {
+                                                    "pos":  2,
+                                                    "kind":  "bowler",
+                                                    "name":  "Matt Padilla",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  219
+                                                },
+                                                {
+                                                    "pos":  3,
+                                                    "kind":  "bowler",
+                                                    "name":  "David Padilla",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  201
+                                                },
+                                                {
+                                                    "pos":  4,
+                                                    "kind":  "bowler",
+                                                    "name":  "Vincent Padilla",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  195
+                                                },
+                                                {
+                                                    "pos":  5,
+                                                    "kind":  "bowler",
+                                                    "name":  "Mark Hoffman",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  218
+                                                }
+                                            ]
+                             },
+                  "Denver Vibrator":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "bowler",
+                                                             "name":  "Jami May-Bruce",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  194
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "bowler",
+                                                             "name":  "Austin Huyser",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  202
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Ron Wooley",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  203
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "Jeff Lagrange",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  208
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "Ron Burley",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  221
+                                                         }
+                                                     ]
+                                      },
+                  "No Llores":  {
+                                    "resolved":  true,
+                                    "autoFlags":  [
+
+                                                  ],
+                                    "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                    "lineup":  [
+                                                   {
+                                                       "pos":  1,
+                                                       "kind":  "bowler",
+                                                       "name":  "Chris Imel",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  204
+                                                   },
+                                                   {
+                                                       "pos":  2,
+                                                       "kind":  "bowler",
+                                                       "name":  "Derek Gonzales",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  203
+                                                   },
+                                                   {
+                                                       "pos":  3,
+                                                       "kind":  "bowler",
+                                                       "name":  "Jesus Meraz",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  199
+                                                   },
+                                                   {
+                                                       "pos":  4,
+                                                       "kind":  "bowler",
+                                                       "name":  "Robb Vigil",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  199
+                                                   },
+                                                   {
+                                                       "pos":  5,
+                                                       "kind":  "bowler",
+                                                       "name":  "Eric Cummings",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  216
+                                                   }
+                                               ]
+                                },
+                  "Light \u0027Em Up":  {
+                                            "resolved":  true,
+                                            "autoFlags":  [
+
+                                                          ],
+                                            "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                            "lineup":  [
+                                                           {
+                                                               "pos":  1,
+                                                               "kind":  "bowler",
+                                                               "name":  "Shaun Labay",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  204
+                                                           },
+                                                           {
+                                                               "pos":  2,
+                                                               "kind":  "bowler",
+                                                               "name":  "Brian Birely",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  202
+                                                           },
+                                                           {
+                                                               "pos":  3,
+                                                               "kind":  "bowler",
+                                                               "name":  "Wes Widick",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  199
+                                                           },
+                                                           {
+                                                               "pos":  4,
+                                                               "kind":  "bowler",
+                                                               "name":  "Derek Birely",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  221
+                                                           },
+                                                           {
+                                                               "pos":  5,
+                                                               "kind":  "bowler",
+                                                               "name":  "Jared Birely",
+                                                               "blindFor":  null,
+                                                               "subFor":  null,
+                                                               "avg":  233
+                                                           }
+                                                       ]
+                                        },
+                  "Apex Auto Glass":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "bowler",
+                                                             "name":  "Tham Namvong",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  217
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "bowler",
+                                                             "name":  "Jerry Navasack",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  157
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Bounethai Novankham",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  198
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "Somdeth Sinouansai",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  214
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "John Gwynn",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  237
+                                                         }
+                                                     ]
+                                      },
+                  "Busting Nuts":  {
+                                       "resolved":  true,
+                                       "autoFlags":  [
+
+                                                     ],
+                                       "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                       "lineup":  [
+                                                      {
+                                                          "pos":  1,
+                                                          "kind":  "bowler",
+                                                          "name":  "Audra Tafoya",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  166
+                                                      },
+                                                      {
+                                                          "pos":  2,
+                                                          "kind":  "bowler",
+                                                          "name":  "Dan Mehman",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  141
+                                                      },
+                                                      {
+                                                          "pos":  3,
+                                                          "kind":  "bowler",
+                                                          "name":  "Mike Read",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  178
+                                                      },
+                                                      {
+                                                          "pos":  4,
+                                                          "kind":  "bowler",
+                                                          "name":  "Dustin Richardson",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  183
+                                                      },
+                                                      {
+                                                          "pos":  5,
+                                                          "kind":  "bowler",
+                                                          "name":  "Kole Silz",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  155
+                                                      }
+                                                  ]
+                                   },
+                  "Crippled Khaos":  {
+                                         "resolved":  true,
+                                         "autoFlags":  [
+
+                                                       ],
+                                         "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -870,6 +1960,55 @@
                                                             "avg":  211
                                                         }
                                                     ]
-                                     }
+                                     },
+                  "Wheelhouse":  {
+                                     "resolved":  true,
+                                     "autoFlags":  [
+
+                                                   ],
+                                     "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                     "lineup":  [
+                                                    {
+                                                        "pos":  1,
+                                                        "kind":  "bowler",
+                                                        "name":  "Wayne Gosselin",
+                                                        "blindFor":  null,
+                                                        "subFor":  null,
+                                                        "avg":  153
+                                                    },
+                                                    {
+                                                        "pos":  2,
+                                                        "kind":  "bowler",
+                                                        "name":  "Mick Coakley",
+                                                        "blindFor":  null,
+                                                        "subFor":  null,
+                                                        "avg":  179
+                                                    },
+                                                    {
+                                                        "pos":  3,
+                                                        "kind":  "bowler",
+                                                        "name":  "Stefan Holt",
+                                                        "blindFor":  null,
+                                                        "subFor":  null,
+                                                        "avg":  200
+                                                    },
+                                                    {
+                                                        "pos":  4,
+                                                        "kind":  "bowler",
+                                                        "name":  "Phillip Gosselin",
+                                                        "blindFor":  null,
+                                                        "subFor":  null,
+                                                        "avg":  204
+                                                    },
+                                                    {
+                                                        "pos":  5,
+                                                        "kind":  "bowler",
+                                                        "name":  "Ryan Holt",
+                                                        "blindFor":  null,
+                                                        "subFor":  null,
+                                                        "avg":  205
+                                                    }
+                                                ]
+                                 }
               }
 }

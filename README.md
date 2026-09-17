@@ -296,15 +296,42 @@ one shot, instead of hand-editing each team. To use it:
    ```
 
 It sanity-checks the transcription before writing: flags any team name that
-doesn't match the latest snapshot (typo), any lineup that isn't exactly 5
-entries, any bowler listed twice on the same team, and any known team the
-import doesn't cover - review those warnings before trusting the result.
+doesn't match the latest snapshot (typo, or a mid-season team rename - lineup
+files must key by the CURRENT team name, not whatever name was live that
+week), any lineup that isn't exactly 5 entries, any bowler listed twice on
+the same team, any bowler name that doesn't match a known name/nickname in
+the latest snapshot (catches the nickname-suffix bug below), and any known
+team the import doesn't cover - review those warnings before trusting the
+result.
+
+**If you can fetch the report directly** (e.g. it's still live at its
+`currentscores?id=` URL), `scripts\Parse-WeekReport.ps1` converts a saved copy
+of the page text straight into a `lineup-sources\<date>.ps1` file, instead of
+hand-transcribing every team:
+```powershell
+.\scripts\Parse-WeekReport.ps1 -InputFile week1_report.txt -Date 2026-08-18 `
+    -OutFile scripts\lineup-sources\2026-08-18.ps1
+```
+It expects one bowler per line as `- Name (Regular|Blind|Substitute, Avg NNN):
+scores`, grouped under `**Team Name:**` headers. The live report's format has
+varied between weeks (sometimes omitting averages, or not tagging subs at
+all) - always review the generated file, and re-run
+`Import-WeekReport.ps1` afterward so its sanity checks get a look too.
 
 A hand-verified import still can't recover individual game scores for a
 bowler with **no `weekGames` record at all** under their identity for that
 date (seen for a couple of first-time subs) - the lineup position/pairing is
 correctly confirmed, but their 3 games still fall back to a blind-average
 estimate, since the schema stores name/avg/kind, not raw per-game scores.
+
+**Nicknames**: a bowler with `useNickname` set on LeaguePals is indexed
+internally under BOTH their nickname and their full name (e.g. "Rick
+Armstrong (Showtime)" is also "Showtime") - but a report can print a THIRD
+variant (just "Rick Armstrong", no suffix) that matches neither. The bowler
+name-validation check above exists specifically to catch this; if it fires,
+find the bowler's real indexed name in the snapshot (`grep` their last name
+across `data\raw\<date>\team_*.json` for `useNickname`/`nickNames`) and use
+that exact string.
 This is a LeaguePals data gap, not a bug.
 
 ## Config
