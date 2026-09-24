@@ -7,7 +7,7 @@
       "lastName": "Allen",
       "firstName": "Anthony",
       "dexterity": 0,
-      "average": 222,
+      "average": 221,
       "averages": [
         {
           "league": "62e6924055b9a0101c2da347",
@@ -228,6 +228,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        204,
+        188,
+        257,
         226,
         258,
         268,
@@ -306,20 +309,33 @@
               830
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              257,
+              188,
+              204,
+              682
+            ]
+          }
         ]
       },
-      "indPointsWon": 15,
+      "indPointsWon": 18.5,
       "highGame": 268,
       "highGameHdcp": 294,
       "highSeries": 752,
       "highSeriesHdcp": 830,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 222.91666666666666,
-      "realAvg": 222,
-      "realAvgFloat": 222.92,
+      "averageFloat": 221.6,
+      "realAvg": 221,
+      "realAvgFloat": 221.6,
       "enteringAvg": 206,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "The Bowler Depot",
       "classification": "",
       "team": "6a823171249ddaa00e02981f",
@@ -330,8 +346,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2675,
-      "hdcp": 11
+      "totalPointsScored": 3324,
+      "hdcp": 12
     },
     {
       "_id": "62f330140535cd0b078d8474",
@@ -340,7 +356,7 @@
       "lastName": "Struble",
       "firstName": "Jo",
       "dexterity": 0,
-      "average": 214,
+      "average": 208,
       "averages": [
         {
           "league": "6897d8a19f29a5d9173bec6c",
@@ -514,6 +530,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        190,
+        192,
+        152,
         247,
         242,
         257,
@@ -595,20 +614,33 @@
               824
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              152,
+              192,
+              190,
+              588
+            ]
+          }
         ]
       },
-      "indPointsWon": 11,
+      "indPointsWon": 12,
       "highGame": 257,
       "highGameHdcp": 283,
       "highSeries": 746,
       "highSeriesHdcp": 824,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 214.93333333333334,
-      "realAvg": 214,
-      "realAvgFloat": 214.93,
+      "averageFloat": 208.77777777777777,
+      "realAvg": 208,
+      "realAvgFloat": 208.78,
       "enteringAvg": 210,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "The Bowler Depot",
       "classification": "",
       "team": "6a823171249ddaa00e02981f",
@@ -619,8 +651,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3224,
-      "hdcp": 18
+      "totalPointsScored": 3758,
+      "hdcp": 24
     },
     {
       "_id": "6463ff7d2663a94d0acaffef",
@@ -903,6 +935,7 @@
       "useNickname": false,
       "dontIdentify": false,
       "games": [
+        223,
         247,
         258,
         256,
@@ -984,20 +1017,33 @@
               803
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              223,
+              "-",
+              "-",
+              231
+            ]
+          }
         ]
       },
-      "indPointsWon": 15,
+      "indPointsWon": 19,
       "highGame": 258,
       "highGameHdcp": 273,
       "highSeries": 761,
       "highSeriesHdcp": 803,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 226.26666666666668,
+      "averageFloat": 226.0625,
       "realAvg": 226,
-      "realAvgFloat": 226.27,
+      "realAvgFloat": 226.06,
       "enteringAvg": 217,
-      "gamesPlayed": 15,
+      "gamesPlayed": 16,
       "teamName": "The Bowler Depot",
       "classification": "",
       "team": "6a823171249ddaa00e02981f",
@@ -1008,7 +1054,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3394,
+      "totalPointsScored": 3617,
       "hdcp": 8
     },
     {
@@ -1016,7 +1062,7 @@
       "name": "Roger Wahler",
       "firstName": "Roger",
       "lastName": "Wahler",
-      "average": 212,
+      "average": 209,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -1084,6 +1130,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        186,
+        168,
+        235,
         242,
         248,
         216,
@@ -1165,6 +1214,19 @@
               784
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              235,
+              168,
+              186,
+              649
+            ]
+          }
         ]
       },
       "indPointsWon": 12,
@@ -1174,11 +1236,11 @@
       "highSeriesHdcp": 784,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 212.53333333333333,
-      "realAvg": 212,
-      "realAvgFloat": 212.53,
+      "averageFloat": 209.83333333333334,
+      "realAvg": 209,
+      "realAvgFloat": 209.83,
       "enteringAvg": 209,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "The Bowler Depot",
       "classification": "",
       "team": "6a823171249ddaa00e02981f",
@@ -1189,8 +1251,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3188,
-      "hdcp": 20
+      "totalPointsScored": 3777,
+      "hdcp": 23
     },
     {
       "_id": "62ec9a14ce65adc409f53e6a",
@@ -1199,7 +1261,7 @@
       "lastName": "Vaughn",
       "firstName": "Cody",
       "dexterity": 2,
-      "average": 241,
+      "average": 235,
       "averages": [
         {
           "league": "62e6923355b9a0101c2d726a",
@@ -1443,6 +1505,9 @@
       "useNickname": false,
       "dontIdentify": false,
       "games": [
+        206,
+        228,
+        191,
         248,
         300,
         280,
@@ -1524,20 +1589,33 @@
               834
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              191,
+              228,
+              206,
+              625
+            ]
+          }
         ]
       },
-      "indPointsWon": 12,
+      "indPointsWon": 17,
       "highGame": 300,
       "highGameHdcp": 310,
       "highSeries": 828,
       "highSeriesHdcp": 834,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 241.46666666666667,
-      "realAvg": 241,
-      "realAvgFloat": 241.47,
+      "averageFloat": 235.94444444444446,
+      "realAvg": 235,
+      "realAvgFloat": 235.94,
       "enteringAvg": 223,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "The Bowler Depot",
       "classification": "",
       "team": "6a823171249ddaa00e02981f",
@@ -1548,7 +1626,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3622,
+      "totalPointsScored": 4247,
       "hdcp": 0
     },
     {
@@ -1980,6 +2058,19 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538122fe9873e6c628b9a",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 4,
@@ -2130,6 +2221,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538122fe9873e6c628b9a",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a8538122fe9873e6c628b9a",

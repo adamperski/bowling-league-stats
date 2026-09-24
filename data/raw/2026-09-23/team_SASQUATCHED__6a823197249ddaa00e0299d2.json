@@ -7,7 +7,7 @@
       "lastName": "Torrez",
       "firstName": "Frank",
       "dexterity": 0,
-      "average": 196,
+      "average": 197,
       "averages": [
         {
           "_id": "62fac5b795464309053476da",
@@ -89,6 +89,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        196,
+        202,
+        205,
         205,
         200,
         205,
@@ -164,20 +167,33 @@
               715
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc054e69e9dc816b85ce",
+            "weekIdx": 0,
+            "games": [
+              205,
+              202,
+              196,
+              708
+            ]
+          }
         ]
       },
-      "indPointsWon": 8,
+      "indPointsWon": 11,
       "highGame": 223,
       "highGameHdcp": 258,
       "highSeries": 610,
       "highSeriesHdcp": 715,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 0,
-      "realAvg": 196,
-      "realAvgFloat": 0,
+      "averageFloat": 197.91666666666666,
+      "realAvg": 197,
+      "realAvgFloat": 197.92,
       "enteringAvg": 196,
-      "gamesPlayed": 9,
+      "gamesPlayed": 12,
       "teamName": "SASQUATCHED",
       "classification": "",
       "team": "6a823197249ddaa00e0299d2",
@@ -188,8 +204,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 1772,
-      "hdcp": 35
+      "totalPointsScored": 2375,
+      "hdcp": 34
     },
     {
       "_id": "62ec9a8fce65adc409f54e0f",
@@ -198,7 +214,7 @@
       "lastName": "Walker",
       "firstName": "Blaize",
       "dexterity": 0,
-      "average": 221,
+      "average": 218,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -279,6 +295,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        210,
+        188,
+        220,
         220,
         214,
         254,
@@ -357,6 +376,19 @@
               763
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc054e69e9dc816b85ce",
+            "weekIdx": 0,
+            "games": [
+              220,
+              188,
+              210,
+              654
+            ]
+          }
         ]
       },
       "indPointsWon": 19,
@@ -366,11 +398,11 @@
       "highSeriesHdcp": 791,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 221.41666666666666,
-      "realAvg": 221,
-      "realAvgFloat": 221.42,
+      "averageFloat": 218.33333333333334,
+      "realAvg": 218,
+      "realAvgFloat": 218.33,
       "enteringAvg": 207,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "SASQUATCHED",
       "classification": "",
       "team": "6a823197249ddaa00e0299d2",
@@ -381,8 +413,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2657,
-      "hdcp": 12
+      "totalPointsScored": 3275,
+      "hdcp": 15
     },
     {
       "_id": "62ec9a8fce65adc409f54fff",
@@ -391,7 +423,7 @@
       "lastName": "Naab",
       "firstName": "Chris",
       "dexterity": 0,
-      "average": 207,
+      "average": 210,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -472,6 +504,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        214,
+        220,
+        246,
         224,
         157,
         173,
@@ -553,20 +588,33 @@
               614
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc054e69e9dc816b85ce",
+            "weekIdx": 0,
+            "games": [
+              246,
+              220,
+              214,
+              755
+            ]
+          }
         ]
       },
-      "indPointsWon": 20,
+      "indPointsWon": 24,
       "highGame": 257,
       "highGameHdcp": 286,
-      "highSeries": 662,
-      "highSeriesHdcp": 749,
+      "highSeries": 680,
+      "highSeriesHdcp": 755,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 207.2,
-      "realAvg": 207,
-      "realAvgFloat": 207.2,
+      "averageFloat": 210.44444444444446,
+      "realAvg": 210,
+      "realAvgFloat": 210.44,
       "enteringAvg": 202,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "SASQUATCHED",
       "classification": "",
       "team": "6a823197249ddaa00e0299d2",
@@ -577,8 +625,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3108,
-      "hdcp": 25
+      "totalPointsScored": 3788,
+      "hdcp": 22
     },
     {
       "_id": "62ec9a8fce65adc409f54fe6",
@@ -587,7 +635,7 @@
       "lastName": "Unrein IV",
       "firstName": "Anthony",
       "dexterity": 0,
-      "average": 200,
+      "average": 202,
       "averages": [
         {
           "league": "6456b7aef6db3b0732378c27",
@@ -685,6 +733,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        205,
+        192,
+        245,
         242,
         208,
         224,
@@ -766,20 +817,33 @@
               767
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc054e69e9dc816b85ce",
+            "weekIdx": 0,
+            "games": [
+              245,
+              192,
+              205,
+              735
+            ]
+          }
         ]
       },
-      "indPointsWon": 13,
-      "highGame": 242,
-      "highGameHdcp": 273,
+      "indPointsWon": 14,
+      "highGame": 245,
+      "highGameHdcp": 276,
       "highSeries": 674,
       "highSeriesHdcp": 767,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 200.13333333333333,
-      "realAvg": 200,
-      "realAvgFloat": 200.13,
+      "averageFloat": 202.44444444444446,
+      "realAvg": 202,
+      "realAvgFloat": 202.44,
       "enteringAvg": 210,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "SASQUATCHED",
       "classification": "",
       "team": "6a823197249ddaa00e0299d2",
@@ -790,8 +854,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3002,
-      "hdcp": 31
+      "totalPointsScored": 3644,
+      "hdcp": 29
     },
     {
       "_id": "62faccb240d4183408112f82",
@@ -800,7 +864,7 @@
       "firstName": "Greg",
       "lastName": "Wobbema",
       "dexterity": 0,
-      "average": 211,
+      "average": 208,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -881,6 +945,7 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        172,
         236,
         198,
         256,
@@ -959,20 +1024,33 @@
               738
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc054e69e9dc816b85ce",
+            "weekIdx": 0,
+            "games": [
+              172,
+              "-",
+              "-",
+              193
+            ]
+          }
         ]
       },
-      "indPointsWon": 8,
+      "indPointsWon": 9,
       "highGame": 256,
       "highGameHdcp": 272,
       "highSeries": 690,
       "highSeriesHdcp": 738,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 211.41666666666666,
-      "realAvg": 211,
-      "realAvgFloat": 211.42,
+      "averageFloat": 208.3846153846154,
+      "realAvg": 208,
+      "realAvgFloat": 208.38,
       "enteringAvg": 217,
-      "gamesPlayed": 12,
+      "gamesPlayed": 13,
       "teamName": "SASQUATCHED",
       "classification": "",
       "team": "6a823197249ddaa00e0299d2",
@@ -983,8 +1061,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2537,
-      "hdcp": 21
+      "totalPointsScored": 2709,
+      "hdcp": 24
     },
     {
       "_id": "631e74ca49fb197b06961633",
@@ -1152,6 +1230,19 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538102fe9873e6c628b3d",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 12,
@@ -1280,6 +1371,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538102fe9873e6c628b3d",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a8538102fe9873e6c628b3d",

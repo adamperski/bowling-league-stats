@@ -6,7 +6,7 @@
       "firstName": "William",
       "lastName": "Reynolds",
       "dexterity": 0,
-      "average": 209,
+      "average": 208,
       "averages": [
         {
           "league": "6898c7db0bd718dd744cd493",
@@ -63,6 +63,9 @@
       "birthDate": "1968-05-26T06:00:00.000Z",
       "dontIdentify": false,
       "games": [
+        190,
+        204,
+        216,
         214,
         202,
         189,
@@ -144,20 +147,33 @@
               668
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0c4e69e9dc816b866a",
+            "weekIdx": 0,
+            "games": [
+              216,
+              204,
+              190,
+              679
+            ]
+          }
         ]
       },
-      "indPointsWon": 12,
+      "indPointsWon": 16,
       "highGame": 256,
       "highGameHdcp": 279,
       "highSeries": 677,
       "highSeriesHdcp": 746,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 209.53333333333333,
-      "realAvg": 209,
-      "realAvgFloat": 209.53,
+      "averageFloat": 208.5,
+      "realAvg": 208,
+      "realAvgFloat": 208.5,
       "enteringAvg": 209,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Chicken Nuggies",
       "classification": "",
       "team": "6a823183249ddaa00e029905",
@@ -168,8 +184,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3143,
-      "hdcp": 23
+      "totalPointsScored": 3753,
+      "hdcp": 24
     },
     {
       "_id": "6a849fa1c1669a68747761f1",
@@ -204,6 +220,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        173,
+        128,
+        138,
         161,
         181,
         193,
@@ -282,21 +301,34 @@
               700
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0c4e69e9dc816b866a",
+            "weekIdx": 0,
+            "games": [
+              138,
+              128,
+              173,
+              631
+            ]
+          }
         ]
       },
-      "indPointsWon": 6,
+      "indPointsWon": 10,
       "highGame": 193,
       "highGameHdcp": 248,
       "highSeries": 535,
       "highSeriesHdcp": 700,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 155,
-      "realAvg": 155,
-      "realAvgFloat": 155,
+      "averageFloat": 153.26666666666668,
+      "realAvg": 153,
+      "realAvgFloat": 153.27,
       "avgLimited": true,
       "enteringAvg": 173,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "Chicken Nuggies",
       "classification": "",
       "team": "6a823183249ddaa00e029905",
@@ -307,7 +339,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 1860,
+      "totalPointsScored": 2299,
       "hdcp": 64
     },
     {
@@ -316,7 +348,7 @@
       "firstName": "Justyne",
       "lastName": "Jansen",
       "dexterity": 0,
-      "average": 208,
+      "average": 212,
       "averages": [
         {
           "league": "64ed351eed51fce86c241a1f",
@@ -528,6 +560,9 @@
       "isFemale": true,
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "games": [
+        224,
+        246,
+        215,
         213,
         191,
         214,
@@ -609,20 +644,33 @@
               687
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0c4e69e9dc816b866a",
+            "weekIdx": 0,
+            "games": [
+              215,
+              246,
+              224,
+              757
+            ]
+          }
         ]
       },
-      "indPointsWon": 16,
+      "indPointsWon": 21,
       "highGame": 277,
       "highGameHdcp": 306,
       "highSeries": 726,
       "highSeriesHdcp": 813,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 208.86666666666667,
-      "realAvg": 208,
-      "realAvgFloat": 208.87,
+      "averageFloat": 212.11111111111111,
+      "realAvg": 212,
+      "realAvgFloat": 212.11,
       "enteringAvg": 202,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Chicken Nuggies",
       "classification": "",
       "team": "6a823183249ddaa00e029905",
@@ -633,8 +681,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3133,
-      "hdcp": 24
+      "totalPointsScored": 3818,
+      "hdcp": 20
     },
     {
       "_id": "62debb0d60c4b923326907a2",
@@ -643,7 +691,7 @@
       "lastName": "Douglass",
       "firstName": "Brian",
       "dexterity": 0,
-      "average": 211,
+      "average": 210,
       "averages": [
         {
           "league": "6818e640d462c452670f0c5c",
@@ -767,6 +815,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        222,
+        213,
+        138,
         204,
         223,
         246,
@@ -848,20 +899,34 @@
               739
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0c4e69e9dc816b866a",
+            "weekIdx": 0,
+            "games": [
+              138,
+              213,
+              222,
+              636
+            ]
+          }
         ]
       },
-      "indPointsWon": 9,
+      "indPointsWon": 10,
       "highGame": 248,
       "highGameHdcp": 268,
       "highSeries": 696,
       "highSeriesHdcp": 739,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 211.93333333333334,
-      "realAvg": 211,
-      "realAvgFloat": 211.93,
+      "averageFloat": 208.44444444444446,
+      "realAvg": 208,
+      "realAvgFloat": 208.44,
+      "avgLimited": true,
       "enteringAvg": 220,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Chicken Nuggies",
       "classification": "",
       "team": "6a823183249ddaa00e029905",
@@ -872,8 +937,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3179,
-      "hdcp": 21
+      "totalPointsScored": 3752,
+      "hdcp": 22
     },
     {
       "_id": "6319379a038de096749bebae",
@@ -881,7 +946,7 @@
       "firstName": "Dante",
       "lastName": "Lundy",
       "dexterity": 0,
-      "average": 245,
+      "average": 241,
       "averages": [
         {
           "league": "66b407e25dbb6ac34d152150",
@@ -1048,6 +1113,9 @@
       "useNickname": false,
       "bowlerId": "11-373292",
       "games": [
+        254,
+        202,
+        217,
         248,
         234,
         195,
@@ -1129,20 +1197,33 @@
               677
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0c4e69e9dc816b866a",
+            "weekIdx": 0,
+            "games": [
+              217,
+              202,
+              254,
+              673
+            ]
+          }
         ]
       },
-      "indPointsWon": 15,
+      "indPointsWon": 17,
       "highGame": 279,
       "highGameHdcp": 279,
       "highSeries": 759,
       "highSeriesHdcp": 759,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 245,
-      "realAvg": 245,
-      "realAvgFloat": 245,
+      "averageFloat": 241.55555555555554,
+      "realAvg": 241,
+      "realAvgFloat": 241.56,
       "enteringAvg": 239,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Chicken Nuggies",
       "classification": "",
       "team": "6a823183249ddaa00e029905",
@@ -1153,7 +1234,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3675,
+      "totalPointsScored": 4348,
       "hdcp": 0
     },
     {
@@ -1490,6 +1571,19 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538142fe9873e6c628bf7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 2,
@@ -1617,6 +1711,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538142fe9873e6c628bf7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a8538142fe9873e6c628bf7",

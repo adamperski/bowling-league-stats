@@ -7,7 +7,7 @@
       "firstName": "Rudy",
       "lastName": "Lamorie",
       "dexterity": 0,
-      "average": 214,
+      "average": 212,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -116,6 +116,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        197,
+        201,
+        213,
         181,
         232,
         191,
@@ -197,20 +200,33 @@
               652
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              213,
+              201,
+              197,
+              665
+            ]
+          }
         ]
       },
-      "indPointsWon": 18,
+      "indPointsWon": 19.5,
       "highGame": 269,
       "highGameHdcp": 296,
       "highSeries": 714,
       "highSeriesHdcp": 795,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 214.33333333333334,
-      "realAvg": 214,
-      "realAvgFloat": 214.33,
+      "averageFloat": 212.55555555555554,
+      "realAvg": 212,
+      "realAvgFloat": 212.56,
       "enteringAvg": 205,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Lamorie Painting",
       "classification": "",
       "team": "6a823191249ddaa00e029994",
@@ -221,8 +237,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3215,
-      "hdcp": 18
+      "totalPointsScored": 3826,
+      "hdcp": 20
     },
     {
       "_id": "632260f718ce7eb45d89e61f",
@@ -425,6 +441,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        248,
+        169,
+        210,
         242,
         207,
         165,
@@ -503,20 +522,33 @@
               734
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              210,
+              169,
+              248,
+              690
+            ]
+          }
         ]
       },
-      "indPointsWon": 17,
+      "indPointsWon": 21,
       "highGame": 268,
       "highGameHdcp": 308,
       "highSeries": 693,
       "highSeriesHdcp": 813,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 211.75,
+      "averageFloat": 211.2,
       "realAvg": 211,
-      "realAvgFloat": 211.75,
+      "realAvgFloat": 211.2,
       "enteringAvg": 190,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "Lamorie Painting",
       "classification": "",
       "team": "6a823191249ddaa00e029994",
@@ -527,7 +559,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2541,
+      "totalPointsScored": 3168,
       "hdcp": 21
     },
     {
@@ -536,7 +568,7 @@
       "firstName": "Nicholas",
       "lastName": "Peterson-Pedroza (Nick Pedroza)",
       "dexterity": 0,
-      "average": 210,
+      "average": 200,
       "averages": [
         {
           "_id": "63043baf89fbc66f04595c29",
@@ -621,6 +653,9 @@
       "dontIdentify": false,
       "useNickname": true,
       "games": [
+        203,
+        181,
+        174,
         184,
         215,
         214,
@@ -696,20 +731,34 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              174,
+              181,
+              203,
+              624
+            ]
+          }
         ]
       },
-      "indPointsWon": 3,
+      "indPointsWon": 4,
       "highGame": 237,
       "highGameHdcp": 259,
       "highSeries": 630,
       "highSeriesHdcp": 696,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 0,
-      "realAvg": 210,
-      "realAvgFloat": 0,
+      "averageFloat": 198.08333333333334,
+      "realAvg": 198,
+      "realAvgFloat": 198.08,
+      "avgLimited": true,
       "enteringAvg": 210,
-      "gamesPlayed": 9,
+      "gamesPlayed": 12,
       "teamName": "Lamorie Painting",
       "classification": "",
       "team": "6a823191249ddaa00e029994",
@@ -720,8 +769,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 1819,
-      "hdcp": 22
+      "totalPointsScored": 2377,
+      "hdcp": 31
     },
     {
       "_id": "6317e5d95f108bca6cf254f8",
@@ -729,7 +778,7 @@
       "firstName": "Eric",
       "lastName": "Hernlund",
       "dexterity": 0,
-      "average": 226,
+      "average": 220,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -832,6 +881,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        196,
+        204,
+        165,
         248,
         235,
         161,
@@ -913,6 +965,19 @@
               659
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              165,
+              204,
+              196,
+              589
+            ]
+          }
         ]
       },
       "indPointsWon": 17,
@@ -922,11 +987,11 @@
       "highSeriesHdcp": 777,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 226.8,
-      "realAvg": 226,
-      "realAvgFloat": 226.8,
+      "averageFloat": 220.38888888888889,
+      "realAvg": 220,
+      "realAvgFloat": 220.39,
       "enteringAvg": 217,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Lamorie Painting",
       "classification": "",
       "team": "6a823191249ddaa00e029994",
@@ -937,8 +1002,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3402,
-      "hdcp": 8
+      "totalPointsScored": 3967,
+      "hdcp": 13
     },
     {
       "_id": "68b8745bce4f35ee346b8fe8",
@@ -947,7 +1012,7 @@
       "birthDate": null,
       "firstName": "Justin",
       "lastName": "Phillips",
-      "average": 213,
+      "average": 218,
       "averages": [
         {
           "league": "6898c7db0bd718dd744cd493",
@@ -987,6 +1052,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        215,
+        247,
+        266,
         188,
         190,
         224,
@@ -1068,20 +1136,33 @@
               650
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc084e69e9dc816b861c",
+            "weekIdx": 0,
+            "games": [
+              266,
+              247,
+              215,
+              785
+            ]
+          }
         ]
       },
-      "indPointsWon": 14.5,
-      "highGame": 258,
-      "highGameHdcp": 282,
-      "highSeries": 699,
-      "highSeriesHdcp": 771,
+      "indPointsWon": 19.5,
+      "highGame": 266,
+      "highGameHdcp": 285,
+      "highSeries": 728,
+      "highSeriesHdcp": 785,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 213.73333333333332,
-      "realAvg": 213,
-      "realAvgFloat": 213.73,
+      "averageFloat": 218.55555555555554,
+      "realAvg": 218,
+      "realAvgFloat": 218.56,
       "enteringAvg": 208,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Lamorie Painting",
       "classification": "",
       "team": "6a823191249ddaa00e029994",
@@ -1092,8 +1173,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3206,
-      "hdcp": 19
+      "totalPointsScored": 3934,
+      "hdcp": 15
     },
     {
       "_id": "62ec9a8fce65adc409f550b1",
@@ -1384,6 +1465,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381a2fe9873e6c628d03",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a85381a2fe9873e6c628d03",
@@ -1763,6 +1857,19 @@
               212,
               199,
               701
+            ]
+          }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381a2fe9873e6c628d03",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
             ]
           }
         ]

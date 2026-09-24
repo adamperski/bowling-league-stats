@@ -419,10 +419,15 @@ function Build-AutoLineup($teamId, $date) {
 }
 
 # ---- match_id grouping -> pairings ----
+# matchId is assigned at schedule time and is present even when a bowler's
+# games never got recorded (e.g. a scoring-system outage on their lanes) -
+# vote on it regardless of absence, so a team whose whole roster shows
+# absent-with-a-real-matchId still forms its pairing instead of vanishing
+# from the schedule entirely.
 $tmTally = @{}
 foreach ($b in $bowlers) {
     foreach ($w in @($b.weeks)) {
-        if ($w.absent -or -not $w.matchId) { continue }
+        if (-not $w.matchId) { continue }
         $k = "$($b.teamId)|$($w.date)"
         if (-not $tmTally.ContainsKey($k)) { $tmTally[$k] = @{} }
         if (-not $tmTally[$k].ContainsKey($w.matchId)) { $tmTally[$k][$w.matchId] = 0 }

@@ -7,7 +7,7 @@ $teams = [ordered]@{
         T 'Jeffrey Jones' 214
         T 'Benjie Garrison' 223
     )
-    'Sweetman Racing' = @(
+    'THE DEN' = @( # renamed from "Sweetman Racing" week of 2026-09-22
         T 'Van Vasquez' 174
         T 'Rich Lista' 197
         T 'Kevin Sweetman' 193
@@ -35,7 +35,7 @@ $teams = [ordered]@{
         T 'Troy Wilson' 195
         T 'Terry Conklin' 201
     )
-    'Schissler''s Army' = @(
+    'Mike Litzwet' = @( # renamed from "Schissler's Army" week of 2026-09-22
         T 'Zach Joslin' 202
         T 'John Schissler' 191
         T 'Aaron Schissler' 203

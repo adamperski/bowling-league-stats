@@ -6,7 +6,7 @@
       "firstName": "Benjamin",
       "lastName": "Morgan",
       "dexterity": 0,
-      "average": 233,
+      "average": 232,
       "averages": [
         {
           "league": "6a9d8298248f503d6186afc2",
@@ -114,11 +114,7 @@
           "_id": "65794fb58bdbb5c1493bc5e7"
         }
       ],
-      "nickNames": [
-        "Benjamin Morgan",
-        "Ben Morgan",
-        "Ben Morgan"
-      ],
+      "nickNames": [],
       "isJunior": false,
       "isFemale": false,
       "birthDate": "1995-06-05T06:00:00.000Z",
@@ -127,6 +123,9 @@
       "useNickname": false,
       "dontIdentify": false,
       "games": [
+        224,
+        229,
+        214,
         180,
         181,
         296,
@@ -208,6 +207,19 @@
               657
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbf94e69e9dc816b8490",
+            "weekIdx": 0,
+            "games": [
+              214,
+              229,
+              224,
+              670
+            ]
+          }
         ]
       },
       "indPointsWon": 12,
@@ -217,11 +229,11 @@
       "highSeriesHdcp": 826,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 233.93333333333334,
-      "realAvg": 233,
-      "realAvgFloat": 233.93,
+      "averageFloat": 232,
+      "realAvg": 232,
+      "realAvgFloat": 232,
       "enteringAvg": 222,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "PIN-A-TRATORS",
       "classification": "",
       "team": "6a823181249ddaa00e0298ec",
@@ -232,8 +244,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3509,
-      "hdcp": 1
+      "totalPointsScored": 4176,
+      "hdcp": 2
     },
     {
       "_id": "64d7fdc2133a546f2c86a7a7",
@@ -243,7 +255,7 @@
       "firstName": "Greg",
       "lastName": "Hydle",
       "dexterity": 0,
-      "average": 207,
+      "average": 205,
       "averages": [
         {
           "league": "64d2b443a9304a7d2dc029ee",
@@ -310,6 +322,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        176,
+        195,
+        227,
         218,
         169,
         215,
@@ -388,6 +403,19 @@
               686
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbf94e69e9dc816b8490",
+            "weekIdx": 0,
+            "games": [
+              227,
+              195,
+              176,
+              673
+            ]
+          }
         ]
       },
       "indPointsWon": 12,
@@ -397,11 +425,11 @@
       "highSeriesHdcp": 783,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 207.08333333333334,
-      "realAvg": 207,
-      "realAvgFloat": 207.08,
+      "averageFloat": 205.53333333333333,
+      "realAvg": 205,
+      "realAvgFloat": 205.53,
       "enteringAvg": 203,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "PIN-A-TRATORS",
       "classification": "",
       "team": "6a823181249ddaa00e0298ec",
@@ -412,8 +440,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2485,
-      "hdcp": 25
+      "totalPointsScored": 3083,
+      "hdcp": 27
     },
     {
       "_id": "62fc37c706521ca104a18598",
@@ -630,6 +658,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        193,
+        203,
+        191,
         170,
         158,
         204,
@@ -708,21 +739,34 @@
               622
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbf94e69e9dc816b8490",
+            "weekIdx": 0,
+            "games": [
+              191,
+              203,
+              193,
+              704
+            ]
+          }
         ]
       },
-      "indPointsWon": 3.5,
+      "indPointsWon": 7.5,
       "highGame": 208,
-      "highGameHdcp": 238,
-      "highSeries": 545,
-      "highSeriesHdcp": 635,
+      "highGameHdcp": 242,
+      "highSeries": 587,
+      "highSeriesHdcp": 704,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 171.66666666666666,
-      "realAvg": 171,
-      "realAvgFloat": 171.67,
+      "averageFloat": 176.46666666666667,
+      "realAvg": 176,
+      "realAvgFloat": 176.47,
       "avgLimited": true,
       "enteringAvg": 201,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "PIN-A-TRATORS",
       "classification": "",
       "team": "6a823181249ddaa00e0298ec",
@@ -733,7 +777,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2060,
+      "totalPointsScored": 2647,
       "hdcp": 39
     },
     {
@@ -743,7 +787,7 @@
       "lastName": "Morgan",
       "firstName": "Greg",
       "dexterity": 0,
-      "average": 231,
+      "average": 229,
       "averages": [
         {
           "_id": "63220156113a3ad563ff973f",
@@ -893,6 +937,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        216,
+        216,
+        212,
         209,
         195,
         199,
@@ -974,20 +1021,33 @@
               603
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbf94e69e9dc816b8490",
+            "weekIdx": 0,
+            "games": [
+              212,
+              216,
+              216,
+              653
+            ]
+          }
         ]
       },
-      "indPointsWon": 14,
+      "indPointsWon": 18,
       "highGame": 289,
       "highGameHdcp": 299,
       "highSeries": 780,
       "highSeriesHdcp": 810,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 231.86666666666667,
-      "realAvg": 231,
-      "realAvgFloat": 231.87,
+      "averageFloat": 229,
+      "realAvg": 229,
+      "realAvgFloat": 229,
       "enteringAvg": 223,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "PIN-A-TRATORS",
       "classification": "",
       "team": "6a823181249ddaa00e0298ec",
@@ -998,8 +1058,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3478,
-      "hdcp": 3
+      "totalPointsScored": 4122,
+      "hdcp": 5
     },
     {
       "_id": "62ec9a8fce65adc409f54f3c",
@@ -1008,7 +1068,7 @@
       "lastName": "Fleming",
       "firstName": "Deon",
       "dexterity": 0,
-      "average": 228,
+      "average": 230,
       "averages": [
         {
           "_id": "62fbaeb6f49b923b123edb9f",
@@ -1216,6 +1276,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        253,
+        233,
+        235,
         277,
         226,
         203,
@@ -1297,20 +1360,33 @@
               727
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbf94e69e9dc816b8490",
+            "weekIdx": 0,
+            "games": [
+              235,
+              233,
+              253,
+              739
+            ]
+          }
         ]
       },
-      "indPointsWon": 12,
+      "indPointsWon": 15,
       "highGame": 278,
       "highGameHdcp": 287,
       "highSeries": 732,
       "highSeriesHdcp": 759,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 228.86666666666667,
-      "realAvg": 228,
-      "realAvgFloat": 228.87,
+      "averageFloat": 230.77777777777777,
+      "realAvg": 230,
+      "realAvgFloat": 230.78,
       "enteringAvg": 225,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "PIN-A-TRATORS",
       "classification": "",
       "team": "6a823181249ddaa00e0298ec",
@@ -1321,8 +1397,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3433,
-      "hdcp": 6
+      "totalPointsScored": 4154,
+      "hdcp": 4
     },
     {
       "_id": "63004ed8f1a006421e8538be",
@@ -1947,6 +2023,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538082fe9873e6c6289cf",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a8538082fe9873e6c6289cf",

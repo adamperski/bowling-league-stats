@@ -7,7 +7,7 @@
       "firstName": "Tony",
       "lastName": "Panetta",
       "dexterity": 0,
-      "average": 174,
+      "average": 168,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -223,6 +223,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        141,
+        151,
+        121,
         190,
         170,
         168,
@@ -304,20 +307,33 @@
               690
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc124e69e9dc816b8706",
+            "weekIdx": 0,
+            "games": [
+              121,
+              151,
+              141,
+              575
+            ]
+          }
         ]
       },
-      "indPointsWon": 16,
+      "indPointsWon": 17,
       "highGame": 203,
       "highGameHdcp": 267,
       "highSeries": 546,
       "highSeriesHdcp": 738,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 174.4,
-      "realAvg": 174,
-      "realAvgFloat": 174.4,
+      "averageFloat": 168.27777777777777,
+      "realAvg": 168,
+      "realAvgFloat": 168.28,
       "enteringAvg": 163,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Panetta Heating",
       "classification": "",
       "team": "6a82319f249ddaa00e029a26",
@@ -328,8 +344,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2616,
-      "hdcp": 54
+      "totalPointsScored": 3029,
+      "hdcp": 60
     },
     {
       "_id": "62f333230535cd0b078dabff",
@@ -338,7 +354,7 @@
       "lastName": "Delaney",
       "firstName": "Jeffrie",
       "dexterity": 0,
-      "average": 227,
+      "average": 223,
       "averages": [
         {
           "league": "66c408a157a333b75c0354ca",
@@ -658,6 +674,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        223,
+        201,
+        191,
         215,
         237,
         256,
@@ -739,20 +758,33 @@
               735
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc124e69e9dc816b8706",
+            "weekIdx": 0,
+            "games": [
+              191,
+              201,
+              223,
+              636
+            ]
+          }
         ]
       },
-      "indPointsWon": 20,
+      "indPointsWon": 21,
       "highGame": 268,
       "highGameHdcp": 278,
       "highSeries": 730,
       "highSeriesHdcp": 760,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 227.6,
-      "realAvg": 227,
-      "realAvgFloat": 227.6,
+      "averageFloat": 223.83333333333334,
+      "realAvg": 223,
+      "realAvgFloat": 223.83,
       "enteringAvg": 223,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Panetta Heating",
       "classification": "",
       "team": "6a82319f249ddaa00e029a26",
@@ -763,8 +795,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3414,
-      "hdcp": 7
+      "totalPointsScored": 4029,
+      "hdcp": 10
     },
     {
       "_id": "62ed2d0841d519a12241ef16",
@@ -1120,6 +1152,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        212,
+        158,
+        174,
         205,
         202,
         206,
@@ -1201,11 +1236,24 @@
               727
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc124e69e9dc816b8706",
+            "weekIdx": 0,
+            "games": [
+              174,
+              158,
+              212,
+              658
+            ]
+          }
         ]
       },
       "indPointsWon": 8,
-      "highGame": 206,
-      "highGameHdcp": 244,
+      "highGame": 212,
+      "highGameHdcp": 250,
       "highSeries": 613,
       "highSeriesHdcp": 727,
       "blindWeeksTotal": 0,
@@ -1215,7 +1263,7 @@
       "realAvgFloat": 181.33,
       "avgLimited": true,
       "enteringAvg": 202,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Panetta Heating",
       "classification": "",
       "team": "6a82319f249ddaa00e029a26",
@@ -1226,7 +1274,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2720,
+      "totalPointsScored": 3264,
       "hdcp": 38
     },
     {
@@ -1870,6 +1918,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        185,
+        204,
+        218,
         226,
         224,
         198,
@@ -1942,9 +1993,22 @@
               681
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc124e69e9dc816b8706",
+            "weekIdx": 0,
+            "games": [
+              218,
+              204,
+              185,
+              640
+            ]
+          }
         ]
       },
-      "indPointsWon": 9.5,
+      "indPointsWon": 10.5,
       "highGame": 254,
       "highGameHdcp": 265,
       "highSeries": 663,
@@ -1955,7 +2019,7 @@
       "realAvg": 222,
       "realAvgFloat": 0,
       "enteringAvg": 222,
-      "gamesPlayed": 6,
+      "gamesPlayed": 9,
       "teamName": "Panetta Heating",
       "classification": "",
       "team": "6a82319f249ddaa00e029a26",
@@ -1966,7 +2030,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 1311,
+      "totalPointsScored": 1918,
       "hdcp": 11
     },
     {
@@ -1976,7 +2040,7 @@
       "lastName": "Wood",
       "firstName": "Randy",
       "dexterity": 0,
-      "average": 242,
+      "average": 241,
       "averages": [
         {
           "league": "66bfe3e3c68e38703d6bf78d",
@@ -2374,6 +2438,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        197,
+        225,
+        275,
         236,
         279,
         233,
@@ -2455,20 +2522,33 @@
               748
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc124e69e9dc816b8706",
+            "weekIdx": 0,
+            "games": [
+              275,
+              225,
+              197,
+              697
+            ]
+          }
         ]
       },
-      "indPointsWon": 6,
+      "indPointsWon": 9,
       "highGame": 279,
       "highGameHdcp": 279,
       "highSeries": 769,
       "highSeriesHdcp": 769,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 242.8,
-      "realAvg": 242,
-      "realAvgFloat": 242.8,
+      "averageFloat": 241.05555555555554,
+      "realAvg": 241,
+      "realAvgFloat": 241.06,
       "enteringAvg": 238,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Panetta Heating",
       "classification": "",
       "team": "6a82319f249ddaa00e029a26",
@@ -2479,7 +2559,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3642,
+      "totalPointsScored": 4339,
       "hdcp": 0
     },
     {
@@ -2491,9 +2571,23 @@
       "average": 195,
       "averages": [
         {
+          "league": "6aa085e9248f503d6186c65c",
+          "team": "6aa085ea248f503d6186c66b",
+          "_id": "6ab3f2f70b470d0a29483fd9",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 195
+        },
+        {
           "league": "6a74e9d0623bc22027b8eb84",
           "team": "6a74f55fe5c5aeef32af7901",
-          "_id": "6a8dac3c8393037236b1b2a6",
+          "_id": "6ab3f2f70b470d0a29483fda",
           "individualPoints": 0,
           "totalPointsCarryOn": 0,
           "gamesCarryOn": 0,
@@ -2507,7 +2601,7 @@
         {
           "league": "6780512b3fa87ad417fd6feb",
           "team": "678052923fa87ad417fd7024",
-          "_id": "6a8dac3c8393037236b1b2a7",
+          "_id": "6ab3f2f70b470d0a29483fdb",
           "individualPoints": 0,
           "totalPointsCarryOn": 0,
           "gamesCarryOn": 0,
@@ -2521,7 +2615,7 @@
         {
           "league": "6a82316f249ddaa00e0297fb",
           "team": "6a82319f249ddaa00e029a26",
-          "_id": "6a8dac3c8393037236b1b2a8",
+          "_id": "6ab3f2f70b470d0a29483fdc",
           "individualPoints": 0,
           "totalPointsCarryOn": 0,
           "gamesCarryOn": 0,
@@ -2535,7 +2629,7 @@
         {
           "league": "69f8f1dfc8d9841905ef3097",
           "team": "69f8f2341b4591f463ae96f3",
-          "_id": "6a8dac3c8393037236b1b2a9",
+          "_id": "6ab3f2f70b470d0a29483fdd",
           "individualPoints": 0,
           "totalPointsCarryOn": 0,
           "gamesCarryOn": 0,
@@ -2549,7 +2643,7 @@
         {
           "league": "665fa35c61c54438698141ba",
           "team": "6667493472ee2aa2247b5a36",
-          "_id": "6a8dac3c8393037236b1b2aa",
+          "_id": "6ab3f2f70b470d0a29483fde",
           "individualPoints": 0,
           "totalPointsCarryOn": 0,
           "gamesCarryOn": 0,
@@ -2563,7 +2657,7 @@
         {
           "league": "6808550186269353417e0395",
           "team": "683930b16921475368fa0905",
-          "_id": "6a8dac3c8393037236b1b2ab",
+          "_id": "6ab3f2f70b470d0a29483fdf",
           "individualPoints": 0,
           "totalPointsCarryOn": 0,
           "gamesCarryOn": 0,
@@ -2577,6 +2671,7 @@
       ],
       "subs": [],
       "nickNames": [
+        "Gianna Panetta",
         "Gianna Panetta",
         "Gianna Panetta",
         "Gianna Panetta"
@@ -2653,6 +2748,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538182fe9873e6c628ca6",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a8538182fe9873e6c628ca6",
@@ -2888,6 +2996,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538182fe9873e6c628ca6",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a8538182fe9873e6c628ca6",

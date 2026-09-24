@@ -7,7 +7,7 @@
       "lastName": "Schneider",
       "firstName": "Chad",
       "dexterity": 0,
-      "average": 189,
+      "average": 185,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -89,6 +89,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        155,
+        157,
+        190,
         162,
         171,
         191,
@@ -170,6 +173,19 @@
               638
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc024e69e9dc816b8580",
+            "weekIdx": 0,
+            "games": [
+              190,
+              157,
+              155,
+              625
+            ]
+          }
         ]
       },
       "indPointsWon": 14,
@@ -179,11 +195,11 @@
       "highSeriesHdcp": 771,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 189.06666666666666,
-      "realAvg": 189,
-      "realAvgFloat": 189.07,
+      "averageFloat": 185.44444444444446,
+      "realAvg": 185,
+      "realAvgFloat": 185.44,
       "enteringAvg": 189,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Better Than Gold",
       "classification": "",
       "team": "6a8231a2249ddaa00e029a42",
@@ -194,8 +210,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2836,
-      "hdcp": 41
+      "totalPointsScored": 3338,
+      "hdcp": 45
     },
     {
       "_id": "62e6cecaa520cb3d645348d4",
@@ -204,7 +220,7 @@
       "lastName": "Frenzel",
       "firstName": "Taryn",
       "dexterity": 0,
-      "average": 199,
+      "average": 204,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -285,6 +301,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        238,
+        235,
+        224,
         215,
         182,
         182,
@@ -366,20 +385,33 @@
               672
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc024e69e9dc816b8580",
+            "weekIdx": 0,
+            "games": [
+              224,
+              235,
+              238,
+              793
+            ]
+          }
         ]
       },
-      "indPointsWon": 15,
+      "indPointsWon": 20,
       "highGame": 254,
       "highGameHdcp": 281,
-      "highSeries": 644,
-      "highSeriesHdcp": 725,
+      "highSeries": 697,
+      "highSeriesHdcp": 793,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 199.26666666666668,
-      "realAvg": 199,
-      "realAvgFloat": 199.27,
+      "averageFloat": 204.77777777777777,
+      "realAvg": 204,
+      "realAvgFloat": 204.78,
       "enteringAvg": 204,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Better Than Gold",
       "classification": "",
       "team": "6a8231a2249ddaa00e029a42",
@@ -390,8 +422,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2989,
-      "hdcp": 32
+      "totalPointsScored": 3686,
+      "hdcp": 27
     },
     {
       "_id": "62e6cecaa520cb3d64534b75",
@@ -400,7 +432,7 @@
       "lastName": "Moravy",
       "firstName": "Craig",
       "dexterity": 0,
-      "average": 213,
+      "average": 212,
       "averages": [
         {
           "league": "68228e28a79aeff0256b7939",
@@ -496,6 +528,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        190,
+        244,
+        191,
         202,
         203,
         223,
@@ -577,20 +612,33 @@
               682
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc024e69e9dc816b8580",
+            "weekIdx": 0,
+            "games": [
+              191,
+              244,
+              190,
+              682
+            ]
+          }
         ]
       },
-      "indPointsWon": 13,
+      "indPointsWon": 14,
       "highGame": 248,
       "highGameHdcp": 268,
       "highSeries": 677,
       "highSeriesHdcp": 737,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 213.53333333333333,
-      "realAvg": 213,
-      "realAvgFloat": 213.53,
+      "averageFloat": 212.66666666666666,
+      "realAvg": 212,
+      "realAvgFloat": 212.67,
       "enteringAvg": 212,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Better Than Gold",
       "classification": "",
       "team": "6a8231a2249ddaa00e029a42",
@@ -601,8 +649,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3203,
-      "hdcp": 19
+      "totalPointsScored": 3828,
+      "hdcp": 20
     },
     {
       "_id": "62fc45af8bbd233310bdf1ef",
@@ -773,15 +821,28 @@
               834
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc024e69e9dc816b8580",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
-      "indPointsWon": 15,
+      "indPointsWon": 19,
       "highGame": 289,
       "highGameHdcp": 300,
       "highSeries": 801,
       "highSeriesHdcp": 834,
-      "blindWeeksTotal": 0,
-      "blindWeeksRow": 0,
+      "blindWeeksTotal": 1,
+      "blindWeeksRow": 1,
       "averageFloat": 231.26666666666668,
       "realAvg": 231,
       "realAvgFloat": 231.27,
@@ -807,7 +868,7 @@
       "lastName": "Kastberg",
       "firstName": "Lee",
       "dexterity": 0,
-      "average": 212,
+      "average": 208,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -888,6 +949,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        163,
+        136,
+        243,
         188,
         268,
         193,
@@ -969,20 +1033,34 @@
               712
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc024e69e9dc816b8580",
+            "weekIdx": 0,
+            "games": [
+              243,
+              136,
+              163,
+              602
+            ]
+          }
         ]
       },
-      "indPointsWon": 10,
+      "indPointsWon": 11,
       "highGame": 300,
       "highGameHdcp": 315,
       "highSeries": 771,
       "highSeriesHdcp": 816,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 212.06666666666666,
-      "realAvg": 212,
-      "realAvgFloat": 212.07,
+      "averageFloat": 206.83333333333334,
+      "realAvg": 206,
+      "realAvgFloat": 206.83,
+      "avgLimited": true,
       "enteringAvg": 218,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Better Than Gold",
       "classification": "",
       "team": "6a8231a2249ddaa00e029a42",
@@ -993,8 +1071,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3181,
-      "hdcp": 20
+      "totalPointsScored": 3723,
+      "hdcp": 24
     }
   ]
 }

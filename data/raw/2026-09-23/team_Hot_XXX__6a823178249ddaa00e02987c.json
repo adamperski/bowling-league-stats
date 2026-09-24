@@ -7,7 +7,7 @@
       "lastName": "Farrell",
       "firstName": "Brian",
       "dexterity": 0,
-      "average": 187,
+      "average": 181,
       "averages": [
         {
           "_id": "62f972177367661272302a03",
@@ -89,6 +89,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        156,
+        147,
+        149,
         193,
         214,
         230,
@@ -170,6 +173,19 @@
               781
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbee4e69e9dc816b8345",
+            "weekIdx": 0,
+            "games": [
+              149,
+              147,
+              156,
+              581
+            ]
+          }
         ]
       },
       "indPointsWon": 18,
@@ -179,11 +195,11 @@
       "highSeriesHdcp": 791,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 187.86666666666667,
-      "realAvg": 187,
-      "realAvgFloat": 187.87,
+      "averageFloat": 181.66666666666666,
+      "realAvg": 181,
+      "realAvgFloat": 181.67,
       "enteringAvg": 168,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Hot XXX",
       "classification": "",
       "team": "6a823178249ddaa00e02987c",
@@ -194,8 +210,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2818,
-      "hdcp": 43
+      "totalPointsScored": 3270,
+      "hdcp": 48
     },
     {
       "_id": "62e6cec9a520cb3d6453465b",
@@ -381,6 +397,19 @@
               665
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538082fe9873e6c6289cf",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 11.5,
@@ -455,6 +484,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        166,
+        149,
+        247,
         172,
         172,
         193,
@@ -536,20 +568,33 @@
               669
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbee4e69e9dc816b8345",
+            "weekIdx": 0,
+            "games": [
+              247,
+              149,
+              166,
+              697
+            ]
+          }
         ]
       },
-      "indPointsWon": 10,
-      "highGame": 241,
-      "highGameHdcp": 288,
+      "indPointsWon": 11,
+      "highGame": 247,
+      "highGameHdcp": 292,
       "highSeries": 602,
       "highSeriesHdcp": 743,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 185.2,
+      "averageFloat": 185.55555555555554,
       "realAvg": 185,
-      "realAvgFloat": 185.2,
+      "realAvgFloat": 185.56,
       "enteringAvg": 0,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Hot XXX",
       "classification": "",
       "team": "6a823178249ddaa00e02987c",
@@ -560,7 +605,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2778,
+      "totalPointsScored": 3340,
       "hdcp": 45
     },
     {
@@ -854,6 +899,19 @@
               598
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538082fe9873e6c6289cf",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 18.5,
@@ -888,7 +946,7 @@
       "lastName": "Umscheid",
       "firstName": "Mark",
       "dexterity": 0,
-      "average": 236,
+      "average": 241,
       "averages": [
         {
           "league": "62e6923355b9a0101c2d726a",
@@ -983,6 +1041,9 @@
       "useNickname": false,
       "games": [
         279,
+        245,
+        279,
+        279,
         225,
         269,
         256,
@@ -1063,20 +1124,33 @@
               782
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbee4e69e9dc816b8345",
+            "weekIdx": 0,
+            "games": [
+              279,
+              245,
+              279,
+              803
+            ]
+          }
         ]
       },
-      "indPointsWon": 19,
+      "indPointsWon": 24,
       "highGame": 289,
       "highGameHdcp": 297,
-      "highSeries": 773,
-      "highSeriesHdcp": 795,
+      "highSeries": 803,
+      "highSeriesHdcp": 803,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 236.6,
-      "realAvg": 236,
-      "realAvgFloat": 236.6,
+      "averageFloat": 241.77777777777777,
+      "realAvg": 241,
+      "realAvgFloat": 241.78,
       "enteringAvg": 226,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Hot XXX",
       "classification": "",
       "team": "6a823178249ddaa00e02987c",
@@ -1087,7 +1161,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3549,
+      "totalPointsScored": 4352,
       "hdcp": 0
     },
     {
@@ -1374,7 +1448,11 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dontIdentify": false,
       "useNickname": false,
-      "games": [],
+      "games": [
+        200,
+        207,
+        192
+      ],
       "weekGames": {
         "2026-08-18": [
           {
@@ -1440,20 +1518,33 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbee4e69e9dc816b8345",
+            "weekIdx": 0,
+            "games": [
+              192,
+              207,
+              200,
+              689
+            ]
+          }
         ]
       },
-      "indPointsWon": 0,
-      "highGame": 0,
-      "highGameHdcp": 0,
-      "highSeries": 0,
-      "highSeriesHdcp": 0,
+      "indPointsWon": 4,
+      "highGame": 207,
+      "highGameHdcp": 237,
+      "highSeries": 599,
+      "highSeriesHdcp": 689,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
       "averageFloat": 0,
       "realAvg": 201,
       "realAvgFloat": 0,
       "enteringAvg": 201,
-      "gamesPlayed": 0,
+      "gamesPlayed": 3,
       "teamName": "Hot XXX",
       "classification": "",
       "team": "6a823178249ddaa00e02987c",
@@ -1464,7 +1555,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 0,
+      "totalPointsScored": 599,
       "hdcp": 30
     },
     {
@@ -1637,6 +1728,19 @@
           }
         ],
         "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538082fe9873e6c6289cf",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
           {
             "isMatch": false,
             "match_id": "6a8538082fe9873e6c6289cf",
@@ -2158,7 +2262,11 @@
       "avatar": "https%3A%2F%2Fleaguepals-users.s3.amazonaws.com%2Fbowler%2F62e6cda955b9a0101c2dec13%2Fprofile_image%3Fid%3D1666199598026",
       "dontIdentify": false,
       "useNickname": false,
-      "games": [],
+      "games": [
+        174,
+        234,
+        177
+      ],
       "weekGames": {
         "2026-08-18": [
           {
@@ -2224,20 +2332,33 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbee4e69e9dc816b8345",
+            "weekIdx": 0,
+            "games": [
+              177,
+              234,
+              174,
+              606
+            ]
+          }
         ]
       },
       "indPointsWon": 0,
-      "highGame": 0,
-      "highGameHdcp": 0,
-      "highSeries": 0,
-      "highSeriesHdcp": 0,
+      "highGame": 234,
+      "highGameHdcp": 241,
+      "highSeries": 585,
+      "highSeriesHdcp": 606,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
       "averageFloat": 0,
       "realAvg": 227,
       "realAvgFloat": 0,
       "enteringAvg": 227,
-      "gamesPlayed": 0,
+      "gamesPlayed": 3,
       "teamName": "Hot XXX",
       "classification": "",
       "team": "6a823178249ddaa00e02987c",
@@ -2248,7 +2369,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 0,
+      "totalPointsScored": 585,
       "hdcp": 7
     }
   ]

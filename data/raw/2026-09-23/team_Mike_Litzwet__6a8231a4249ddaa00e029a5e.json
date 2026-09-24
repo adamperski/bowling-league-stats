@@ -6,7 +6,7 @@
       "lastName": "Joslin",
       "birthDate": "1985-05-21T00:00:00.000Z",
       "name": "Zach Joslin",
-      "average": 213,
+      "average": 212,
       "averages": [
         {
           "league": "6a82316f249ddaa00e0297fb",
@@ -32,6 +32,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        207,
+        231,
+        190,
         243,
         236,
         246,
@@ -110,6 +113,19 @@
               812
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbe84e69e9dc816b82a3",
+            "weekIdx": 0,
+            "games": [
+              190,
+              231,
+              207,
+              685
+            ]
+          }
         ]
       },
       "indPointsWon": 11,
@@ -119,11 +135,11 @@
       "highSeriesHdcp": 812,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 213.66666666666666,
-      "realAvg": 213,
-      "realAvgFloat": 213.67,
+      "averageFloat": 212.8,
+      "realAvg": 212,
+      "realAvgFloat": 212.8,
       "enteringAvg": 202,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "Mike Litzwet",
       "classification": "",
       "team": "6a8231a4249ddaa00e029a5e",
@@ -134,8 +150,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2564,
-      "hdcp": 19
+      "totalPointsScored": 3192,
+      "hdcp": 20
     },
     {
       "_id": "68bf45c25a54cca901ec2439",
@@ -144,7 +160,7 @@
       "birthDate": null,
       "firstName": "John",
       "lastName": "Schissler",
-      "average": 194,
+      "average": 197,
       "averages": [
         {
           "league": "68bf3aba09a391f55ee6a51d",
@@ -184,6 +200,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        247,
+        180,
+        204,
         191,
         193,
         174,
@@ -265,20 +284,33 @@
               660
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbe84e69e9dc816b82a3",
+            "weekIdx": 0,
+            "games": [
+              204,
+              180,
+              247,
+              739
+            ]
+          }
         ]
       },
-      "indPointsWon": 9,
+      "indPointsWon": 13,
       "highGame": 266,
       "highGameHdcp": 305,
       "highSeries": 685,
       "highSeriesHdcp": 802,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 194.86666666666667,
-      "realAvg": 194,
-      "realAvgFloat": 194.87,
+      "averageFloat": 197.44444444444446,
+      "realAvg": 197,
+      "realAvgFloat": 197.44,
       "enteringAvg": 191,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Mike Litzwet",
       "classification": "",
       "team": "6a8231a4249ddaa00e029a5e",
@@ -289,8 +321,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2923,
-      "hdcp": 36
+      "totalPointsScored": 3554,
+      "hdcp": 34
     },
     {
       "_id": "68bf45c35a54cca901ec243f",
@@ -417,6 +449,19 @@
               663
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a85382c2fe9873e6c628fcd",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 12,
@@ -451,7 +496,7 @@
       "birthDate": null,
       "firstName": "Derek",
       "lastName": "Schissler",
-      "average": 204,
+      "average": 200,
       "averages": [
         {
           "league": "68bf3aba09a391f55ee6a51d",
@@ -491,6 +536,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        167,
+        180,
+        179,
         216,
         155,
         197,
@@ -572,6 +620,19 @@
               640
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbe84e69e9dc816b82a3",
+            "weekIdx": 0,
+            "games": [
+              179,
+              180,
+              167,
+              607
+            ]
+          }
         ]
       },
       "indPointsWon": 12,
@@ -581,11 +642,12 @@
       "highSeriesHdcp": 780,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 204.66666666666666,
-      "realAvg": 204,
-      "realAvgFloat": 204.67,
+      "averageFloat": 199.77777777777777,
+      "realAvg": 199,
+      "realAvgFloat": 199.78,
+      "avgLimited": true,
       "enteringAvg": 210,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Mike Litzwet",
       "classification": "",
       "team": "6a8231a4249ddaa00e029a5e",
@@ -596,8 +658,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3070,
-      "hdcp": 27
+      "totalPointsScored": 3596,
+      "hdcp": 31
     },
     {
       "_id": "62e6cda955b9a0101c2debea",
@@ -606,7 +668,7 @@
       "lastName": "Schissler",
       "firstName": "Ricky",
       "dexterity": 0,
-      "average": 228,
+      "average": 221,
       "averages": [
         {
           "_id": "6813d181d8db182663ec966c",
@@ -1346,6 +1408,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        181,
+        182,
+        197,
         257,
         247,
         247,
@@ -1427,20 +1492,33 @@
               781
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbe84e69e9dc816b82a3",
+            "weekIdx": 0,
+            "games": [
+              197,
+              182,
+              181,
+              578
+            ]
+          }
         ]
       },
-      "indPointsWon": 11.5,
+      "indPointsWon": 12.5,
       "highGame": 276,
       "highGameHdcp": 287,
       "highSeries": 751,
       "highSeriesHdcp": 782,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 228.8,
-      "realAvg": 228,
-      "realAvgFloat": 228.8,
+      "averageFloat": 221.77777777777777,
+      "realAvg": 221,
+      "realAvgFloat": 221.78,
       "enteringAvg": 222,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Mike Litzwet",
       "classification": "",
       "team": "6a8231a4249ddaa00e029a5e",
@@ -1451,8 +1529,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3432,
-      "hdcp": 6
+      "totalPointsScored": 3992,
+      "hdcp": 12
     },
     {
       "_id": "6a8537f0ef0762626e1ab5e9",
@@ -1461,7 +1539,7 @@
       "birthDate": null,
       "firstName": "Frank",
       "lastName": "Guccione",
-      "average": 209,
+      "average": 224,
       "averages": [
         {
           "league": "6a82316f249ddaa00e0297fb",
@@ -1487,6 +1565,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        213,
+        246,
+        257,
         180,
         192,
         257
@@ -1556,20 +1637,33 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bbe84e69e9dc816b82a3",
+            "weekIdx": 0,
+            "games": [
+              257,
+              246,
+              213,
+              785
+            ]
+          }
         ]
       },
-      "indPointsWon": 3,
+      "indPointsWon": 8,
       "highGame": 257,
       "highGameHdcp": 280,
-      "highSeries": 629,
-      "highSeriesHdcp": 698,
+      "highSeries": 716,
+      "highSeriesHdcp": 785,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 209.66666666666666,
-      "realAvg": 209,
-      "realAvgFloat": 209.67,
+      "averageFloat": 224.16666666666666,
+      "realAvg": 224,
+      "realAvgFloat": 224.17,
       "enteringAvg": 0,
-      "gamesPlayed": 3,
+      "gamesPlayed": 6,
       "teamName": "Mike Litzwet",
       "classification": "",
       "team": "6a8231a4249ddaa00e029a5e",
@@ -1580,8 +1674,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 629,
-      "hdcp": 23
+      "totalPointsScored": 1345,
+      "hdcp": 9
     }
   ]
 }

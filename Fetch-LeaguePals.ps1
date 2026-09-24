@@ -36,6 +36,12 @@ $ua       = 'bowling-league-stats/1.0 (personal league archive; contact adampers
 
 $outDir = Join-Path $scriptDir (Join-Path 'data\raw' $Date)
 New-Item -ItemType Directory -Force -Path $outDir | Out-Null
+# Team files are named team_<name>__<id>.json - if a team renames between two
+# fetches into the SAME day's snapshot, the old-named file for that id is
+# never overwritten (different filename) and lingers as an orphan, which
+# double-counts that team's bowlers when Build-Stats.ps1 reads the snapshot.
+# Clear old team files first; every team gets refetched below regardless.
+Get-ChildItem $outDir -Filter 'team_*.json' -ErrorAction SilentlyContinue | Remove-Item -Force
 
 function Save-Json {
     param([string]$Name, [string]$Text)

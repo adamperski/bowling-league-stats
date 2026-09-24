@@ -6,7 +6,7 @@
       "firstName": "Kayla",
       "lastName": "Osei",
       "dexterity": 0,
-      "average": 185,
+      "average": 186,
       "averages": [
         {
           "_id": "66c550cda8b949ac1b6e6d50",
@@ -111,6 +111,9 @@
       "useNickname": false,
       "dontIdentify": false,
       "games": [
+        172,
+        143,
+        203,
         182,
         224,
         182,
@@ -186,20 +189,33 @@
               723
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0f4e69e9dc816b86b6",
+            "weekIdx": 0,
+            "games": [
+              203,
+              143,
+              172,
+              653
+            ]
+          }
         ]
       },
-      "indPointsWon": 11,
+      "indPointsWon": 15,
       "highGame": 238,
       "highGameHdcp": 283,
       "highSeries": 588,
       "highSeriesHdcp": 723,
       "blindWeeksTotal": 2,
       "blindWeeksRow": 0,
-      "averageFloat": 0,
-      "realAvg": 185,
-      "realAvgFloat": 0,
+      "averageFloat": 186.66666666666666,
+      "realAvg": 186,
+      "realAvgFloat": 186.67,
       "enteringAvg": 185,
-      "gamesPlayed": 9,
+      "gamesPlayed": 12,
       "teamName": "Corpse Crew",
       "classification": "",
       "team": "6a82319d249ddaa00e029a10",
@@ -210,8 +226,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 1722,
-      "hdcp": 45
+      "totalPointsScored": 2240,
+      "hdcp": 44
     },
     {
       "_id": "62f330150535cd0b078d8857",
@@ -220,7 +236,7 @@
       "lastName": "Cleghorn",
       "firstName": "Randy",
       "dexterity": 0,
-      "average": 196,
+      "average": 193,
       "averages": [
         {
           "league": "66b407e25dbb6ac34d152150",
@@ -344,6 +360,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        211,
+        165,
+        172,
         228,
         177,
         225,
@@ -425,20 +444,33 @@
               744
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0f4e69e9dc816b86b6",
+            "weekIdx": 0,
+            "games": [
+              172,
+              165,
+              211,
+              653
+            ]
+          }
         ]
       },
-      "indPointsWon": 11,
+      "indPointsWon": 12,
       "highGame": 256,
       "highGameHdcp": 297,
       "highSeries": 640,
       "highSeriesHdcp": 763,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 196.06666666666666,
-      "realAvg": 196,
-      "realAvgFloat": 196.07,
+      "averageFloat": 193.83333333333334,
+      "realAvg": 193,
+      "realAvgFloat": 193.83,
       "enteringAvg": 189,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Corpse Crew",
       "classification": "",
       "team": "6a82319d249ddaa00e029a10",
@@ -449,8 +481,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2941,
-      "hdcp": 35
+      "totalPointsScored": 3489,
+      "hdcp": 37
     },
     {
       "_id": "62e6cdaa55b9a0101c2def84",
@@ -550,6 +582,19 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381e2fe9873e6c628dc2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 0,
@@ -623,6 +668,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        173,
+        175,
+        153,
         130,
         138,
         163,
@@ -701,21 +749,34 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0f4e69e9dc816b86b6",
+            "weekIdx": 0,
+            "games": [
+              153,
+              175,
+              173,
+              699
+            ]
+          }
         ]
       },
-      "indPointsWon": 0,
+      "indPointsWon": 4,
       "highGame": 184,
       "highGameHdcp": 241,
       "highSeries": 528,
       "highSeriesHdcp": 699,
       "blindWeeksTotal": 1,
-      "blindWeeksRow": 1,
-      "averageFloat": 143.25,
-      "realAvg": 143,
-      "realAvgFloat": 143.25,
+      "blindWeeksRow": 0,
+      "averageFloat": 148,
+      "realAvg": 148,
+      "realAvgFloat": 148,
       "avgLimited": true,
       "enteringAvg": 171,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "Corpse Crew",
       "classification": "",
       "team": "6a82319d249ddaa00e029a10",
@@ -726,7 +787,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 1719,
+      "totalPointsScored": 2220,
       "hdcp": 66
     },
     {
@@ -735,7 +796,7 @@
       "firstName": "Josh",
       "lastName": "Henshaw",
       "dexterity": 0,
-      "average": 197,
+      "average": 204,
       "averages": [
         {
           "league": "6a82316f249ddaa00e0297fb",
@@ -859,6 +920,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        183,
+        174,
+        210,
         258,
         200,
         237,
@@ -934,20 +998,33 @@
               0
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0f4e69e9dc816b86b6",
+            "weekIdx": 0,
+            "games": [
+              210,
+              174,
+              183,
+              669
+            ]
+          }
         ]
       },
-      "indPointsWon": 9,
+      "indPointsWon": 10,
       "highGame": 258,
       "highGameHdcp": 292,
       "highSeries": 695,
       "highSeriesHdcp": 797,
       "blindWeeksTotal": 2,
-      "blindWeeksRow": 1,
-      "averageFloat": 0,
-      "realAvg": 197,
-      "realAvgFloat": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 204.5,
+      "realAvg": 204,
+      "realAvgFloat": 204.5,
       "enteringAvg": 197,
-      "gamesPlayed": 9,
+      "gamesPlayed": 12,
       "teamName": "Corpse Crew",
       "classification": "",
       "team": "6a82319d249ddaa00e029a10",
@@ -958,8 +1035,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 1887,
-      "hdcp": 34
+      "totalPointsScored": 2454,
+      "hdcp": 27
     },
     {
       "_id": "651b88d1ebbebfb560364950",
@@ -969,7 +1046,7 @@
       "firstName": "Joe",
       "lastName": "Panetta",
       "dexterity": 0,
-      "average": 80,
+      "average": 87,
       "averages": [
         {
           "league": "64ff5ca6c6e5d1a230b4d573",
@@ -1050,6 +1127,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        111,
+        115,
+        96,
         89,
         80,
         79,
@@ -1125,20 +1205,33 @@
               668
             ]
           }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6ab3bc0f4e69e9dc816b86b6",
+            "weekIdx": 0,
+            "games": [
+              96,
+              115,
+              111,
+              739
+            ]
+          }
         ]
       },
-      "indPointsWon": 8,
-      "highGame": 92,
-      "highGameHdcp": 229,
-      "highSeries": 248,
-      "highSeriesHdcp": 668,
+      "indPointsWon": 12,
+      "highGame": 115,
+      "highGameHdcp": 254,
+      "highSeries": 322,
+      "highSeriesHdcp": 739,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 80.33333333333333,
-      "realAvg": 80,
-      "realAvgFloat": 80.33,
+      "averageFloat": 87.08333333333333,
+      "realAvg": 87,
+      "realAvgFloat": 87.08,
       "enteringAvg": 0,
-      "gamesPlayed": 9,
+      "gamesPlayed": 12,
       "teamName": "Corpse Crew",
       "classification": "",
       "team": "6a82319d249ddaa00e029a10",
@@ -1149,8 +1242,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 723,
-      "hdcp": 139
+      "totalPointsScored": 1045,
+      "hdcp": 133
     }
   ]
 }

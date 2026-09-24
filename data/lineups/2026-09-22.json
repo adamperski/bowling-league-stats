@@ -1,160 +1,160 @@
 ﻿{
-    "date":  "2026-09-08",
-    "_help":  "Weeks with a blind / sub / missed game. Fix each team\u0027s lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate.",
+    "date":  "2026-09-22",
+    "_help":  "Full week import from a printed/live report.",
     "teams":  {
-                  "Pocket Pounders":  {
-                                          "resolved":  true,
-                                          "autoFlags":  [
+                  "SHARKS":  {
+                                 "resolved":  true,
+                                 "autoFlags":  [
 
-                                                        ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "sub",
-                                                             "name":  "Erin Marchant",
-                                                             "blindFor":  null,
-                                                             "subFor":  "Jordan Yancey",
-                                                             "avg":  203
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "bowler",
-                                                             "name":  "Trey Erickson",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  190
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "bowler",
-                                                             "name":  "Chuck Dreux",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  193
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "Tim Pester",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  220
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "bowler",
-                                                             "name":  "Bryan Keller",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  214
-                                                         }
-                                                     ]
-                                      },
-                  "Sweetman Racing":  {
-                                          "resolved":  true,
-                                          "autoFlags":  [
+                                               ],
+                                 "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
+                                 "lineup":  [
+                                                {
+                                                    "pos":  1,
+                                                    "kind":  "bowler",
+                                                    "name":  "Matt Padilla",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  209
+                                                },
+                                                {
+                                                    "pos":  2,
+                                                    "kind":  "bowler",
+                                                    "name":  "David Padilla",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  191
+                                                },
+                                                {
+                                                    "pos":  3,
+                                                    "kind":  "bowler",
+                                                    "name":  "Vincent Padilla",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  195
+                                                },
+                                                {
+                                                    "pos":  4,
+                                                    "kind":  "bowler",
+                                                    "name":  "Todd Sanders",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  219
+                                                },
+                                                {
+                                                    "pos":  5,
+                                                    "kind":  "bowler",
+                                                    "name":  "Mark Hoffman",
+                                                    "blindFor":  null,
+                                                    "subFor":  null,
+                                                    "avg":  238
+                                                }
+                                            ]
+                             },
+                  "Busting Nuts":  {
+                                       "resolved":  true,
+                                       "autoFlags":  [
 
-                                                        ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "sub",
-                                                             "name":  "Kortnie Moore",
-                                                             "blindFor":  null,
-                                                             "subFor":  "Kevin Sweetman",
-                                                             "avg":  85
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "bowler",
-                                                             "name":  "Van Vasquez",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  174
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "sub",
-                                                             "name":  "Isiah Nakamura",
-                                                             "blindFor":  null,
-                                                             "subFor":  "James Eisenhauer",
-                                                             "avg":  175
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "Alex Gott",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  195
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "blind",
-                                                             "name":  "Rich Lista",
-                                                             "blindFor":  "Rich Lista",
-                                                             "subFor":  null,
-                                                             "avg":  197
-                                                         }
-                                                     ]
-                                      },
-                  "Schissler\u0027s Army":  {
-                                                "resolved":  true,
-                                                "autoFlags":  [
+                                                     ],
+                                       "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
+                                       "lineup":  [
+                                                      {
+                                                          "pos":  1,
+                                                          "kind":  "bowler",
+                                                          "name":  "Audra Tafoya",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  176
+                                                      },
+                                                      {
+                                                          "pos":  2,
+                                                          "kind":  "bowler",
+                                                          "name":  "Dan Mehman",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  151
+                                                      },
+                                                      {
+                                                          "pos":  3,
+                                                          "kind":  "bowler",
+                                                          "name":  "Mike Read",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  177
+                                                      },
+                                                      {
+                                                          "pos":  4,
+                                                          "kind":  "bowler",
+                                                          "name":  "Dustin Richardson",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  178
+                                                      },
+                                                      {
+                                                          "pos":  5,
+                                                          "kind":  "bowler",
+                                                          "name":  "Kole Silz",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  189
+                                                      }
+                                                  ]
+                                   },
+                  "No Llores":  {
+                                    "resolved":  true,
+                                    "autoFlags":  [
 
-                                                              ],
-                                                "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
-                                                "lineup":  [
-                                                               {
-                                                                   "pos":  1,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Zach Joslin",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  202
-                                                               },
-                                                               {
-                                                                   "pos":  2,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "John Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  191
-                                                               },
-                                                               {
-                                                                   "pos":  3,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Aaron Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  203
-                                                               },
-                                                               {
-                                                                   "pos":  4,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Derek Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  210
-                                                               },
-                                                               {
-                                                                   "pos":  5,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Ricky Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  222
-                                                               }
-                                                           ]
-                                            },
+                                                  ],
+                                    "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
+                                    "lineup":  [
+                                                   {
+                                                       "pos":  1,
+                                                       "kind":  "bowler",
+                                                       "name":  "Chris Imel",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  204
+                                                   },
+                                                   {
+                                                       "pos":  2,
+                                                       "kind":  "bowler",
+                                                       "name":  "Justin Gonzales",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  195
+                                                   },
+                                                   {
+                                                       "pos":  3,
+                                                       "kind":  "bowler",
+                                                       "name":  "Jesus Meraz",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  189
+                                                   },
+                                                   {
+                                                       "pos":  4,
+                                                       "kind":  "bowler",
+                                                       "name":  "Robb Vigil",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  194
+                                                   },
+                                                   {
+                                                       "pos":  5,
+                                                       "kind":  "bowler",
+                                                       "name":  "Eric Cummings",
+                                                       "blindFor":  null,
+                                                       "subFor":  null,
+                                                       "avg":  228
+                                                   }
+                                               ]
+                                },
                   "Wheelhouse":  {
                                      "resolved":  true,
                                      "autoFlags":  [
 
                                                    ],
-                                     "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                     "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                      "lineup":  [
                                                     {
                                                         "pos":  1,
@@ -162,15 +162,15 @@
                                                         "name":  "Wayne Gosselin",
                                                         "blindFor":  null,
                                                         "subFor":  null,
-                                                        "avg":  153
+                                                        "avg":  159
                                                     },
                                                     {
                                                         "pos":  2,
-                                                        "kind":  "sub",
+                                                        "kind":  "bowler",
                                                         "name":  "Thomas Holt",
                                                         "blindFor":  null,
-                                                        "subFor":  "Stefan Holt",
-                                                        "avg":  166
+                                                        "subFor":  null,
+                                                        "avg":  173
                                                     },
                                                     {
                                                         "pos":  3,
@@ -178,7 +178,7 @@
                                                         "name":  "Mick Coakley",
                                                         "blindFor":  null,
                                                         "subFor":  null,
-                                                        "avg":  179
+                                                        "avg":  191
                                                     },
                                                     {
                                                         "pos":  4,
@@ -186,7 +186,7 @@
                                                         "name":  "Phillip Gosselin",
                                                         "blindFor":  null,
                                                         "subFor":  null,
-                                                        "avg":  204
+                                                        "avg":  194
                                                     },
                                                     {
                                                         "pos":  5,
@@ -194,7 +194,7 @@
                                                         "name":  "Ryan Holt",
                                                         "blindFor":  null,
                                                         "subFor":  null,
-                                                        "avg":  205
+                                                        "avg":  207
                                                     }
                                                 ]
                                  },
@@ -203,7 +203,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                          "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -211,14 +211,14 @@
                                                              "name":  "Tham Namvong",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  217
+                                                             "avg":  207
                                                          },
                                                          {
                                                              "pos":  2,
-                                                             "kind":  "sub",
+                                                             "kind":  "bowler",
                                                              "name":  "Jerry Navasack",
                                                              "blindFor":  null,
-                                                             "subFor":  "Ying Singchaichana",
+                                                             "subFor":  null,
                                                              "avg":  157
                                                          },
                                                          {
@@ -227,7 +227,7 @@
                                                              "name":  "Bounethai Novankham",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  198
+                                                             "avg":  196
                                                          },
                                                          {
                                                              "pos":  4,
@@ -235,7 +235,7 @@
                                                              "name":  "Somdeth Sinouansai",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  214
+                                                             "avg":  226
                                                          },
                                                          {
                                                              "pos":  5,
@@ -243,7 +243,7 @@
                                                              "name":  "John Gwynn",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  237
+                                                             "avg":  247
                                                          }
                                                      ]
                                       },
@@ -252,47 +252,47 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                  "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
-                                                     "kind":  "sub",
-                                                     "name":  "Kortnie Moore",
-                                                     "blindFor":  null,
-                                                     "subFor":  "Kevin Sweetman",
-                                                     "avg":  85
-                                                 },
-                                                 {
-                                                     "pos":  2,
                                                      "kind":  "bowler",
                                                      "name":  "Van Vasquez",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  174
+                                                     "avg":  164
+                                                 },
+                                                 {
+                                                     "pos":  2,
+                                                     "kind":  "bowler",
+                                                     "name":  "Rich Lista",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  197
                                                  },
                                                  {
                                                      "pos":  3,
-                                                     "kind":  "sub",
-                                                     "name":  "Isiah Nakamura",
+                                                     "kind":  "bowler",
+                                                     "name":  "Kevin Sweetman",
                                                      "blindFor":  null,
-                                                     "subFor":  "James Eisenhauer",
-                                                     "avg":  175
+                                                     "subFor":  null,
+                                                     "avg":  193
                                                  },
                                                  {
                                                      "pos":  4,
                                                      "kind":  "bowler",
-                                                     "name":  "Alex Gott",
+                                                     "name":  "James Eisenhauer",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  195
+                                                     "avg":  177
                                                  },
                                                  {
                                                      "pos":  5,
-                                                     "kind":  "blind",
-                                                     "name":  "Rich Lista",
-                                                     "blindFor":  "Rich Lista",
+                                                     "kind":  "bowler",
+                                                     "name":  "Alex Gott",
+                                                     "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  197
+                                                     "avg":  205
                                                  }
                                              ]
                               },
@@ -301,7 +301,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                         "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -309,7 +309,7 @@
                                                             "name":  "Mark Donner",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  184
+                                                            "avg":  174
                                                         },
                                                         {
                                                             "pos":  2,
@@ -317,7 +317,7 @@
                                                             "name":  "Gregory Fistell",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  202
+                                                            "avg":  208
                                                         },
                                                         {
                                                             "pos":  3,
@@ -325,23 +325,23 @@
                                                             "name":  "Stephanie David",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  193
+                                                            "avg":  183
                                                         },
                                                         {
                                                             "pos":  4,
-                                                            "kind":  "sub",
-                                                            "name":  "Tim Yost",
-                                                            "blindFor":  null,
-                                                            "subFor":  "Stephen Sutton",
-                                                            "avg":  187
-                                                        },
-                                                        {
-                                                            "pos":  5,
                                                             "kind":  "bowler",
                                                             "name":  "William Kondrotis",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  207
+                                                            "avg":  198
+                                                        },
+                                                        {
+                                                            "pos":  5,
+                                                            "kind":  "bowler",
+                                                            "name":  "Stephen Sutton",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  211
                                                         }
                                                     ]
                                      },
@@ -350,7 +350,7 @@
                                              "autoFlags":  [
 
                                                            ],
-                                             "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                             "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                              "lineup":  [
                                                             {
                                                                 "pos":  1,
@@ -358,31 +358,31 @@
                                                                 "name":  "Phoenix Chavez",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  215
+                                                                "avg":  216
                                                             },
                                                             {
                                                                 "pos":  2,
-                                                                "kind":  "sub",
-                                                                "name":  "Jermaine Mccarter",
-                                                                "blindFor":  null,
-                                                                "subFor":  "Orlando Garcia",
-                                                                "avg":  187
-                                                            },
-                                                            {
-                                                                "pos":  3,
-                                                                "kind":  "sub",
-                                                                "name":  "Frank Ramirez",
-                                                                "blindFor":  null,
-                                                                "subFor":  "Antonio Garcia",
-                                                                "avg":  193
-                                                            },
-                                                            {
-                                                                "pos":  4,
                                                                 "kind":  "bowler",
                                                                 "name":  "Bobby Torrez",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  194
+                                                                "avg":  187
+                                                            },
+                                                            {
+                                                                "pos":  3,
+                                                                "kind":  "bowler",
+                                                                "name":  "Frank Ramirez",
+                                                                "blindFor":  null,
+                                                                "subFor":  null,
+                                                                "avg":  184
+                                                            },
+                                                            {
+                                                                "pos":  4,
+                                                                "kind":  "bowler",
+                                                                "name":  "Jermaine Mccarter",
+                                                                "blindFor":  null,
+                                                                "subFor":  null,
+                                                                "avg":  187
                                                             },
                                                             {
                                                                 "pos":  5,
@@ -390,7 +390,7 @@
                                                                 "name":  "Mike Chavez",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  208
+                                                                "avg":  202
                                                             }
                                                         ]
                                          },
@@ -399,7 +399,7 @@
                                             "autoFlags":  [
 
                                                           ],
-                                            "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                            "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                             "lineup":  [
                                                            {
                                                                "pos":  1,
@@ -415,7 +415,7 @@
                                                                "name":  "Aaron Chilton",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  214
+                                                               "avg":  204
                                                            },
                                                            {
                                                                "pos":  3,
@@ -423,7 +423,7 @@
                                                                "name":  "Rayvone Hackshaw",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  205
+                                                               "avg":  203
                                                            },
                                                            {
                                                                "pos":  4,
@@ -431,7 +431,7 @@
                                                                "name":  "Jeffrey Jones",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  214
+                                                               "avg":  211
                                                            },
                                                            {
                                                                "pos":  5,
@@ -439,7 +439,7 @@
                                                                "name":  "Benjie Garrison",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  223
+                                                               "avg":  228
                                                            }
                                                        ]
                                         },
@@ -448,7 +448,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                       "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -456,7 +456,7 @@
                                                           "name":  "Zach Joslin",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  202
+                                                          "avg":  213
                                                       },
                                                       {
                                                           "pos":  2,
@@ -464,23 +464,23 @@
                                                           "name":  "John Schissler",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  191
+                                                          "avg":  194
                                                       },
                                                       {
                                                           "pos":  3,
                                                           "kind":  "bowler",
-                                                          "name":  "Aaron Schissler",
+                                                          "name":  "Derek Schissler",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  203
+                                                          "avg":  204
                                                       },
                                                       {
                                                           "pos":  4,
                                                           "kind":  "bowler",
-                                                          "name":  "Derek Schissler",
+                                                          "name":  "Frank Guccione",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  210
+                                                          "avg":  209
                                                       },
                                                       {
                                                           "pos":  5,
@@ -488,7 +488,7 @@
                                                           "name":  "Ricky Schissler",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  222
+                                                          "avg":  228
                                                       }
                                                   ]
                                    },
@@ -497,15 +497,15 @@
                                              "autoFlags":  [
 
                                                            ],
-                                             "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                             "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                              "lineup":  [
                                                             {
                                                                 "pos":  1,
                                                                 "kind":  "bowler",
-                                                                "name":  "Sharon Coleman",
+                                                                "name":  "Jermaine Brown",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  176
+                                                                "avg":  216
                                                             },
                                                             {
                                                                 "pos":  2,
@@ -513,15 +513,15 @@
                                                                 "name":  "Howard Moore",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  194
+                                                                "avg":  206
                                                             },
                                                             {
                                                                 "pos":  3,
                                                                 "kind":  "bowler",
-                                                                "name":  "Jermaine Brown",
+                                                                "name":  "Sharon Coleman",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  204
+                                                                "avg":  180
                                                             },
                                                             {
                                                                 "pos":  4,
@@ -529,7 +529,7 @@
                                                                 "name":  "Rick Armstrong (Showtime)",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  204
+                                                                "avg":  202
                                                             },
                                                             {
                                                                 "pos":  5,
@@ -537,7 +537,7 @@
                                                                 "name":  "Ishmael Smittie",
                                                                 "blindFor":  null,
                                                                 "subFor":  null,
-                                                                "avg":  197
+                                                                "avg":  205
                                                             }
                                                         ]
                                          },
@@ -546,7 +546,7 @@
                                                            "autoFlags":  [
 
                                                                          ],
-                                                           "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                                           "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                                            "lineup":  [
                                                                           {
                                                                               "pos":  1,
@@ -562,15 +562,15 @@
                                                                               "name":  "Chris Landis",
                                                                               "blindFor":  null,
                                                                               "subFor":  null,
-                                                                              "avg":  215
+                                                                              "avg":  205
                                                                           },
                                                                           {
                                                                               "pos":  3,
                                                                               "kind":  "bowler",
-                                                                              "name":  "Troy Wilson",
+                                                                              "name":  "Linda Conklin",
                                                                               "blindFor":  null,
                                                                               "subFor":  null,
-                                                                              "avg":  195
+                                                                              "avg":  149
                                                                           },
                                                                           {
                                                                               "pos":  4,
@@ -578,7 +578,7 @@
                                                                               "name":  "Terry Conklin",
                                                                               "blindFor":  null,
                                                                               "subFor":  null,
-                                                                              "avg":  201
+                                                                              "avg":  197
                                                                           },
                                                                           {
                                                                               "pos":  5,
@@ -586,7 +586,7 @@
                                                                               "name":  "Max Landis",
                                                                               "blindFor":  null,
                                                                               "subFor":  null,
-                                                                              "avg":  199
+                                                                              "avg":  204
                                                                           }
                                                                       ]
                                                        },
@@ -595,7 +595,7 @@
                                 "autoFlags":  [
 
                                               ],
-                                "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                 "lineup":  [
                                                {
                                                    "pos":  1,
@@ -603,7 +603,7 @@
                                                    "name":  "Katrina Suthers",
                                                    "blindFor":  null,
                                                    "subFor":  null,
-                                                   "avg":  193
+                                                   "avg":  196
                                                },
                                                {
                                                    "pos":  2,
@@ -611,23 +611,23 @@
                                                    "name":  "Julian Torres",
                                                    "blindFor":  null,
                                                    "subFor":  null,
-                                                   "avg":  196
+                                                   "avg":  204
                                                },
                                                {
                                                    "pos":  3,
                                                    "kind":  "bowler",
-                                                   "name":  "Nick Fritchell",
+                                                   "name":  "Steven Armijo",
                                                    "blindFor":  null,
                                                    "subFor":  null,
-                                                   "avg":  206
+                                                   "avg":  188
                                                },
                                                {
                                                    "pos":  4,
-                                                   "kind":  "bowler",
-                                                   "name":  "Nicholas B Todack",
+                                                   "kind":  "sub",
+                                                   "name":  "Kenny Robinson",
                                                    "blindFor":  null,
                                                    "subFor":  null,
-                                                   "avg":  211
+                                                   "avg":  208
                                                },
                                                {
                                                    "pos":  5,
@@ -635,7 +635,7 @@
                                                    "name":  "Johnny Camacho",
                                                    "blindFor":  null,
                                                    "subFor":  null,
-                                                   "avg":  215
+                                                   "avg":  211
                                                }
                                            ]
                             },
@@ -644,7 +644,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                  "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -652,15 +652,15 @@
                                                      "name":  "Brian Farrell",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  168
+                                                     "avg":  187
                                                  },
                                                  {
                                                      "pos":  2,
                                                      "kind":  "bowler",
-                                                     "name":  "Aaron Levine",
+                                                     "name":  "Garrett Hatch",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  198
+                                                     "avg":  201
                                                  },
                                                  {
                                                      "pos":  3,
@@ -668,15 +668,15 @@
                                                      "name":  "Cameron Alcorn",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  182
+                                                     "avg":  185
                                                  },
                                                  {
                                                      "pos":  4,
                                                      "kind":  "bowler",
-                                                     "name":  "Timothy Lehl",
+                                                     "name":  "Tony Silva",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  212
+                                                     "avg":  227
                                                  },
                                                  {
                                                      "pos":  5,
@@ -684,7 +684,7 @@
                                                      "name":  "Mark Umscheid",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  226
+                                                     "avg":  236
                                                  }
                                              ]
                               },
@@ -693,12 +693,12 @@
                                               "autoFlags":  [
 
                                                             ],
-                                              "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                              "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                               "lineup":  [
                                                              {
                                                                  "pos":  1,
                                                                  "kind":  "bowler",
-                                                                 "name":  "Damion Rangel",
+                                                                 "name":  "Andrew Schlehuber",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
                                                                  "avg":  199
@@ -706,7 +706,7 @@
                                                              {
                                                                  "pos":  2,
                                                                  "kind":  "bowler",
-                                                                 "name":  "William A Gotwald",
+                                                                 "name":  "Adam Salinas",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
                                                                  "avg":  208
@@ -714,18 +714,18 @@
                                                              {
                                                                  "pos":  3,
                                                                  "kind":  "bowler",
-                                                                 "name":  "Adam Salinas",
+                                                                 "name":  "William A Gotwald",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  196
+                                                                 "avg":  198
                                                              },
                                                              {
                                                                  "pos":  4,
                                                                  "kind":  "bowler",
-                                                                 "name":  "Andrew Schlehuber",
+                                                                 "name":  "Damion Rangel",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  207
+                                                                 "avg":  212
                                                              },
                                                              {
                                                                  "pos":  5,
@@ -733,7 +733,7 @@
                                                                  "name":  "Mario Vigil",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  213
+                                                                 "avg":  214
                                                              }
                                                          ]
                                           },
@@ -742,7 +742,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                       "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -750,23 +750,23 @@
                                                           "name":  "Brett Elliott",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  205
+                                                          "avg":  215
                                                       },
                                                       {
                                                           "pos":  2,
                                                           "kind":  "bowler",
-                                                          "name":  "Galen Sisto",
+                                                          "name":  "Ryan Modica",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  193
+                                                          "avg":  210
                                                       },
                                                       {
                                                           "pos":  3,
                                                           "kind":  "bowler",
-                                                          "name":  "Lu Busnardo",
+                                                          "name":  "Galen Sisto",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  189
+                                                          "avg":  185
                                                       },
                                                       {
                                                           "pos":  4,
@@ -782,7 +782,7 @@
                                                           "name":  "Frank Busnardo",
                                                           "blindFor":  null,
                                                           "subFor":  null,
-                                                          "avg":  213
+                                                          "avg":  203
                                                       }
                                                   ]
                                    },
@@ -791,15 +791,15 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                        "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
-                                                           "kind":  "sub",
-                                                           "name":  "Angela Wolfe",
+                                                           "kind":  "bowler",
+                                                           "name":  "Ted Vargas",
                                                            "blindFor":  null,
-                                                           "subFor":  "Ed Cutshaw",
-                                                           "avg":  192
+                                                           "subFor":  null,
+                                                           "avg":  190
                                                        },
                                                        {
                                                            "pos":  2,
@@ -807,23 +807,23 @@
                                                            "name":  "Rodwyn Lyons Sr",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  206
+                                                           "avg":  196
                                                        },
                                                        {
                                                            "pos":  3,
                                                            "kind":  "bowler",
-                                                           "name":  "Ted Vargas",
+                                                           "name":  "Lee Schwartz",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  200
+                                                           "avg":  213
                                                        },
                                                        {
                                                            "pos":  4,
                                                            "kind":  "bowler",
-                                                           "name":  "Lee Schwartz",
+                                                           "name":  "Ed Cutshaw",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  211
+                                                           "avg":  216
                                                        },
                                                        {
                                                            "pos":  5,
@@ -831,7 +831,7 @@
                                                            "name":  "Adam Philp",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  215
+                                                           "avg":  225
                                                        }
                                                    ]
                                     },
@@ -840,22 +840,22 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                          "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
                                                              "kind":  "bowler",
-                                                             "name":  "John Lund",
+                                                             "name":  "Rene Movilion",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  206
+                                                             "avg":  184
                                                          },
                                                          {
                                                              "pos":  2,
-                                                             "kind":  "sub",
+                                                             "kind":  "bowler",
                                                              "name":  "Cristina Gunnett",
                                                              "blindFor":  null,
-                                                             "subFor":  "Rene Movilion",
+                                                             "subFor":  null,
                                                              "avg":  193
                                                          },
                                                          {
@@ -864,7 +864,7 @@
                                                              "name":  "Bob Burkhead",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  207
+                                                             "avg":  205
                                                          },
                                                          {
                                                              "pos":  4,
@@ -872,7 +872,7 @@
                                                              "name":  "Ian Pike",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  220
+                                                             "avg":  219
                                                          },
                                                          {
                                                              "pos":  5,
@@ -880,7 +880,7 @@
                                                              "name":  "Greg Davies Jr",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  222
+                                                             "avg":  229
                                                          }
                                                      ]
                                       },
@@ -889,7 +889,7 @@
                                                    "autoFlags":  [
 
                                                                  ],
-                                                   "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                                   "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                                    "lineup":  [
                                                                   {
                                                                       "pos":  1,
@@ -897,7 +897,7 @@
                                                                       "name":  "Marco Popovich",
                                                                       "blindFor":  null,
                                                                       "subFor":  null,
-                                                                      "avg":  226
+                                                                      "avg":  221
                                                                   },
                                                                   {
                                                                       "pos":  2,
@@ -905,7 +905,7 @@
                                                                       "name":  "Brenna Tripp",
                                                                       "blindFor":  null,
                                                                       "subFor":  null,
-                                                                      "avg":  208
+                                                                      "avg":  198
                                                                   },
                                                                   {
                                                                       "pos":  3,
@@ -913,7 +913,7 @@
                                                                       "name":  "Hailey Howard",
                                                                       "blindFor":  null,
                                                                       "subFor":  null,
-                                                                      "avg":  202
+                                                                      "avg":  218
                                                                   },
                                                                   {
                                                                       "pos":  4,
@@ -921,7 +921,7 @@
                                                                       "name":  "Aaron Howard",
                                                                       "blindFor":  null,
                                                                       "subFor":  null,
-                                                                      "avg":  221
+                                                                      "avg":  212
                                                                   },
                                                                   {
                                                                       "pos":  5,
@@ -929,7 +929,7 @@
                                                                       "name":  "Timothy Tripp",
                                                                       "blindFor":  null,
                                                                       "subFor":  null,
-                                                                      "avg":  231
+                                                                      "avg":  230
                                                                   }
                                                               ]
                                                },
@@ -938,7 +938,7 @@
                                     "autoFlags":  [
 
                                                   ],
-                                    "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                    "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                     "lineup":  [
                                                    {
                                                        "pos":  1,
@@ -946,7 +946,7 @@
                                                        "name":  "Nick Sandoval",
                                                        "blindFor":  null,
                                                        "subFor":  null,
-                                                       "avg":  201
+                                                       "avg":  198
                                                    },
                                                    {
                                                        "pos":  2,
@@ -954,7 +954,7 @@
                                                        "name":  "Jennifer Davis",
                                                        "blindFor":  null,
                                                        "subFor":  null,
-                                                       "avg":  198
+                                                       "avg":  199
                                                    },
                                                    {
                                                        "pos":  3,
@@ -970,15 +970,15 @@
                                                        "name":  "Dion Griego",
                                                        "blindFor":  null,
                                                        "subFor":  null,
-                                                       "avg":  206
+                                                       "avg":  202
                                                    },
                                                    {
                                                        "pos":  5,
                                                        "kind":  "bowler",
-                                                       "name":  "Geno Lavigna",
+                                                       "name":  "Duane Martinac",
                                                        "blindFor":  null,
                                                        "subFor":  null,
-                                                       "avg":  215
+                                                       "avg":  237
                                                    }
                                                ]
                                 },
@@ -987,7 +987,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                        "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -995,7 +995,7 @@
                                                            "name":  "Benjamin Morgan",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  222
+                                                           "avg":  233
                                                        },
                                                        {
                                                            "pos":  2,
@@ -1003,15 +1003,15 @@
                                                            "name":  "Greg Hydle",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  203
+                                                           "avg":  207
                                                        },
                                                        {
                                                            "pos":  3,
-                                                           "kind":  "sub",
-                                                           "name":  "Jayden Cary",
+                                                           "kind":  "bowler",
+                                                           "name":  "David Owens",
                                                            "blindFor":  null,
-                                                           "subFor":  "David Owens",
-                                                           "avg":  205
+                                                           "subFor":  null,
+                                                           "avg":  191
                                                        },
                                                        {
                                                            "pos":  4,
@@ -1019,7 +1019,7 @@
                                                            "name":  "Greg Morgan",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  223
+                                                           "avg":  231
                                                        },
                                                        {
                                                            "pos":  5,
@@ -1027,7 +1027,7 @@
                                                            "name":  "Deon Fleming",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  225
+                                                           "avg":  228
                                                        }
                                                    ]
                                     },
@@ -1036,13 +1036,13 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                           "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
-                                                              "kind":  "blind",
+                                                              "kind":  "bowler",
                                                               "name":  "Scott Bruce",
-                                                              "blindFor":  "Scott Bruce",
+                                                              "blindFor":  null,
                                                               "subFor":  null,
                                                               "avg":  204
                                                           },
@@ -1052,7 +1052,7 @@
                                                               "name":  "Richard Isaacs",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  196
+                                                              "avg":  190
                                                           },
                                                           {
                                                               "pos":  3,
@@ -1060,7 +1060,7 @@
                                                               "name":  "Dave Simpson",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  205
+                                                              "avg":  201
                                                           },
                                                           {
                                                               "pos":  4,
@@ -1068,7 +1068,7 @@
                                                               "name":  "Brandon May",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  201
+                                                              "avg":  198
                                                           },
                                                           {
                                                               "pos":  5,
@@ -1076,7 +1076,7 @@
                                                               "name":  "Larry May",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  212
+                                                              "avg":  210
                                                           }
                                                       ]
                                        },
@@ -1085,18 +1085,10 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                         "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
-                                                            "kind":  "bowler",
-                                                            "name":  "John Laws",
-                                                            "blindFor":  null,
-                                                            "subFor":  null,
-                                                            "avg":  211
-                                                        },
-                                                        {
-                                                            "pos":  2,
                                                             "kind":  "bowler",
                                                             "name":  "Bobby Hurtado",
                                                             "blindFor":  null,
@@ -1104,12 +1096,20 @@
                                                             "avg":  199
                                                         },
                                                         {
-                                                            "pos":  3,
+                                                            "pos":  2,
                                                             "kind":  "bowler",
                                                             "name":  "Matthew Quintana",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  172
+                                                            "avg":  176
+                                                        },
+                                                        {
+                                                            "pos":  3,
+                                                            "kind":  "bowler",
+                                                            "name":  "Devon Hilliard",
+                                                            "blindFor":  null,
+                                                            "subFor":  null,
+                                                            "avg":  188
                                                         },
                                                         {
                                                             "pos":  4,
@@ -1117,7 +1117,7 @@
                                                             "name":  "Joseph Guinn",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  206
+                                                            "avg":  204
                                                         },
                                                         {
                                                             "pos":  5,
@@ -1125,7 +1125,7 @@
                                                             "name":  "Blair Watkins",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  202
+                                                            "avg":  196
                                                         }
                                                     ]
                                      },
@@ -1134,7 +1134,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                      "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -1142,26 +1142,10 @@
                                                          "name":  "Erick Podwill",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  213
+                                                         "avg":  205
                                                      },
                                                      {
                                                          "pos":  2,
-                                                         "kind":  "sub",
-                                                         "name":  "Shawn Clements",
-                                                         "blindFor":  null,
-                                                         "subFor":  "Fred Pedroza",
-                                                         "avg":  206
-                                                     },
-                                                     {
-                                                         "pos":  3,
-                                                         "kind":  "sub",
-                                                         "name":  "Laszlo Soos",
-                                                         "blindFor":  null,
-                                                         "subFor":  "Joshua Blair",
-                                                         "avg":  197
-                                                     },
-                                                     {
-                                                         "pos":  4,
                                                          "kind":  "bowler",
                                                          "name":  "Gabby Pineda",
                                                          "blindFor":  null,
@@ -1169,12 +1153,28 @@
                                                          "avg":  200
                                                      },
                                                      {
+                                                         "pos":  3,
+                                                         "kind":  "bowler",
+                                                         "name":  "Fred Pedroza",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  190
+                                                     },
+                                                     {
+                                                         "pos":  4,
+                                                         "kind":  "bowler",
+                                                         "name":  "Shawn Clements",
+                                                         "blindFor":  null,
+                                                         "subFor":  null,
+                                                         "avg":  206
+                                                     },
+                                                     {
                                                          "pos":  5,
                                                          "kind":  "bowler",
                                                          "name":  "Dru Martin",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  205
+                                                         "avg":  220
                                                      }
                                                  ]
                                   },
@@ -1183,7 +1183,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                  "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -1191,39 +1191,39 @@
                                                      "name":  "Pierre Lopez",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  177
+                                                     "avg":  168
                                                  },
                                                  {
                                                      "pos":  2,
                                                      "kind":  "bowler",
-                                                     "name":  "Craig Stout",
+                                                     "name":  "Paul Schleigh",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  207
+                                                     "avg":  199
                                                  },
                                                  {
                                                      "pos":  3,
                                                      "kind":  "bowler",
-                                                     "name":  "Robert Gift",
+                                                     "name":  "Craig Stout",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  210
+                                                     "avg":  203
                                                  },
                                                  {
                                                      "pos":  4,
-                                                     "kind":  "blind",
-                                                     "name":  "Lee Ripley",
-                                                     "blindFor":  "Lee Ripley",
+                                                     "kind":  "bowler",
+                                                     "name":  "Robert Gift",
+                                                     "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  217
+                                                     "avg":  202
                                                  },
                                                  {
                                                      "pos":  5,
                                                      "kind":  "bowler",
-                                                     "name":  "Michael Ligeski",
+                                                     "name":  "Lee Ripley",
                                                      "blindFor":  null,
                                                      "subFor":  null,
-                                                     "avg":  221
+                                                     "avg":  217
                                                  }
                                              ]
                               },
@@ -1232,7 +1232,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                        "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -1240,15 +1240,15 @@
                                                            "name":  "Kelly Lawson",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  199
+                                                           "avg":  189
                                                        },
                                                        {
                                                            "pos":  2,
-                                                           "kind":  "sub",
-                                                           "name":  "Anthony Aragon",
+                                                           "kind":  "bowler",
+                                                           "name":  "Shawn Claussen",
                                                            "blindFor":  null,
-                                                           "subFor":  "Jon Brockett",
-                                                           "avg":  212
+                                                           "subFor":  null,
+                                                           "avg":  205
                                                        },
                                                        {
                                                            "pos":  3,
@@ -1261,10 +1261,10 @@
                                                        {
                                                            "pos":  4,
                                                            "kind":  "bowler",
-                                                           "name":  "Shawn Claussen",
+                                                           "name":  "Anthony Aragon",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  215
+                                                           "avg":  212
                                                        },
                                                        {
                                                            "pos":  5,
@@ -1272,7 +1272,7 @@
                                                            "name":  "Noah Werner",
                                                            "blindFor":  null,
                                                            "subFor":  null,
-                                                           "avg":  218
+                                                           "avg":  231
                                                        }
                                                    ]
                                     },
@@ -1281,15 +1281,15 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                          "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
-                                                             "kind":  "sub",
+                                                             "kind":  "bowler",
                                                              "name":  "Erin Marchant",
                                                              "blindFor":  null,
-                                                             "subFor":  "Jordan Yancey",
-                                                             "avg":  203
+                                                             "subFor":  null,
+                                                             "avg":  202
                                                          },
                                                          {
                                                              "pos":  2,
@@ -1297,7 +1297,7 @@
                                                              "name":  "Trey Erickson",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  190
+                                                             "avg":  202
                                                          },
                                                          {
                                                              "pos":  3,
@@ -1305,7 +1305,7 @@
                                                              "name":  "Chuck Dreux",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  193
+                                                             "avg":  199
                                                          },
                                                          {
                                                              "pos":  4,
@@ -1313,7 +1313,7 @@
                                                              "name":  "Tim Pester",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  220
+                                                             "avg":  218
                                                          },
                                                          {
                                                              "pos":  5,
@@ -1321,7 +1321,7 @@
                                                              "name":  "Bryan Keller",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  214
+                                                             "avg":  216
                                                          }
                                                      ]
                                       },
@@ -1330,7 +1330,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                           "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1338,7 +1338,7 @@
                                                               "name":  "Eric Phillips",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  212
+                                                              "avg":  231
                                                           },
                                                           {
                                                               "pos":  2,
@@ -1354,7 +1354,7 @@
                                                               "name":  "Taryn Frenzel",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  204
+                                                              "avg":  199
                                                           },
                                                           {
                                                               "pos":  4,
@@ -1362,7 +1362,7 @@
                                                               "name":  "Craig Moravy",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  212
+                                                              "avg":  213
                                                           },
                                                           {
                                                               "pos":  5,
@@ -1370,7 +1370,7 @@
                                                               "name":  "Lee Kastberg",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  218
+                                                              "avg":  212
                                                           }
                                                       ]
                                        },
@@ -1379,15 +1379,15 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                      "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
                                                          "kind":  "bowler",
-                                                         "name":  "Greg Wobbema",
+                                                         "name":  "Frank Torrez",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  217
+                                                         "avg":  196
                                                      },
                                                      {
                                                          "pos":  2,
@@ -1395,7 +1395,7 @@
                                                          "name":  "Blaize Walker",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  207
+                                                         "avg":  221
                                                      },
                                                      {
                                                          "pos":  3,
@@ -1403,7 +1403,7 @@
                                                          "name":  "Chris Naab",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  202
+                                                         "avg":  207
                                                      },
                                                      {
                                                          "pos":  4,
@@ -1411,15 +1411,15 @@
                                                          "name":  "Anthony Unrein IV",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  210
+                                                         "avg":  200
                                                      },
                                                      {
                                                          "pos":  5,
                                                          "kind":  "bowler",
-                                                         "name":  "Sam Johns",
+                                                         "name":  "Greg Wobbema",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  203
+                                                         "avg":  211
                                                      }
                                                  ]
                                   },
@@ -1428,7 +1428,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                         "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -1452,7 +1452,7 @@
                                                             "name":  "Robert McQuoid",
                                                             "blindFor":  null,
                                                             "subFor":  null,
-                                                            "avg":  203
+                                                            "avg":  193
                                                         },
                                                         {
                                                             "pos":  4,
@@ -1477,23 +1477,23 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                           "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
                                                               "kind":  "bowler",
-                                                              "name":  "Jo Struble",
+                                                              "name":  "Anthony Allen",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  210
+                                                              "avg":  222
                                                           },
                                                           {
                                                               "pos":  2,
-                                                              "kind":  "sub",
-                                                              "name":  "Audrey Johnson",
+                                                              "kind":  "bowler",
+                                                              "name":  "Jo Struble",
                                                               "blindFor":  null,
-                                                              "subFor":  "Anthony Allen",
-                                                              "avg":  165
+                                                              "subFor":  null,
+                                                              "avg":  214
                                                           },
                                                           {
                                                               "pos":  3,
@@ -1501,7 +1501,7 @@
                                                               "name":  "Roger Wahler",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  209
+                                                              "avg":  212
                                                           },
                                                           {
                                                               "pos":  4,
@@ -1509,7 +1509,7 @@
                                                               "name":  "Adam D Sakowski",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  217
+                                                              "avg":  226
                                                           },
                                                           {
                                                               "pos":  5,
@@ -1517,7 +1517,7 @@
                                                               "name":  "Cody Vaughn",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  223
+                                                              "avg":  241
                                                           }
                                                       ]
                                        },
@@ -1526,7 +1526,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                           "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1534,7 +1534,7 @@
                                                               "name":  "Rudy Lamorie",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  205
+                                                              "avg":  214
                                                           },
                                                           {
                                                               "pos":  2,
@@ -1542,23 +1542,23 @@
                                                               "name":  "Gary Losh",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  190
+                                                              "avg":  211
                                                           },
                                                           {
                                                               "pos":  3,
-                                                              "kind":  "sub",
-                                                              "name":  "Patrick Hunt",
-                                                              "blindFor":  null,
-                                                              "subFor":  "Nick Pedroza",
-                                                              "avg":  215
-                                                          },
-                                                          {
-                                                              "pos":  4,
                                                               "kind":  "bowler",
                                                               "name":  "Justin Phillips",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  208
+                                                              "avg":  213
+                                                          },
+                                                          {
+                                                              "pos":  4,
+                                                              "kind":  "bowler",
+                                                              "name":  "Nicholas Peterson-Pedroza (Nick Pedroza)",
+                                                              "blindFor":  null,
+                                                              "subFor":  null,
+                                                              "avg":  210
                                                           },
                                                           {
                                                               "pos":  5,
@@ -1566,7 +1566,7 @@
                                                               "name":  "Eric Hernlund",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  217
+                                                              "avg":  226
                                                           }
                                                       ]
                                        },
@@ -1575,7 +1575,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                          "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1591,7 +1591,7 @@
                                                              "name":  "Sarah Garofano",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  173
+                                                             "avg":  163
                                                          },
                                                          {
                                                              "pos":  3,
@@ -1599,7 +1599,7 @@
                                                              "name":  "Justyne Jansen",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  202
+                                                             "avg":  208
                                                          },
                                                          {
                                                              "pos":  4,
@@ -1607,15 +1607,15 @@
                                                              "name":  "Brian Douglass",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  220
+                                                             "avg":  211
                                                          },
                                                          {
                                                              "pos":  5,
-                                                             "kind":  "sub",
+                                                             "kind":  "bowler",
                                                              "name":  "Dante Lundy",
                                                              "blindFor":  null,
-                                                             "subFor":  "Isabel Ping",
-                                                             "avg":  239
+                                                             "subFor":  null,
+                                                             "avg":  245
                                                          }
                                                      ]
                                       },
@@ -1624,7 +1624,7 @@
                                               "autoFlags":  [
 
                                                             ],
-                                              "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                              "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                               "lineup":  [
                                                              {
                                                                  "pos":  1,
@@ -1632,7 +1632,7 @@
                                                                  "name":  "Bob Johnson",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  166
+                                                                 "avg":  156
                                                              },
                                                              {
                                                                  "pos":  2,
@@ -1640,7 +1640,7 @@
                                                                  "name":  "Scott Carothers",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  208
+                                                                 "avg":  223
                                                              },
                                                              {
                                                                  "pos":  3,
@@ -1648,7 +1648,7 @@
                                                                  "name":  "Mike Vasquez",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  188
+                                                                 "avg":  199
                                                              },
                                                              {
                                                                  "pos":  4,
@@ -1656,7 +1656,7 @@
                                                                  "name":  "Nolan Carothers",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  176
+                                                                 "avg":  180
                                                              },
                                                              {
                                                                  "pos":  5,
@@ -1664,7 +1664,7 @@
                                                                  "name":  "Mike Hinsley",
                                                                  "blindFor":  null,
                                                                  "subFor":  null,
-                                                                 "avg":  216
+                                                                 "avg":  217
                                                              }
                                                          ]
                                           },
@@ -1673,7 +1673,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                      "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -1681,15 +1681,15 @@
                                                          "name":  "Aj Woodvine",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  217
+                                                         "avg":  208
                                                      },
                                                      {
                                                          "pos":  2,
-                                                         "kind":  "sub",
-                                                         "name":  "Shawn Lutz",
+                                                         "kind":  "bowler",
+                                                         "name":  "Greg Baldassar",
                                                          "blindFor":  null,
-                                                         "subFor":  "Greg Baldassar",
-                                                         "avg":  146
+                                                         "subFor":  null,
+                                                         "avg":  195
                                                      },
                                                      {
                                                          "pos":  3,
@@ -1705,7 +1705,7 @@
                                                          "name":  "Jason Busnardo",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  223
+                                                         "avg":  226
                                                      },
                                                      {
                                                          "pos":  5,
@@ -1713,7 +1713,7 @@
                                                          "name":  "Roman Archuleta",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  233
+                                                         "avg":  223
                                                      }
                                                  ]
                                   },
@@ -1722,23 +1722,23 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                      "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
-                                                         "kind":  "sub",
+                                                         "kind":  "bowler",
                                                          "name":  "Joe Panetta",
                                                          "blindFor":  null,
-                                                         "subFor":  "Paul Quinn",
-                                                         "avg":  82
+                                                         "subFor":  null,
+                                                         "avg":  80
                                                      },
                                                      {
                                                          "pos":  2,
-                                                         "kind":  "blind",
-                                                         "name":  "Kayla Osei",
-                                                         "blindFor":  "Kayla Osei",
+                                                         "kind":  "bowler",
+                                                         "name":  "Tanya Craig",
+                                                         "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  185
+                                                         "avg":  161
                                                      },
                                                      {
                                                          "pos":  3,
@@ -1746,15 +1746,15 @@
                                                          "name":  "Randy Cleghorn",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  189
+                                                         "avg":  196
                                                      },
                                                      {
                                                          "pos":  4,
                                                          "kind":  "bowler",
-                                                         "name":  "Tanya Craig",
+                                                         "name":  "Kayla Osei",
                                                          "blindFor":  null,
                                                          "subFor":  null,
-                                                         "avg":  171
+                                                         "avg":  185
                                                      },
                                                      {
                                                          "pos":  5,
@@ -1771,7 +1771,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                          "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1779,7 +1779,7 @@
                                                              "name":  "Rocco Panetta",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  202
+                                                             "avg":  192
                                                          },
                                                          {
                                                              "pos":  2,
@@ -1787,7 +1787,7 @@
                                                              "name":  "Jeffrie Delaney",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  223
+                                                             "avg":  227
                                                          },
                                                          {
                                                              "pos":  3,
@@ -1795,7 +1795,7 @@
                                                              "name":  "Tony Panetta",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  163
+                                                             "avg":  174
                                                          },
                                                          {
                                                              "pos":  4,
@@ -1811,7 +1811,7 @@
                                                              "name":  "Randy Wood",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  238
+                                                             "avg":  242
                                                          }
                                                      ]
                                       },
@@ -1820,23 +1820,23 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                          "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
-                                                             "kind":  "sub",
-                                                             "name":  "Janet Krebs",
+                                                             "kind":  "bowler",
+                                                             "name":  "Jami May-Bruce",
                                                              "blindFor":  null,
-                                                             "subFor":  "Jami May-Bruce",
-                                                             "avg":  178
+                                                             "subFor":  null,
+                                                             "avg":  190
                                                          },
                                                          {
                                                              "pos":  2,
                                                              "kind":  "bowler",
-                                                             "name":  "Austin Huyser",
+                                                             "name":  "Ron Burley",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  202
+                                                             "avg":  221
                                                          },
                                                          {
                                                              "pos":  3,
@@ -1844,23 +1844,23 @@
                                                              "name":  "Ron Wooley",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  203
+                                                             "avg":  202
                                                          },
                                                          {
                                                              "pos":  4,
                                                              "kind":  "bowler",
-                                                             "name":  "Jeff Lagrange",
+                                                             "name":  "Austin Huyser",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  208
+                                                             "avg":  215
                                                          },
                                                          {
                                                              "pos":  5,
                                                              "kind":  "bowler",
-                                                             "name":  "Ron Burley",
+                                                             "name":  "Jeff Lagrange",
                                                              "blindFor":  null,
                                                              "subFor":  null,
-                                                             "avg":  221
+                                                             "avg":  211
                                                          }
                                                      ]
                                       },
@@ -1869,15 +1869,15 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                           "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
-                                                              "kind":  "sub",
-                                                              "name":  "Dave Eddy",
+                                                              "kind":  "bowler",
+                                                              "name":  "Zach Knight (Zachary Knight)",
                                                               "blindFor":  null,
-                                                              "subFor":  "Zach Knight",
-                                                              "avg":  212
+                                                              "subFor":  null,
+                                                              "avg":  185
                                                           },
                                                           {
                                                               "pos":  2,
@@ -1885,15 +1885,15 @@
                                                               "name":  "JJ Harnke",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  187
+                                                              "avg":  189
                                                           },
                                                           {
                                                               "pos":  3,
                                                               "kind":  "bowler",
-                                                              "name":  "Spenser Hanson",
+                                                              "name":  "Brian Garramone",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  204
+                                                              "avg":  213
                                                           },
                                                           {
                                                               "pos":  4,
@@ -1901,15 +1901,15 @@
                                                               "name":  "Jon Hanson",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  200
+                                                              "avg":  197
                                                           },
                                                           {
                                                               "pos":  5,
                                                               "kind":  "bowler",
-                                                              "name":  "Brian Garramone",
+                                                              "name":  "Spenser Hanson",
                                                               "blindFor":  null,
                                                               "subFor":  null,
-                                                              "avg":  218
+                                                              "avg":  223
                                                           }
                                                       ]
                                        },
@@ -1918,15 +1918,15 @@
                                             "autoFlags":  [
 
                                                           ],
-                                            "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
+                                            "verifiedFrom":  "Full week-6 report, fetched live from currentscores URL, 2026-09-23",
                                             "lineup":  [
                                                            {
                                                                "pos":  1,
-                                                               "kind":  "sub",
-                                                               "name":  "Bobby Quick",
+                                                               "kind":  "bowler",
+                                                               "name":  "Wes Widick",
                                                                "blindFor":  null,
-                                                               "subFor":  "Shaun Labay",
-                                                               "avg":  234
+                                                               "subFor":  null,
+                                                               "avg":  197
                                                            },
                                                            {
                                                                "pos":  2,
@@ -1934,15 +1934,15 @@
                                                                "name":  "Brian Birely",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  202
+                                                               "avg":  205
                                                            },
                                                            {
                                                                "pos":  3,
                                                                "kind":  "bowler",
-                                                               "name":  "Wes Widick",
+                                                               "name":  "Shaun Labay",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  199
+                                                               "avg":  204
                                                            },
                                                            {
                                                                "pos":  4,
@@ -1950,7 +1950,7 @@
                                                                "name":  "Derek Birely",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  221
+                                                               "avg":  237
                                                            },
                                                            {
                                                                "pos":  5,
@@ -1958,156 +1958,9 @@
                                                                "name":  "Jared Birely",
                                                                "blindFor":  null,
                                                                "subFor":  null,
-                                                               "avg":  233
+                                                               "avg":  235
                                                            }
                                                        ]
-                                        },
-                  "SHARKS":  {
-                                 "resolved":  true,
-                                 "autoFlags":  [
-
-                                               ],
-                                 "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
-                                 "lineup":  [
-                                                {
-                                                    "pos":  1,
-                                                    "kind":  "bowler",
-                                                    "name":  "Matt Padilla",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  219
-                                                },
-                                                {
-                                                    "pos":  2,
-                                                    "kind":  "bowler",
-                                                    "name":  "David Padilla",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  201
-                                                },
-                                                {
-                                                    "pos":  3,
-                                                    "kind":  "bowler",
-                                                    "name":  "Vincent Padilla",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  195
-                                                },
-                                                {
-                                                    "pos":  4,
-                                                    "kind":  "bowler",
-                                                    "name":  "Todd Sanders",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  212
-                                                },
-                                                {
-                                                    "pos":  5,
-                                                    "kind":  "bowler",
-                                                    "name":  "Mark Hoffman",
-                                                    "blindFor":  null,
-                                                    "subFor":  null,
-                                                    "avg":  218
-                                                }
-                                            ]
-                             },
-                  "Busting Nuts":  {
-                                       "resolved":  true,
-                                       "autoFlags":  [
-
-                                                     ],
-                                       "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
-                                       "lineup":  [
-                                                      {
-                                                          "pos":  1,
-                                                          "kind":  "bowler",
-                                                          "name":  "Audra Tafoya",
-                                                          "blindFor":  null,
-                                                          "subFor":  null,
-                                                          "avg":  166
-                                                      },
-                                                      {
-                                                          "pos":  2,
-                                                          "kind":  "bowler",
-                                                          "name":  "Dan Mehman",
-                                                          "blindFor":  null,
-                                                          "subFor":  null,
-                                                          "avg":  141
-                                                      },
-                                                      {
-                                                          "pos":  3,
-                                                          "kind":  "bowler",
-                                                          "name":  "Mike Read",
-                                                          "blindFor":  null,
-                                                          "subFor":  null,
-                                                          "avg":  178
-                                                      },
-                                                      {
-                                                          "pos":  4,
-                                                          "kind":  "bowler",
-                                                          "name":  "Dustin Richardson",
-                                                          "blindFor":  null,
-                                                          "subFor":  null,
-                                                          "avg":  183
-                                                      },
-                                                      {
-                                                          "pos":  5,
-                                                          "kind":  "bowler",
-                                                          "name":  "Kole Silz",
-                                                          "blindFor":  null,
-                                                          "subFor":  null,
-                                                          "avg":  155
-                                                      }
-                                                  ]
-                                   },
-                  "No Llores":  {
-                                    "resolved":  true,
-                                    "autoFlags":  [
-
-                                                  ],
-                                    "verifiedFrom":  "Full week-4 report PDF (printed by user, all 20 matchups), 2026-09-15",
-                                    "lineup":  [
-                                                   {
-                                                       "pos":  1,
-                                                       "kind":  "bowler",
-                                                       "name":  "Tonya Garcia",
-                                                       "blindFor":  null,
-                                                       "subFor":  null,
-                                                       "avg":  170
-                                                   },
-                                                   {
-                                                       "pos":  2,
-                                                       "kind":  "bowler",
-                                                       "name":  "Robb Vigil",
-                                                       "blindFor":  null,
-                                                       "subFor":  null,
-                                                       "avg":  199
-                                                   },
-                                                   {
-                                                       "pos":  3,
-                                                       "kind":  "blind",
-                                                       "name":  "Jesus Meraz",
-                                                       "blindFor":  "Jesus Meraz",
-                                                       "subFor":  null,
-                                                       "avg":  199
-                                                   },
-                                                   {
-                                                       "pos":  4,
-                                                       "kind":  "sub",
-                                                       "name":  "Chris Imel",
-                                                       "blindFor":  null,
-                                                       "subFor":  "Eric Cummings",
-                                                       "avg":  204
-                                                   },
-                                                   {
-                                                       "pos":  5,
-                                                       "kind":  "sub",
-                                                       "name":  "Santino DeLeon",
-                                                       "blindFor":  null,
-                                                       "subFor":  "Derek Gonzales",
-                                                       "avg":  162
-                                                   }
-                                               ]
-                                }
+                                        }
               }
 }

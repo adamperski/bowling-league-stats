@@ -2,6 +2,104 @@
     "date":  "2026-08-25",
     "_help":  "Weeks with a blind / sub / missed game. Fix each team\u0027s lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate.",
     "teams":  {
+                  "Schissler\u0027s Army":  {
+                                                "resolved":  true,
+                                                "autoFlags":  [
+
+                                                              ],
+                                                "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                                "lineup":  [
+                                                               {
+                                                                   "pos":  1,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Zach Joslin",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  202
+                                                               },
+                                                               {
+                                                                   "pos":  2,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "John Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  191
+                                                               },
+                                                               {
+                                                                   "pos":  3,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Aaron Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  203
+                                                               },
+                                                               {
+                                                                   "pos":  4,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Derek Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  210
+                                                               },
+                                                               {
+                                                                   "pos":  5,
+                                                                   "kind":  "bowler",
+                                                                   "name":  "Ricky Schissler",
+                                                                   "blindFor":  null,
+                                                                   "subFor":  null,
+                                                                   "avg":  222
+                                                               }
+                                                           ]
+                                            },
+                  "Sweetman Racing":  {
+                                          "resolved":  true,
+                                          "autoFlags":  [
+
+                                                        ],
+                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                          "lineup":  [
+                                                         {
+                                                             "pos":  1,
+                                                             "kind":  "bowler",
+                                                             "name":  "Van Vasquez",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  174
+                                                         },
+                                                         {
+                                                             "pos":  2,
+                                                             "kind":  "blind",
+                                                             "name":  "Rich Lista",
+                                                             "blindFor":  "Rich Lista",
+                                                             "subFor":  null,
+                                                             "avg":  197
+                                                         },
+                                                         {
+                                                             "pos":  3,
+                                                             "kind":  "bowler",
+                                                             "name":  "Kevin Sweetman",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  193
+                                                         },
+                                                         {
+                                                             "pos":  4,
+                                                             "kind":  "bowler",
+                                                             "name":  "James Eisenhauer",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  187
+                                                         },
+                                                         {
+                                                             "pos":  5,
+                                                             "kind":  "bowler",
+                                                             "name":  "Alex Gott",
+                                                             "blindFor":  null,
+                                                             "subFor":  null,
+                                                             "avg":  194
+                                                         }
+                                                     ]
+                                      },
                   "Multiple Scorgasms":  {
                                              "resolved":  true,
                                              "autoFlags":  [
@@ -149,55 +247,55 @@
                                                }
                                            ]
                             },
-                  "Schissler\u0027s Army":  {
-                                                "resolved":  true,
-                                                "autoFlags":  [
+                  "Mike Litzwet":  {
+                                       "resolved":  true,
+                                       "autoFlags":  [
 
-                                                              ],
-                                                "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
-                                                "lineup":  [
-                                                               {
-                                                                   "pos":  1,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Zach Joslin",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  202
-                                                               },
-                                                               {
-                                                                   "pos":  2,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "John Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  191
-                                                               },
-                                                               {
-                                                                   "pos":  3,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Aaron Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  203
-                                                               },
-                                                               {
-                                                                   "pos":  4,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Derek Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  210
-                                                               },
-                                                               {
-                                                                   "pos":  5,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Ricky Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  222
-                                                               }
-                                                           ]
-                                            },
+                                                     ],
+                                       "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                       "lineup":  [
+                                                      {
+                                                          "pos":  1,
+                                                          "kind":  "bowler",
+                                                          "name":  "Zach Joslin",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  202
+                                                      },
+                                                      {
+                                                          "pos":  2,
+                                                          "kind":  "bowler",
+                                                          "name":  "John Schissler",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  191
+                                                      },
+                                                      {
+                                                          "pos":  3,
+                                                          "kind":  "bowler",
+                                                          "name":  "Aaron Schissler",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  203
+                                                      },
+                                                      {
+                                                          "pos":  4,
+                                                          "kind":  "bowler",
+                                                          "name":  "Derek Schissler",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  210
+                                                      },
+                                                      {
+                                                          "pos":  5,
+                                                          "kind":  "bowler",
+                                                          "name":  "Ricky Schissler",
+                                                          "blindFor":  null,
+                                                          "subFor":  null,
+                                                          "avg":  222
+                                                      }
+                                                  ]
+                                   },
                   "Throw A Better Ball":  {
                                               "resolved":  true,
                                               "autoFlags":  [
@@ -1864,55 +1962,55 @@
                                                            }
                                                        ]
                                         },
-                  "Sweetman Racing":  {
-                                          "resolved":  true,
-                                          "autoFlags":  [
+                  "THE DEN":  {
+                                  "resolved":  true,
+                                  "autoFlags":  [
 
-                                                        ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "bowler",
-                                                             "name":  "Van Vasquez",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  174
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "blind",
-                                                             "name":  "Rich Lista",
-                                                             "blindFor":  "Rich Lista",
-                                                             "subFor":  null,
-                                                             "avg":  197
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "bowler",
-                                                             "name":  "Kevin Sweetman",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  193
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "James Eisenhauer",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  187
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "bowler",
-                                                             "name":  "Alex Gott",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  194
-                                                         }
-                                                     ]
-                                      },
+                                                ],
+                                  "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                  "lineup":  [
+                                                 {
+                                                     "pos":  1,
+                                                     "kind":  "bowler",
+                                                     "name":  "Van Vasquez",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  174
+                                                 },
+                                                 {
+                                                     "pos":  2,
+                                                     "kind":  "blind",
+                                                     "name":  "Rich Lista",
+                                                     "blindFor":  "Rich Lista",
+                                                     "subFor":  null,
+                                                     "avg":  197
+                                                 },
+                                                 {
+                                                     "pos":  3,
+                                                     "kind":  "bowler",
+                                                     "name":  "Kevin Sweetman",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  193
+                                                 },
+                                                 {
+                                                     "pos":  4,
+                                                     "kind":  "bowler",
+                                                     "name":  "James Eisenhauer",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  187
+                                                 },
+                                                 {
+                                                     "pos":  5,
+                                                     "kind":  "bowler",
+                                                     "name":  "Alex Gott",
+                                                     "blindFor":  null,
+                                                     "subFor":  null,
+                                                     "avg":  194
+                                                 }
+                                             ]
+                              },
                   "LET\u0027S GET IT!":  {
                                              "resolved":  true,
                                              "autoFlags":  [
