@@ -179,10 +179,13 @@
   // ---- sortable table helper ----
   function table(cols, rows, opts={}){
     // cols: [{k,label,fmt,cls,def}]  rows: array of objects
+    // opts.rank: prepend a '#' column showing each row's 1-based position in
+    // the table's current sort order (recomputed on every sort/redraw).
     rows = A(rows);
     const t = el('table');
     const thead = el('thead'); const tr = el('tr');
     let sortK = opts.sort || cols[0].k, sortDir = opts.dir || -1;
+    if(opts.rank) tr.append(el('th',{class:'num'}, '#'));
     cols.forEach(c=>{
       const th = el('th',{class:'sortable'}, c.label);
       th.onclick = ()=>{ if(sortK===c.k) sortDir*=-1; else { sortK=c.k; sortDir=(c.def||-1); } render(); };
@@ -200,8 +203,9 @@
         return (x-y)*sortDir;
       });
       tb.innerHTML='';
-      sorted.forEach(r=>{
+      sorted.forEach((r,i)=>{
         const row = el('tr');
+        if(opts.rank) row.append(el('td',{class:'num muted'}, (i+1)+''));
         cols.forEach(c=>{
           const raw = r[c.k];
           const cell = c.fmt ? c.fmt(raw,r) : (raw==null?'':raw);
@@ -214,7 +218,7 @@
           row.onclick = ()=>{
             const nx = row.nextSibling;
             if(nx && nx.classList && nx.classList.contains('detail')){ nx.remove(); return; }
-            const dr = el('tr',{class:'detail'}); const dtd = el('td',{colspan:cols.length});
+            const dr = el('tr',{class:'detail'}); const dtd = el('td',{colspan:cols.length+(opts.rank?1:0)});
             dtd.append(opts.expand(r)); dr.append(dtd); row.after(dr);
           };
         }
@@ -293,7 +297,7 @@
       {k:'improve',label:'+/-',cls:'num',fmt:(x)=> x==null?'': el('span',{class:x>0?'pos':(x<0?'neg':'')}, signed(x))},
       {k:'gamesBowled',label:'Gm',cls:'num'},
       {k:'hdcp',label:'Hdcp',cls:'num hide-sm'},
-    ], D.bowlers, {sort:'bookAvg'}));
+    ], D.bowlers, {sort:'bookAvg', rank:true}));
     v.append(p);
   }
 
@@ -319,7 +323,7 @@
         {k:'stdev',label:'σ',cls:'num hide-sm',fmt:x=>x==null?'':x},
         {k:'indPoints',label:'Pts',cls:'num',fmt:(x,r)=> x>0 ? num(x)
             : (r.compIndPoints>0 ? el('span',{class:'muted'}, num(r.compIndPoints)+'*') : '')},
-      ], rows, {sort:'bookAvg', expand:r=>{
+      ], rows, {sort:'bookAvg', rank:true, expand:r=>{
         const d = el('div',{class:'weeks'});
         const wks = A(r.weeks);
         wks.forEach(w=>{
