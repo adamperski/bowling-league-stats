@@ -267,7 +267,7 @@ $teams = [ordered]@{
         T 'Jeff Lagrange' 211
     )
     'Kamikaze Keglers' = @(
-        T 'Zach Knight (Zachary Knight)' 185
+        T 'Zach Knight' 185
         T 'JJ Harnke' 189
         T 'Brian Garramone' 213
         T 'Jon Hanson' 197
