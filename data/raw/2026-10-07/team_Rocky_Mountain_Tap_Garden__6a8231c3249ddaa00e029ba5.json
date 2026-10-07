@@ -7,7 +7,7 @@
       "lastName": "Landis",
       "firstName": "Max",
       "dexterity": 1,
-      "average": 211,
+      "average": 208,
       "averages": [
         {
           "_id": "6534ddca39d3bd4d1e557719",
@@ -75,6 +75,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        172,
+        163,
+        234,
         232,
         258,
         211,
@@ -185,6 +188,19 @@
               779
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd21c6ecb6011bc0ac0",
+            "weekIdx": 0,
+            "games": [
+              234,
+              163,
+              172,
+              632
+            ]
+          }
         ]
       },
       "indPointsWon": 18,
@@ -194,11 +210,11 @@
       "highSeriesHdcp": 779,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 211.05555555555554,
-      "realAvg": 211,
-      "realAvgFloat": 211.06,
+      "averageFloat": 208,
+      "realAvg": 208,
+      "realAvgFloat": 208,
       "enteringAvg": 199,
-      "gamesPlayed": 18,
+      "gamesPlayed": 21,
       "teamName": "Rocky Mountain Tap & Garden",
       "classification": "",
       "team": "6a8231c3249ddaa00e029ba5",
@@ -209,8 +225,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3799,
-      "hdcp": 21
+      "totalPointsScored": 4368,
+      "hdcp": 24
     },
     {
       "_id": "62ec9a8fce65adc409f54e21",
@@ -219,7 +235,7 @@
       "lastName": "Landis",
       "firstName": "Chris",
       "dexterity": 0,
-      "average": 208,
+      "average": 206,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -336,6 +352,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        166,
+        268,
+        159,
         279,
         203,
         188,
@@ -443,20 +462,33 @@
               0
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd21c6ecb6011bc0ac0",
+            "weekIdx": 0,
+            "games": [
+              159,
+              268,
+              166,
+              665
+            ]
+          }
         ]
       },
-      "indPointsWon": 16,
+      "indPointsWon": 17,
       "highGame": 279,
       "highGameHdcp": 306,
       "highSeries": 670,
       "highSeriesHdcp": 751,
       "blindWeeksTotal": 1,
-      "blindWeeksRow": 1,
-      "averageFloat": 208.6,
-      "realAvg": 208,
-      "realAvgFloat": 208.6,
+      "blindWeeksRow": 0,
+      "averageFloat": 206.77777777777777,
+      "realAvg": 206,
+      "realAvgFloat": 206.78,
       "enteringAvg": 215,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Rocky Mountain Tap & Garden",
       "classification": "",
       "team": "6a8231c3249ddaa00e029ba5",
@@ -467,8 +499,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3129,
-      "hdcp": 24
+      "totalPointsScored": 3722,
+      "hdcp": 26
     },
     {
       "_id": "62ec9a14ce65adc409f540c6",
@@ -477,7 +509,7 @@
       "lastName": "Mclaughlin",
       "firstName": "Doug",
       "dexterity": 0,
-      "average": 202,
+      "average": 203,
       "averages": [
         {
           "league": "6898c7db0bd718dd744cd493",
@@ -723,6 +755,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        229,
+        193,
+        213,
         201,
         211,
         200,
@@ -830,20 +865,33 @@
               702
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd21c6ecb6011bc0ac0",
+            "weekIdx": 0,
+            "games": [
+              213,
+              193,
+              229,
+              722
+            ]
+          }
         ]
       },
-      "indPointsWon": 19.5,
+      "indPointsWon": 24.5,
       "highGame": 266,
       "highGameHdcp": 301,
-      "highSeries": 628,
+      "highSeries": 635,
       "highSeriesHdcp": 733,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 202.13333333333333,
-      "realAvg": 202,
-      "realAvgFloat": 202.13,
+      "averageFloat": 203.72222222222223,
+      "realAvg": 203,
+      "realAvgFloat": 203.72,
       "enteringAvg": 196,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Rocky Mountain Tap & Garden",
       "classification": "",
       "team": "6a8231c3249ddaa00e029ba5",
@@ -854,8 +902,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3032,
-      "hdcp": 29
+      "totalPointsScored": 3667,
+      "hdcp": 28
     },
     {
       "_id": "63212be2343461155e0841a1",
@@ -958,6 +1006,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        223,
+        193,
+        170,
         164,
         187,
         207,
@@ -1065,21 +1116,34 @@
               693
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd21c6ecb6011bc0ac0",
+            "weekIdx": 0,
+            "games": [
+              170,
+              193,
+              223,
+              721
+            ]
+          }
         ]
       },
-      "indPointsWon": 11,
+      "indPointsWon": 12,
       "highGame": 233,
       "highGameHdcp": 269,
       "highSeries": 613,
       "highSeriesHdcp": 721,
       "blindWeeksTotal": 1,
       "blindWeeksRow": 0,
-      "averageFloat": 182.06666666666666,
-      "realAvg": 182,
-      "realAvgFloat": 182.07,
+      "averageFloat": 184.27777777777777,
+      "realAvg": 184,
+      "realAvgFloat": 184.28,
       "avgLimited": true,
       "enteringAvg": 195,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Rocky Mountain Tap & Garden",
       "classification": "",
       "team": "6a8231c3249ddaa00e029ba5",
@@ -1090,7 +1154,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2731,
+      "totalPointsScored": 3317,
       "hdcp": 45
     },
     {
@@ -1100,7 +1164,7 @@
       "firstName": "Terry",
       "lastName": "Conklin",
       "dexterity": 0,
-      "average": 193,
+      "average": 196,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -1202,6 +1266,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        212,
+        191,
+        247,
         158,
         234,
         203,
@@ -1315,20 +1382,33 @@
               709
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd21c6ecb6011bc0ac0",
+            "weekIdx": 0,
+            "games": [
+              247,
+              191,
+              212,
+              761
+            ]
+          }
         ]
       },
       "indPointsWon": 11.5,
-      "highGame": 234,
-      "highGameHdcp": 272,
+      "highGame": 247,
+      "highGameHdcp": 284,
       "highSeries": 663,
-      "highSeriesHdcp": 753,
+      "highSeriesHdcp": 761,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 193.66666666666666,
-      "realAvg": 193,
-      "realAvgFloat": 193.67,
+      "averageFloat": 196.54166666666666,
+      "realAvg": 196,
+      "realAvgFloat": 196.54,
       "enteringAvg": 201,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Rocky Mountain Tap & Garden",
       "classification": "",
       "team": "6a8231c3249ddaa00e029ba5",
@@ -1339,8 +1419,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 4067,
-      "hdcp": 37
+      "totalPointsScored": 4717,
+      "hdcp": 35
     },
     {
       "_id": "6a8537f089381df933eb4ee2",
@@ -1462,6 +1542,19 @@
           }
         ],
         "2026-09-29": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538292fe9873e6c628f7a",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-06": [
           {
             "isMatch": false,
             "match_id": "6a8538292fe9873e6c628f7a",
@@ -1754,6 +1847,19 @@
               0
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538292fe9873e6c628f7a",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 5,
@@ -1962,6 +2068,19 @@
           }
         ],
         "2026-09-29": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538292fe9873e6c628f7a",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-06": [
           {
             "isMatch": false,
             "match_id": "6a8538292fe9873e6c628f7a",

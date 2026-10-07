@@ -7,7 +7,7 @@
       "lastName": "Johnson",
       "firstName": "Bob",
       "dexterity": 0,
-      "average": 156,
+      "average": 157,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -88,6 +88,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        168,
+        193,
+        141,
         170,
         164,
         182,
@@ -201,21 +204,33 @@
               729
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bfb1c6ecb6011bc0e50",
+            "weekIdx": 0,
+            "games": [
+              141,
+              193,
+              168,
+              715
+            ]
+          }
         ]
       },
-      "indPointsWon": 21,
-      "highGame": 192,
-      "highGameHdcp": 254,
+      "indPointsWon": 26,
+      "highGame": 193,
+      "highGameHdcp": 264,
       "highSeries": 516,
       "highSeriesHdcp": 729,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 155.61904761904762,
-      "realAvg": 155,
-      "realAvgFloat": 155.62,
-      "avgLimited": true,
+      "averageFloat": 157.08333333333334,
+      "realAvg": 157,
+      "realAvgFloat": 157.08,
       "enteringAvg": 166,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -226,8 +241,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3268,
-      "hdcp": 71
+      "totalPointsScored": 3770,
+      "hdcp": 70
     },
     {
       "_id": "6a84da4ebcc3cf54382f0f23",
@@ -236,7 +251,7 @@
       "birthDate": null,
       "firstName": "Scott",
       "lastName": "Carothers",
-      "average": 219,
+      "average": 217,
       "averages": [
         {
           "league": "6a82316f249ddaa00e0297fb",
@@ -262,6 +277,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        191,
+        208,
+        197,
         224,
         237,
         213,
@@ -375,6 +393,19 @@
               716
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bfb1c6ecb6011bc0e50",
+            "weekIdx": 0,
+            "games": [
+              197,
+              208,
+              191,
+              638
+            ]
+          }
         ]
       },
       "indPointsWon": 24,
@@ -384,11 +415,11 @@
       "highSeriesHdcp": 797,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 219.85714285714286,
-      "realAvg": 219,
-      "realAvgFloat": 219.86,
+      "averageFloat": 217.20833333333334,
+      "realAvg": 217,
+      "realAvgFloat": 217.21,
       "enteringAvg": 208,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -399,8 +430,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 4617,
-      "hdcp": 14
+      "totalPointsScored": 5213,
+      "hdcp": 16
     },
     {
       "_id": "62fc1e9f8bbd233310bde97d",
@@ -653,6 +684,19 @@
               751
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 16,
@@ -687,7 +731,7 @@
       "lastName": "Carothers",
       "firstName": "Nolan",
       "dexterity": 0,
-      "average": 182,
+      "average": 181,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -854,6 +898,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        164,
+        150,
+        214,
         159,
         233,
         209,
@@ -967,20 +1014,33 @@
               754
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bfb1c6ecb6011bc0e50",
+            "weekIdx": 0,
+            "games": [
+              214,
+              150,
+              164,
+              669
+            ]
+          }
         ]
       },
-      "indPointsWon": 18,
+      "indPointsWon": 21,
       "highGame": 233,
       "highGameHdcp": 284,
       "highSeries": 601,
       "highSeriesHdcp": 754,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 182,
-      "realAvg": 182,
-      "realAvgFloat": 182,
+      "averageFloat": 181.25,
+      "realAvg": 181,
+      "realAvgFloat": 181.25,
       "enteringAvg": 176,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -991,15 +1051,15 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3822,
-      "hdcp": 47
+      "totalPointsScored": 4350,
+      "hdcp": 48
     },
     {
       "_id": "6abc6b0c5759881b53357a5b",
       "name": "Mike Hinsley",
       "firstName": "Mike",
       "lastName": "Hinsley",
-      "average": 221,
+      "average": 217,
       "averages": [
         {
           "league": "6898c7db0bd718dd744cd493",
@@ -1039,6 +1099,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        194,
+        147,
+        225,
         215,
         268,
         257,
@@ -1152,20 +1215,33 @@
               791
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bfb1c6ecb6011bc0e50",
+            "weekIdx": 0,
+            "games": [
+              225,
+              147,
+              194,
+              602
+            ]
+          }
         ]
       },
-      "indPointsWon": 22,
+      "indPointsWon": 23,
       "highGame": 268,
       "highGameHdcp": 285,
       "highSeries": 740,
       "highSeriesHdcp": 791,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 221.0952380952381,
-      "realAvg": 221,
-      "realAvgFloat": 221.1,
+      "averageFloat": 217.04166666666666,
+      "realAvg": 217,
+      "realAvgFloat": 217.04,
       "enteringAvg": 216,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -1176,8 +1252,277 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 4643,
-      "hdcp": 12
+      "totalPointsScored": 5209,
+      "hdcp": 16
+    },
+    {
+      "_id": "62ec9a8fce65adc409f54da1",
+      "name": "Nick Lasorsa",
+      "bowlerId": "",
+      "lastName": "Lasorsa",
+      "firstName": "Nick",
+      "dexterity": 0,
+      "average": 209,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99f0535cd0b078d6f37",
+          "_id": "62fc1e9f8bbd233310bde982",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 185
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b47ea9304a7d2dc02e4c",
+          "_id": "64d2b480a9304a7d2dc02e6a",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 185
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b45ca9304a7d2dc02bf0",
+          "_id": "64d7fcdbf7f37c8e348ac335",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 185
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b407ff5dbb6ac34d15237f",
+          "_id": "66b408005dbb6ac34d152397",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 191
+        },
+        {
+          "league": "6835d344a99dc5c068b8c389",
+          "team": "6835d36202ee4b572ff61328",
+          "_id": "6835d89b0ed40fdb607a062b",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c81f0bd718dd744cd7d0",
+          "_id": "6898c8210bd718dd744cd7e1",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 194
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231aa249ddaa00e029a99",
+          "_id": "6a8231ad249ddaa00e029aaf",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        }
+      ],
+      "subs": [
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "substitute": "64d2bfc84be126353580d103",
+          "_id": "64d7fcdbf7f37c8e348ac336"
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "substitute": "6898d03e1b3b538f0d4c5cbb",
+          "_id": "689cac35501f41684b62cf46"
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "substitute": "6a84954d9a7774246b7cf0d8",
+          "_id": "6ac62d439113744f70f6b0ca"
+        }
+      ],
+      "nickNames": [
+        "Nick Lasorsa"
+      ],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "1954-04-01T00:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        253,
+        170,
+        205
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-08": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-29": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bfb1c6ecb6011bc0e50",
+            "weekIdx": 0,
+            "games": [
+              205,
+              170,
+              253,
+              736
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 4,
+      "highGame": 253,
+      "highGameHdcp": 289,
+      "highSeries": 628,
+      "highSeriesHdcp": 736,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 209.33333333333334,
+      "realAvg": 209,
+      "realAvgFloat": 209.33,
+      "enteringAvg": 0,
+      "gamesPlayed": 3,
+      "teamName": "Rocky Mountain High",
+      "classification": "",
+      "team": "6a8231aa249ddaa00e029a99",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 628,
+      "hdcp": 23
     }
   ]
 }

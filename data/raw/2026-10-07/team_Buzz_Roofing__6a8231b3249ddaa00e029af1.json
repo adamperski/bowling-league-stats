@@ -7,7 +7,7 @@
       "lastName": "Elliott",
       "firstName": "Brett",
       "dexterity": 0,
-      "average": 208,
+      "average": 207,
       "averages": [
         {
           "_id": "63058af8e8fa2bf741b1b6e5",
@@ -89,6 +89,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        202,
+        166,
+        214,
         202,
         210,
         154,
@@ -202,20 +205,33 @@
               626
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd91c6ecb6011bc0b68",
+            "weekIdx": 0,
+            "games": [
+              214,
+              166,
+              202,
+              654
+            ]
+          }
         ]
       },
-      "indPointsWon": 13,
+      "indPointsWon": 17,
       "highGame": 266,
       "highGameHdcp": 293,
       "highSeries": 735,
       "highSeriesHdcp": 816,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 208.95238095238096,
-      "realAvg": 208,
-      "realAvgFloat": 208.95,
+      "averageFloat": 207.08333333333334,
+      "realAvg": 207,
+      "realAvgFloat": 207.08,
       "enteringAvg": 205,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Buzz Roofing",
       "classification": "",
       "team": "6a8231b3249ddaa00e029af1",
@@ -226,8 +242,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 4388,
-      "hdcp": 24
+      "totalPointsScored": 4970,
+      "hdcp": 25
     },
     {
       "_id": "62fbb4d427b797610f7ee913",
@@ -236,7 +252,7 @@
       "firstName": "Galen",
       "lastName": "Sisto",
       "dexterity": 0,
-      "average": 185,
+      "average": 188,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -331,6 +347,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        224,
+        170,
+        221,
         192,
         165,
         172,
@@ -444,20 +463,33 @@
               658
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd91c6ecb6011bc0b68",
+            "weekIdx": 0,
+            "games": [
+              221,
+              170,
+              224,
+              750
+            ]
+          }
         ]
       },
-      "indPointsWon": 10,
+      "indPointsWon": 11,
       "highGame": 246,
       "highGameHdcp": 291,
-      "highSeries": 595,
-      "highSeriesHdcp": 730,
+      "highSeries": 615,
+      "highSeriesHdcp": 750,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 185.8095238095238,
-      "realAvg": 185,
-      "realAvgFloat": 185.81,
+      "averageFloat": 188.20833333333334,
+      "realAvg": 188,
+      "realAvgFloat": 188.21,
       "enteringAvg": 193,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Buzz Roofing",
       "classification": "",
       "team": "6a8231b3249ddaa00e029af1",
@@ -468,8 +500,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3902,
-      "hdcp": 45
+      "totalPointsScored": 4517,
+      "hdcp": 42
     },
     {
       "_id": "62fbb4d427b797610f7ee914",
@@ -478,7 +510,7 @@
       "firstName": "Lu",
       "lastName": "Busnardo",
       "dexterity": 0,
-      "average": 183,
+      "average": 180,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -559,6 +591,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        200,
+        168,
+        138,
         192,
         184,
         174,
@@ -663,20 +698,33 @@
               0
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd91c6ecb6011bc0b68",
+            "weekIdx": 0,
+            "games": [
+              138,
+              168,
+              200,
+              644
+            ]
+          }
         ]
       },
-      "indPointsWon": 4.5,
+      "indPointsWon": 8,
       "highGame": 218,
       "highGameHdcp": 259,
       "highSeries": 577,
       "highSeriesHdcp": 700,
       "blindWeeksTotal": 1,
-      "blindWeeksRow": 1,
-      "averageFloat": 183.83333333333334,
-      "realAvg": 183,
-      "realAvgFloat": 183.83,
+      "blindWeeksRow": 0,
+      "averageFloat": 180.8,
+      "realAvg": 180,
+      "realAvgFloat": 180.8,
       "enteringAvg": 189,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "Buzz Roofing",
       "classification": "",
       "team": "6a8231b3249ddaa00e029af1",
@@ -687,8 +735,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2206,
-      "hdcp": 46
+      "totalPointsScored": 2712,
+      "hdcp": 49
     },
     {
       "_id": "6333ab85f751a597253b9343",
@@ -777,6 +825,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        236,
+        211,
+        234,
         190,
         175,
         196,
@@ -890,21 +941,33 @@
               645
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd91c6ecb6011bc0b68",
+            "weekIdx": 0,
+            "games": [
+              234,
+              211,
+              236,
+              765
+            ]
+          }
         ]
       },
-      "indPointsWon": 11,
+      "indPointsWon": 16,
       "highGame": 249,
       "highGameHdcp": 277,
-      "highSeries": 652,
-      "highSeriesHdcp": 736,
+      "highSeries": 681,
+      "highSeriesHdcp": 765,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 200,
-      "realAvg": 200,
-      "realAvgFloat": 200,
-      "avgLimited": true,
+      "averageFloat": 203.375,
+      "realAvg": 203,
+      "realAvgFloat": 203.38,
       "enteringAvg": 213,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Buzz Roofing",
       "classification": "",
       "team": "6a8231b3249ddaa00e029af1",
@@ -915,7 +978,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 4200,
+      "totalPointsScored": 4881,
       "hdcp": 28
     },
     {
@@ -925,7 +988,7 @@
       "lastName": "Kondratko",
       "firstName": "Keith",
       "dexterity": 0,
-      "average": 219,
+      "average": 220,
       "averages": [
         {
           "_id": "674f64c1132bc9ed2d6b200c",
@@ -1169,6 +1232,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        227,
+        227,
+        225,
         269,
         205,
         205,
@@ -1276,20 +1342,33 @@
               727
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bd91c6ecb6011bc0b68",
+            "weekIdx": 0,
+            "games": [
+              225,
+              227,
+              227,
+              721
+            ]
+          }
         ]
       },
-      "indPointsWon": 22,
+      "indPointsWon": 27,
       "highGame": 269,
       "highGameHdcp": 285,
       "highSeries": 706,
       "highSeriesHdcp": 781,
       "blindWeeksTotal": 1,
       "blindWeeksRow": 0,
-      "averageFloat": 219.6,
-      "realAvg": 219,
-      "realAvgFloat": 219.6,
+      "averageFloat": 220.72222222222223,
+      "realAvg": 220,
+      "realAvgFloat": 220.72,
       "enteringAvg": 207,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Buzz Roofing",
       "classification": "",
       "team": "6a8231b3249ddaa00e029af1",
@@ -1300,8 +1379,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3294,
-      "hdcp": 14
+      "totalPointsScored": 3973,
+      "hdcp": 13
     },
     {
       "_id": "62ed2d0941d519a12241f030",
@@ -1495,6 +1574,19 @@
           }
         ],
         "2026-09-29": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380a2fe9873e6c628a30",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-06": [
           {
             "isMatch": false,
             "match_id": "6a85380a2fe9873e6c628a30",

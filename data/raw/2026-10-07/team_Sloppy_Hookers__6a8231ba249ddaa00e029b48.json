@@ -6,7 +6,7 @@
       "firstName": "Rich",
       "lastName": "Pennal",
       "dexterity": 0,
-      "average": 189,
+      "average": 188,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -87,6 +87,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        177,
+        166,
+        200,
         210,
         200,
         182,
@@ -200,20 +203,33 @@
               718
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bf31c6ecb6011bc0daa",
+            "weekIdx": 0,
+            "games": [
+              200,
+              166,
+              177,
+              666
+            ]
+          }
         ]
       },
-      "indPointsWon": 19,
+      "indPointsWon": 20,
       "highGame": 266,
       "highGameHdcp": 309,
       "highSeries": 682,
       "highSeriesHdcp": 811,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 189.33333333333334,
-      "realAvg": 189,
-      "realAvgFloat": 189.33,
+      "averageFloat": 188.29166666666666,
+      "realAvg": 188,
+      "realAvgFloat": 188.29,
       "enteringAvg": 187,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Sloppy Hookers",
       "classification": "",
       "team": "6a8231ba249ddaa00e029b48",
@@ -224,8 +240,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3976,
-      "hdcp": 41
+      "totalPointsScored": 4519,
+      "hdcp": 42
     },
     {
       "_id": "62fac6f19546430905347739",
@@ -234,7 +250,7 @@
       "firstName": "John",
       "lastName": "Crowder",
       "dexterity": 0,
-      "average": 171,
+      "average": 172,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -315,6 +331,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        151,
+        203,
+        191,
         168,
         180,
         187,
@@ -428,20 +447,33 @@
               709
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bf31c6ecb6011bc0daa",
+            "weekIdx": 0,
+            "games": [
+              191,
+              203,
+              151,
+              716
+            ]
+          }
         ]
       },
-      "indPointsWon": 20,
+      "indPointsWon": 24,
       "highGame": 247,
       "highGameHdcp": 309,
       "highSeries": 572,
       "highSeriesHdcp": 758,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 171.23809523809524,
-      "realAvg": 171,
-      "realAvgFloat": 171.24,
+      "averageFloat": 172.54166666666666,
+      "realAvg": 172,
+      "realAvgFloat": 172.54,
       "enteringAvg": 166,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Sloppy Hookers",
       "classification": "",
       "team": "6a8231ba249ddaa00e029b48",
@@ -452,8 +484,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3596,
-      "hdcp": 57
+      "totalPointsScored": 4141,
+      "hdcp": 56
     },
     {
       "_id": "6518a7006c9e723d764ea817",
@@ -684,6 +716,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        202,
+        178,
+        191,
         187,
         237,
         232,
@@ -794,21 +829,34 @@
               767
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bf31c6ecb6011bc0daa",
+            "weekIdx": 0,
+            "games": [
+              191,
+              178,
+              202,
+              682
+            ]
+          }
         ]
       },
-      "indPointsWon": 14,
+      "indPointsWon": 19,
       "highGame": 244,
       "highGameHdcp": 274,
       "highSeries": 666,
       "highSeriesHdcp": 767,
       "blindWeeksTotal": 1,
       "blindWeeksRow": 0,
-      "averageFloat": 190.44444444444446,
+      "averageFloat": 190.42857142857142,
       "realAvg": 190,
-      "realAvgFloat": 190.44,
+      "realAvgFloat": 190.43,
       "avgLimited": true,
       "enteringAvg": 203,
-      "gamesPlayed": 18,
+      "gamesPlayed": 21,
       "teamName": "Sloppy Hookers",
       "classification": "",
       "team": "6a8231ba249ddaa00e029b48",
@@ -819,7 +867,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3428,
+      "totalPointsScored": 3999,
       "hdcp": 37
     },
     {
@@ -829,7 +877,7 @@
       "lastName": "Perski",
       "firstName": "Adam",
       "dexterity": 0,
-      "average": 221,
+      "average": 223,
       "averages": [
         {
           "_id": "62fac6f2954643090534773f",
@@ -911,6 +959,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        243,
+        255,
+        208,
         246,
         242,
         192,
@@ -1024,20 +1075,33 @@
               716
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bf31c6ecb6011bc0daa",
+            "weekIdx": 0,
+            "games": [
+              208,
+              255,
+              243,
+              742
+            ]
+          }
         ]
       },
-      "indPointsWon": 18,
+      "indPointsWon": 22,
       "highGame": 259,
       "highGameHdcp": 274,
-      "highSeries": 701,
+      "highSeries": 706,
       "highSeriesHdcp": 749,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 221.85714285714286,
-      "realAvg": 221,
-      "realAvgFloat": 221.86,
+      "averageFloat": 223.54166666666666,
+      "realAvg": 223,
+      "realAvgFloat": 223.54,
       "enteringAvg": 218,
-      "gamesPlayed": 21,
+      "gamesPlayed": 24,
       "teamName": "Sloppy Hookers",
       "classification": "",
       "team": "6a8231ba249ddaa00e029b48",
@@ -1048,8 +1112,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 4659,
-      "hdcp": 12
+      "totalPointsScored": 5365,
+      "hdcp": 10
     },
     {
       "_id": "63a26a87a39e3e72487ee44b",
@@ -1057,7 +1121,7 @@
       "firstName": "Trey",
       "lastName": "Simpson",
       "dexterity": 0,
-      "average": 216,
+      "average": 215,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -1139,6 +1203,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        160,
+        235,
+        233,
         248,
         198,
         239,
@@ -1246,20 +1313,33 @@
               742
             ]
           }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6ac62bf31c6ecb6011bc0daa",
+            "weekIdx": 0,
+            "games": [
+              233,
+              235,
+              160,
+              679
+            ]
+          }
         ]
       },
-      "indPointsWon": 21,
+      "indPointsWon": 22,
       "highGame": 268,
       "highGameHdcp": 300,
       "highSeries": 685,
       "highSeriesHdcp": 779,
       "blindWeeksTotal": 1,
       "blindWeeksRow": 0,
-      "averageFloat": 216.66666666666666,
-      "realAvg": 216,
-      "realAvgFloat": 216.67,
+      "averageFloat": 215.44444444444446,
+      "realAvg": 215,
+      "realAvgFloat": 215.44,
       "enteringAvg": 199,
-      "gamesPlayed": 15,
+      "gamesPlayed": 18,
       "teamName": "Sloppy Hookers",
       "classification": "",
       "team": "6a8231ba249ddaa00e029b48",
@@ -1270,8 +1350,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 3250,
-      "hdcp": 17
+      "totalPointsScored": 3878,
+      "hdcp": 18
     },
     {
       "_id": "67647e2cb53fab832636c056",
@@ -1418,6 +1498,19 @@
           }
         ],
         "2026-09-29": [
+          {
+            "isMatch": false,
+            "match_id": "6a8538182fe9873e6c628ca6",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-06": [
           {
             "isMatch": false,
             "match_id": "6a8538182fe9873e6c628ca6",
