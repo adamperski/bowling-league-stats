@@ -359,11 +359,11 @@ subs with no API record are fabricated scores and are excluded. "vs own avg" is
 each game minus that bowler's season average, which factors out who bowled where.
 
 Caveats: weeks 2-3 and 5-8 were read from printed "Lanes N-M" headings (week 4
-from the PDF, which prints each team's starting lane). **Week 1's report printed
-no lane numbers**, so its pairs assume the same matchup-N-on-lanes-2N-1/2N
-ordering every other week followed (the pairings themselves were verified against
-the real matchups). Report links expire after a few days, so capture lanes when
-you import the week. Only the pair is tracked, not which lane of the pair a team
+from the PDF, which prints each team's starting lane). Week 1's report printed no
+lane numbers, but week 1 puts team N on lane N, so its pairs follow from the team
+numbers printed in the reports (all 20 checked: lanes 1-2 are teams 1 and 2, lanes
+3-4 are teams 3 and 4, and so on). Report links expire after a few days, so
+capture lanes when you import the week. Only the pair is tracked, not which lane of the pair a team
 started on.
 
 ## Config

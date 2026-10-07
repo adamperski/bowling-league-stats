@@ -1,6 +1,6 @@
 ﻿<#
     Lane pairs for 2026-08-18 (one line per matchup: pair, then the two teams).
-    INFERRED: week 1's report listed matchups in order but did not print lane numbers; every other week lists matchup N on lanes 2N-1..2N, so the same is assumed here. Verify if a week-1 score sheet ever turns up.
+    Week 1 assigns team N to lane N (team numbers 1-40 as printed in the reports), so lane pair 2k-1..2k holds teams 2k-1 and 2k. The week-1 report itself printed no lane numbers; this was confirmed for all 20 pairs against the team numbers (read from the week-4 PDF, consistent with the numbers in the week 2 and 3 reports).
 #>
 $lanes = @(
     L '1-2' 'Bowlscore.com' 'Motiv'
