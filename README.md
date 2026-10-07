@@ -334,6 +334,38 @@ across `data\raw\<date>\team_*.json` for `useNickname`/`nickNames`) and use
 that exact string.
 This is a LeaguePals data gap, not a bug.
 
+### Lane pairs
+
+The LeaguePals feed has **no lane data**, so lane pairs are transcribed from the
+printed report (each matchup is headed "Lanes 1-2", "Lanes 3-4", ... and the
+report lists matchup N on lanes 2N-1 and 2N). They live in `data\lanes.json`
+(committed) and drive the **Lanes** tab (league average and high scores per
+pair, one bowler across pairs, everyone on one pair) plus the week / lane line
+on every Head-to-Head matchup card.
+
+Each week, after importing the lineups:
+
+1. Create `scripts\lane-sources\<date>.ps1`, one `L '<pair>' '<team A>' '<team B>'`
+   line per matchup, copied from the report's lane headings (team names must be
+   the CURRENT names, as with lineups).
+2. Run `.\scripts\Import-Lanes.ps1 -Date <date>`. It checks that every team
+   appears exactly once, each pair is used once, and names resolve to current
+   team IDs (stored, so later renames don't matter).
+3. `Build-Stats.ps1` warns if a lanes.json pairing was never an actual matchup
+   (a sign the order is wrong) or if a week has no lane data.
+
+Only **real recorded games** feed the lane stats - blinds, missed-game fills and
+subs with no API record are fabricated scores and are excluded. "vs own avg" is
+each game minus that bowler's season average, which factors out who bowled where.
+
+Caveats: weeks 2-3 and 5-8 were read from printed "Lanes N-M" headings (week 4
+from the PDF, which prints each team's starting lane). **Week 1's report printed
+no lane numbers**, so its pairs assume the same matchup-N-on-lanes-2N-1/2N
+ordering every other week followed (the pairings themselves were verified against
+the real matchups). Report links expire after a few days, so capture lanes when
+you import the week. Only the pair is tracked, not which lane of the pair a team
+started on.
+
 ## Config
 
 Edit `config.json`:

@@ -1,0 +1,1141 @@
+﻿{
+    "_help":  "Lane pair per matchup per week; see scripts\\Import-Lanes.ps1. Keyed by date.",
+    "weeks":  {
+                  "2026-08-18":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "Bowlscore.com",
+                                         "aId":  "6a82317c249ddaa00e0298b4",
+                                         "b":  "Motiv",
+                                         "bId":  "6a82318b249ddaa00e029959"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "Leave Your Mark Pro Shop",
+                                         "aId":  "6a82316f249ddaa00e029803",
+                                         "b":  "Throw A Better Ball",
+                                         "bId":  "6a82318e249ddaa00e029978"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "PIN-A-TRATORS",
+                                         "aId":  "6a823181249ddaa00e0298ec",
+                                         "b":  "Hot XXX",
+                                         "bId":  "6a823178249ddaa00e02987c"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "The Money Team",
+                                         "aId":  "6a8231be249ddaa00e029b64",
+                                         "b":  "Buzz Roofing",
+                                         "bId":  "6a8231b3249ddaa00e029af1"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "J. Crew",
+                                         "aId":  "6a823194249ddaa00e0299b3",
+                                         "b":  "StarDust Lounge",
+                                         "bId":  "6a82317e249ddaa00e0298d0"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "Mother Chuckers",
+                                         "aId":  "6a82319a249ddaa00e0299f1",
+                                         "b":  "Aftermath",
+                                         "bId":  "6a8231b1249ddaa00e029ad5"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "SASQUATCHED",
+                                         "aId":  "6a823197249ddaa00e0299d2",
+                                         "b":  "Matrix Auto Body",
+                                         "bId":  "6a823185249ddaa00e029924"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "The Bowler Depot",
+                                         "aId":  "6a823171249ddaa00e02981f",
+                                         "b":  "Last Minute",
+                                         "bId":  "6a8231b5249ddaa00e029b0a"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "Chicken Nuggies",
+                                         "aId":  "6a823183249ddaa00e029905",
+                                         "b":  "Over the Line",
+                                         "bId":  "6a8231b7249ddaa00e029b29"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "Suicide Kings",
+                                         "aId":  "6a8231d3249ddaa00e029c31",
+                                         "b":  "Better Than Gold",
+                                         "bId":  "6a8231a2249ddaa00e029a42"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "Panetta Heating",
+                                         "aId":  "6a82319f249ddaa00e029a26",
+                                         "b":  "Sloppy Hookers",
+                                         "bId":  "6a8231ba249ddaa00e029b48"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "Kamikaze Keglers",
+                                         "aId":  "6a8231c9249ddaa00e029bda",
+                                         "b":  "Lamorie Painting",
+                                         "bId":  "6a823191249ddaa00e029994"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "SHARKS",
+                                         "aId":  "6a8231ad249ddaa00e029ab6",
+                                         "b":  "Rocky Mountain High",
+                                         "bId":  "6a8231aa249ddaa00e029a99"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "No Llores",
+                                         "aId":  "6a8231a7249ddaa00e029a7a",
+                                         "b":  "Corpse Crew",
+                                         "bId":  "6a82319d249ddaa00e029a10"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "Apex Auto Glass",
+                                         "aId":  "6a823187249ddaa00e02993d",
+                                         "b":  "Denver Vibrator",
+                                         "bId":  "6a82317a249ddaa00e029898"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "Crippled Khaos",
+                                         "aId":  "6a8231d5249ddaa00e029c4d",
+                                         "b":  "Light \u0027Em Up",
+                                         "bId":  "6a823175249ddaa00e02985d"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "Luxury Box Sports",
+                                         "aId":  "6a823174249ddaa00e02983e",
+                                         "b":  "Busting Nuts",
+                                         "bId":  "6a8231cc249ddaa00e029bf6"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "LET\u0027S GET IT!",
+                                         "aId":  "6a8231cf249ddaa00e029c15",
+                                         "b":  "Wheelhouse",
+                                         "bId":  "6a8231d7249ddaa00e029c63"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "Rocky Mountain Tap \u0026 Garden",
+                                         "aId":  "6a8231c3249ddaa00e029ba5",
+                                         "b":  "THE DEN",
+                                         "bId":  "6a8231c6249ddaa00e029bc1"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "Mike Litzwet",
+                                         "aId":  "6a8231a4249ddaa00e029a5e",
+                                         "b":  "Multiple Scorgasms",
+                                         "bId":  "6a8231c1249ddaa00e029b86"
+                                     }
+                                 ],
+                  "2026-08-25":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "Multiple Scorgasms",
+                                         "aId":  "6a8231c1249ddaa00e029b86",
+                                         "b":  "Rocky Mountain Tap \u0026 Garden",
+                                         "bId":  "6a8231c3249ddaa00e029ba5"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "Motiv",
+                                         "aId":  "6a82318b249ddaa00e029959",
+                                         "b":  "Mike Litzwet",
+                                         "bId":  "6a8231a4249ddaa00e029a5e"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "Throw A Better Ball",
+                                         "aId":  "6a82318e249ddaa00e029978",
+                                         "b":  "Bowlscore.com",
+                                         "bId":  "6a82317c249ddaa00e0298b4"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "Hot XXX",
+                                         "aId":  "6a823178249ddaa00e02987c",
+                                         "b":  "Leave Your Mark Pro Shop",
+                                         "bId":  "6a82316f249ddaa00e029803"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "Buzz Roofing",
+                                         "aId":  "6a8231b3249ddaa00e029af1",
+                                         "b":  "PIN-A-TRATORS",
+                                         "bId":  "6a823181249ddaa00e0298ec"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "StarDust Lounge",
+                                         "aId":  "6a82317e249ddaa00e0298d0",
+                                         "b":  "The Money Team",
+                                         "bId":  "6a8231be249ddaa00e029b64"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "Aftermath",
+                                         "aId":  "6a8231b1249ddaa00e029ad5",
+                                         "b":  "J. Crew",
+                                         "bId":  "6a823194249ddaa00e0299b3"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "Matrix Auto Body",
+                                         "aId":  "6a823185249ddaa00e029924",
+                                         "b":  "Mother Chuckers",
+                                         "bId":  "6a82319a249ddaa00e0299f1"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "Last Minute",
+                                         "aId":  "6a8231b5249ddaa00e029b0a",
+                                         "b":  "SASQUATCHED",
+                                         "bId":  "6a823197249ddaa00e0299d2"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "Over the Line",
+                                         "aId":  "6a8231b7249ddaa00e029b29",
+                                         "b":  "The Bowler Depot",
+                                         "bId":  "6a823171249ddaa00e02981f"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "Better Than Gold",
+                                         "aId":  "6a8231a2249ddaa00e029a42",
+                                         "b":  "Chicken Nuggies",
+                                         "bId":  "6a823183249ddaa00e029905"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "Sloppy Hookers",
+                                         "aId":  "6a8231ba249ddaa00e029b48",
+                                         "b":  "Suicide Kings",
+                                         "bId":  "6a8231d3249ddaa00e029c31"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "Lamorie Painting",
+                                         "aId":  "6a823191249ddaa00e029994",
+                                         "b":  "Panetta Heating",
+                                         "bId":  "6a82319f249ddaa00e029a26"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "Rocky Mountain High",
+                                         "aId":  "6a8231aa249ddaa00e029a99",
+                                         "b":  "Kamikaze Keglers",
+                                         "bId":  "6a8231c9249ddaa00e029bda"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "Corpse Crew",
+                                         "aId":  "6a82319d249ddaa00e029a10",
+                                         "b":  "SHARKS",
+                                         "bId":  "6a8231ad249ddaa00e029ab6"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "Denver Vibrator",
+                                         "aId":  "6a82317a249ddaa00e029898",
+                                         "b":  "No Llores",
+                                         "bId":  "6a8231a7249ddaa00e029a7a"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "Light \u0027Em Up",
+                                         "aId":  "6a823175249ddaa00e02985d",
+                                         "b":  "Apex Auto Glass",
+                                         "bId":  "6a823187249ddaa00e02993d"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "Busting Nuts",
+                                         "aId":  "6a8231cc249ddaa00e029bf6",
+                                         "b":  "Crippled Khaos",
+                                         "bId":  "6a8231d5249ddaa00e029c4d"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "Wheelhouse",
+                                         "aId":  "6a8231d7249ddaa00e029c63",
+                                         "b":  "Luxury Box Sports",
+                                         "bId":  "6a823174249ddaa00e02983e"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "THE DEN",
+                                         "aId":  "6a8231c6249ddaa00e029bc1",
+                                         "b":  "LET\u0027S GET IT!",
+                                         "bId":  "6a8231cf249ddaa00e029c15"
+                                     }
+                                 ],
+                  "2026-09-01":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "Luxury Box Sports",
+                                         "aId":  "6a823174249ddaa00e02983e",
+                                         "b":  "THE DEN",
+                                         "bId":  "6a8231c6249ddaa00e029bc1"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "LET\u0027S GET IT!",
+                                         "aId":  "6a8231cf249ddaa00e029c15",
+                                         "b":  "Multiple Scorgasms",
+                                         "bId":  "6a8231c1249ddaa00e029b86"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "Rocky Mountain Tap \u0026 Garden",
+                                         "aId":  "6a8231c3249ddaa00e029ba5",
+                                         "b":  "Mike Litzwet",
+                                         "bId":  "6a8231a4249ddaa00e029a5e"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "Motiv",
+                                         "aId":  "6a82318b249ddaa00e029959",
+                                         "b":  "Throw A Better Ball",
+                                         "bId":  "6a82318e249ddaa00e029978"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "Bowlscore.com",
+                                         "aId":  "6a82317c249ddaa00e0298b4",
+                                         "b":  "Hot XXX",
+                                         "bId":  "6a823178249ddaa00e02987c"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "Leave Your Mark Pro Shop",
+                                         "aId":  "6a82316f249ddaa00e029803",
+                                         "b":  "Buzz Roofing",
+                                         "bId":  "6a8231b3249ddaa00e029af1"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "PIN-A-TRATORS",
+                                         "aId":  "6a823181249ddaa00e0298ec",
+                                         "b":  "StarDust Lounge",
+                                         "bId":  "6a82317e249ddaa00e0298d0"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "The Money Team",
+                                         "aId":  "6a8231be249ddaa00e029b64",
+                                         "b":  "Aftermath",
+                                         "bId":  "6a8231b1249ddaa00e029ad5"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "J. Crew",
+                                         "aId":  "6a823194249ddaa00e0299b3",
+                                         "b":  "Matrix Auto Body",
+                                         "bId":  "6a823185249ddaa00e029924"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "Mother Chuckers",
+                                         "aId":  "6a82319a249ddaa00e0299f1",
+                                         "b":  "Last Minute",
+                                         "bId":  "6a8231b5249ddaa00e029b0a"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "SASQUATCHED",
+                                         "aId":  "6a823197249ddaa00e0299d2",
+                                         "b":  "Over the Line",
+                                         "bId":  "6a8231b7249ddaa00e029b29"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "The Bowler Depot",
+                                         "aId":  "6a823171249ddaa00e02981f",
+                                         "b":  "Better Than Gold",
+                                         "bId":  "6a8231a2249ddaa00e029a42"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "Chicken Nuggies",
+                                         "aId":  "6a823183249ddaa00e029905",
+                                         "b":  "Sloppy Hookers",
+                                         "bId":  "6a8231ba249ddaa00e029b48"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "Suicide Kings",
+                                         "aId":  "6a8231d3249ddaa00e029c31",
+                                         "b":  "Lamorie Painting",
+                                         "bId":  "6a823191249ddaa00e029994"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "Panetta Heating",
+                                         "aId":  "6a82319f249ddaa00e029a26",
+                                         "b":  "Rocky Mountain High",
+                                         "bId":  "6a8231aa249ddaa00e029a99"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "Kamikaze Keglers",
+                                         "aId":  "6a8231c9249ddaa00e029bda",
+                                         "b":  "Corpse Crew",
+                                         "bId":  "6a82319d249ddaa00e029a10"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "SHARKS",
+                                         "aId":  "6a8231ad249ddaa00e029ab6",
+                                         "b":  "Denver Vibrator",
+                                         "bId":  "6a82317a249ddaa00e029898"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "No Llores",
+                                         "aId":  "6a8231a7249ddaa00e029a7a",
+                                         "b":  "Light \u0027Em Up",
+                                         "bId":  "6a823175249ddaa00e02985d"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "Apex Auto Glass",
+                                         "aId":  "6a823187249ddaa00e02993d",
+                                         "b":  "Busting Nuts",
+                                         "bId":  "6a8231cc249ddaa00e029bf6"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "Crippled Khaos",
+                                         "aId":  "6a8231d5249ddaa00e029c4d",
+                                         "b":  "Wheelhouse",
+                                         "bId":  "6a8231d7249ddaa00e029c63"
+                                     }
+                                 ],
+                  "2026-09-08":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "Wheelhouse",
+                                         "aId":  "6a8231d7249ddaa00e029c63",
+                                         "b":  "Apex Auto Glass",
+                                         "bId":  "6a823187249ddaa00e02993d"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "THE DEN",
+                                         "aId":  "6a8231c6249ddaa00e029bc1",
+                                         "b":  "Crippled Khaos",
+                                         "bId":  "6a8231d5249ddaa00e029c4d"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "Multiple Scorgasms",
+                                         "aId":  "6a8231c1249ddaa00e029b86",
+                                         "b":  "Luxury Box Sports",
+                                         "bId":  "6a823174249ddaa00e02983e"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "Mike Litzwet",
+                                         "aId":  "6a8231a4249ddaa00e029a5e",
+                                         "b":  "LET\u0027S GET IT!",
+                                         "bId":  "6a8231cf249ddaa00e029c15"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "Rocky Mountain Tap \u0026 Garden",
+                                         "aId":  "6a8231c3249ddaa00e029ba5",
+                                         "b":  "Motiv",
+                                         "bId":  "6a82318b249ddaa00e029959"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "Hot XXX",
+                                         "aId":  "6a823178249ddaa00e02987c",
+                                         "b":  "Throw A Better Ball",
+                                         "bId":  "6a82318e249ddaa00e029978"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "Buzz Roofing",
+                                         "aId":  "6a8231b3249ddaa00e029af1",
+                                         "b":  "Bowlscore.com",
+                                         "bId":  "6a82317c249ddaa00e0298b4"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "StarDust Lounge",
+                                         "aId":  "6a82317e249ddaa00e0298d0",
+                                         "b":  "Leave Your Mark Pro Shop",
+                                         "bId":  "6a82316f249ddaa00e029803"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "Aftermath",
+                                         "aId":  "6a8231b1249ddaa00e029ad5",
+                                         "b":  "PIN-A-TRATORS",
+                                         "bId":  "6a823181249ddaa00e0298ec"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "Matrix Auto Body",
+                                         "aId":  "6a823185249ddaa00e029924",
+                                         "b":  "The Money Team",
+                                         "bId":  "6a8231be249ddaa00e029b64"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "Last Minute",
+                                         "aId":  "6a8231b5249ddaa00e029b0a",
+                                         "b":  "J. Crew",
+                                         "bId":  "6a823194249ddaa00e0299b3"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "Over the Line",
+                                         "aId":  "6a8231b7249ddaa00e029b29",
+                                         "b":  "Mother Chuckers",
+                                         "bId":  "6a82319a249ddaa00e0299f1"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "Better Than Gold",
+                                         "aId":  "6a8231a2249ddaa00e029a42",
+                                         "b":  "SASQUATCHED",
+                                         "bId":  "6a823197249ddaa00e0299d2"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "Sloppy Hookers",
+                                         "aId":  "6a8231ba249ddaa00e029b48",
+                                         "b":  "The Bowler Depot",
+                                         "bId":  "6a823171249ddaa00e02981f"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "Lamorie Painting",
+                                         "aId":  "6a823191249ddaa00e029994",
+                                         "b":  "Chicken Nuggies",
+                                         "bId":  "6a823183249ddaa00e029905"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "Rocky Mountain High",
+                                         "aId":  "6a8231aa249ddaa00e029a99",
+                                         "b":  "Suicide Kings",
+                                         "bId":  "6a8231d3249ddaa00e029c31"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "Corpse Crew",
+                                         "aId":  "6a82319d249ddaa00e029a10",
+                                         "b":  "Panetta Heating",
+                                         "bId":  "6a82319f249ddaa00e029a26"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "Denver Vibrator",
+                                         "aId":  "6a82317a249ddaa00e029898",
+                                         "b":  "Kamikaze Keglers",
+                                         "bId":  "6a8231c9249ddaa00e029bda"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "Light \u0027Em Up",
+                                         "aId":  "6a823175249ddaa00e02985d",
+                                         "b":  "SHARKS",
+                                         "bId":  "6a8231ad249ddaa00e029ab6"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "Busting Nuts",
+                                         "aId":  "6a8231cc249ddaa00e029bf6",
+                                         "b":  "No Llores",
+                                         "bId":  "6a8231a7249ddaa00e029a7a"
+                                     }
+                                 ],
+                  "2026-09-15":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "Mother Chuckers",
+                                         "aId":  "6a82319a249ddaa00e0299f1",
+                                         "b":  "The Money Team",
+                                         "bId":  "6a8231be249ddaa00e029b64"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "Busting Nuts",
+                                         "aId":  "6a8231cc249ddaa00e029bf6",
+                                         "b":  "Lamorie Painting",
+                                         "bId":  "6a823191249ddaa00e029994"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "Hot XXX",
+                                         "aId":  "6a823178249ddaa00e02987c",
+                                         "b":  "Panetta Heating",
+                                         "bId":  "6a82319f249ddaa00e029a26"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "SASQUATCHED",
+                                         "aId":  "6a823197249ddaa00e0299d2",
+                                         "b":  "Denver Vibrator",
+                                         "bId":  "6a82317a249ddaa00e029898"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "Better Than Gold",
+                                         "aId":  "6a8231a2249ddaa00e029a42",
+                                         "b":  "LET\u0027S GET IT!",
+                                         "bId":  "6a8231cf249ddaa00e029c15"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "Rocky Mountain High",
+                                         "aId":  "6a8231aa249ddaa00e029a99",
+                                         "b":  "Throw A Better Ball",
+                                         "bId":  "6a82318e249ddaa00e029978"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "Motiv",
+                                         "aId":  "6a82318b249ddaa00e029959",
+                                         "b":  "THE DEN",
+                                         "bId":  "6a8231c6249ddaa00e029bc1"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "PIN-A-TRATORS",
+                                         "aId":  "6a823181249ddaa00e0298ec",
+                                         "b":  "Leave Your Mark Pro Shop",
+                                         "bId":  "6a82316f249ddaa00e029803"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "Light \u0027Em Up",
+                                         "aId":  "6a823175249ddaa00e02985d",
+                                         "b":  "Wheelhouse",
+                                         "bId":  "6a8231d7249ddaa00e029c63"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "Apex Auto Glass",
+                                         "aId":  "6a823187249ddaa00e02993d",
+                                         "b":  "The Bowler Depot",
+                                         "bId":  "6a823171249ddaa00e02981f"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "J. Crew",
+                                         "aId":  "6a823194249ddaa00e0299b3",
+                                         "b":  "Luxury Box Sports",
+                                         "bId":  "6a823174249ddaa00e02983e"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "Mike Litzwet",
+                                         "aId":  "6a8231a4249ddaa00e029a5e",
+                                         "b":  "SHARKS",
+                                         "bId":  "6a8231ad249ddaa00e029ab6"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "Sloppy Hookers",
+                                         "aId":  "6a8231ba249ddaa00e029b48",
+                                         "b":  "Rocky Mountain Tap \u0026 Garden",
+                                         "bId":  "6a8231c3249ddaa00e029ba5"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "Chicken Nuggies",
+                                         "aId":  "6a823183249ddaa00e029905",
+                                         "b":  "Suicide Kings",
+                                         "bId":  "6a8231d3249ddaa00e029c31"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "Kamikaze Keglers",
+                                         "aId":  "6a8231c9249ddaa00e029bda",
+                                         "b":  "Last Minute",
+                                         "bId":  "6a8231b5249ddaa00e029b0a"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "Bowlscore.com",
+                                         "aId":  "6a82317c249ddaa00e0298b4",
+                                         "b":  "No Llores",
+                                         "bId":  "6a8231a7249ddaa00e029a7a"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "Over the Line",
+                                         "aId":  "6a8231b7249ddaa00e029b29",
+                                         "b":  "Multiple Scorgasms",
+                                         "bId":  "6a8231c1249ddaa00e029b86"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "Matrix Auto Body",
+                                         "aId":  "6a823185249ddaa00e029924",
+                                         "b":  "StarDust Lounge",
+                                         "bId":  "6a82317e249ddaa00e0298d0"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "Crippled Khaos",
+                                         "aId":  "6a8231d5249ddaa00e029c4d",
+                                         "b":  "Aftermath",
+                                         "bId":  "6a8231b1249ddaa00e029ad5"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "Corpse Crew",
+                                         "aId":  "6a82319d249ddaa00e029a10",
+                                         "b":  "Buzz Roofing",
+                                         "bId":  "6a8231b3249ddaa00e029af1"
+                                     }
+                                 ],
+                  "2026-09-22":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "SHARKS",
+                                         "aId":  "6a8231ad249ddaa00e029ab6",
+                                         "b":  "Busting Nuts",
+                                         "bId":  "6a8231cc249ddaa00e029bf6"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "No Llores",
+                                         "aId":  "6a8231a7249ddaa00e029a7a",
+                                         "b":  "Wheelhouse",
+                                         "bId":  "6a8231d7249ddaa00e029c63"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "Apex Auto Glass",
+                                         "aId":  "6a823187249ddaa00e02993d",
+                                         "b":  "THE DEN",
+                                         "bId":  "6a8231c6249ddaa00e029bc1"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "Crippled Khaos",
+                                         "aId":  "6a8231d5249ddaa00e029c4d",
+                                         "b":  "Multiple Scorgasms",
+                                         "bId":  "6a8231c1249ddaa00e029b86"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "Luxury Box Sports",
+                                         "aId":  "6a823174249ddaa00e02983e",
+                                         "b":  "Mike Litzwet",
+                                         "bId":  "6a8231a4249ddaa00e029a5e"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "LET\u0027S GET IT!",
+                                         "aId":  "6a8231cf249ddaa00e029c15",
+                                         "b":  "Rocky Mountain Tap \u0026 Garden",
+                                         "bId":  "6a8231c3249ddaa00e029ba5"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "Motiv",
+                                         "aId":  "6a82318b249ddaa00e029959",
+                                         "b":  "Hot XXX",
+                                         "bId":  "6a823178249ddaa00e02987c"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "Throw A Better Ball",
+                                         "aId":  "6a82318e249ddaa00e029978",
+                                         "b":  "Buzz Roofing",
+                                         "bId":  "6a8231b3249ddaa00e029af1"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "Bowlscore.com",
+                                         "aId":  "6a82317c249ddaa00e0298b4",
+                                         "b":  "StarDust Lounge",
+                                         "bId":  "6a82317e249ddaa00e0298d0"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "Leave Your Mark Pro Shop",
+                                         "aId":  "6a82316f249ddaa00e029803",
+                                         "b":  "Aftermath",
+                                         "bId":  "6a8231b1249ddaa00e029ad5"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "PIN-A-TRATORS",
+                                         "aId":  "6a823181249ddaa00e0298ec",
+                                         "b":  "Matrix Auto Body",
+                                         "bId":  "6a823185249ddaa00e029924"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "The Money Team",
+                                         "aId":  "6a8231be249ddaa00e029b64",
+                                         "b":  "Last Minute",
+                                         "bId":  "6a8231b5249ddaa00e029b0a"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "J. Crew",
+                                         "aId":  "6a823194249ddaa00e0299b3",
+                                         "b":  "Over the Line",
+                                         "bId":  "6a8231b7249ddaa00e029b29"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "Mother Chuckers",
+                                         "aId":  "6a82319a249ddaa00e0299f1",
+                                         "b":  "Better Than Gold",
+                                         "bId":  "6a8231a2249ddaa00e029a42"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "SASQUATCHED",
+                                         "aId":  "6a823197249ddaa00e0299d2",
+                                         "b":  "Sloppy Hookers",
+                                         "bId":  "6a8231ba249ddaa00e029b48"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "The Bowler Depot",
+                                         "aId":  "6a823171249ddaa00e02981f",
+                                         "b":  "Lamorie Painting",
+                                         "bId":  "6a823191249ddaa00e029994"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "Chicken Nuggies",
+                                         "aId":  "6a823183249ddaa00e029905",
+                                         "b":  "Rocky Mountain High",
+                                         "bId":  "6a8231aa249ddaa00e029a99"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "Suicide Kings",
+                                         "aId":  "6a8231d3249ddaa00e029c31",
+                                         "b":  "Corpse Crew",
+                                         "bId":  "6a82319d249ddaa00e029a10"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "Panetta Heating",
+                                         "aId":  "6a82319f249ddaa00e029a26",
+                                         "b":  "Denver Vibrator",
+                                         "bId":  "6a82317a249ddaa00e029898"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "Kamikaze Keglers",
+                                         "aId":  "6a8231c9249ddaa00e029bda",
+                                         "b":  "Light \u0027Em Up",
+                                         "bId":  "6a823175249ddaa00e02985d"
+                                     }
+                                 ],
+                  "2026-09-29":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "Light \u0027Em Up",
+                                         "aId":  "6a823175249ddaa00e02985d",
+                                         "b":  "Panetta Heating",
+                                         "bId":  "6a82319f249ddaa00e029a26"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "Busting Nuts",
+                                         "aId":  "6a8231cc249ddaa00e029bf6",
+                                         "b":  "Kamikaze Keglers",
+                                         "bId":  "6a8231c9249ddaa00e029bda"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "Wheelhouse",
+                                         "aId":  "6a8231d7249ddaa00e029c63",
+                                         "b":  "SHARKS",
+                                         "bId":  "6a8231ad249ddaa00e029ab6"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "THE DEN",
+                                         "aId":  "6a8231c6249ddaa00e029bc1",
+                                         "b":  "No Llores",
+                                         "bId":  "6a8231a7249ddaa00e029a7a"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "Multiple Scorgasms",
+                                         "aId":  "6a8231c1249ddaa00e029b86",
+                                         "b":  "Apex Auto Glass",
+                                         "bId":  "6a823187249ddaa00e02993d"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "Mike Litzwet",
+                                         "aId":  "6a8231a4249ddaa00e029a5e",
+                                         "b":  "Crippled Khaos",
+                                         "bId":  "6a8231d5249ddaa00e029c4d"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "Rocky Mountain Tap \u0026 Garden",
+                                         "aId":  "6a8231c3249ddaa00e029ba5",
+                                         "b":  "Luxury Box Sports",
+                                         "bId":  "6a823174249ddaa00e02983e"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "LET\u0027S GET IT!",
+                                         "aId":  "6a8231cf249ddaa00e029c15",
+                                         "b":  "Motiv",
+                                         "bId":  "6a82318b249ddaa00e029959"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "Buzz Roofing",
+                                         "aId":  "6a8231b3249ddaa00e029af1",
+                                         "b":  "Hot XXX",
+                                         "bId":  "6a823178249ddaa00e02987c"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "StarDust Lounge",
+                                         "aId":  "6a82317e249ddaa00e0298d0",
+                                         "b":  "Throw A Better Ball",
+                                         "bId":  "6a82318e249ddaa00e029978"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "Aftermath",
+                                         "aId":  "6a8231b1249ddaa00e029ad5",
+                                         "b":  "Bowlscore.com",
+                                         "bId":  "6a82317c249ddaa00e0298b4"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "Matrix Auto Body",
+                                         "aId":  "6a823185249ddaa00e029924",
+                                         "b":  "Leave Your Mark Pro Shop",
+                                         "bId":  "6a82316f249ddaa00e029803"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "Last Minute",
+                                         "aId":  "6a8231b5249ddaa00e029b0a",
+                                         "b":  "PIN-A-TRATORS",
+                                         "bId":  "6a823181249ddaa00e0298ec"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "Over the Line",
+                                         "aId":  "6a8231b7249ddaa00e029b29",
+                                         "b":  "The Money Team",
+                                         "bId":  "6a8231be249ddaa00e029b64"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "Better Than Gold",
+                                         "aId":  "6a8231a2249ddaa00e029a42",
+                                         "b":  "J. Crew",
+                                         "bId":  "6a823194249ddaa00e0299b3"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "Sloppy Hookers",
+                                         "aId":  "6a8231ba249ddaa00e029b48",
+                                         "b":  "Mother Chuckers",
+                                         "bId":  "6a82319a249ddaa00e0299f1"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "Lamorie Painting",
+                                         "aId":  "6a823191249ddaa00e029994",
+                                         "b":  "SASQUATCHED",
+                                         "bId":  "6a823197249ddaa00e0299d2"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "Rocky Mountain High",
+                                         "aId":  "6a8231aa249ddaa00e029a99",
+                                         "b":  "The Bowler Depot",
+                                         "bId":  "6a823171249ddaa00e02981f"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "Corpse Crew",
+                                         "aId":  "6a82319d249ddaa00e029a10",
+                                         "b":  "Chicken Nuggies",
+                                         "bId":  "6a823183249ddaa00e029905"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "Denver Vibrator",
+                                         "aId":  "6a82317a249ddaa00e029898",
+                                         "b":  "Suicide Kings",
+                                         "bId":  "6a8231d3249ddaa00e029c31"
+                                     }
+                                 ],
+                  "2026-10-06":  [
+                                     {
+                                         "pair":  "1-2",
+                                         "a":  "Chicken Nuggies",
+                                         "aId":  "6a823183249ddaa00e029905",
+                                         "b":  "Denver Vibrator",
+                                         "bId":  "6a82317a249ddaa00e029898"
+                                     },
+                                     {
+                                         "pair":  "3-4",
+                                         "a":  "Suicide Kings",
+                                         "aId":  "6a8231d3249ddaa00e029c31",
+                                         "b":  "Light \u0027Em Up",
+                                         "bId":  "6a823175249ddaa00e02985d"
+                                     },
+                                     {
+                                         "pair":  "5-6",
+                                         "a":  "Panetta Heating",
+                                         "aId":  "6a82319f249ddaa00e029a26",
+                                         "b":  "Busting Nuts",
+                                         "bId":  "6a8231cc249ddaa00e029bf6"
+                                     },
+                                     {
+                                         "pair":  "7-8",
+                                         "a":  "Kamikaze Keglers",
+                                         "aId":  "6a8231c9249ddaa00e029bda",
+                                         "b":  "Wheelhouse",
+                                         "bId":  "6a8231d7249ddaa00e029c63"
+                                     },
+                                     {
+                                         "pair":  "9-10",
+                                         "a":  "SHARKS",
+                                         "aId":  "6a8231ad249ddaa00e029ab6",
+                                         "b":  "THE DEN",
+                                         "bId":  "6a8231c6249ddaa00e029bc1"
+                                     },
+                                     {
+                                         "pair":  "11-12",
+                                         "a":  "No Llores",
+                                         "aId":  "6a8231a7249ddaa00e029a7a",
+                                         "b":  "Multiple Scorgasms",
+                                         "bId":  "6a8231c1249ddaa00e029b86"
+                                     },
+                                     {
+                                         "pair":  "13-14",
+                                         "a":  "Apex Auto Glass",
+                                         "aId":  "6a823187249ddaa00e02993d",
+                                         "b":  "Mike Litzwet",
+                                         "bId":  "6a8231a4249ddaa00e029a5e"
+                                     },
+                                     {
+                                         "pair":  "15-16",
+                                         "a":  "Crippled Khaos",
+                                         "aId":  "6a8231d5249ddaa00e029c4d",
+                                         "b":  "Rocky Mountain Tap \u0026 Garden",
+                                         "bId":  "6a8231c3249ddaa00e029ba5"
+                                     },
+                                     {
+                                         "pair":  "17-18",
+                                         "a":  "Luxury Box Sports",
+                                         "aId":  "6a823174249ddaa00e02983e",
+                                         "b":  "LET\u0027S GET IT!",
+                                         "bId":  "6a8231cf249ddaa00e029c15"
+                                     },
+                                     {
+                                         "pair":  "19-20",
+                                         "a":  "Motiv",
+                                         "aId":  "6a82318b249ddaa00e029959",
+                                         "b":  "Buzz Roofing",
+                                         "bId":  "6a8231b3249ddaa00e029af1"
+                                     },
+                                     {
+                                         "pair":  "21-22",
+                                         "a":  "Hot XXX",
+                                         "aId":  "6a823178249ddaa00e02987c",
+                                         "b":  "StarDust Lounge",
+                                         "bId":  "6a82317e249ddaa00e0298d0"
+                                     },
+                                     {
+                                         "pair":  "23-24",
+                                         "a":  "Throw A Better Ball",
+                                         "aId":  "6a82318e249ddaa00e029978",
+                                         "b":  "Aftermath",
+                                         "bId":  "6a8231b1249ddaa00e029ad5"
+                                     },
+                                     {
+                                         "pair":  "25-26",
+                                         "a":  "Bowlscore.com",
+                                         "aId":  "6a82317c249ddaa00e0298b4",
+                                         "b":  "Matrix Auto Body",
+                                         "bId":  "6a823185249ddaa00e029924"
+                                     },
+                                     {
+                                         "pair":  "27-28",
+                                         "a":  "Leave Your Mark Pro Shop",
+                                         "aId":  "6a82316f249ddaa00e029803",
+                                         "b":  "Last Minute",
+                                         "bId":  "6a8231b5249ddaa00e029b0a"
+                                     },
+                                     {
+                                         "pair":  "29-30",
+                                         "a":  "PIN-A-TRATORS",
+                                         "aId":  "6a823181249ddaa00e0298ec",
+                                         "b":  "Over the Line",
+                                         "bId":  "6a8231b7249ddaa00e029b29"
+                                     },
+                                     {
+                                         "pair":  "31-32",
+                                         "a":  "The Money Team",
+                                         "aId":  "6a8231be249ddaa00e029b64",
+                                         "b":  "Better Than Gold",
+                                         "bId":  "6a8231a2249ddaa00e029a42"
+                                     },
+                                     {
+                                         "pair":  "33-34",
+                                         "a":  "J. Crew",
+                                         "aId":  "6a823194249ddaa00e0299b3",
+                                         "b":  "Sloppy Hookers",
+                                         "bId":  "6a8231ba249ddaa00e029b48"
+                                     },
+                                     {
+                                         "pair":  "35-36",
+                                         "a":  "Mother Chuckers",
+                                         "aId":  "6a82319a249ddaa00e0299f1",
+                                         "b":  "Lamorie Painting",
+                                         "bId":  "6a823191249ddaa00e029994"
+                                     },
+                                     {
+                                         "pair":  "37-38",
+                                         "a":  "SASQUATCHED",
+                                         "aId":  "6a823197249ddaa00e0299d2",
+                                         "b":  "Rocky Mountain High",
+                                         "bId":  "6a8231aa249ddaa00e029a99"
+                                     },
+                                     {
+                                         "pair":  "39-40",
+                                         "a":  "The Bowler Depot",
+                                         "aId":  "6a823171249ddaa00e02981f",
+                                         "b":  "Corpse Crew",
+                                         "bId":  "6a82319d249ddaa00e029a10"
+                                     }
+                                 ]
+              }
+}

@@ -162,6 +162,7 @@
     ['standings','Standings', viewStandings],
     ['h2h','Head-to-Head', viewH2H],
     ['trends','Trends', viewTrends],
+    ['lanes','Lanes', viewLanes],
     ['leaders','Leaderboards', viewLeaders],
     ['averages','Averages', viewAverages],
     ['bowlers','Bowlers', viewBowlers],
@@ -367,6 +368,110 @@
     v.append(g);
   }
 
+  // ================= Lanes =================
+  function viewLanes(v){
+    const LN = D.lanes || {};
+    const pairs = A(LN.pairs).map(r=>Object.assign({n:parseInt(r.pair,10)}, r));
+    const brows = A(LN.bowlers).map(r=>Object.assign({n:parseInt(r.pair,10)}, r));
+    const fav = D.meta.favoriteTeam || '';
+    const dev = x => x==null ? '' : el('span',{class:x>0?'pos':(x<0?'neg':'')}, signed(x));
+    const f1 = x => x==null ? '' : (+x).toFixed(1);
+    if(!pairs.length){
+      v.append(el('div',{class:'panel'}, el('div',{class:'muted',style:'padding:12px'},
+        'No lane data yet. Add scripts\\lane-sources\\<date>.ps1 for a week and run scripts\\Import-Lanes.ps1.')));
+      return;
+    }
+    const cols = [
+      {k:'n',label:'Pair',cls:'num',def:1,fmt:(x,r)=>r.pair},
+      {k:'weeks',label:'Wks',cls:'num'},
+      {k:'games',label:'Gm',cls:'num'},
+      {k:'avg',label:'Avg',cls:'num',fmt:f1},
+      {k:'vsAvg',label:'vs own avg',cls:'num',fmt:dev},
+      {k:'highGame',label:'Hi Gm',cls:'num'},
+      {k:'highSeries',label:'Hi Ser',cls:'num'},
+    ];
+
+    // --- league by pair ---
+    const p1 = el('div',{class:'panel'});
+    p1.append(el('h2',{},'League by Lane Pair'));
+    p1.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
+      `Scratch scores across ${LN.weeksWithLanes} week${LN.weeksWithLanes===1?'':'s'} of lane data. Only real recorded games count `
+      + '(blinds, missed-game fills and subs with no data are left out). “vs own avg” is each game minus that bowler’s season average, '
+      + 'which factors out who happened to bowl where — positive means the pair scores high. Lane pairs come from the printed score reports '
+      + '(the LeaguePals feed has no lane data).'));
+    p1.append(table(cols, pairs, {sort:'vsAvg', rank:true}));
+    v.append(p1);
+
+    // --- one bowler across pairs ---
+    const byBowler = {};
+    brows.forEach(r=>{ (byBowler[r.id]=byBowler[r.id]||{name:r.name,team:r.team,id:r.id,rows:[]}).rows.push(r); });
+    const bl = Object.values(byBowler).sort((a,b)=>a.name.localeCompare(b.name));
+    const p2 = el('div',{class:'panel'});
+    p2.append(el('h2',{},'Bowler by Lane Pair'));
+    const tb2 = el('div',{class:'toolbar'});
+    const sel2 = mkSelect(bl.map(b=>({label:b.name+'  ('+b.team+')', value:b.id})));
+    const favB = bl.find(b=>b.team===fav); if(favB) sel2.value = favB.id;
+    tb2.append(sel2); p2.append(tb2);
+    const h2 = el('div'); p2.append(h2);
+    const draw2 = ()=>{
+      h2.innerHTML='';
+      const b = byBowler[sel2.value]; if(!b) return;
+      const bw = D.bowlers.find(x=>x.id===b.id) || {};
+      const used = b.rows.slice().filter(r=>r.games>=3).sort((x,y)=>y.vsAvg-x.vsAvg);
+      h2.append(el('div',{class:'summary'}, b.name,
+        el('br'), el('span',{class:'muted'}, `season avg ${bw.seasonAvg!=null?(+bw.seasonAvg).toFixed(1):'—'}  ·  ${b.rows.reduce((s,r)=>s+r.games,0)} real games on ${b.rows.length} pair${b.rows.length===1?'':'s'}`
+          + (used.length>1 ? `  ·  best ${used[0].pair} (${signed(used[0].vsAvg)}), toughest ${used[used.length-1].pair} (${signed(used[used.length-1].vsAvg)})` : ''))));
+      h2.append(table(cols, b.rows, {sort:'n', dir:1, expand:r=>{
+        const d = el('div',{class:'weeks'});
+        A(r.log).forEach(w=> d.append(el('div',{class:'wk'},
+          el('span',{class:'d'}, 'Wk '+w.weekNum+' · '+w.date), el('br'),
+          el('b',{}, A(w.games).join('  ')+'   = '+w.ser))));
+        return d;
+      }}));
+    };
+    sel2.onchange = draw2; draw2();
+    v.append(p2);
+
+    // --- everyone on one pair ---
+    const p3 = el('div',{class:'panel'});
+    p3.append(el('h2',{},'Bowlers on a Lane Pair'));
+    const tb3 = el('div',{class:'toolbar'});
+    const sel3 = mkSelect(pairs.map(r=>({label:'Lanes '+r.pair, value:r.pair})));
+    const minSel = mkSelect([{label:'any games',value:'0'},{label:'6+ games',value:'6'},{label:'9+ games',value:'9'}]);
+    tb3.append(sel3, minSel); p3.append(tb3);
+    const h3 = el('div'); p3.append(h3);
+    const bcols = [{k:'name',label:'Bowler'},{k:'team',label:'Team',cls:'hide-sm'}].concat(cols.slice(1));
+    const draw3 = ()=>{
+      h3.innerHTML='';
+      const min = +minSel.value;
+      const rows = brows.filter(r=>r.pair===sel3.value && r.games>=min);
+      if(!rows.length){ h3.append(el('div',{class:'muted',style:'padding:12px'},'No bowlers with that many games on this pair yet.')); return; }
+      h3.append(table(bcols, rows, {sort:'vsAvg', rank:true}));
+    };
+    sel3.onchange = draw3; minSel.onchange = draw3; draw3();
+    v.append(p3);
+
+    // --- which pair each team bowled each week ---
+    const wk = [...new Set(D.schedule.filter(m=>m.lane).map(m=>m.date))].sort();
+    const wkNum = {}; D.schedule.forEach(m=>{ wkNum[m.date]=m.weekNum; });
+    const byTeam = {};
+    D.schedule.filter(m=>m.lane).forEach(m=>{
+      [m.a.team, m.b.team].forEach(t=>{ (byTeam[t]=byTeam[t]||{})[m.date] = m.lane; });
+    });
+    const det = el('details',{class:'panel'});
+    det.append(el('summary',{style:'padding:10px 14px;cursor:pointer;font-weight:700'}, 'Lane pair by team and week'));
+    const tw = el('div',{style:'overflow-x:auto'});
+    const t = el('table'); const th = el('tr'); th.append(el('th',{},'Team'));
+    wk.forEach(d=> th.append(el('th',{class:'num'}, 'Wk '+wkNum[d]))); t.append(el('thead',{},th));
+    const tbd = el('tbody');
+    Object.keys(byTeam).sort().forEach(tm=>{
+      const tr = el('tr',{class:tm===fav?'fav':''}); tr.append(el('td',{}, tm));
+      wk.forEach(d=> tr.append(el('td',{class:'num'}, byTeam[tm][d]||'')));
+      tbd.append(tr);
+    });
+    t.append(tbd); tw.append(t); det.append(tw); v.append(det);
+  }
+
   // ================= Head-to-Head =================
   function mkSelect(items){
     const s = el('select');
@@ -392,6 +497,9 @@
       mkSide(m.a,'A'),
       el('div',{class:'mc-vs'}, !confirmed?'⚠':(m.needsReview?'⚠':(m.result==='T'?'tie':'vs'))),
       mkSide(m.b,'B'));
+    const when = el('div',{class:'mc-meta muted'},
+      el('b',{}, m.weekNum ? 'Week '+m.weekNum : m.date), m.isPos ? ' · position round' : '',
+      (m.weekNum ? '  ·  '+m.date : ''), m.lane ? '  ·  Lanes '+m.lane : '');
     const meta = el('div',{class:'mc-meta muted'},
       `scratch series ${m.a.ser}–${m.b.ser}   ·   hcp series ${m.a.serH}–${m.b.serH}`
       + `   ·   team pts ${num(m.a.teamPts)}–${num(m.b.teamPts)}   ·   indiv pts ${num(m.a.indPts)}–${num(m.b.indPts)}`
@@ -427,7 +535,7 @@
     }
     if(!A(m.pairs).length) det.append(el('div',{class:'muted',style:'padding:4px 14px'},'no lineup detail'));
     head.onclick = ()=>{ det.hidden = !det.hidden; };
-    c.append(head, meta, det);
+    c.append(when, head, meta, det);
     return c;
   }
 
@@ -470,8 +578,10 @@
       let cur = weeks[weeks.length-1];
       const drawWk = ()=>{ host.innerHTML='';
         favFirst(D.schedule.filter(m=>m.date===cur)).forEach(m=>host.append(matchCard(m, fav))); };
+      const wkOf = {}; D.schedule.forEach(m=>{ wkOf[m.date] = m; });
       weeks.forEach(w=>{
-        const b = el('button',{class:'wkbtn'+(w===cur?' active':'')}, w);
+        const wm = wkOf[w];
+        const b = el('button',{class:'wkbtn'+(w===cur?' active':'')}, (wm&&wm.weekNum ? 'Wk '+wm.weekNum+(wm.isPos?'★':'')+' · ' : '')+w);
         b.onclick = ()=>{ cur=w; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); drawWk(); };
         bar.append(b);
       });
@@ -539,7 +649,7 @@
           const gj = g => A(g).map(x=>x==null?'–':x).join(' ');
           const X = flip?{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind}:{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind};
           const Y = flip?{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind}:{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind};
-          rows.push({date:m.date, teams:m.a.team+' v '+m.b.team,
+          rows.push({date:m.date, weekNum:m.weekNum, lane:m.lane, teams:m.a.team+' v '+m.b.team,
             aLine:gj(X.g)+'  ('+X.s+' +'+X.h+')'+(X.k&&X.k!=='bowler'?' ['+X.k+']':''), aPts:X.p,
             bLine:gj(Y.g)+'  ('+Y.s+' +'+Y.h+')'+(Y.k&&Y.k!=='bowler'?' ['+Y.k+']':''), bPts:Y.p});
         });
@@ -553,7 +663,7 @@
         `${nA.split('  (')[0]}  ${num(aP)} – ${num(bP)}  ${nB.split('  (')[0]}`,
         el('br'), el('span',{class:'muted'}, `${rows.length} confirmed head-to-head week${rows.length>1?'s':''}${unsureNote}`)));
       h3.append(table([
-        {k:'date',label:'Week'},
+        {k:'date',label:'Week',fmt:(x,r)=> (r.weekNum?'Wk '+r.weekNum+' · ':'')+x+(r.lane?'  (lanes '+r.lane+')':'')},
         {k:'aLine',label:nA.split('  (')[0]},
         {k:'aPts',label:'Pts',cls:'num',fmt:num},
         {k:'bPts',label:'Pts',cls:'num',fmt:num},

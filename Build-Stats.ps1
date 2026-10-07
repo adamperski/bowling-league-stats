@@ -362,7 +362,7 @@ function New-BowlerSlot($pos, $name, $id, $w, $avg, $isSub, $trustAvg = $false) 
         pos = [int]$pos; kind = $(if ($isSub) { 'sub' } elseif ($missFill) { 'partial' } else { 'bowler' })
         name = $name; id = $id; hdcp = [int]$h; games = $games; gameH = $gh
         scrSer = [int]$scrSer; serH = [int]$scrSer + 3 * [int]$h
-        blind = $false; seasonEligible = (-not $isSub)
+        blind = $false; seasonEligible = (-not $isSub); real = (-not $missFill)
     }
 }
 function New-BlindSlot($pos, $regName, $avg, $trustAvg = $false) {
@@ -377,7 +377,7 @@ function New-BlindSlot($pos, $regName, $avg, $trustAvg = $false) {
         pos = [int]$pos; kind = 'blind'; name = "$regName (blind)"; id = $(if ($reg) { $reg.id } else { $null }); hdcp = [int]$h
         games = @($per, $per, $per); gameH = @(($per + $h), ($per + $h), ($per + $h))
         scrSer = 3 * $per; serH = 3 * $per + 3 * $h
-        blind = $true; seasonEligible = $false
+        blind = $true; seasonEligible = $false; real = $false
     }
 }
 
@@ -587,6 +587,21 @@ function Team-Calc($slots) {
         gameH = @(($scr[0] + $h), ($scr[1] + $h), ($scr[2] + $h)); serH = $ser + 3 * $h }
 }
 
+# ---- lane pairs (data\lanes.json, see scripts\Import-Lanes.ps1) ----
+# The public API has no lane data; it's transcribed from the printed reports.
+# Matched on team IDs so team renames don't matter.
+$laneOf = @{}
+$lanesFile = Join-Path $scriptDir 'data\lanes.json'
+if (Test-Path $lanesFile) {
+    $lanesDoc = Get-Content -Raw $lanesFile | ConvertFrom-Json
+    foreach ($wp in $lanesDoc.weeks.PSObject.Properties) {
+        foreach ($row in @($wp.Value)) {
+            $laneOf["$($wp.Name)|$($row.aId)|$($row.bId)"] = [string]$row.pair
+            $laneOf["$($wp.Name)|$($row.bId)|$($row.aId)"] = [string]$row.pair
+        }
+    }
+}
+
 $schedule = New-Object System.Collections.ArrayList
 foreach ($gk in ($mg.Keys | Sort-Object)) {
     $tids = @($mg[$gk])
@@ -629,8 +644,8 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
         }
         [void]$pairs.Add([pscustomobject]@{
             pos = $i
-            aName = $pa.name; aId = $pa.id; aKind = $pa.kind; aGames = @($pa.games); aSer = $pa.scrSer; aHdcp = $pa.hdcp; aPts = $c[0]
-            bName = $pb.name; bId = $pb.id; bKind = $pb.kind; bGames = @($pb.games); bSer = $pb.scrSer; bHdcp = $pb.hdcp; bPts = $c[1]
+            aName = $pa.name; aId = $pa.id; aKind = $pa.kind; aReal = [bool]$pa.real; aGames = @($pa.games); aSer = $pa.scrSer; aHdcp = $pa.hdcp; aPts = $c[0]
+            bName = $pb.name; bId = $pb.id; bKind = $pb.kind; bReal = [bool]$pb.real; bGames = @($pb.games); bSer = $pb.scrSer; bHdcp = $pb.hdcp; bPts = $c[1]
         })
     }
     $aTot = $aTeam + $aInd; $bTot = $bTeam + $bInd
@@ -641,6 +656,9 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
 
     [void]$schedule.Add([pscustomobject]@{
         date        = $date
+        weekNum     = (Week-Num $date)
+        isPos       = (Is-PosRound $date)
+        lane        = $laneOf["$date|$A|$B"]
         counts      = [bool]($sa | Where-Object { $_.id } | ForEach-Object { (Get-Week $_.id $date).isMatch } | Where-Object { $_ } | Select-Object -First 1)
         estimated   = ($kinds -contains 'blind' -or $kinds -contains 'partial' -or $kinds -contains 'sub')
         pairingConfirmed = $pairingConfirmed
@@ -655,6 +673,67 @@ foreach ($gk in ($mg.Keys | Sort-Object)) {
 $schedule = @($schedule | Sort-Object -Property date, @{ Expression = { $_.a.team } })
 $reviewsOut = @($reviews | Sort-Object date, team)
 Write-Host "  reconstructed $($schedule.Count) matchups across $($mDates.Count) weeks; $($reviewsOut.Count) lineup(s) need review"
+
+# ---- lane analytics ------------------------------------------------------
+# League-wide and per-bowler results by lane pair. Only REAL recorded games
+# count (a blind, a missed-game fill or a sub with no API record is a made-up
+# score and would just flatter/punish whichever pair it landed on). "vs own
+# avg" compares each game to that bowler's season average, which factors out
+# who happened to bowl where - the fairest read on whether a pair scores high.
+$noLane = @($schedule | Where-Object { -not $_.lane })
+if ($laneOf.Count) {
+    if ($noLane.Count) { Write-Host "  note: $($noLane.Count) matchup(s) have no lane pair (add scripts\lane-sources\<date>.ps1 + Import-Lanes.ps1 for: $((($noLane | ForEach-Object { $_.date }) | Sort-Object -Unique) -join ', '))" }
+    $schedKeys = @{}
+    foreach ($m in $schedule) { $schedKeys["$($m.date)|$($m.a.teamId)|$($m.b.teamId)"] = 1; $schedKeys["$($m.date)|$($m.b.teamId)|$($m.a.teamId)"] = 1 }
+    $schedDates = @($schedule | ForEach-Object { $_.date } | Sort-Object -Unique)
+    $laneMiss = @($lanesDoc.weeks.PSObject.Properties | Where-Object { $schedDates -contains $_.Name } | ForEach-Object {
+        $d = $_.Name; @($_.Value) | Where-Object { -not $schedKeys["$d|$($_.aId)|$($_.bId)"] } | ForEach-Object { "$d $($_.pair) $($_.a) v $($_.b)" } })
+    if ($laneMiss.Count) { Write-Warning "lanes.json lists $($laneMiss.Count) pairing(s) that weren't actual matchups (wrong order?): $($laneMiss -join '; ')" }
+}
+$laneRecs = New-Object System.Collections.ArrayList
+foreach ($m in $schedule) {
+    if (-not $m.lane) { continue }
+    foreach ($p in @($m.pairs)) {
+        foreach ($side in 'a', 'b') {
+            $id = $p.("${side}Id"); $g = @($p.("${side}Games"))
+            if (-not $p.("${side}Real") -or -not $id -or $g.Count -ne 3 -or ($g -contains $null)) { continue }
+            [void]$laneRecs.Add([pscustomobject]@{
+                pair = $m.lane; date = $m.date; weekNum = $m.weekNum; id = $id; name = $p.("${side}Name")
+                team = $m.$side.team; games = $g; ser = ($g | Measure-Object -Sum).Sum
+                seasonAvg = $bowlerById[$id].seasonAvg })
+        }
+    }
+}
+function Lane-Sort($pair) { [int](($pair -split '-')[0]) }
+function Lane-Summ($recs) {
+    $gs = @($recs | ForEach-Object { $_.games } | ForEach-Object { [int]$_ })
+    $diffs = @($recs | Where-Object { $_.seasonAvg -ne $null } | ForEach-Object { $sa = $_.seasonAvg; $_.games | ForEach-Object { [double]$_ - $sa } })
+    [pscustomobject]@{
+        weeks = @($recs | ForEach-Object { $_.date } | Sort-Object -Unique).Count
+        bowlerWeeks = @($recs).Count; games = $gs.Count
+        avg = [math]::Round(($gs | Measure-Object -Average).Average, 1)
+        vsAvg = $(if ($diffs.Count) { [math]::Round(($diffs | Measure-Object -Average).Average, 1) } else { $null })
+        highGame = ($gs | Measure-Object -Maximum).Maximum
+        highSeries = (@($recs | ForEach-Object { $_.ser }) | Measure-Object -Maximum).Maximum
+    }
+}
+$lanePairRows = @($laneRecs | Group-Object pair | Sort-Object { Lane-Sort $_.Name } | ForEach-Object {
+    $s = Lane-Summ $_.Group
+    [pscustomobject]@{ pair = $_.Name; weeks = $s.weeks; bowlerWeeks = $s.bowlerWeeks; games = $s.games; avg = $s.avg; vsAvg = $s.vsAvg; highGame = $s.highGame; highSeries = $s.highSeries }
+})
+$laneBowlerRows = @($laneRecs | Group-Object id | ForEach-Object {
+    $bw = $bowlerById[$_.Name]
+    $_.Group | Group-Object pair | ForEach-Object {
+        $s = Lane-Summ $_.Group
+        [pscustomobject]@{
+            id = $bw.id; name = $bw.name; team = $bw.team; pair = $_.Name
+            weeks = $s.weeks; games = $s.games; avg = $s.avg; vsAvg = $s.vsAvg; highGame = $s.highGame; highSeries = $s.highSeries
+            log = @($_.Group | Sort-Object date | ForEach-Object { [pscustomobject]@{ date = $_.date; weekNum = $_.weekNum; games = $_.games; ser = $_.ser } })
+        }
+    }
+})
+$laneBowlerRows = @($laneBowlerRows | Sort-Object name, { Lane-Sort $_.pair })
+Write-Host "  lanes: $($lanePairRows.Count) pairs, $($laneRecs.Count) real bowler-weeks, $($laneBowlerRows.Count) bowler/pair rows"
 
 # computed individual-points board (excludes points won as a blind) - populated above
 $ldr['indPointsComp'] = Top (@($bowlers | Where-Object { $_.compIndPoints -gt 0 })) 'compIndPoints' 20
@@ -951,7 +1030,7 @@ $lbRows | Export-Csv (Join-Path $outDir 'leaderboards.csv') -NoTypeInformation
 
 $schedule | ForEach-Object {
     [pscustomobject]@{
-        date = $_.date; counts = $_.counts; estimated = $_.estimated; needsReview = $_.needsReview
+        date = $_.date; weekNum = $_.weekNum; lane = $_.lane; counts = $_.counts; estimated = $_.estimated; needsReview = $_.needsReview
         pairingConfirmed = $_.pairingConfirmed
         teamA = $_.a.team; teamB = $_.b.team
         aScratchSeries = $_.a.ser; bScratchSeries = $_.b.ser
@@ -966,13 +1045,15 @@ $schedule | ForEach-Object {
 $pairRows = foreach ($m in $schedule) {
     foreach ($p in @($m.pairs)) {
         [pscustomobject]@{
-            date = $m.date; teamA = $m.a.team; teamB = $m.b.team; pairingConfirmed = $m.pairingConfirmed
+            date = $m.date; weekNum = $m.weekNum; lane = $m.lane; teamA = $m.a.team; teamB = $m.b.team; pairingConfirmed = $m.pairingConfirmed
             bowlerA = $p.aName; aKind = $p.aKind; aGames = (@($p.aGames) -join ' '); aSeries = $p.aSer; aHdcp = $p.aHdcp; aPts = $p.aPts
             bowlerB = $p.bName; bKind = $p.bKind; bGames = (@($p.bGames) -join ' '); bSeries = $p.bSer; bHdcp = $p.bHdcp; bPts = $p.bPts
         }
     }
 }
 $pairRows | Export-Csv (Join-Path $outDir 'headtohead_bowlers.csv') -NoTypeInformation
+$lanePairRows | Export-Csv (Join-Path $outDir 'lane_pairs.csv') -NoTypeInformation
+$laneBowlerRows | Select-Object id, name, team, pair, weeks, games, avg, vsAvg, highGame, highSeries | Export-Csv (Join-Path $outDir 'lane_bowlers.csv') -NoTypeInformation
 
 if ($reviewsOut.Count) {
     $reviewsOut | ForEach-Object {
@@ -1038,6 +1119,7 @@ $data = [ordered]@{
     leaderboards = $ldr
     teamLeaderboards = $teamLdr
     schedule     = $schedule
+    lanes        = [ordered]@{ pairs = $lanePairRows; bowlers = $laneBowlerRows; weeksWithLanes = @($schedule | Where-Object { $_.lane } | ForEach-Object { $_.date } | Sort-Object -Unique).Count }
     reviews      = $reviewsOut
     trends       = $trends
     analysis     = $analysis
