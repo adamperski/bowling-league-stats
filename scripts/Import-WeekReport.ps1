@@ -124,5 +124,12 @@ foreach ($tname in $teams.Keys) {
     $doc.teams | Add-Member -Force $tname $entry
 }
 
+# Drop entries keyed by a team name that no longer exists (a past rename) -
+# Build-Stats.ps1 ignores them anyway, and they only clutter the file.
+if ($knownTeams) {
+    $stale = @($doc.teams.PSObject.Properties.Name | Where-Object { $knownTeams -notcontains $_ })
+    foreach ($s in $stale) { $doc.teams.PSObject.Properties.Remove($s); Write-Host "Removed stale team key '$s' from $Date.json" }
+}
+
 $doc | ConvertTo-Json -Depth 10 | Set-Content -Encoding utf8 $file
 Write-Host "Wrote $($teams.Count) verified team-lineups into $file"

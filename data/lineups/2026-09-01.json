@@ -2,158 +2,12 @@
     "date":  "2026-09-01",
     "_help":  "Weeks with a blind / sub / missed game. Fix each team\u0027s lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate.",
     "teams":  {
-                  "Pocket Pounders":  {
-                                          "resolved":  false,
-                                          "autoFlags":  [
-                                                            "pos5 SUB Erin Marchant (avg 203) for Jordan Yancey - confirm position"
-                                                        ],
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "bowler",
-                                                             "name":  "Trey Erickson",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  190
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "bowler",
-                                                             "name":  "Chuck Dreux",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  193
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "bowler",
-                                                             "name":  "Tim Pester",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  220
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "Bryan Keller",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  214
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "sub",
-                                                             "name":  "Erin Marchant",
-                                                             "blindFor":  null,
-                                                             "subFor":  "Jordan Yancey",
-                                                             "avg":  203
-                                                         }
-                                                     ]
-                                      },
-                  "Sweetman Racing":  {
-                                          "resolved":  true,
-                                          "autoFlags":  [
-
-                                                        ],
-                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "bowler",
-                                                             "name":  "Van Vasquez",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  174
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "bowler",
-                                                             "name":  "Rich Lista",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  197
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "bowler",
-                                                             "name":  "Kevin Sweetman",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  193
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "James Eisenhauer",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  187
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "bowler",
-                                                             "name":  "Alex Gott",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  197
-                                                         }
-                                                     ]
-                                      },
-                  "Schissler\u0027s Army":  {
-                                                "resolved":  true,
-                                                "autoFlags":  [
-
-                                                              ],
-                                                "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
-                                                "lineup":  [
-                                                               {
-                                                                   "pos":  1,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Zach Joslin",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  202
-                                                               },
-                                                               {
-                                                                   "pos":  2,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "John Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  191
-                                                               },
-                                                               {
-                                                                   "pos":  3,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Aaron Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  203
-                                                               },
-                                                               {
-                                                                   "pos":  4,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Derek Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  210
-                                                               },
-                                                               {
-                                                                   "pos":  5,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Ricky Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  222
-                                                               }
-                                                           ]
-                                            },
                   "Luxury Box Sports":  {
                                             "resolved":  true,
                                             "autoFlags":  [
 
                                                           ],
-                                            "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                            "verifiedFrom":  "",
                                             "lineup":  [
                                                            {
                                                                "pos":  1,
@@ -202,7 +56,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                  "verifiedFrom":  "",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -251,7 +105,7 @@
                                              "autoFlags":  [
 
                                                            ],
-                                             "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                             "verifiedFrom":  "",
                                              "lineup":  [
                                                             {
                                                                 "pos":  1,
@@ -300,7 +154,7 @@
                                              "autoFlags":  [
 
                                                            ],
-                                             "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                             "verifiedFrom":  "",
                                              "lineup":  [
                                                             {
                                                                 "pos":  1,
@@ -349,7 +203,7 @@
                                                            "autoFlags":  [
 
                                                                          ],
-                                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                                           "verifiedFrom":  "",
                                                            "lineup":  [
                                                                           {
                                                                               "pos":  1,
@@ -398,7 +252,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                       "verifiedFrom":  "",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -447,7 +301,7 @@
                                 "autoFlags":  [
 
                                               ],
-                                "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                "verifiedFrom":  "",
                                 "lineup":  [
                                                {
                                                    "pos":  1,
@@ -496,7 +350,7 @@
                                               "autoFlags":  [
 
                                                             ],
-                                              "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                              "verifiedFrom":  "",
                                               "lineup":  [
                                                              {
                                                                  "pos":  1,
@@ -545,7 +399,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                        "verifiedFrom":  "",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -594,7 +448,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                  "verifiedFrom":  "",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -643,7 +497,7 @@
                                                    "autoFlags":  [
 
                                                                  ],
-                                                   "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                                   "verifiedFrom":  "",
                                                    "lineup":  [
                                                                   {
                                                                       "pos":  1,
@@ -692,7 +546,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                       "verifiedFrom":  "",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -741,7 +595,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                        "verifiedFrom":  "",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -790,7 +644,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -839,7 +693,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                         "verifiedFrom":  "",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -888,7 +742,7 @@
                                     "autoFlags":  [
 
                                                   ],
-                                    "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                    "verifiedFrom":  "",
                                     "lineup":  [
                                                    {
                                                        "pos":  1,
@@ -937,7 +791,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                  "verifiedFrom":  "",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -986,7 +840,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1035,7 +889,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1084,7 +938,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                      "verifiedFrom":  "",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -1133,7 +987,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                      "verifiedFrom":  "",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -1182,7 +1036,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                        "verifiedFrom":  "",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -1231,7 +1085,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1280,7 +1134,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1329,7 +1183,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1378,7 +1232,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                         "verifiedFrom":  "",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -1422,61 +1276,61 @@
                                                         }
                                                     ]
                                      },
-                  "Pocket Aces":  {
-                                      "resolved":  true,
-                                      "autoFlags":  [
+                  "Suicide Kings":  {
+                                        "resolved":  true,
+                                        "autoFlags":  [
 
-                                                    ],
-                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
-                                      "lineup":  [
-                                                     {
-                                                         "pos":  1,
-                                                         "kind":  "bowler",
-                                                         "name":  "Aj Woodvine",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  217
-                                                     },
-                                                     {
-                                                         "pos":  2,
-                                                         "kind":  "bowler",
-                                                         "name":  "Greg Baldassar",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  205
-                                                     },
-                                                     {
-                                                         "pos":  3,
-                                                         "kind":  "bowler",
-                                                         "name":  "Brian Moss",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  211
-                                                     },
-                                                     {
-                                                         "pos":  4,
-                                                         "kind":  "bowler",
-                                                         "name":  "Jason Busnardo",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  223
-                                                     },
-                                                     {
-                                                         "pos":  5,
-                                                         "kind":  "bowler",
-                                                         "name":  "Roman Archuleta",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  233
-                                                     }
-                                                 ]
-                                  },
+                                                      ],
+                                        "verifiedFrom":  "",
+                                        "lineup":  [
+                                                       {
+                                                           "pos":  1,
+                                                           "kind":  "bowler",
+                                                           "name":  "Aj Woodvine",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  217
+                                                       },
+                                                       {
+                                                           "pos":  2,
+                                                           "kind":  "bowler",
+                                                           "name":  "Greg Baldassar",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  205
+                                                       },
+                                                       {
+                                                           "pos":  3,
+                                                           "kind":  "bowler",
+                                                           "name":  "Brian Moss",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  211
+                                                       },
+                                                       {
+                                                           "pos":  4,
+                                                           "kind":  "bowler",
+                                                           "name":  "Jason Busnardo",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  223
+                                                       },
+                                                       {
+                                                           "pos":  5,
+                                                           "kind":  "bowler",
+                                                           "name":  "Roman Archuleta",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  233
+                                                       }
+                                                   ]
+                                    },
                   "Lamorie Painting":  {
                                            "resolved":  true,
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1525,7 +1379,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1574,7 +1428,7 @@
                                               "autoFlags":  [
 
                                                             ],
-                                              "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                              "verifiedFrom":  "",
                                               "lineup":  [
                                                              {
                                                                  "pos":  1,
@@ -1623,7 +1477,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1672,7 +1526,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                      "verifiedFrom":  "",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -1721,7 +1575,7 @@
                                  "autoFlags":  [
 
                                                ],
-                                 "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                 "verifiedFrom":  "",
                                  "lineup":  [
                                                 {
                                                     "pos":  1,
@@ -1770,7 +1624,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1819,7 +1673,7 @@
                                     "autoFlags":  [
 
                                                   ],
-                                    "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                    "verifiedFrom":  "",
                                     "lineup":  [
                                                    {
                                                        "pos":  1,
@@ -1868,7 +1722,7 @@
                                             "autoFlags":  [
 
                                                           ],
-                                            "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                            "verifiedFrom":  "",
                                             "lineup":  [
                                                            {
                                                                "pos":  1,
@@ -1917,7 +1771,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1966,7 +1820,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                       "verifiedFrom":  "",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -2015,7 +1869,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                         "verifiedFrom":  "",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -2064,7 +1918,7 @@
                                      "autoFlags":  [
 
                                                    ],
-                                     "verifiedFrom":  "Full week-3 report, fetched live from currentscores URL, 2026-09-17",
+                                     "verifiedFrom":  "",
                                      "lineup":  [
                                                     {
                                                         "pos":  1,

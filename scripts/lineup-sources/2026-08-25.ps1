@@ -161,7 +161,7 @@ $teams = [ordered]@{
         T 'Adam Perski' 218
         T 'Trey Simpson' 199 'blind' $null 'Trey Simpson'
     )
-    'Pocket Aces' = @(
+    'Suicide Kings' = @( # renamed from "Pocket Aces" week of 2026-10-06
         T 'Aj Woodvine' 217
         T 'Greg Baldassar' 205
         T 'Roman Archuleta' 233 'blind' $null 'Roman Archuleta'

@@ -201,7 +201,7 @@ $teams = [ordered]@{
         T 'Brian Douglass' 0
         T 'Dante Lundy' 0
     )
-    'Pocket Aces' = @(
+    'Suicide Kings' = @( # renamed from "Pocket Aces" week of 2026-10-06
         T 'Aj Woodvine' 0
         T 'Greg Baldassar' 0
         T 'Brian Moss' 0

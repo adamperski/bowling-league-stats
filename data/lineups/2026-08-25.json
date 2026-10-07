@@ -2,110 +2,12 @@
     "date":  "2026-08-25",
     "_help":  "Weeks with a blind / sub / missed game. Fix each team\u0027s lineup (kind = bowler|partial|sub|blind), set resolved: true, re-run Build-Stats.ps1. Delete the file to regenerate.",
     "teams":  {
-                  "Schissler\u0027s Army":  {
-                                                "resolved":  true,
-                                                "autoFlags":  [
-
-                                                              ],
-                                                "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
-                                                "lineup":  [
-                                                               {
-                                                                   "pos":  1,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Zach Joslin",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  202
-                                                               },
-                                                               {
-                                                                   "pos":  2,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "John Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  191
-                                                               },
-                                                               {
-                                                                   "pos":  3,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Aaron Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  203
-                                                               },
-                                                               {
-                                                                   "pos":  4,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Derek Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  210
-                                                               },
-                                                               {
-                                                                   "pos":  5,
-                                                                   "kind":  "bowler",
-                                                                   "name":  "Ricky Schissler",
-                                                                   "blindFor":  null,
-                                                                   "subFor":  null,
-                                                                   "avg":  222
-                                                               }
-                                                           ]
-                                            },
-                  "Sweetman Racing":  {
-                                          "resolved":  true,
-                                          "autoFlags":  [
-
-                                                        ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
-                                          "lineup":  [
-                                                         {
-                                                             "pos":  1,
-                                                             "kind":  "bowler",
-                                                             "name":  "Van Vasquez",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  174
-                                                         },
-                                                         {
-                                                             "pos":  2,
-                                                             "kind":  "blind",
-                                                             "name":  "Rich Lista",
-                                                             "blindFor":  "Rich Lista",
-                                                             "subFor":  null,
-                                                             "avg":  197
-                                                         },
-                                                         {
-                                                             "pos":  3,
-                                                             "kind":  "bowler",
-                                                             "name":  "Kevin Sweetman",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  193
-                                                         },
-                                                         {
-                                                             "pos":  4,
-                                                             "kind":  "bowler",
-                                                             "name":  "James Eisenhauer",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  187
-                                                         },
-                                                         {
-                                                             "pos":  5,
-                                                             "kind":  "bowler",
-                                                             "name":  "Alex Gott",
-                                                             "blindFor":  null,
-                                                             "subFor":  null,
-                                                             "avg":  194
-                                                         }
-                                                     ]
-                                      },
                   "Multiple Scorgasms":  {
                                              "resolved":  true,
                                              "autoFlags":  [
 
                                                            ],
-                                             "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                             "verifiedFrom":  "",
                                              "lineup":  [
                                                             {
                                                                 "pos":  1,
@@ -154,7 +56,7 @@
                                                            "autoFlags":  [
 
                                                                          ],
-                                                           "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                                           "verifiedFrom":  "",
                                                            "lineup":  [
                                                                           {
                                                                               "pos":  1,
@@ -203,7 +105,7 @@
                                 "autoFlags":  [
 
                                               ],
-                                "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                "verifiedFrom":  "",
                                 "lineup":  [
                                                {
                                                    "pos":  1,
@@ -252,7 +154,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                       "verifiedFrom":  "",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -301,7 +203,7 @@
                                               "autoFlags":  [
 
                                                             ],
-                                              "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                              "verifiedFrom":  "",
                                               "lineup":  [
                                                              {
                                                                  "pos":  1,
@@ -350,7 +252,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                        "verifiedFrom":  "",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -399,7 +301,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                  "verifiedFrom":  "",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -448,7 +350,7 @@
                                                    "autoFlags":  [
 
                                                                  ],
-                                                   "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                                   "verifiedFrom":  "",
                                                    "lineup":  [
                                                                   {
                                                                       "pos":  1,
@@ -497,7 +399,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                       "verifiedFrom":  "",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -546,7 +448,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                        "verifiedFrom":  "",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -595,7 +497,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -644,7 +546,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                         "verifiedFrom":  "",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -693,7 +595,7 @@
                                     "autoFlags":  [
 
                                                   ],
-                                    "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                    "verifiedFrom":  "",
                                     "lineup":  [
                                                    {
                                                        "pos":  1,
@@ -742,7 +644,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                  "verifiedFrom":  "",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -791,7 +693,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -840,7 +742,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -889,7 +791,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                      "verifiedFrom":  "",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -938,7 +840,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                      "verifiedFrom":  "",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -987,7 +889,7 @@
                                         "autoFlags":  [
 
                                                       ],
-                                        "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                        "verifiedFrom":  "",
                                         "lineup":  [
                                                        {
                                                            "pos":  1,
@@ -1036,7 +938,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1085,7 +987,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1134,7 +1036,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1183,7 +1085,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                         "verifiedFrom":  "",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -1227,61 +1129,61 @@
                                                         }
                                                     ]
                                      },
-                  "Pocket Aces":  {
-                                      "resolved":  true,
-                                      "autoFlags":  [
+                  "Suicide Kings":  {
+                                        "resolved":  true,
+                                        "autoFlags":  [
 
-                                                    ],
-                                      "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
-                                      "lineup":  [
-                                                     {
-                                                         "pos":  1,
-                                                         "kind":  "bowler",
-                                                         "name":  "Aj Woodvine",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  217
-                                                     },
-                                                     {
-                                                         "pos":  2,
-                                                         "kind":  "bowler",
-                                                         "name":  "Greg Baldassar",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  205
-                                                     },
-                                                     {
-                                                         "pos":  3,
-                                                         "kind":  "blind",
-                                                         "name":  "Roman Archuleta",
-                                                         "blindFor":  "Roman Archuleta",
-                                                         "subFor":  null,
-                                                         "avg":  233
-                                                     },
-                                                     {
-                                                         "pos":  4,
-                                                         "kind":  "bowler",
-                                                         "name":  "Brian Moss",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  211
-                                                     },
-                                                     {
-                                                         "pos":  5,
-                                                         "kind":  "bowler",
-                                                         "name":  "Jason Busnardo",
-                                                         "blindFor":  null,
-                                                         "subFor":  null,
-                                                         "avg":  223
-                                                     }
-                                                 ]
-                                  },
+                                                      ],
+                                        "verifiedFrom":  "",
+                                        "lineup":  [
+                                                       {
+                                                           "pos":  1,
+                                                           "kind":  "bowler",
+                                                           "name":  "Aj Woodvine",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  217
+                                                       },
+                                                       {
+                                                           "pos":  2,
+                                                           "kind":  "bowler",
+                                                           "name":  "Greg Baldassar",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  205
+                                                       },
+                                                       {
+                                                           "pos":  3,
+                                                           "kind":  "blind",
+                                                           "name":  "Roman Archuleta",
+                                                           "blindFor":  "Roman Archuleta",
+                                                           "subFor":  null,
+                                                           "avg":  233
+                                                       },
+                                                       {
+                                                           "pos":  4,
+                                                           "kind":  "bowler",
+                                                           "name":  "Brian Moss",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  211
+                                                       },
+                                                       {
+                                                           "pos":  5,
+                                                           "kind":  "bowler",
+                                                           "name":  "Jason Busnardo",
+                                                           "blindFor":  null,
+                                                           "subFor":  null,
+                                                           "avg":  223
+                                                       }
+                                                   ]
+                                    },
                   "Lamorie Painting":  {
                                            "resolved":  true,
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1330,7 +1232,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1379,7 +1281,7 @@
                                               "autoFlags":  [
 
                                                             ],
-                                              "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                              "verifiedFrom":  "",
                                               "lineup":  [
                                                              {
                                                                  "pos":  1,
@@ -1428,7 +1330,7 @@
                                            "autoFlags":  [
 
                                                          ],
-                                           "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                           "verifiedFrom":  "",
                                            "lineup":  [
                                                           {
                                                               "pos":  1,
@@ -1477,7 +1379,7 @@
                                       "autoFlags":  [
 
                                                     ],
-                                      "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                      "verifiedFrom":  "",
                                       "lineup":  [
                                                      {
                                                          "pos":  1,
@@ -1526,7 +1428,7 @@
                                  "autoFlags":  [
 
                                                ],
-                                 "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                 "verifiedFrom":  "",
                                  "lineup":  [
                                                 {
                                                     "pos":  1,
@@ -1575,7 +1477,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1624,7 +1526,7 @@
                                     "autoFlags":  [
 
                                                   ],
-                                    "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                    "verifiedFrom":  "",
                                     "lineup":  [
                                                    {
                                                        "pos":  1,
@@ -1673,7 +1575,7 @@
                                             "autoFlags":  [
 
                                                           ],
-                                            "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                            "verifiedFrom":  "",
                                             "lineup":  [
                                                            {
                                                                "pos":  1,
@@ -1722,7 +1624,7 @@
                                           "autoFlags":  [
 
                                                         ],
-                                          "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                          "verifiedFrom":  "",
                                           "lineup":  [
                                                          {
                                                              "pos":  1,
@@ -1771,7 +1673,7 @@
                                        "autoFlags":  [
 
                                                      ],
-                                       "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                       "verifiedFrom":  "",
                                        "lineup":  [
                                                       {
                                                           "pos":  1,
@@ -1820,7 +1722,7 @@
                                          "autoFlags":  [
 
                                                        ],
-                                         "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                         "verifiedFrom":  "",
                                          "lineup":  [
                                                         {
                                                             "pos":  1,
@@ -1869,7 +1771,7 @@
                                      "autoFlags":  [
 
                                                    ],
-                                     "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                     "verifiedFrom":  "",
                                      "lineup":  [
                                                     {
                                                         "pos":  1,
@@ -1918,7 +1820,7 @@
                                             "autoFlags":  [
 
                                                           ],
-                                            "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                            "verifiedFrom":  "",
                                             "lineup":  [
                                                            {
                                                                "pos":  1,
@@ -1967,7 +1869,7 @@
                                   "autoFlags":  [
 
                                                 ],
-                                  "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                  "verifiedFrom":  "",
                                   "lineup":  [
                                                  {
                                                      "pos":  1,
@@ -2016,7 +1918,7 @@
                                              "autoFlags":  [
 
                                                            ],
-                                             "verifiedFrom":  "Full week-2 report, fetched live from currentscores URL, 2026-09-17",
+                                             "verifiedFrom":  "",
                                              "lineup":  [
                                                             {
                                                                 "pos":  1,
