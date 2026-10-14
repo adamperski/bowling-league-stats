@@ -17,7 +17,8 @@
 [CmdletBinding()]
 param(
     [string]$Date = (Get-Date -Format 'yyyy-MM-dd'),
-    [string]$ConfigPath
+    [string]$ConfigPath,
+    [string]$Season    # slug of a config.json pastSeasons entry: archives that finished season once
 )
 
 $ErrorActionPreference = 'Stop'
@@ -34,7 +35,17 @@ $leagueId = $cfg.leagueId
 $delay    = [double]$cfg.requestDelaySeconds
 $ua       = 'bowling-league-stats/1.0 (personal league archive; contact adamperski@gmail.com)'
 
-$outDir = Join-Path $scriptDir (Join-Path 'data\raw' $Date)
+if ($Season) {
+    # Past seasons are finished, so they're archived once under data\seasons\<slug>\
+    # (same file layout as a weekly snapshot) instead of data\raw\<date>\.
+    $ps = @($cfg.pastSeasons | Where-Object { $_.slug -eq $Season })[0]
+    if (-not $ps) { throw "No pastSeasons entry with slug '$Season' in config.json" }
+    $leagueId = $ps.leagueId
+    $cfg.leagueName = $ps.label
+    $outDir = Join-Path $scriptDir (Join-Path 'data\seasons' $Season)
+} else {
+    $outDir = Join-Path $scriptDir (Join-Path 'data\raw' $Date)
+}
 New-Item -ItemType Directory -Force -Path $outDir | Out-Null
 # Team files are named team_<name>__<id>.json - if a team renames between two
 # fetches into the SAME day's snapshot, the old-named file for that id is

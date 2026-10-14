@@ -138,7 +138,8 @@
 <script>/*DATA*/</script>
 <script>
 (function(){
-  const D = window.LEAGUE_DATA;
+  const CUR = window.LEAGUE_DATA;
+  let D = CUR;          // the season currently on screen (CUR, or a past-season view built by setSeason)
   const $ = (s,el=document)=>el.querySelector(s);
   const el = (t,a={},...kids)=>{const n=document.createElement(t);
     for(const k in a){ if(k==='class')n.className=a[k]; else if(k==='html')n.innerHTML=a[k]; else n.setAttribute(k,a[k]); }
@@ -149,13 +150,55 @@
   // empty array into "" / null — coerce everything we iterate back to an array.
   const A = x => Array.isArray(x) ? x : (x==null||x==='') ? [] : [x];
 
-  $('#ttl').textContent = D.meta.league;
-  $('#sub').textContent = D.meta.center + '  •  Week ' + D.meta.weekNum
-      + '  •  snapshot ' + D.meta.snapshot + '  •  ' + D.bowlers.length + ' bowlers / ' + D.standings.length + ' teams';
-  if(!D.meta.counting){
-    const b=$('#banner'); b.hidden=false;
-    b.textContent='Season is still in the average-establishing phase — no weeks are counting toward points/standings yet. '
-      + 'Scores shown are from practice/position weeks. Handicap = ('+D.meta.hcBase+' − average) × '+D.meta.hcPct+'%.';
+  const SEASONS = A(CUR.seasons);   // archived past seasons, newest first
+
+  function renderHeader(){
+    $('#ttl').textContent = D.meta.league;
+    const b = $('#banner'); b.hidden = true;
+    if(D.past){
+      $('#sub').textContent = D.meta.center + '  •  past season, final standings  •  ' + D.past.weeksPlayed + ' weeks  •  '
+        + D.bowlers.filter(x=>x.gamesBowled>0).length + ' bowlers / ' + D.standings.length + ' teams';
+      return;
+    }
+    $('#sub').textContent = D.meta.center + '  •  Week ' + D.meta.weekNum
+        + '  •  snapshot ' + D.meta.snapshot + '  •  ' + D.bowlers.length + ' bowlers / ' + D.standings.length + ' teams';
+    if(!D.meta.counting){
+      b.hidden = false;
+      b.textContent='Season is still in the average-establishing phase — no weeks are counting toward points/standings yet. '
+        + 'Scores shown are from practice/position weeks. Handicap = ('+D.meta.hcBase+' − average) × '+D.meta.hcPct+'%.';
+    }
+  }
+
+  // Past seasons only carry standings / bowlers / leaderboards (no lineups or lanes),
+  // so build a view that swaps those in and leaves the rest of the app untouched.
+  const CURRENT_ONLY = ['h2h','trends','lanes'];
+  function setSeason(slug){
+    const S = SEASONS.find(s=>s.slug===slug);
+    if(!S){ D = CUR; }
+    else {
+      D = Object.assign({}, CUR, {
+        past: S,
+        meta: Object.assign({}, CUR.meta, { league: S.label, weekNum: S.weeksPlayed }),
+        standings: A(S.standings), bowlers: A(S.bowlers),
+        leaderboards: S.leaderboards, teamLeaderboards: S.teamLeaderboards,
+        schedule: [], reviews: []
+      });
+    }
+    const sel = $('#season'); if(sel) sel.value = S ? S.slug : '';
+    renderHeader();
+    const nav = $('#nav');
+    let active = [...nav.children].findIndex(c=>c.classList.contains('active'));
+    TABS.forEach(([id],i)=>{ nav.children[i].hidden = !!S && CURRENT_ONLY.includes(id); });
+    if(active<0 || nav.children[active].hidden) active = 0;
+    nav.children[active].click();
+  }
+  renderHeader();
+  if(SEASONS.length){
+    const sel = el('select',{id:'season',style:'margin-top:8px'});
+    sel.append(el('option',{value:''}, CUR.meta.league+' (current)'));
+    SEASONS.forEach(s=> sel.append(el('option',{value:s.slug}, s.label)));
+    sel.onchange = ()=> setSeason(sel.value);
+    $('#sub').after(sel);
   }
 
   const TABS = [
@@ -167,6 +210,7 @@
     ['averages','Averages', viewAverages],
     ['bowlers','Bowlers', viewBowlers],
     ['teams','Teams', viewTeams],
+    ['history','History', viewHistory],
   ];
   const nav = $('#nav');
   TABS.forEach(([id,label],i)=>{
@@ -214,6 +258,7 @@
           row.append(td);
         });
         tb.append(row);
+        if(opts.onrow){ row.style.cursor='pointer'; row.onclick = ()=>opts.onrow(r); }
         if(opts.expand){
           row.style.cursor='pointer';
           row.onclick = ()=>{
@@ -248,10 +293,14 @@
     v.append(p);
   }
 
+  // PowerShell 5.1 serializes an EMPTY list as {} - A() would turn that into a
+  // one-item list and draw a blank row, so only keep entries that have a name.
+  const lbItems = l => A(l).filter(it=> it && typeof it==='object' && it.name!=null);
+
   function lbCard(title, list, fmt){
     const c = el('div',{class:'card'}, el('h3',{},title));
     const ul = el('ul',{class:'lb'});
-    const items = A(list);
+    const items = lbItems(list);
     items.forEach((it,i)=>{
       ul.append(el('li',{},
         el('span',{class:'r'}, (i+1)+''),
@@ -274,8 +323,10 @@
     g.append(lbCard('Top Average (book)', L.topBookAvg));
     g.append(lbCard('Most Improved', L.mostImproved, signed));
     g.append(lbCard('Biggest Drop', L.mostDeclined, signed));
-    g.append(lbCard(A(L.indPoints).length ? 'Individual Points' : 'Individual Points (computed)',
-                    A(L.indPoints).length ? L.indPoints : L.indPointsComp));
+    // Official figure (LeaguePals publishes its top 40) when there is one; my own
+    // computed estimate is shown alongside it, or alone if nothing official yet.
+    if(lbItems(L.indPoints).length) g.append(lbCard('Individual Points', L.indPoints));
+    if(lbItems(L.indPointsComp).length) g.append(lbCard(lbItems(L.indPoints).length ? 'Individual Points (computed estimate)' : 'Individual Points (computed)', L.indPointsComp));
     g.append(lbCard('Team High Game (scratch)', T.teamGame));
     g.append(lbCard('Team High Series (scratch)', T.teamSeries));
     g.append(lbCard('Team High Game (handicap)', T.teamGameHdcp));
@@ -339,7 +390,7 @@
       }}));
       if(D.bowlers.some(b=>b.indPoints===0 && b.compIndPoints>0))
         host.append(el('div',{class:'muted',style:'padding:6px 12px;font-size:12px'},
-          '* computed individual points (LeaguePals hasn’t posted official points yet); only counts weeks where the lineup pairing was confirmed (no sub/blind, or manually verified in data\\lineups\\), and excludes points won as a blind.'));
+          '* computed estimate — LeaguePals only publishes official individual points for its top 40, so everyone below that shows my own calculation; it only counts weeks where the lineup pairing was confirmed (no sub/blind, or manually verified in data\\lineups\\), and excludes points won as a blind.'));
     }
     draw('');
     search.oninput = ()=>draw(search.value.trim().toLowerCase());
@@ -470,6 +521,108 @@
       tbd.append(tr);
     });
     t.append(tbd); tw.append(t); det.append(tw); v.append(det);
+  }
+
+  // ================= History (all seasons) =================
+  function viewHistory(v){
+    // current season first (in progress), then archived seasons newest -> oldest
+    const all = [{ slug:'', label:CUR.meta.league, short:'now', inProgress:true,
+                   standings:A(CUR.standings), bowlers:A(CUR.bowlers), weeksPlayed:(A(CUR.meta.weekDates).length || CUR.meta.weekNum) }]
+      .concat(SEASONS.map(s=>({ slug:s.slug, label:s.label, short:s.slug, inProgress:false,
+                   standings:A(s.standings), bowlers:A(s.bowlers), weeksPlayed:s.weeksPlayed })));
+    all.forEach((s,i)=>{ s.order = i; });
+    const fav = CUR.meta.favoriteTeam || '';
+    const played = s => s.bowlers.filter(b=>b.gamesBowled>0);
+    const best = (s,k)=> played(s).reduce((m,b)=> (b[k]||0)>(m?m[k]:0) ? b : m, null);
+
+    // --- season by season ---
+    const rows = all.map(s=>{
+      const champ = s.standings.slice().sort((a,b)=>b.pointsWon-a.pointsWon)[0] || {};
+      const ps = played(s);
+      const pins = ps.reduce((t,b)=>t+(b.totalPins||0),0), gms = ps.reduce((t,b)=>t+(b.gamesBowled||0),0);
+      const hg = best(s,'highGame'), hs = best(s,'highSeries');
+      const mine = s.standings.find(t=>t.name===fav);
+      return { order:s.order, slug:s.slug, label:s.label+(s.inProgress?' (in progress)':''),
+        weeks:s.weeksPlayed, teams:s.standings.length, bowlers:ps.length,
+        champ:champ.name||'', champRec: champ.name ? `${champ.wins}-${champ.losses}-${champ.ties}` : '', champPts:champ.pointsWon,
+        avg: gms ? Math.round(pins/gms*10)/10 : null,
+        hg: hg?hg.highGame:null, hgWho: hg?hg.name:'', hs: hs?hs.highSeries:null, hsWho: hs?hs.name:'',
+        mine: mine ? `#${mine.rank}  ${mine.wins}-${mine.losses}-${mine.ties}` : '' };
+    });
+    const p1 = el('div',{class:'panel'});
+    p1.append(el('h2',{},'Season by Season'));
+    p1.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
+      'Champion = most points won. Click a row to open that season (Standings, Leaderboards, Averages, Bowlers and Teams are available for past seasons; '
+      +'Head-to-Head, Trends and Lanes need lineup and lane data that only exists for the current season). League avg = scratch pins per game.'));
+    p1.append(table([
+      {k:'order',label:'Season',def:1,fmt:(x,r)=>r.label},
+      {k:'weeks',label:'Wks',cls:'num'},
+      {k:'teams',label:'Teams',cls:'num hide-sm'},
+      {k:'bowlers',label:'Bowlers',cls:'num hide-sm'},
+      {k:'champ',label:'Top team',fmt:(x,r)=> x ? `${x}  (${r.champRec})` : ''},
+      {k:'avg',label:'League avg',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+      {k:'hg',label:'Hi Gm',cls:'num',fmt:(x,r)=> x ? el('span',{}, x+' ', el('span',{class:'muted'}, r.hgWho)) : ''},
+      {k:'hs',label:'Hi Ser',cls:'num hide-sm',fmt:(x,r)=> x ? el('span',{}, x+' ', el('span',{class:'muted'}, r.hsWho)) : ''},
+      {k:'mine',label:fav||'My team',cls:'hide-sm'},
+    ], rows, {sort:'order', dir:1, onrow:r=>{
+      setSeason(r.slug);
+    }}));
+    v.append(p1);
+
+    // --- all-time bests across every season ---
+    const flat = [];
+    all.forEach(s=> played(s).forEach(b=> flat.push({ b, s })));
+    const top = (k, n, min, getter)=> flat.filter(x=>(x.b.gamesBowled||0)>=(min||0) && (getter?getter(x.b):x.b[k])>0)
+      .sort((a,c)=> (getter?getter(c.b):c.b[k]) - (getter?getter(a.b):a.b[k])).slice(0,n)
+      .map(x=>({ name:x.b.name, team:x.b.team+'  '+x.s.short, value:(getter?getter(x.b):x.b[k]) }));
+    const g = el('div',{class:'grid'});
+    g.append(lbCard('Highest Season Average (60+ games)', top('seasonAvg',15,60), x=>x==null?'':x.toFixed(1)));
+    g.append(lbCard('High Game (scratch)', top('highGame',15)));
+    g.append(lbCard('High Series (scratch)', top('highSeries',15)));
+    g.append(lbCard('Individual Points in a Season', top('indPoints',15)));
+    const p2 = el('div',{class:'panel'});
+    p2.append(el('h2',{},'All-Time Bests'));
+    p2.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
+      'Across all seasons loaded, including the one in progress. The tag after each team is the season (“now” = current). Individual points are LeaguePals’ official figure, so the current season is blank until it posts them.'));
+    p2.append(g);
+    v.append(p2);
+
+    // --- one bowler's career ---
+    const byId = {};
+    flat.forEach(x=>{ if(x.b.id){ (byId[x.b.id] = byId[x.b.id] || {id:x.b.id, name:x.b.name, rows:[]}).rows.push(x); } });
+    const people = Object.values(byId).sort((a,b)=>a.name.localeCompare(b.name));
+    const p3 = el('div',{class:'panel'});
+    p3.append(el('h2',{},'Bowler Career'));
+    const tb = el('div',{class:'toolbar'});
+    const sel = mkSelect(people.map(p=>({label:p.name+'  ('+p.rows.length+' season'+(p.rows.length>1?'s':'')+')', value:p.id})));
+    const mine = people.find(p=>p.rows.some(x=>x.b.team===fav && x.s.inProgress));
+    if(mine) sel.value = mine.id;
+    tb.append(sel); p3.append(tb);
+    const host = el('div'); p3.append(host);
+    const draw = ()=>{
+      host.innerHTML='';
+      const p = byId[sel.value]; if(!p) return;
+      const rs = p.rows.map(x=>({ order:x.s.order, label:x.s.label+(x.s.inProgress?' (in progress)':''), team:x.b.team,
+        seasonAvg:x.b.seasonAvg, bookAvg:x.b.bookAvg, games:x.b.gamesBowled, highGame:x.b.highGame, highSeries:x.b.highSeries, pts:x.b.indPoints }));
+      const gms = p.rows.reduce((t,x)=>t+(x.b.gamesBowled||0),0), pins = p.rows.reduce((t,x)=>t+(x.b.totalPins||0),0);
+      host.append(el('div',{class:'summary'}, p.name, el('br'),
+        el('span',{class:'muted'}, `${p.rows.length} season${p.rows.length>1?'s':''}  ·  ${num(gms)} games  ·  career average ${gms?(pins/gms).toFixed(1):'—'}`
+          + `  ·  high game ${Math.max(...rs.map(r=>r.highGame||0))}  ·  high series ${Math.max(...rs.map(r=>r.highSeries||0))}`)));
+      host.append(table([
+        {k:'order',label:'Season',def:1,fmt:(x,r)=>r.label},
+        {k:'team',label:'Team',cls:'hide-sm'},
+        {k:'seasonAvg',label:'Avg',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+        {k:'bookAvg',label:'End avg',cls:'num hide-sm'},
+        {k:'games',label:'Gm',cls:'num'},
+        {k:'highGame',label:'Hi Gm',cls:'num'},
+        {k:'highSeries',label:'Hi Ser',cls:'num'},
+        {k:'pts',label:'Ind pts',cls:'num hide-sm',fmt:x=>x>0?num(x):''},
+      ], rs, {sort:'order', dir:1}));
+    };
+    sel.onchange = draw; draw();
+    p3.append(el('div',{class:'muted',style:'padding:6px 14px;font-size:12px'},
+      'Avg = scratch pins per game in that season (from the games themselves); End avg = the book average LeaguePals carried at season end.'));
+    v.append(p3);
   }
 
   // ================= Head-to-Head =================

@@ -334,6 +334,37 @@ across `data\raw\<date>\team_*.json` for `useNickname`/`nickNames`) and use
 that exact string.
 This is a LeaguePals data gap, not a bug.
 
+### Individual points
+
+LeaguePals' **official** individual points are NOT on each bowler's own record
+(that field is always 0). They only appear in the leaderboard feed, `tops.json` ->
+`topIndividualPoints[].indPointsWon`, and only for the league's **top 40**. The
+build reads that list, so the Leaderboards card and the Bowlers "Pts" column show
+the official number for those 40. Below the top 40, the Pts column shows my own
+calculation, marked `*`, and Leaderboards keeps a second "computed estimate" card
+for comparison (the estimate needs a confirmed lineup, so it can differ slightly
+from LeaguePals, e.g. around blinds).
+
+### Past seasons
+
+Earlier seasons of the league are archived once, because they're finished and
+LeaguePals still serves them through the same public endpoints. Their league IDs
+came from the `averages` list on each bowler (every bowler record lists the league
+ID of each league they've bowled in); `config.json` -> `pastSeasons` holds the four
+Pioneer I seasons. To add or refresh one:
+
+```powershell
+.\Fetch-LeaguePals.ps1 -Season 2025-26   # archives to data\seasons\2025-26\ (~45 requests)
+.\Build-Stats.ps1 -Season 2025-26        # writes data\seasons\2025-26\summary.json
+.\Build-Stats.ps1                        # normal build; embeds every summary.json
+```
+
+The dashboard gets a season picker under the title and a **History** tab (season
+by season, all-time bests, and a per-bowler career). Past seasons show Standings,
+Leaderboards, Averages, Bowlers and Teams; Head-to-Head, Trends and Lanes are
+current-season only because they need lineup and lane data that only exists for the
+season being tracked. The weekly CI run doesn't touch `data\seasons\`.
+
 ### Lane pairs
 
 The LeaguePals feed has **no lane data**, so lane pairs are transcribed from the

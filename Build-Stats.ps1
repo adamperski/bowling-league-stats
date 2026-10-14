@@ -13,7 +13,8 @@
 param(
     [string]$Date,
     [string]$SnapshotDir,
-    [string]$ConfigPath
+    [string]$ConfigPath,
+    [string]$Season    # slug of an archived past season (data\seasons\<slug>): writes its summary.json only
 )
 
 $ErrorActionPreference = 'Stop'
@@ -25,6 +26,7 @@ if (-not $ConfigPath) { $ConfigPath = Join-Path $scriptDir 'config.json' }
 $cfg = Get-Content -Raw $ConfigPath | ConvertFrom-Json
 
 $rawRoot = Join-Path $scriptDir 'data\raw'
+if ($Season) { $SnapshotDir = Join-Path $scriptDir "data\seasons\$Season" }
 if (-not $SnapshotDir) {
     if ($Date) {
         $SnapshotDir = Join-Path $rawRoot $Date
@@ -40,7 +42,9 @@ Write-Host "Building from snapshot: $snapDate"
 
 function Read-Json($name) { Get-Content -Raw (Join-Path $SnapshotDir "$name.json") | ConvertFrom-Json }
 
-$leagueId  = $cfg.leagueId
+# A snapshot's manifest records which league it was taken from (matters for archived seasons).
+$mfPath    = Join-Path $SnapshotDir '_manifest.json'
+$leagueId  = if (Test-Path $mfPath) { (Get-Content -Raw $mfPath | ConvertFrom-Json).leagueId } else { $cfg.leagueId }
 $league    = (Read-Json 'league').data
 $leagueF   = (Read-Json 'league_full').data
 $standings = (Read-Json 'standings').data
@@ -225,8 +229,20 @@ foreach ($row in $standings.standings) {
 $teams = @($teams | Sort-Object pointsWon -Descending)
 for ($i = 0; $i -lt $teams.Count; $i++) { $teams[$i] | Add-Member rank ($i + 1) -Force }
 
+# ---- official individual points ------------------------------------------
+# LeaguePals does NOT put these on each bowler's own record (that field is always 0);
+# they only appear in the leaderboard feed, tops.topIndividualPoints[].indPointsWon,
+# which lists the league's top 40. Everyone below that keeps 0 here and falls back
+# to the computed estimate (compIndPoints) in the dashboard.
+$officialPts = @{}
+foreach ($e in @($topAll.topIndividualPoints)) {
+    if ($e._id -and [double]$e.indPointsWon -gt 0) { $officialPts["$($e._id)"] = [double]$e.indPointsWon }
+}
+foreach ($b in $bowlers) { if ($b.id -and $officialPts.ContainsKey("$($b.id)")) { $b.indPoints = $officialPts["$($b.id)"] } }
+
 # ---- leaderboards ------------------------------------------------------
-$minG = 3
+# Archived past seasons are finished, so require a real sample before ranking averages.
+$minG = if ($Season) { 30 } else { 3 }
 $elig = @($bowlers | Where-Object { $_.gamesBowled -ge $minG })
 function Top($list, $prop, $n = 15, [switch]$Asc) {
     $s = if ($Asc) { $list | Sort-Object $prop } else { $list | Sort-Object $prop -Descending }
@@ -245,6 +261,9 @@ $ldr = [ordered]@{
     mostDeclined    = Top $elig 'improve' 15 -Asc
     indPoints       = Top ($bowlers | Where-Object { $_.indPoints -gt 0 }) 'indPoints' 20
 }
+# An empty Top result comes back as AutomationNull and ConvertTo-Json (PS 5.1)
+# writes it as {} instead of [] - force real arrays so the page gets a list.
+foreach ($k in @($ldr.Keys)) { $ldr[$k] = @($ldr[$k]) }
 function TopsList($arr) {
     @($arr | ForEach-Object { [pscustomobject]@{ name = $_.name; value = $_.game; pos = $_.pos } })
 }
@@ -257,6 +276,43 @@ $teamLdr = [ordered]@{
 }
 
 $weekDates = @($bowlers | ForEach-Object { $_.weeks } | ForEach-Object { $_.date } | Sort-Object -Unique)
+
+# ---- archived past season: write a compact summary and stop ----------------
+# (-Season <slug>, folder made by Fetch-LeaguePals.ps1 -Season). Past seasons
+# have no lineup / lane data, so only standings, bowlers and leaderboards are
+# kept; the current-season build embeds every data\seasons\*\summary.json.
+if ($Season) {
+    $psMeta = @($cfg.pastSeasons | Where-Object { $_.slug -eq $Season })[0]
+    $summary = [ordered]@{
+        slug        = $Season
+        label       = $(if ($psMeta) { $psMeta.label } else { $league.name })
+        leagueName  = $league.name
+        leagueId    = $leagueId
+        dateStart   = $seasonStart.ToString('yyyy-MM-dd')
+        dateEnd     = $seasonEnd.ToString('yyyy-MM-dd')
+        weeksPlayed = $weekDates.Count
+        teamCount   = @($teams).Count
+        bowlerCount = @($bowlers | Where-Object { $_.gamesBowled -gt 0 }).Count
+        standings   = @($teams)
+        leaderboards = $ldr
+        teamLeaderboards = $teamLdr
+        bowlers     = @($bowlers | ForEach-Object {
+            [pscustomobject]@{
+                id = $_.id; name = $_.name; team = $_.team; gender = $_.gender; bookAvg = $_.bookAvg; seasonAvg = $_.seasonAvg
+                hdcp = $_.hdcp; gamesBowled = $_.gamesBowled; totalPins = $_.totalPins; highGame = $_.highGame; highSeries = $_.highSeries
+                highGameHdcp = $_.highGameHdcp; highSeriesHdcp = $_.highSeriesHdcp; stdev = $_.stdev; improve = $_.improve
+                indPoints = $_.indPoints; compIndPoints = 0
+                weeks = @($_.weeks | Where-Object { -not $_.absent } | ForEach-Object {
+                    $w = [ordered]@{ date = $_.date; games = @($_.games); scrSer = $_.scrSer }
+                    if ($_.partial) { $w['partial'] = $true }
+                    [pscustomobject]$w })
+            } })
+    }
+    $sumPath = Join-Path $SnapshotDir 'summary.json'
+    [IO.File]::WriteAllText($sumPath, ($summary | ConvertTo-Json -Depth 12 -Compress), [Text.UTF8Encoding]::new($false))
+    Write-Host ("  season {0}: {1} teams, {2} bowlers, {3} weeks -> {4} ({5:N0} KB)" -f $Season, $summary.teamCount, $summary.bowlerCount, $summary.weeksPlayed, $sumPath, ((Get-Item $sumPath).Length / 1KB))
+    return
+}
 
 # ---- league-week numbering + position rounds -----------------------------
 $seasonWeeks = if ($cfg.seasonWeeks) { [int]$cfg.seasonWeeks }
@@ -1128,7 +1184,14 @@ $json = $data | ConvertTo-Json -Depth 40 -Compress
 
 $tplPath = Join-Path $scriptDir 'dashboard.template.html'
 $tpl = [IO.File]::ReadAllText($tplPath, [Text.UTF8Encoding]::new($false))
-$html = $tpl.Replace('/*DATA*/', "window.LEAGUE_DATA = $json;")
+# Archived past seasons (data\seasons\<slug>\summary.json, newest first) are spliced in
+# as raw JSON text - re-serializing several MB through ConvertTo-Json is very slow in PS 5.1.
+$seasonsDir = Join-Path $scriptDir 'data\seasons'
+$seasonFiles = @(if (Test-Path $seasonsDir) { Get-ChildItem $seasonsDir -Directory | Sort-Object Name -Descending |
+    ForEach-Object { Join-Path $_.FullName 'summary.json' } | Where-Object { Test-Path $_ } })
+$seasonsJson = '[' + (($seasonFiles | ForEach-Object { [IO.File]::ReadAllText($_, [Text.Encoding]::UTF8) }) -join ',') + ']'
+Write-Host "  past seasons embedded: $($seasonFiles.Count)"
+$html = $tpl.Replace('/*DATA*/', "window.LEAGUE_DATA = $json; window.LEAGUE_DATA.seasons = $seasonsJson;")
 
 $dashRepo = Join-Path $scriptDir 'dashboard.html'
 [IO.File]::WriteAllText($dashRepo, $html, [Text.UTF8Encoding]::new($false))

@@ -1,0 +1,5279 @@
+{
+  "data": [
+    {
+      "_id": "62f9664c73676612723028e2",
+      "name": "Shawn Clements",
+      "bowlerId": "",
+      "firstName": "Shawn",
+      "lastName": "Clements",
+      "dexterity": 0,
+      "average": 219,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "62f9664c73676612723028f0",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 201
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "64d2b44aa9304a7d2dc02a9d",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 219
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "66b408025dbb6ac34d1523ae",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 202
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "6898c8040bd718dd744cd6b3",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 202
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a82319d249ddaa00e029a0c",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 206
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231b5249ddaa00e029b0a",
+          "_id": "6a97a698d4c1762a0a8b0999",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 206
+        }
+      ],
+      "subs": [
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "substitute": "6a84a2f1a186d3f455bdcffa",
+          "_id": "6a97a698d4c1762a0a8b099a"
+        }
+      ],
+      "nickNames": [
+        "Shawn Clements"
+      ],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": null,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        235,
+        193,
+        174,
+        257,
+        215,
+        279,
+        194,
+        180,
+        203,
+        187,
+        242,
+        202,
+        216,
+        300,
+        216,
+        254,
+        188,
+        268,
+        174,
+        225,
+        161,
+        201,
+        244,
+        193,
+        238,
+        224,
+        290,
+        191,
+        223,
+        236,
+        236,
+        231,
+        223,
+        202,
+        202,
+        164,
+        225,
+        300,
+        204,
+        262,
+        183,
+        263,
+        204,
+        194,
+        221,
+        223,
+        181,
+        258,
+        289,
+        258,
+        235,
+        244,
+        196,
+        224,
+        162,
+        198,
+        199,
+        211,
+        189,
+        223,
+        258,
+        219,
+        225,
+        248,
+        233,
+        221,
+        198,
+        180,
+        147,
+        214,
+        246,
+        279,
+        263,
+        225,
+        193,
+        226,
+        247,
+        268,
+        203,
+        233,
+        173,
+        240,
+        225,
+        224,
+        183,
+        253,
+        213,
+        227,
+        191,
+        257,
+        200,
+        222,
+        214,
+        179,
+        189,
+        265,
+        214,
+        219,
+        245,
+        204,
+        225,
+        215,
+        176,
+        199,
+        170
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              170,
+              199,
+              176,
+              650
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "6305a423e767f046e790a2d5",
+            "weekIdx": 0,
+            "games": [
+              215,
+              225,
+              204,
+              749
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "630ede5c6eacc5a3632a5dfb",
+            "weekIdx": 0,
+            "games": [
+              245,
+              219,
+              214,
+              783
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "631819ad4a2fe3038f8aa62e",
+            "weekIdx": 0,
+            "games": [
+              265,
+              189,
+              179,
+              720
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "63214dc9c92c14a0720516f8",
+            "weekIdx": 0,
+            "games": [
+              214,
+              222,
+              200,
+              720
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "6330d4d2a9bc678e70d63bee",
+            "weekIdx": 0,
+            "games": [
+              257,
+              191,
+              227,
+              756
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "6333ccb7905da710f04520c3",
+            "weekIdx": 0,
+            "games": [
+              213,
+              253,
+              183,
+              727
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "633d0363cfcb938a4d28990d",
+            "weekIdx": 0,
+            "games": [
+              224,
+              225,
+              240,
+              764
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "63572e6fe2a00d4116d27379",
+            "weekIdx": 0,
+            "games": [
+              173,
+              233,
+              203,
+              678
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "6358b2bb7a353ea241df415f",
+            "weekIdx": 0,
+            "games": [
+              268,
+              247,
+              226,
+              813
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "6361ed62e861b93469fadbca",
+            "weekIdx": 0,
+            "games": [
+              193,
+              225,
+              263,
+              744
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "63729f76a64eac361171af04",
+            "weekIdx": 0,
+            "games": [
+              279,
+              246,
+              214,
+              799
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "637469012679e01b6f96cc70",
+            "weekIdx": 0,
+            "games": [
+              147,
+              180,
+              198,
+              579
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "638560537e3738bb4fcc5979",
+            "weekIdx": 0,
+            "games": [
+              221,
+              233,
+              248,
+              765
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "6386f637acfe4e9896aa8139",
+            "weekIdx": 0,
+            "games": [
+              225,
+              219,
+              258,
+              762
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "6392bc90b3487147440027bf",
+            "weekIdx": 0,
+            "games": [
+              223,
+              189,
+              211,
+              680
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "639966b10471fdbc5dd6583a",
+            "weekIdx": 0,
+            "games": [
+              199,
+              198,
+              162,
+              616
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "63aa3c92ed72b03df23d2f6e",
+            "weekIdx": 0,
+            "games": [
+              224,
+              196,
+              244,
+              727
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "63b5042170ea76a6f58c1ba0",
+            "weekIdx": 0,
+            "games": [
+              235,
+              258,
+              289,
+              845
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "63be44b59fbbf04ed742e7a2",
+            "weekIdx": 0,
+            "games": [
+              258,
+              181,
+              223,
+              719
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "63c77dfb14d662842806ce6f",
+            "weekIdx": 0,
+            "games": [
+              221,
+              194,
+              204,
+              676
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "63d0c6a4b4404a4ac1d22af2",
+            "weekIdx": 0,
+            "games": [
+              263,
+              183,
+              262,
+              765
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "63da02a9bd8645c017608843",
+            "weekIdx": 0,
+            "games": [
+              204,
+              300,
+              225,
+              783
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "63e32660ac938db53f1ba8d5",
+            "weekIdx": 0,
+            "games": [
+              164,
+              202,
+              202,
+              622
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "63ec5fe67022d44342d7b885",
+            "weekIdx": 0,
+            "games": [
+              223,
+              231,
+              236,
+              747
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "63f5afd47488746db99973b1",
+            "weekIdx": 0,
+            "games": [
+              236,
+              223,
+              191,
+              704
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "63fed25a88feb6536a54522e",
+            "weekIdx": 0,
+            "games": [
+              290,
+              224,
+              238,
+              806
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "64080a3c98c44718c7986cde",
+            "weekIdx": 0,
+            "games": [
+              193,
+              244,
+              201,
+              692
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "641482ff56757c0fb4dc2546",
+            "weekIdx": 0,
+            "games": [
+              161,
+              225,
+              174,
+              614
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "641a747a767194c997e80177",
+            "weekIdx": 0,
+            "games": [
+              268,
+              188,
+              254,
+              767
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "6423b30c125d087c356cbbe6",
+            "weekIdx": 0,
+            "games": [
+              216,
+              300,
+              216,
+              786
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "642cec70c7db8d4fb13655d7",
+            "weekIdx": 0,
+            "games": [
+              202,
+              242,
+              187,
+              685
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "6436256c04eb70a8fad3d68e",
+            "weekIdx": 0,
+            "games": [
+              203,
+              180,
+              194,
+              631
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "643f69c32167491dd2a06e2a",
+            "weekIdx": 0,
+            "games": [
+              279,
+              215,
+              257,
+              805
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "644899dd785e89a8ec7de09d",
+            "weekIdx": 0,
+            "games": [
+              174,
+              193,
+              235,
+              656
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 83,
+      "highGame": 300,
+      "highGameHdcp": 318,
+      "highSeries": 782,
+      "highSeriesHdcp": 845,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 219.57142857142858,
+      "realAvg": 219,
+      "realAvgFloat": 219.57,
+      "enteringAvg": 201,
+      "gamesPlayed": 105,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 23055,
+      "hdcp": 18
+    },
+    {
+      "_id": "635821a0fbbab94b0cd3fd4d",
+      "name": "Dalton Shady",
+      "firstName": "Dalton",
+      "lastName": "Shady",
+      "dexterity": 0,
+      "average": 175,
+      "averages": [
+        {
+          "_id": "6358228d1ce8c548198cc1d2",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "league": "62f2f98b025606132ebe0c50",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 183
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "64d2b44aa9304a7d2dc02a96",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 175
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "672b072a988a5e245fbd095e",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "6898c8040bd718dd744cd6b6",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        }
+      ],
+      "subs": [
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "substitute": "64d2be96549e41777edd76e5",
+          "_id": "672b072a988a5e245fbd095f"
+        }
+      ],
+      "nickNames": [
+        "Dalton Shady"
+      ],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "2022-10-25T06:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "bowlerId": "8219-115180",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        182,
+        145,
+        159,
+        139,
+        162,
+        169,
+        193,
+        177,
+        196,
+        246,
+        199,
+        199,
+        234,
+        194,
+        164,
+        190,
+        216,
+        148,
+        233,
+        181,
+        236,
+        160,
+        179,
+        172,
+        168,
+        190,
+        149,
+        156,
+        133,
+        148,
+        151,
+        195,
+        164,
+        134,
+        220,
+        189,
+        125,
+        188,
+        183,
+        167,
+        154,
+        202,
+        123,
+        166,
+        148,
+        190,
+        154,
+        189,
+        170,
+        155,
+        163,
+        181,
+        193,
+        137,
+        180,
+        190,
+        181,
+        165,
+        133,
+        210,
+        149,
+        150,
+        164,
+        134,
+        258,
+        184,
+        159,
+        203
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "630ede5c6eacc5a3632a5dfb",
+            "weekIdx": 0,
+            "games": [
+              203,
+              159,
+              184,
+              699
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "631819ad4a2fe3038f8aa62e",
+            "weekIdx": 0,
+            "games": [
+              258,
+              134,
+              164,
+              709
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "63214dc9c92c14a0720516f8",
+            "weekIdx": 0,
+            "games": [
+              150,
+              149,
+              210,
+              662
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "6333ccb7905da710f04520c3",
+            "weekIdx": 0,
+            "games": [
+              133,
+              165,
+              181,
+              641
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "633d0363cfcb938a4d28990d",
+            "weekIdx": 0,
+            "games": [
+              190,
+              180,
+              137,
+              684
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "6349d1e3e59ee0fa7001fef7",
+            "weekIdx": 0,
+            "games": [
+              193,
+              181,
+              163,
+              717
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "63572e6fe2a00d4116d27379",
+            "weekIdx": 0,
+            "games": [
+              155,
+              170,
+              189,
+              691
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "6361ed62e861b93469fadbca",
+            "weekIdx": 0,
+            "games": [
+              154,
+              190,
+              148,
+              672
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "63729f76a64eac361171af04",
+            "weekIdx": 0,
+            "games": [
+              166,
+              123,
+              202,
+              671
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "637469012679e01b6f96cc70",
+            "weekIdx": 0,
+            "games": [
+              154,
+              167,
+              183,
+              684
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "638560537e3738bb4fcc5979",
+            "weekIdx": 0,
+            "games": [
+              188,
+              125,
+              189,
+              682
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "6392bc90b3487147440027bf",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              220,
+              134,
+              474
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "63aa3c92ed72b03df23d2f6e",
+            "weekIdx": 0,
+            "games": [
+              164,
+              195,
+              151,
+              690
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "63b5042170ea76a6f58c1ba0",
+            "weekIdx": 0,
+            "games": [
+              148,
+              133,
+              156,
+              617
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "63be44b59fbbf04ed742e7a2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "63da02a9bd8645c017608843",
+            "weekIdx": 0,
+            "games": [
+              149,
+              190,
+              168,
+              687
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "63f5afd47488746db99973b1",
+            "weekIdx": 0,
+            "games": [
+              172,
+              179,
+              160,
+              691
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "63fed25a88feb6536a54522e",
+            "weekIdx": 0,
+            "games": [
+              236,
+              181,
+              233,
+              830
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "64080a3c98c44718c7986cde",
+            "weekIdx": 0,
+            "games": [
+              148,
+              216,
+              190,
+              734
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "641482ff56757c0fb4dc2546",
+            "weekIdx": 0,
+            "games": [
+              164,
+              194,
+              234,
+              772
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "641a747a767194c997e80177",
+            "weekIdx": 0,
+            "games": [
+              199,
+              199,
+              246,
+              821
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "642cec70c7db8d4fb13655d7",
+            "weekIdx": 0,
+            "games": [
+              196,
+              177,
+              193,
+              737
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "6436256c04eb70a8fad3d68e",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "643f69c32167491dd2a06e2a",
+            "weekIdx": 0,
+            "games": [
+              169,
+              162,
+              139,
+              641
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "644899dd785e89a8ec7de09d",
+            "weekIdx": 0,
+            "games": [
+              159,
+              145,
+              182,
+              660
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 63.5,
+      "highGame": 258,
+      "highGameHdcp": 309,
+      "highSeries": 650,
+      "highSeriesHdcp": 830,
+      "blindWeeksTotal": 3,
+      "blindWeeksRow": 0,
+      "averageFloat": 175.26470588235293,
+      "realAvg": 175,
+      "realAvgFloat": 175.26,
+      "enteringAvg": 183,
+      "gamesPlayed": 68,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 11918,
+      "hdcp": 58
+    },
+    {
+      "_id": "62f334a90535cd0b078ddb3b",
+      "name": "Chuck Dreux",
+      "bowlerId": "",
+      "lastName": "Dreux",
+      "firstName": "Chuck",
+      "dexterity": 0,
+      "average": 197,
+      "averages": [
+        {
+          "league": "6897a6f07cb471a57fea4abf",
+          "team": "6897a6fa7cb471a57fea4b3b",
+          "_id": "68b21da53b33749e3fd225c8",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 201
+        },
+        {
+          "league": "64cc15b6f79631de7f0f0493",
+          "team": "64fa15c0673e9a07523ef4f9",
+          "_id": "68b21da53b33749e3fd225c9",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "68b21da53b33749e3fd225ca",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 191
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "68b21da53b33749e3fd225cb",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "645eb3e6d759801b5dacc5d9",
+          "team": "645eb7656f8a54a612da9d4d",
+          "_id": "68b21da53b33749e3fd225cc",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "66395613857152c7178d16fa",
+          "team": "6639562c0a1fe8603687e05a",
+          "_id": "68b21da53b33749e3fd225cd",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 197
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "68b21da53b33749e3fd225ce",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 201
+        },
+        {
+          "league": "66d8a62188f60f3711eb2a66",
+          "team": "66d8b8b0773af87d612f88f9",
+          "_id": "68b21da53b33749e3fd225cf",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 187
+        },
+        {
+          "league": "6819279b4b2a23f018207dd1",
+          "team": "68192ba2391faa1d322e23be",
+          "_id": "68b21da53b33749e3fd225d0",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 201
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "68b21da53b33749e3fd225d1",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 192
+        },
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "69f8f2351b4591f463ae9741",
+          "_id": "69fe3bf37b69ce8f4684622a",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a74e9d0623bc22027b8eb84",
+          "team": "6a74e9d4623bc22027b8ebbb",
+          "_id": "6a74e9d6623bc22027b8ebcd",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 196
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6a82319d249ddaa00e029a0f",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 193
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": null,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        205,
+        226,
+        195,
+        224,
+        299,
+        217,
+        214,
+        183,
+        235,
+        180,
+        267,
+        181,
+        175,
+        178,
+        204,
+        252,
+        221,
+        192,
+        220,
+        188,
+        213,
+        149,
+        245,
+        233,
+        156,
+        160,
+        145,
+        256,
+        288,
+        193,
+        255,
+        224,
+        188,
+        183,
+        222,
+        169,
+        206,
+        177,
+        151,
+        233,
+        180,
+        190,
+        251,
+        212,
+        143,
+        191,
+        213,
+        215,
+        175,
+        158,
+        141,
+        200,
+        225,
+        177,
+        193,
+        156,
+        208,
+        187,
+        191,
+        194,
+        206,
+        288,
+        175,
+        214,
+        202,
+        131,
+        203,
+        196,
+        180,
+        202,
+        207,
+        190,
+        180,
+        162,
+        226,
+        256,
+        267,
+        191,
+        161,
+        225,
+        177,
+        160,
+        204,
+        233,
+        201,
+        234,
+        163,
+        169,
+        197,
+        183,
+        180,
+        135,
+        171,
+        186,
+        206,
+        145,
+        197,
+        187,
+        182,
+        183,
+        206,
+        162,
+        156,
+        176,
+        212
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              212,
+              176,
+              156,
+              676
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "6305a423e767f046e790a2d5",
+            "weekIdx": 0,
+            "games": [
+              162,
+              206,
+              183,
+              683
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "630ede5c6eacc5a3632a5dfb",
+            "weekIdx": 0,
+            "games": [
+              182,
+              187,
+              197,
+              698
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "631819ad4a2fe3038f8aa62e",
+            "weekIdx": 0,
+            "games": [
+              145,
+              206,
+              186,
+              687
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "63214dc9c92c14a0720516f8",
+            "weekIdx": 0,
+            "games": [
+              171,
+              135,
+              180,
+              639
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "6330d4d2a9bc678e70d63bee",
+            "weekIdx": 0,
+            "games": [
+              183,
+              197,
+              169,
+              708
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "6333ccb7905da710f04520c3",
+            "weekIdx": 0,
+            "games": [
+              163,
+              234,
+              201,
+              757
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "633d0363cfcb938a4d28990d",
+            "weekIdx": 0,
+            "games": [
+              233,
+              204,
+              160,
+              753
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "63572e6fe2a00d4116d27379",
+            "weekIdx": 0,
+            "games": [
+              177,
+              225,
+              161,
+              713
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "6358b2bb7a353ea241df415f",
+            "weekIdx": 0,
+            "games": [
+              191,
+              267,
+              256,
+              864
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "6361ed62e861b93469fadbca",
+            "weekIdx": 0,
+            "games": [
+              226,
+              162,
+              180,
+              703
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "63729f76a64eac361171af04",
+            "weekIdx": 0,
+            "games": [
+              190,
+              207,
+              202,
+              734
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "637469012679e01b6f96cc70",
+            "weekIdx": 0,
+            "games": [
+              180,
+              196,
+              203,
+              714
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "638560537e3738bb4fcc5979",
+            "weekIdx": 0,
+            "games": [
+              131,
+              202,
+              214,
+              679
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "6386f637acfe4e9896aa8139",
+            "weekIdx": 0,
+            "games": [
+              175,
+              288,
+              206,
+              804
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "6392bc90b3487147440027bf",
+            "weekIdx": 0,
+            "games": [
+              194,
+              191,
+              187,
+              701
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "639966b10471fdbc5dd6583a",
+            "weekIdx": 0,
+            "games": [
+              208,
+              156,
+              193,
+              686
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "63aa3c92ed72b03df23d2f6e",
+            "weekIdx": 0,
+            "games": [
+              177,
+              225,
+              200,
+              731
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "63b5042170ea76a6f58c1ba0",
+            "weekIdx": 0,
+            "games": [
+              141,
+              158,
+              175,
+              603
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "63be44b59fbbf04ed742e7a2",
+            "weekIdx": 0,
+            "games": [
+              215,
+              213,
+              191,
+              754
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "63c77dfb14d662842806ce6f",
+            "weekIdx": 0,
+            "games": [
+              143,
+              212,
+              251,
+              738
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "63d0c6a4b4404a4ac1d22af2",
+            "weekIdx": 0,
+            "games": [
+              190,
+              180,
+              233,
+              732
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "63da02a9bd8645c017608843",
+            "weekIdx": 0,
+            "games": [
+              151,
+              177,
+              206,
+              663
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "63e32660ac938db53f1ba8d5",
+            "weekIdx": 0,
+            "games": [
+              169,
+              222,
+              183,
+              706
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "63ec5fe67022d44342d7b885",
+            "weekIdx": 0,
+            "games": [
+              188,
+              224,
+              255,
+              799
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "63f5afd47488746db99973b1",
+            "weekIdx": 0,
+            "games": [
+              193,
+              288,
+              256,
+              863
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "63fed25a88feb6536a54522e",
+            "weekIdx": 0,
+            "games": [
+              145,
+              160,
+              156,
+              581
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "64080a3c98c44718c7986cde",
+            "weekIdx": 0,
+            "games": [
+              233,
+              245,
+              149,
+              753
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "641482ff56757c0fb4dc2546",
+            "weekIdx": 0,
+            "games": [
+              213,
+              188,
+              220,
+              744
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "641a747a767194c997e80177",
+            "weekIdx": 0,
+            "games": [
+              192,
+              221,
+              252,
+              788
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "6423b30c125d087c356cbbe6",
+            "weekIdx": 0,
+            "games": [
+              204,
+              178,
+              175,
+              677
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "642cec70c7db8d4fb13655d7",
+            "weekIdx": 0,
+            "games": [
+              181,
+              267,
+              180,
+              748
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "6436256c04eb70a8fad3d68e",
+            "weekIdx": 0,
+            "games": [
+              235,
+              183,
+              214,
+              752
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "643f69c32167491dd2a06e2a",
+            "weekIdx": 0,
+            "games": [
+              217,
+              299,
+              224,
+              860
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "644899dd785e89a8ec7de09d",
+            "weekIdx": 0,
+            "games": [
+              195,
+              226,
+              205,
+              740
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 113,
+      "highGame": 299,
+      "highGameHdcp": 339,
+      "highSeries": 740,
+      "highSeriesHdcp": 864,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 197.8,
+      "realAvg": 197,
+      "realAvgFloat": 197.8,
+      "enteringAvg": 191,
+      "gamesPlayed": 105,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 20769,
+      "hdcp": 38
+    },
+    {
+      "_id": "62ec9a90ce65adc409f55277",
+      "name": "Daniel Shea",
+      "bowlerId": "",
+      "lastName": "Shea",
+      "firstName": "Daniel",
+      "dexterity": 0,
+      "average": 187,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "62f9664c73676612723028dc",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 195
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "64d2b44aa9304a7d2dc02a97",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 187
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "66b408035dbb6ac34d1523b8",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 177
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "6898c8040bd718dd744cd6ae",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 203
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": null,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        182,
+        157,
+        236,
+        167,
+        178,
+        223,
+        127,
+        138,
+        197,
+        193,
+        188,
+        161,
+        208,
+        170,
+        265,
+        175,
+        182,
+        132,
+        157,
+        226,
+        203,
+        194,
+        201,
+        214,
+        226,
+        169,
+        171,
+        217,
+        237,
+        178,
+        160,
+        166,
+        179,
+        237,
+        193,
+        223,
+        160,
+        200,
+        219,
+        200,
+        200,
+        187,
+        220,
+        205,
+        223,
+        172,
+        159,
+        157,
+        192,
+        128,
+        228,
+        197,
+        138,
+        154,
+        144,
+        240,
+        183,
+        188,
+        199,
+        172,
+        209,
+        179,
+        161,
+        202,
+        146,
+        125,
+        210,
+        201,
+        182,
+        204,
+        186,
+        198,
+        129,
+        256,
+        137,
+        182,
+        201,
+        190,
+        215,
+        214,
+        203,
+        161,
+        181,
+        179,
+        178,
+        217,
+        199,
+        221,
+        224,
+        164,
+        156,
+        157,
+        165
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              165,
+              157,
+              156,
+              598
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "6305a423e767f046e790a2d5",
+            "weekIdx": 0,
+            "games": [
+              164,
+              224,
+              221,
+              729
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "630ede5c6eacc5a3632a5dfb",
+            "weekIdx": 0,
+            "games": [
+              199,
+              217,
+              178,
+              714
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "63214dc9c92c14a0720516f8",
+            "weekIdx": 0,
+            "games": [
+              179,
+              181,
+              161,
+              665
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "6330d4d2a9bc678e70d63bee",
+            "weekIdx": 0,
+            "games": [
+              203,
+              214,
+              215,
+              779
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "6333ccb7905da710f04520c3",
+            "weekIdx": 0,
+            "games": [
+              190,
+              201,
+              182,
+              711
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "633d0363cfcb938a4d28990d",
+            "weekIdx": 0,
+            "games": [
+              137,
+              256,
+              129,
+              657
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "6349d1e3e59ee0fa7001fef7",
+            "weekIdx": 0,
+            "games": [
+              198,
+              186,
+              204,
+              729
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "63572e6fe2a00d4116d27379",
+            "weekIdx": 0,
+            "games": [
+              182,
+              201,
+              210,
+              731
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "6358b2bb7a353ea241df415f",
+            "weekIdx": 0,
+            "games": [
+              125,
+              146,
+              202,
+              608
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "6361ed62e861b93469fadbca",
+            "weekIdx": 0,
+            "games": [
+              161,
+              179,
+              209,
+              693
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "63729f76a64eac361171af04",
+            "weekIdx": 0,
+            "games": [
+              172,
+              199,
+              188,
+              706
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "637469012679e01b6f96cc70",
+            "weekIdx": 0,
+            "games": [
+              183,
+              240,
+              144,
+              714
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "638560537e3738bb4fcc5979",
+            "weekIdx": 0,
+            "games": [
+              154,
+              138,
+              197,
+              633
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "6386f637acfe4e9896aa8139",
+            "weekIdx": 0,
+            "games": [
+              228,
+              128,
+              192,
+              695
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "6392bc90b3487147440027bf",
+            "weekIdx": 0,
+            "games": [
+              157,
+              159,
+              172,
+              635
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "639966b10471fdbc5dd6583a",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "63b5042170ea76a6f58c1ba0",
+            "weekIdx": 0,
+            "games": [
+              223,
+              205,
+              220,
+              795
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "63be44b59fbbf04ed742e7a2",
+            "weekIdx": 0,
+            "games": [
+              187,
+              200,
+              200,
+              734
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "63c77dfb14d662842806ce6f",
+            "weekIdx": 0,
+            "games": [
+              219,
+              200,
+              160,
+              726
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "63d0c6a4b4404a4ac1d22af2",
+            "weekIdx": 0,
+            "games": [
+              223,
+              193,
+              237,
+              800
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "63da02a9bd8645c017608843",
+            "weekIdx": 0,
+            "games": [
+              179,
+              166,
+              160,
+              646
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "63e32660ac938db53f1ba8d5",
+            "weekIdx": 0,
+            "games": [
+              178,
+              237,
+              217,
+              776
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "63ec5fe67022d44342d7b885",
+            "weekIdx": 0,
+            "games": [
+              171,
+              169,
+              226,
+              707
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "63f5afd47488746db99973b1",
+            "weekIdx": 0,
+            "games": [
+              214,
+              201,
+              194,
+              750
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "63fed25a88feb6536a54522e",
+            "weekIdx": 0,
+            "games": [
+              203,
+              226,
+              157,
+              724
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "641482ff56757c0fb4dc2546",
+            "weekIdx": 0,
+            "games": [
+              132,
+              182,
+              175,
+              627
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "6423b30c125d087c356cbbe6",
+            "weekIdx": 0,
+            "games": [
+              265,
+              170,
+              208,
+              784
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "642cec70c7db8d4fb13655d7",
+            "weekIdx": 0,
+            "games": [
+              161,
+              188,
+              193,
+              680
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "6436256c04eb70a8fad3d68e",
+            "weekIdx": 0,
+            "games": [
+              197,
+              138,
+              127,
+              600
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "643f69c32167491dd2a06e2a",
+            "weekIdx": 0,
+            "games": [
+              223,
+              178,
+              167,
+              709
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "644899dd785e89a8ec7de09d",
+            "weekIdx": 0,
+            "games": [
+              236,
+              157,
+              182,
+              716
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 78,
+      "highGame": 265,
+      "highGameHdcp": 312,
+      "highSeries": 653,
+      "highSeriesHdcp": 800,
+      "blindWeeksTotal": 1,
+      "blindWeeksRow": 0,
+      "averageFloat": 187.38709677419354,
+      "realAvg": 187,
+      "realAvgFloat": 187.39,
+      "enteringAvg": 195,
+      "gamesPlayed": 93,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 17427,
+      "hdcp": 47
+    },
+    {
+      "_id": "62f9664c73676612723028db",
+      "name": "Ken Barber",
+      "bowlerId": "",
+      "firstName": "Ken",
+      "lastName": "Barber",
+      "dexterity": 0,
+      "average": 191,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "62f9664c73676612723028ef",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 191
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "64d2b44aa9304a7d2dc02a92",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 191
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "66b408025dbb6ac34d1523ac",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 191
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "6898c8040bd718dd744cd6b4",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 186
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": null,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        185,
+        218,
+        196,
+        150,
+        179,
+        245,
+        181,
+        232,
+        172,
+        165,
+        211,
+        182,
+        220,
+        171,
+        140,
+        118,
+        166,
+        188,
+        233,
+        177,
+        189,
+        157,
+        162,
+        148,
+        218,
+        226,
+        174,
+        181,
+        199,
+        153,
+        214,
+        181,
+        184,
+        163,
+        202,
+        202,
+        189,
+        205,
+        195,
+        214,
+        223,
+        167,
+        169,
+        193,
+        189,
+        178,
+        175,
+        191,
+        161,
+        183,
+        222,
+        209,
+        185,
+        173,
+        222,
+        274,
+        231,
+        215,
+        179,
+        177,
+        177,
+        206,
+        221,
+        184,
+        266,
+        205,
+        171,
+        142,
+        225,
+        191,
+        204,
+        222,
+        183,
+        181,
+        153,
+        244,
+        215,
+        134,
+        214,
+        210,
+        188,
+        183,
+        208,
+        190,
+        170,
+        177,
+        165,
+        188,
+        202,
+        211,
+        225,
+        179,
+        212,
+        175,
+        196,
+        216,
+        188,
+        213,
+        212,
+        211,
+        165,
+        155
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              155,
+              165,
+              211,
+              663
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "6305a423e767f046e790a2d5",
+            "weekIdx": 0,
+            "games": [
+              212,
+              213,
+              188,
+              745
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "630ede5c6eacc5a3632a5dfb",
+            "weekIdx": 0,
+            "games": [
+              216,
+              196,
+              175,
+              719
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "631819ad4a2fe3038f8aa62e",
+            "weekIdx": 0,
+            "games": [
+              212,
+              179,
+              225,
+              745
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "63214dc9c92c14a0720516f8",
+            "weekIdx": 0,
+            "games": [
+              211,
+              202,
+              188,
+              721
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "6330d4d2a9bc678e70d63bee",
+            "weekIdx": 0,
+            "games": [
+              165,
+              177,
+              170,
+              629
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "6333ccb7905da710f04520c3",
+            "weekIdx": 0,
+            "games": [
+              190,
+              208,
+              183,
+              710
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "633d0363cfcb938a4d28990d",
+            "weekIdx": 0,
+            "games": [
+              188,
+              210,
+              214,
+              741
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "6349d1e3e59ee0fa7001fef7",
+            "weekIdx": 0,
+            "games": [
+              134,
+              215,
+              244,
+              719
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "63572e6fe2a00d4116d27379",
+            "weekIdx": 0,
+            "games": [
+              153,
+              181,
+              183,
+              640
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "6358b2bb7a353ea241df415f",
+            "weekIdx": 0,
+            "games": [
+              222,
+              204,
+              191,
+              746
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "6361ed62e861b93469fadbca",
+            "weekIdx": 0,
+            "games": [
+              225,
+              142,
+              171,
+              664
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "63729f76a64eac361171af04",
+            "weekIdx": 0,
+            "games": [
+              205,
+              266,
+              184,
+              784
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "637469012679e01b6f96cc70",
+            "weekIdx": 0,
+            "games": [
+              221,
+              206,
+              177,
+              727
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "638560537e3738bb4fcc5979",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "6386f637acfe4e9896aa8139",
+            "weekIdx": 0,
+            "games": [
+              177,
+              179,
+              215,
+              694
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "6392bc90b3487147440027bf",
+            "weekIdx": 0,
+            "games": [
+              231,
+              274,
+              222,
+              850
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "639966b10471fdbc5dd6583a",
+            "weekIdx": 0,
+            "games": [
+              173,
+              185,
+              209,
+              681
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "63aa3c92ed72b03df23d2f6e",
+            "weekIdx": 0,
+            "games": [
+              222,
+              183,
+              161,
+              683
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "63b5042170ea76a6f58c1ba0",
+            "weekIdx": 0,
+            "games": [
+              191,
+              175,
+              178,
+              661
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "63be44b59fbbf04ed742e7a2",
+            "weekIdx": 0,
+            "games": [
+              189,
+              193,
+              169,
+              671
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "63c77dfb14d662842806ce6f",
+            "weekIdx": 0,
+            "games": [
+              167,
+              223,
+              214,
+              724
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "63d0c6a4b4404a4ac1d22af2",
+            "weekIdx": 0,
+            "games": [
+              195,
+              205,
+              189,
+              709
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "63da02a9bd8645c017608843",
+            "weekIdx": 0,
+            "games": [
+              202,
+              202,
+              163,
+              687
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "63e32660ac938db53f1ba8d5",
+            "weekIdx": 0,
+            "games": [
+              184,
+              181,
+              214,
+              699
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "63ec5fe67022d44342d7b885",
+            "weekIdx": 0,
+            "games": [
+              153,
+              199,
+              181,
+              653
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "63f5afd47488746db99973b1",
+            "weekIdx": 0,
+            "games": [
+              174,
+              226,
+              218,
+              741
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "63fed25a88feb6536a54522e",
+            "weekIdx": 0,
+            "games": [
+              148,
+              162,
+              157,
+              590
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "64080a3c98c44718c7986cde",
+            "weekIdx": 0,
+            "games": [
+              189,
+              177,
+              233,
+              725
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "641482ff56757c0fb4dc2546",
+            "weekIdx": 0,
+            "games": [
+              188,
+              166,
+              118,
+              598
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "641a747a767194c997e80177",
+            "weekIdx": 0,
+            "games": [
+              140,
+              171,
+              220,
+              660
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "642cec70c7db8d4fb13655d7",
+            "weekIdx": 0,
+            "games": [
+              182,
+              211,
+              165,
+              690
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "6436256c04eb70a8fad3d68e",
+            "weekIdx": 0,
+            "games": [
+              172,
+              232,
+              181,
+              717
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "643f69c32167491dd2a06e2a",
+            "weekIdx": 0,
+            "games": [
+              245,
+              179,
+              150,
+              706
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "644899dd785e89a8ec7de09d",
+            "weekIdx": 0,
+            "games": [
+              196,
+              218,
+              185,
+              731
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 91.5,
+      "highGame": 274,
+      "highGameHdcp": 315,
+      "highSeries": 727,
+      "highSeriesHdcp": 850,
+      "blindWeeksTotal": 1,
+      "blindWeeksRow": 0,
+      "averageFloat": 191.94117647058823,
+      "realAvg": 191,
+      "realAvgFloat": 191.94,
+      "enteringAvg": 191,
+      "gamesPlayed": 102,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 19578,
+      "hdcp": 44
+    },
+    {
+      "_id": "6305a408e8fa2bf741b1b7e0",
+      "name": "Todd Wold",
+      "bowlerId": "",
+      "firstName": "Todd",
+      "lastName": "Wold",
+      "dexterity": 0,
+      "average": 209,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "6305a408e8fa2bf741b1b7e3",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 194
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "64d2b44aa9304a7d2dc02a9f",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 209
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "66b408035dbb6ac34d1523b5",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8330bd718dd744cd89d",
+          "_id": "68d49e84ac55df7e06c861db",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 206
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a8231b7249ddaa00e029b29",
+          "_id": "6a8231ba249ddaa00e029b46",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        }
+      ],
+      "subs": [
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "substitute": "64d2be9a549e41777edd76e8",
+          "_id": "65794f6a8bdbb5c1493bc5e2"
+        }
+      ],
+      "nickNames": [
+        "Todd Wold"
+      ],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": null,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        214,
+        244,
+        212,
+        212,
+        221,
+        205,
+        210,
+        235,
+        193,
+        203,
+        233,
+        194,
+        235,
+        257,
+        186,
+        228,
+        176,
+        201,
+        204,
+        188,
+        144,
+        196,
+        244,
+        206,
+        211,
+        205,
+        195
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "6305a423e767f046e790a2d5",
+            "weekIdx": 0,
+            "games": [
+              195,
+              205,
+              211,
+              734
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "631819ad4a2fe3038f8aa62e",
+            "weekIdx": 0,
+            "games": [
+              206,
+              244,
+              196,
+              769
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "6349d1e3e59ee0fa7001fef7",
+            "weekIdx": 0,
+            "games": [
+              144,
+              188,
+              204,
+              659
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "6386f637acfe4e9896aa8139",
+            "weekIdx": 0,
+            "games": [
+              201,
+              176,
+              228,
+              713
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "63e32660ac938db53f1ba8d5",
+            "weekIdx": 0,
+            "games": [
+              186,
+              257,
+              235,
+              786
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "63ec5fe67022d44342d7b885",
+            "weekIdx": 0,
+            "games": [
+              194,
+              233,
+              203,
+              723
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "64080a3c98c44718c7986cde",
+            "weekIdx": 0,
+            "games": [
+              193,
+              235,
+              210,
+              731
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "641a747a767194c997e80177",
+            "weekIdx": 0,
+            "games": [
+              205,
+              221,
+              212,
+              728
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "6423b30c125d087c356cbbe6",
+            "weekIdx": 0,
+            "games": [
+              212,
+              244,
+              214,
+              757
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 26,
+      "highGame": 257,
+      "highGameHdcp": 293,
+      "highSeries": 678,
+      "highSeriesHdcp": 786,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 209.33333333333334,
+      "realAvg": 209,
+      "realAvgFloat": 209.33,
+      "enteringAvg": 194,
+      "gamesPlayed": 27,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 5652,
+      "hdcp": 27
+    },
+    {
+      "_id": "62f330140535cd0b078d860f",
+      "name": "Keith Gibson",
+      "bowlerId": "",
+      "lastName": "Gibson",
+      "firstName": "Keith",
+      "dexterity": 0,
+      "average": 165,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99e0535cd0b078d6eea",
+          "_id": "6307e82e77f199c428210783",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 0
+        },
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "6330d3bcd62f4ec05c9d160d",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "average": 0
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "64d2b44aa9304a7d2dc02a98",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 165
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "team": "66b408015dbb6ac34d15239b",
+          "_id": "672b0750988a5e245fbd0963",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6898c7db0bd718dd744cd493",
+          "team": "6898c8020bd718dd744cd69c",
+          "_id": "6898c8040bd718dd744cd6b7",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        }
+      ],
+      "subs": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "substitute": "6330d35ce136e82b245f4d10",
+          "_id": "6330d3bdd62f4ec05c9d160e"
+        },
+        {
+          "league": "66b407e25dbb6ac34d152150",
+          "substitute": "64d2bea26057fa860b5ba3ed",
+          "_id": "672b0750988a5e245fbd0964"
+        }
+      ],
+      "nickNames": [
+        "Keith Gibson"
+      ],
+      "isJunior": false,
+      "isFemale": false,
+      "birthDate": "1957-04-09T00:00:00.000Z",
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dontIdentify": false,
+      "useNickname": false,
+      "games": [
+        150,
+        222,
+        126,
+        202,
+        150,
+        186,
+        155,
+        201,
+        151,
+        153,
+        115,
+        125,
+        213,
+        160,
+        170,
+        190,
+        151,
+        157
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "6330d4d2a9bc678e70d63bee",
+            "weekIdx": 0,
+            "games": [
+              157,
+              151,
+              190,
+              696
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "6349d1e3e59ee0fa7001fef7",
+            "weekIdx": 0,
+            "games": [
+              170,
+              160,
+              213,
+              741
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "6358b2bb7a353ea241df415f",
+            "weekIdx": 0,
+            "games": [
+              125,
+              115,
+              153,
+              573
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "63c77dfb14d662842806ce6f",
+            "weekIdx": 0,
+            "games": [
+              151,
+              201,
+              155,
+              723
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "63d0c6a4b4404a4ac1d22af2",
+            "weekIdx": 0,
+            "games": [
+              186,
+              150,
+              202,
+              751
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "6423b30c125d087c356cbbe6",
+            "weekIdx": 0,
+            "games": [
+              126,
+              222,
+              150,
+              699
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 10,
+      "highGame": 222,
+      "highGameHdcp": 289,
+      "highSeries": 543,
+      "highSeriesHdcp": 751,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 165.38888888888889,
+      "realAvg": 165,
+      "realAvgFloat": 165.39,
+      "enteringAvg": 0,
+      "gamesPlayed": 18,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 2977,
+      "hdcp": 67
+    },
+    {
+      "_id": "639966656bea58d840c2d42f",
+      "name": "Amanda Nowasell",
+      "bowlerId": "",
+      "firstName": "Amanda",
+      "lastName": "Nowasell",
+      "dexterity": 0,
+      "average": 202,
+      "averages": [
+        {
+          "league": "62f2f98b025606132ebe0c50",
+          "team": "62f2f99d0535cd0b078d6e49",
+          "_id": "639966656bea58d840c2d432",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 202
+        },
+        {
+          "league": "64d2b443a9304a7d2dc029ee",
+          "team": "64d2b449a9304a7d2dc02a81",
+          "_id": "64d2b44aa9304a7d2dc02a9c",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 202
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "isJunior": false,
+      "isFemale": true,
+      "birthDate": null,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "games": [
+        189,
+        147,
+        191,
+        216,
+        201,
+        199
+      ],
+      "weekGames": {
+        "2022-08-16": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-08-23": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-08-30": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-06": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-13": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-20": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-09-27": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-04": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-11": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-18": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-10-25": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-01": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-08": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-15": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-22": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-11-29": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-06": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2022-12-13": [
+          {
+            "isMatch": false,
+            "match_id": "639966b10471fdbc5dd6583a",
+            "weekIdx": 0,
+            "games": [
+              199,
+              201,
+              216,
+              718
+            ]
+          }
+        ],
+        "2022-12-20": [
+          {
+            "isMatch": false,
+            "match_id": "63aa3c92ed72b03df23d2f6e",
+            "weekIdx": 0,
+            "games": [
+              191,
+              147,
+              189,
+              623
+            ]
+          }
+        ],
+        "2023-01-03": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-10": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-17": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-24": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-01-31": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-07": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-14": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-21": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-02-28": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-07": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-14": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-21": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-03-28": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-04": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-11": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-18": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2023-04-25": [
+          {
+            "isMatch": false,
+            "match_id": "62fc6ba26d896de1442c2cc7",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 1.5,
+      "highGame": 216,
+      "highGameHdcp": 250,
+      "highSeries": 616,
+      "highSeriesHdcp": 718,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 202,
+      "realAvgFloat": 0,
+      "enteringAvg": 202,
+      "gamesPlayed": 6,
+      "teamName": "Pocket Pounders",
+      "classification": "",
+      "team": "62f2f99d0535cd0b078d6e49",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "62f2f98b025606132ebe0c50",
+      "leagueName": "Pioneer I",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 1143,
+      "hdcp": 34
+    }
+  ]
+}
