@@ -169,9 +169,9 @@
     }
   }
 
-  // Past seasons only carry standings / bowlers / leaderboards (no lineups or lanes),
-  // so build a view that swaps those in and leaves the rest of the app untouched.
-  const CURRENT_ONLY = ['h2h','trends','lanes'];
+  // A past season carries standings, bowlers, leaderboards, its full schedule/results and lane data;
+  // only Trends (needs the live weekly analysis) stays current-season-only.
+  const CURRENT_ONLY = ['trends'];
   function setSeason(slug){
     const S = SEASONS.find(s=>s.slug===slug);
     if(!S){ D = CUR; }
@@ -181,7 +181,7 @@
         meta: Object.assign({}, CUR.meta, { league: S.label, weekNum: S.weeksPlayed }),
         standings: A(S.standings), bowlers: A(S.bowlers),
         leaderboards: S.leaderboards, teamLeaderboards: S.teamLeaderboards,
-        schedule: [], reviews: []
+        schedule: A(S.schedule), reviews: [], lanes: S.lanes || null
       });
     }
     const sel = $('#season'); if(sel) sel.value = S ? S.slug : '';
@@ -448,8 +448,7 @@
     p1.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
       `Scratch scores across ${LN.weeksWithLanes} week${LN.weeksWithLanes===1?'':'s'} of lane data. Only real recorded games count `
       + '(blinds, missed-game fills and subs with no data are left out). “vs own avg” is each game minus that bowler’s season average, '
-      + 'which factors out who happened to bowl where — positive means the pair scores high. Lane pairs come from the printed score reports '
-      + '(the LeaguePals feed has no lane data).'));
+      + 'which factors out who happened to bowl where — positive means the pair scores high. Lane pairs come from LeaguePals’ weekly score sheets.'));
     p1.append(table(cols, pairs, {sort:'vsAvg', rank:true}));
     v.append(p1);
 
@@ -477,6 +476,7 @@
         A(r.log).forEach(w=> d.append(el('div',{class:'wk'},
           el('span',{class:'d'}, 'Wk '+w.weekNum+' · '+w.date), el('br'),
           el('b',{}, A(w.games).join('  ')+'   = '+w.ser))));
+        if(!A(r.log).length) d.append(el('span',{class:'muted'},'weekly detail is only kept for the current season'));
         return d;
       }}));
     };
@@ -552,8 +552,8 @@
     const p1 = el('div',{class:'panel'});
     p1.append(el('h2',{},'Season by Season'));
     p1.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
-      'Champion = most points won. Click a row to open that season (Standings, Leaderboards, Averages, Bowlers and Teams are available for past seasons; '
-      +'Head-to-Head, Trends and Lanes need lineup and lane data that only exists for the current season). League avg = scratch pins per game.'));
+      'Top team = most points won. Click a row to open that season: every tab except Trends works for past seasons (Trends needs the live weekly analysis). '
+      +'League avg = scratch pins per game.'));
     p1.append(table([
       {k:'order',label:'Season',def:1,fmt:(x,r)=>r.label},
       {k:'weeks',label:'Wks',cls:'num'},

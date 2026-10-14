@@ -13,3 +13,9 @@
 Thumbs.db
 .DS_Store
 *.swp
+
+# Past seasons: lineups + lanes are GENERATED from the committed score sheets
+# (scripts\Import-ScoreSheets.ps1 -Season <slug>); only the compact summary.json
+# and the raw archive are kept.
+/data/seasons/*/lineups/
+/data/seasons/*/lanes.json

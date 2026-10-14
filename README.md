@@ -165,9 +165,14 @@ locally before you push (the weekly routine below already does).
 
 ## Head-to-head (how the schedule is rebuilt)
 
-LeaguePals has no public "match result" endpoint and doesn't expose real
-per-week seating order anywhere in the public feed, so `Build-Stats.ps1`
-reconstructs a best effort:
+**Update:** the seating order, lanes, blind/sub flags and official points DO exist
+publicly, in the "Scores" feed behind LeaguePals' Scores page (see "Score
+sheets" below), and the build now uses that as the source of truth. What
+follows describes the older best-effort reconstruction from the weekly
+snapshot, which is still what runs for any week that has no score sheet yet:
+
+LeaguePals' weekly snapshot has no "match result" or seating order, so
+`Build-Stats.ps1` reconstructs a best effort:
 
 1. **Team pairing is solid.** Each bowler's week carries a `match_id`; a team's
    real id for a week is the one shared by the bowlers who actually bowled
@@ -249,6 +254,55 @@ Blind behaviour is configurable in `config.json` -> `blindRules`.
 
 `data\lineups\` is committed to git alongside `data\raw\` - it's your work, not
 regenerable output.
+
+### Score sheets (the source of truth for lineups, lanes and points)
+
+`GET /recentScoresPublic?leagueId=<id>&minDate=<ms>&maxDate=<ms>&weekIdx=0`
+(the call LeaguePals' own public Scores page makes; no login, doesn't expire,
+works for any past or current week) returns every match that week: each team's
+five seats **in seat order**, per-game pins / average / handicap with **blind,
+substitute (with the sub's name), vacant, incomplete** flags, the **lane**, the
+points breakdown (team vs individual contests) and each bowler's per-game
+points. `minDate`/`maxDate` are epoch milliseconds for a 7-day window counted
+from the league's start date.
+
+```powershell
+.\Fetch-ScoreSheets.ps1                    # current season: new weeks + re-pull the latest 2
+.\Fetch-ScoreSheets.ps1 -Season 2022-23    # a past season (data\scoresheets\<slug>\<date>.json, ~65 KB/week)
+.\scripts\Import-ScoreSheets.ps1           # -> data\lineups\<date>.json + data\lanes.json (current season)
+.\scripts\Import-ScoreSheets.ps1 -Season 2022-23   # -> data\seasons\2022-23\lineups\ + lanes.json
+.\scripts\Verify-AgainstScoreSheets.ps1    # compare the engine's results with the official numbers
+```
+
+The weekly GitHub Action runs the first and third lines, so a finished week's
+matchups are confirmed automatically with nothing to type in. Lineup entries
+carry the bowler's **ID** (so nicknames, renames and name changes can't break
+matching), the team ID, each seat's exact games / per-game handicap / flags, and
+the official points; the build scores the matchup from exactly that.
+
+What verification found (all five seasons, ~3,000 matchups): total points, scratch
+series, handicap series and the team-vs-individual points split match the sheets
+exactly, and seat N did face seat N in all but 6 of ~11,000 seat pairs. A few
+quirks the sheets settled, which the old report-based approach had wrong:
+- a **tie against a blind** gives the present bowler 0.5 and the blind 0 (the other
+  half point is simply not awarded, so that match totals 39.5);
+- LeaguePals counts a rostered player who's rotating in as a regular bowler, not a
+  sub - "sub" only means someone covering a rostered bowler's seat;
+- a seat can be blind for only some games, or change bowlers mid-match.
+~62 past matchups (about 2%) can't be reproduced by the standard rules (scoring
+outages, handicap quirks) and show the sheet's official points instead. ~83
+older-season matchups aren't reconstructed because a team in them isn't in that
+season's final standings (withdrawn / replaced teams).
+
+The `opponents` ids inside the sheets are partial (usually only the winner's row
+names the opponent), so seat pairing is verified from the points complementing,
+not from them.
+
+### Legacy: printed reports and typed-in lineups
+
+Everything below this point describes how lineups were entered by hand from
+printed reports before the score sheets turned out to be public. It still works
+(`Import-WeekReport.ps1`), and is the fallback if the Scores feed ever changes.
 
 ### Getting the real data: score sheets and full-week reports
 
@@ -354,16 +408,20 @@ ID of each league they've bowled in); `config.json` -> `pastSeasons` holds the f
 Pioneer I seasons. To add or refresh one:
 
 ```powershell
-.\Fetch-LeaguePals.ps1 -Season 2025-26   # archives to data\seasons\2025-26\ (~45 requests)
+.\Fetch-LeaguePals.ps1 -Season 2025-26   # archives to data\seasons\2025-26\ (~45 requests, slow: allow ~40 min)
+.\Fetch-ScoreSheets.ps1 -Season 2025-26  # the week-by-week score sheets (see "Score sheets")
+.\scripts\Import-ScoreSheets.ps1 -Season 2025-26   # lineups + lanes (regenerable, not committed)
 .\Build-Stats.ps1 -Season 2025-26        # writes data\seasons\2025-26\summary.json
 .\Build-Stats.ps1                        # normal build; embeds every summary.json
 ```
 
 The dashboard gets a season picker under the title and a **History** tab (season
-by season, all-time bests, and a per-bowler career). Past seasons show Standings,
-Leaderboards, Averages, Bowlers and Teams; Head-to-Head, Trends and Lanes are
-current-season only because they need lineup and lane data that only exists for the
-season being tracked. The weekly CI run doesn't touch `data\seasons\`.
+by season, all-time bests, and a per-bowler career). Every tab except **Trends** works
+for a past season, including the full schedule and results, seat-by-seat matchups
+and lane stats (Trends needs the live weekly analysis). Past seasons are built from
+the committed `summary.json`; their generated `lineups\` / `lanes.json` are not
+committed (regenerate with `Import-ScoreSheets.ps1 -Season`). The weekly CI run
+doesn't touch `data\seasons\`.
 
 ### Lane pairs
 

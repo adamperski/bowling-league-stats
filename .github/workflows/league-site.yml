@@ -45,6 +45,19 @@ jobs:
           Write-Host "Mountain time now: $($mt.ToString('yyyy-MM-dd HH:mm')) -> snapshot $date"
           .\Fetch-LeaguePals.ps1 -Date $date
 
+      # Score sheets (seat order, lanes, blind/sub flags, official points) are public, so
+      # lineups and lanes are generated automatically - no recap sheets to type in.
+      # Non-fatal: if LeaguePals is slow, the build still runs on whatever is committed.
+      - name: Pull score sheets and generate lineups + lanes
+        if: github.event_name != 'push'
+        continue-on-error: true
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+          .\Fetch-ScoreSheets.ps1
+          .\scripts\Import-ScoreSheets.ps1
+
       - name: Build dashboard
         shell: powershell
         run: |
