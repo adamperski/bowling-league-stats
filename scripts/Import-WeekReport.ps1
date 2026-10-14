@@ -98,7 +98,7 @@ if ($warnings.Count -gt 0) {
 
 # ---- merge into data\lineups\<date>.json ----
 $doc = if (Test-Path $file) { Get-Content -Raw $file | ConvertFrom-Json } else {
-    [pscustomobject]@{ date = $Date; _help = 'Full week import from a printed/live report.'; teams = [ordered]@{} }
+    [pscustomobject]@{ date = $Date; _help = 'Full week import from a printed/live report.'; teams = [pscustomobject]@{} }
 }
 if (-not $doc.teams) { $doc | Add-Member -Force teams ([pscustomobject]@{}) }
 
@@ -127,7 +127,7 @@ foreach ($tname in $teams.Keys) {
 # Drop entries keyed by a team name that no longer exists (a past rename) -
 # Build-Stats.ps1 ignores them anyway, and they only clutter the file.
 if ($knownTeams) {
-    $stale = @($doc.teams.PSObject.Properties.Name | Where-Object { $knownTeams -notcontains $_ })
+    $stale = @($doc.teams.PSObject.Properties | Where-Object { $_.MemberType -eq 'NoteProperty' } | ForEach-Object { $_.Name } | Where-Object { $knownTeams -notcontains $_ })
     foreach ($s in $stale) { $doc.teams.PSObject.Properties.Remove($s); Write-Host "Removed stale team key '$s' from $Date.json" }
 }
 

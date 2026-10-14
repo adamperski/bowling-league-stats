@@ -611,6 +611,10 @@ function Beat($a, $b, $av, $bv, $pts, $tcw) {
     if ($useTeam) {
         if ($tcw -eq 'A') { $aWin = $true } elseif ($tcw -eq 'B') { $bWin = $true } else { $tie = $true }
     }
+    # A tie against a blind splits the point like any other tie (confirmed against the
+    # real 2026-10-13 report: Van Vasquez and a blind both had 220, point split 0.5/0.5).
+    # Before this, the blind took the whole point on a tie.
+    elseif (($a.blind -xor $b.blind) -and $av -eq $bv) { $tie = $true }
     elseif ($a.blind -and -not $b.blind) { if ($blindStrict) { if ($bv -gt $av) { $bWin = $true } else { $aWin = $true } } else { if ($bv -ge $av) { $bWin = $true } else { $aWin = $true } } }
     elseif ($b.blind -and -not $a.blind) { if ($blindStrict) { if ($av -gt $bv) { $aWin = $true } else { $bWin = $true } } else { if ($av -ge $bv) { $aWin = $true } else { $bWin = $true } } }
     else { if ($av -gt $bv) { $aWin = $true } elseif ($bv -gt $av) { $bWin = $true } else { $tie = $true } }

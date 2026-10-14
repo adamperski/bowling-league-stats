@@ -208,7 +208,7 @@ best it can and written to **`data\lineups\<date>.json`**:
 
 - **blind** - an absent regular with no sub. Blind score = that bowler's
   average - 10 per game, plus their handicap. The present opponent must beat it
-  to take the point; if not, the point goes to the blind (it counts toward the
+  to take the point; if they score LESS, the point goes to the blind, and an exact TIE splits the point 0.5/0.5 like any other tie (confirmed against a real report), and the blind's share (it counts toward the
   matchup's 40 but **not** toward the blind bowler's season individual total).
 - **sub** - a non-roster bowler who bowled. One sub + one open slot is
   auto-assigned; multiple are guessed and flagged. Sub bowls off their own book
@@ -410,7 +410,7 @@ Edit `config.json`:
 - `skipWeeks` - Tuesdays with no league (holidays), e.g. `["2026-12-29"]`. Week
   number = calendar weeks since `seasonStart`, minus the skipped Tuesdays before
   that date - so week numbers stay aligned with the printed schedule.
-- `blindRules` - blind delta, whether the blind gets handicap, strict-beat, and
+- `blindRules` - blind delta, whether the blind gets handicap, (the old strict-beat flag no longer changes anything: a tie vs a blind always splits), and
   whether blind points count toward the matchup total / season individual total.
 
 ## Known nuance
