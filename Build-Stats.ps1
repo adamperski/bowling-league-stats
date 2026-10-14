@@ -499,6 +499,26 @@ $manualLineups = @{}   # "date|teamId" -> file entry
 $resolvedMap   = @{}   # "date|teamId" -> bool
 $reviews = New-Object System.Collections.ArrayList
 
+# Score-sheet lineup files also record who actually played whom. That beats voting on LeaguePals
+# match ids, which misses teams whose match id is absent/inconsistent in the API (subs, mid-season
+# team changes) - so those matchups used to drop out of the schedule.
+if (Test-Path $lineupDir) {
+    foreach ($lf in (Get-ChildItem $lineupDir -Filter '*.json')) {
+        $ld = Get-Content -Raw $lf.FullName | ConvertFrom-Json
+        $pairsOnSheet = @($ld.matchups)
+        if (-not $pairsOnSheet.Count -or -not $pairsOnSheet[0].a) { continue }
+        $d0 = $lf.BaseName
+        foreach ($k in @($mg.Keys)) { if (($k -split '\|')[0] -eq $d0) { $mg.Remove($k) } }
+        $n = 0
+        foreach ($pr in $pairsOnSheet) {
+            if (-not $teamById.ContainsKey("$($pr.a)") -or -not $teamById.ContainsKey("$($pr.b)")) { continue }
+            $n++; $mg["$d0|sheet$n"] = New-Object System.Collections.ArrayList
+            [void]$mg["$d0|sheet$n"].Add("$($pr.a)"); [void]$mg["$d0|sheet$n"].Add("$($pr.b)")
+        }
+    }
+    $mDates = @($mg.Keys | ForEach-Object { ($_ -split '\|')[0] } | Sort-Object -Unique)
+}
+
 foreach ($date in $mDates) {
     $file = Join-Path $lineupDir "$date.json"
     $teamIdsThatDate = @()

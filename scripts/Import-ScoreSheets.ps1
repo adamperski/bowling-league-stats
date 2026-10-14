@@ -119,7 +119,8 @@ foreach ($f in $files) {
         continue
     }
     New-Item -ItemType Directory -Force -Path $lineupDir | Out-Null
-    $out = [ordered]@{ date = $f.BaseName; _help = "Generated from the public score sheets by scripts\Import-ScoreSheets.ps1 (seat order, blind/sub/vacant flags and averages are exactly as scored)."; teams = $teamsOut }
+    $pairings = @(@($doc.matches) | Where-Object { @($_.teams).Count -eq 2 } | ForEach-Object { [ordered]@{ a = @($_.teams)[0].teamId; b = @($_.teams)[1].teamId } })
+    $out = [ordered]@{ date = $f.BaseName; _help = "Generated from the public score sheets by scripts\Import-ScoreSheets.ps1 (seat order, blind/sub/vacant flags and averages are exactly as scored)."; matchups = $pairings; teams = $teamsOut }
     [IO.File]::WriteAllText((Join-Path $lineupDir "$($f.BaseName).json"), ($out | ConvertTo-Json -Depth 10 -Compress), [Text.UTF8Encoding]::new($true))
     $laneDoc.weeks | Add-Member -Force $f.BaseName @($laneRows | ForEach-Object { [pscustomobject]$_ })
     Write-Host ("{0}: {1} teams, {2} lane pairs" -f $f.BaseName, $teamsOut.Count, $laneRows.Count)
