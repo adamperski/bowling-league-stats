@@ -32,7 +32,7 @@
   nav button:hover{color:var(--ink)}
   nav button.active{color:var(--accent);border-color:var(--accent)}
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
-    padding:4px;margin-bottom:18px;overflow:hidden}
+    padding:4px;margin-bottom:18px;overflow-x:auto}
   .panel h2{font-size:14px;margin:12px 12px 4px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
   table{width:100%;border-collapse:collapse;font-size:14px}
   th,td{text-align:right;padding:8px 10px;white-space:nowrap}
@@ -85,9 +85,14 @@
   .mc-vs{color:var(--muted);font-size:12px}
   .mc-meta{padding:0 14px 10px;font-size:12px}
   .mc-pairs{border-top:1px solid var(--line);padding:6px 0;background:var(--bg)}
-  .pair{display:grid;grid-template-columns:1fr auto auto 1.4em auto auto 1fr;gap:8px;align-items:center;padding:4px 14px;font-size:13px}
+  .pair{display:grid;grid-template-columns:1fr auto auto 1.4em auto auto 1fr;
+    grid-template-areas:"an ag ap vs bp bg bn";gap:8px;align-items:center;padding:4px 14px;font-size:13px}
+  .pair .an{grid-area:an} .pair .ag{grid-area:ag} .pair .ap{grid-area:ap} .pair .pvs{grid-area:vs}
+  .pair .bp{grid-area:bp} .pair .bg{grid-area:bg;text-align:right} .pair .bn{grid-area:bn}
   .pair .pn{font-weight:600}
   .pair .pn.r{text-align:right}
+  .gw{color:var(--good);font-weight:700}
+  .mc-side.win .mc-pts{color:var(--good)}
   .pair .pg{color:var(--muted);font-variant-numeric:tabular-nums}
   .pair .pp{font-weight:700;font-variant-numeric:tabular-nums}
   .pair .pvs{color:var(--muted);text-align:center}
@@ -115,8 +120,14 @@
   .anchorrow .ap{width:3.4em;color:var(--muted)}
   .anchorrow .av{width:2.6em;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
   h3{color:var(--ink)}
-  @media (max-width:640px){ th,td{padding:7px 6px} .hide-sm{display:none}
-    .pair{grid-template-columns:1fr auto 1.4em auto 1fr} .pair .pg{display:none} }
+  .chartwrap svg{display:block}
+  .gapnote{padding:0 14px 8px;font-size:12px}
+  details.cl{border-top:1px solid var(--line);padding:6px 14px;font-size:13px}
+  details.cl summary{cursor:pointer;font-weight:600}
+  details.cl .cl-line{padding:2px 0 0 14px;font-size:12px}
+  /* phones in portrait: every column stays visible (panels scroll sideways); seat rows stack names over games */
+  @media (max-width:640px){ th,td{padding:7px 6px}
+    .pair{grid-template-columns:1fr auto 1.4em auto 1fr;grid-template-areas:"an ap vs bp bn" "ag ag . bg bg"} }
 </style>
 </head>
 <body>
@@ -183,6 +194,7 @@
         leaderboards: S.leaderboards, teamLeaderboards: S.teamLeaderboards,
         schedule: A(S.schedule), reviews: [], lanes: S.lanes || null
       });
+      D._an = null;   // analytics cache is per season (Object.assign would otherwise copy the current season's)
     }
     const sel = $('#season'); if(sel) sel.value = S ? S.slug : '';
     renderHeader();
@@ -205,6 +217,7 @@
     ['standings','Standings', viewStandings],
     ['h2h','Head-to-Head', viewH2H],
     ['trends','Trends', viewTrends],
+    ['analytics','Analytics', viewAnalytics],
     ['lanes','Lanes', viewLanes],
     ['leaders','Leaderboards', viewLeaders],
     ['averages','Averages', viewAverages],
@@ -320,7 +333,6 @@
     g.append(lbCard('High Game (handicap)', L.highGameHdcp));
     g.append(lbCard('High Series (handicap)', L.highSeriesHdcp));
     g.append(lbCard('Top Average (this season)', L.topSeasonAvg, x=>x==null?'':x.toFixed(1)));
-    g.append(lbCard('Top Average (book)', L.topBookAvg));
     g.append(lbCard('Most Improved', L.mostImproved, signed));
     g.append(lbCard('Biggest Drop', L.mostDeclined, signed));
     // Official figure (LeaguePals publishes its top 40) when there is one; my own
@@ -608,6 +620,10 @@
       host.append(el('div',{class:'summary'}, p.name, el('br'),
         el('span',{class:'muted'}, `${p.rows.length} season${p.rows.length>1?'s':''}  ·  ${num(gms)} games  ·  career average ${gms?(pins/gms).toFixed(1):'—'}`
           + `  ·  high game ${Math.max(...rs.map(r=>r.highGame||0))}  ·  high series ${Math.max(...rs.map(r=>r.highSeries||0))}`)));
+      const chrono = rs.slice().sort((a,b)=>b.order-a.order);   // oldest -> newest for the chart
+      host.append(multiLine(chrono.map(r=>r.label.replace(/^.*?(\d{4})-(\d{4}).*$/,'$1-$2').replace(/ \(in progress\)/,'*')),
+        [{name:'Season average', values:chrono.map(r=>r.seasonAvg)}, {name:'End-of-season book avg', values:chrono.map(r=>r.bookAvg), dash:'4 3'}],
+        {fmt:x=>Math.round(x*10)/10}));
       host.append(table([
         {k:'order',label:'Season',def:1,fmt:(x,r)=>r.label},
         {k:'team',label:'Team',cls:'hide-sm'},
@@ -623,6 +639,72 @@
     p3.append(el('div',{class:'muted',style:'padding:6px 14px;font-size:12px'},
       'Avg = scratch pins per game in that season (from the games themselves); End avg = the book average LeaguePals carried at season end.'));
     v.append(p3);
+
+    // --- one team across seasons (matched by team name: ids change every season) ---
+    const teamNames = [...new Set(all.flatMap(s=>s.standings.map(t=>t.name)))].sort((a,b)=>a.localeCompare(b));
+    const p4 = el('div',{class:'panel'});
+    p4.append(el('h2',{},'Team Year-to-Year'));
+    p4.append(el('div',{class:'muted gapnote'},'Teams are matched by name, so a team that changed its name shows up as a new team.'));
+    const sel4 = mkSelect(teamNames);
+    if(fav && teamNames.includes(fav)) sel4.value = fav;
+    p4.append(el('div',{class:'toolbar'}, sel4));
+    const host4 = el('div'); p4.append(host4);
+    const draw4 = ()=>{
+      host4.innerHTML='';
+      const chrono = all.slice().reverse();
+      const rows = chrono.map(s=>{ const t = s.standings.find(x=>x.name===sel4.value);
+        return t ? { s, t, order:s.order } : null; }).filter(Boolean);
+      if(!rows.length) return;
+      const lab = r => r.s.inProgress ? 'now*' : r.s.short;
+      host4.append(el('div',{class:'summary'}, sel4.value, el('br'), el('span',{class:'muted'},
+        `${rows.length} season${rows.length>1?'s':''} on record  ·  best finish #${Math.min(...rows.map(r=>r.t.rank))}`)));
+      host4.append(el('h3',{style:'margin:8px 12px 0;font-size:13px'},'Finish (1 = first)'));
+      host4.append(multiLine(rows.map(lab), [{name:'Final rank', values:rows.map(r=>r.t.rank)}], {invert:true, fmt:x=>Math.round(x)}));
+      host4.append(el('h3',{style:'margin:8px 12px 0;font-size:13px'},'Points % and team average'));
+      host4.append(multiLine(rows.map(lab), [{name:'Points % won', values:rows.map(r=>r.t.pctWon)}], {fmt:x=>Math.round(x*10)/10}));
+      host4.append(multiLine(rows.map(lab), [{name:'Team average', values:rows.map(r=>r.t.teamAvg)}], {fmt:x=>Math.round(x*10)/10}));
+      host4.append(table([
+        {k:'order',label:'Season',def:1,fmt:(x,r)=>r.s.label+(r.s.inProgress?' (in progress)':'')},
+        {k:'rank',label:'Rank',cls:'num',fmt:(x,r)=>'#'+r.t.rank+' / '+r.s.standings.length},
+        {k:'rec',label:'W-L-T',fmt:(x,r)=>`${r.t.wins}-${r.t.losses}-${r.t.ties}`},
+        {k:'pts',label:'Pts won',cls:'num',fmt:(x,r)=>num(r.t.pointsWon)},
+        {k:'pct',label:'Pts %',cls:'num',fmt:(x,r)=>r.t.pctWon==null?'':r.t.pctWon.toFixed(1)},
+        {k:'avg',label:'Team avg',cls:'num',fmt:(x,r)=>num(r.t.teamAvg)},
+      ], rows, {sort:'order', dir:1}));
+    };
+    sel4.onchange = draw4; draw4();
+    v.append(p4);
+
+    // --- biggest movers from one season to the next ---
+    const p5 = el('div',{class:'panel'});
+    p5.append(el('h2',{},'Biggest Movers Year-over-Year'));
+    p5.append(el('div',{class:'muted gapnote'},'Bowlers need enough games in both seasons (30; 18 when the newer one is still in progress). Teams are matched by name.'));
+    const steps = all.slice(0,-1).map((s,i)=>({ to:s, from:all[i+1], value:String(i), label:all[i+1].label.replace('Pioneer I ','')+'  →  '+s.label.replace('Pioneer I ','')+(s.inProgress?' (so far)':'') }));
+    const sel5 = mkSelect(steps.map(s=>({label:s.label, value:s.value})));
+    p5.append(el('div',{class:'toolbar'}, sel5));
+    const host5 = el('div'); p5.append(host5);
+    const draw5 = ()=>{
+      host5.innerHTML='';
+      const st = steps[+sel5.value]; if(!st) return;
+      const min = st.to.inProgress ? 18 : 30;
+      const fromBy = {}; played(st.from).forEach(b=>{ if(b.id) fromBy[b.id] = b; });
+      const mv = played(st.to).filter(b=>b.id && fromBy[b.id] && (b.gamesBowled||0)>=min && (fromBy[b.id].gamesBowled||0)>=min
+          && b.seasonAvg!=null && fromBy[b.id].seasonAvg!=null)
+        .map(b=>({ name:b.name, team:`${fromBy[b.id].seasonAvg.toFixed(1)} → ${b.seasonAvg.toFixed(1)}`, value:Math.round((b.seasonAvg-fromBy[b.id].seasonAvg)*10)/10 }))
+        .sort((a,b)=>b.value-a.value);
+      const fromT = {}; st.from.standings.forEach(t=>{ fromT[t.name] = t; });
+      const tm = st.to.standings.filter(t=>fromT[t.name] && t.pctWon!=null && fromT[t.name].pctWon!=null)
+        .map(t=>({ name:t.name, team:`#${fromT[t.name].rank} → #${t.rank}  (${fromT[t.name].pctWon.toFixed(1)}% → ${t.pctWon.toFixed(1)}%)`, value:Math.round((t.pctWon-fromT[t.name].pctWon)*10)/10 }))
+        .sort((a,b)=>b.value-a.value);
+      const g = el('div',{class:'grid'});
+      g.append(lbCard(`Bowlers: biggest average gains (${mv.length} compared)`, mv.slice(0,15), signed));
+      g.append(lbCard('Bowlers: biggest average drops', mv.slice().reverse().slice(0,15).filter(x=>x.value<0), signed));
+      g.append(lbCard(`Teams: biggest points-% rise (${tm.length} returning names)`, tm.slice(0,10), signed));
+      g.append(lbCard('Teams: biggest points-% fall', tm.slice().reverse().slice(0,10).filter(x=>x.value<0), signed));
+      host5.append(g);
+    };
+    sel5.onchange = draw5; draw5();
+    v.append(p5);
   }
 
   // ================= Head-to-Head =================
@@ -653,11 +735,17 @@
     const when = el('div',{class:'mc-meta muted'},
       el('b',{}, m.weekNum ? 'Week '+m.weekNum : m.date), m.isPos ? ' · position round' : '',
       (m.weekNum ? '  ·  '+m.date : ''), m.lane ? '  ·  Lanes '+m.lane : '');
+    // "x–y" with the higher (winning) side in green
+    const duo = (x,y,f)=>{ f=f||(n=>num(n)); return el('span',{}, el('span',{class:x>y?'gw':''}, f(x)), '–', el('span',{class:y>x?'gw':''}, f(y))); };
+    const dot = '   ·   ';
     const meta = el('div',{class:'mc-meta muted'},
-      `scratch series ${m.a.ser}–${m.b.ser}   ·   hcp series ${m.a.serH}–${m.b.serH}`
-      + `   ·   team pts ${num(m.a.teamPts)}–${num(m.b.teamPts)}   ·   indiv pts ${num(m.a.indPts)}–${num(m.b.indPts)}`
-      + (m.estimated?'   ·   estimated (short lineup / missing games)':'')
-      + (m.counts?'':'   ·   practice week'));
+      'scratch series ', duo(m.a.ser,m.b.ser), dot, 'hcp series ', duo(m.a.serH,m.b.serH),
+      dot, 'team pts ', duo(m.a.teamPts,m.b.teamPts), dot, 'indiv pts ', duo(m.a.indPts,m.b.indPts),
+      (m.estimated?dot+'estimated (short lineup / missing games)':''),
+      (m.counts?'':dot+'practice week'));
+    const gA = A(m.a.gameH), gB = A(m.b.gameH);
+    const tg = gA.length===3 && gB.length===3 ? el('div',{class:'mc-meta muted'}, 'team games (hcp) ',
+      ...[0,1,2].flatMap(i=>[i?dot:'', duo(gA[i],gB[i])])) : null;
     const det = el('div',{class:'mc-pairs'}); det.hidden = true;
     if(!confirmed){
       det.append(el('div',{class:'mc-unconfirmed'},
@@ -670,15 +758,20 @@
                        : k==='sub' ? el('span',{class:'ktag sub'},'sub')
                        : k==='partial' ? el('span',{class:'ktag part'},'part') : null;
     const gtxt = g => A(g).map(x=>x==null?'–':x).join(' ');
+    // each game score in green when that bowler won the game (handicap-adjusted, like the scoring)
+    const gsp = (mine, mh, theirs, th)=>{
+      const a = A(mine), b = A(theirs);
+      return el('span',{}, ...a.map((x,i)=>[i?' ':'', el('span',{class:(x!=null && b[i]!=null && x+(mh||0) > b[i]+(th||0))?'gw':''}, x==null?'–':x)]).flat());
+    };
     A(m.pairs).forEach(p=>{
       det.append(el('div',{class:'pair'+(confirmed?'':' unsure')},
-        el('span',{class:'pn'}, p.aName, kindTag(p.aKind)),
-        el('span',{class:'pg'}, gtxt(p.aGames)),
-        el('span',{class:'pp'}, num(p.aPts)),
+        el('span',{class:'pn an'}, p.aName, kindTag(p.aKind)),
+        el('span',{class:'pg ag'}, gsp(p.aGames,p.aHdcp,p.bGames,p.bHdcp)),
+        el('span',{class:'pp ap'+(p.aPts>p.bPts?' gw':'')}, num(p.aPts)),
         el('span',{class:'pvs'}, '–'),
-        el('span',{class:'pp'}, num(p.bPts)),
-        el('span',{class:'pg'}, gtxt(p.bGames)),
-        el('span',{class:'pn r'}, kindTag(p.bKind), p.bName)
+        el('span',{class:'pp bp'+(p.bPts>p.aPts?' gw':'')}, num(p.bPts)),
+        el('span',{class:'pg bg'}, gsp(p.bGames,p.bHdcp,p.aGames,p.aHdcp)),
+        el('span',{class:'pn r bn'}, kindTag(p.bKind), p.bName)
       ));
     });
     if(m.needsReview && A(m.flags).length){
@@ -688,7 +781,7 @@
     }
     if(!A(m.pairs).length) det.append(el('div',{class:'muted',style:'padding:4px 14px'},'no lineup detail'));
     head.onclick = ()=>{ det.hidden = !det.hidden; };
-    c.append(when, head, meta, det);
+    c.append(when, head, meta); if(tg) c.append(tg); c.append(det);
     return c;
   }
 
@@ -825,6 +918,500 @@
     };
     a3.onchange=drawBowler; b3.onchange=drawBowler; drawBowler();
     v.append(p3);
+  }
+
+  // ================= Analytics engine =================
+  // Everything below is computed in the page from a season's schedule (every matchup, seat by seat),
+  // so it works for the current season and every archived one.
+  const CLOSE_GAME = 25, CLOSE_SERIES = 60, CLUTCH_MARGIN = 4;   // "close" = decided by this many handicap pins / points
+  const sum = a => a.reduce((s,x)=>s+(x||0),0);
+  const mean = a => a.length ? sum(a)/a.length : null;
+  const sd = a => { if(a.length<2) return null; const m=mean(a); return Math.sqrt(sum(a.map(x=>(x-m)*(x-m)))/(a.length-1)); };
+  const cmp = (x,y)=> x>y?1:(x<y?0:0.5);
+  const f1 = x => x==null?'—':x.toFixed(1);
+  const pc = (x,d)=> x==null?'—':(x*100).toFixed(d==null?1:d)+'%';
+  const sg1 = x => x==null?'—':(x>0?'+':'')+x.toFixed(1);
+  const tone = (x,txt)=> el('span',{class:x>0.05?'pos':(x<-0.05?'neg':'')}, txt);
+
+  function engine(){
+    if(D._an) return D._an;
+    const P = Object.assign({indGame:1,indSeries:2,teamGame:3,teamSeries:6}, D.meta.pts||{});
+    const E = { P, base:D.meta.hcBase||235, pctH:(D.meta.hcPct||90)/100, recs:[], byTeam:{}, byDate:{}, contests:[], names:{} };
+    A(D.schedule).forEach(m=>{
+      const blind = A(m.pairs).some(p=>p.aKind==='blind'||p.bKind==='blind');
+      ['a','b'].forEach(me=>{
+        const op = me==='a'?'b':'a', s=m[me], o=m[op];
+        const seats = A(m.pairs).map(p=>({ pos:p.pos, name:p[me+'Name'], id:p[me+'Id'], kind:p[me+'Kind'],
+          games:A(p[me+'Games']), hdcp:p[me+'Hdcp']||0, pts:p[me+'Pts']||0,
+          oKind:p[op+'Kind'], oGames:A(p[op+'Games']), oHdcp:p[op+'Hdcp']||0 }));
+        const sm = {}; seats.forEach(x=>{ sm[x.pos]=x; });
+        const r = { teamId:s.teamId, team:s.team, oppId:o.teamId, opp:o.team, date:m.date, weekNum:m.weekNum, blind,
+          won:s.total, lost:o.total, tPts:s.teamPts, iPts:s.indPts, scr:s.ser, serH:s.serH, oSerH:o.serH, oScr:o.ser,
+          gameH:A(s.gameH), oGameH:A(o.gameH), scrG:A(s.scr), oScrG:A(o.scr), seats, sm, m, override:!!m.officialOverride };
+        r.result = r.won>r.lost?'W':(r.won<r.lost?'L':'T');
+        E.recs.push(r); E.names[r.teamId]=r.team;
+        (E.byTeam[r.teamId]=E.byTeam[r.teamId]||[]).push(r);
+        (E.byDate[r.date]=E.byDate[r.date]||[]).push(r);
+      });
+      const ga = A(m.a.gameH), gb = A(m.b.gameH), sa = A(m.a.scr), sb = A(m.b.scr);
+      for(let g=0; g<3; g++) E.contests.push({ type:'game', g:g+1, date:m.date, weekNum:m.weekNum, A:m.a.team, B:m.b.team, ah:ga[g], bh:gb[g], as:sa[g], bs:sb[g], blind });
+      E.contests.push({ type:'series', g:0, date:m.date, weekNum:m.weekNum, A:m.a.team, B:m.b.team, ah:m.a.serH, bh:m.b.serH, as:m.a.ser, bs:m.b.ser, blind });
+    });
+    Object.keys(E.byTeam).forEach(id=> E.byTeam[id].sort((x,y)=>x.date<y.date?-1:1));
+    E.dates = Object.keys(E.byDate).sort();
+    E.teamIds = Object.keys(E.byTeam);
+    D._an = E; return E;
+  }
+
+  // points X would earn against Y under the league's scoring (blind special-cases ignored, ties split)
+  function playPts(E, X, Y){
+    const P = E.P; let x = 0;
+    for(let g=0; g<3; g++) if(X.gameH[g]!=null && Y.gameH[g]!=null) x += cmp(X.gameH[g],Y.gameH[g])*P.teamGame;
+    x += cmp(X.serH,Y.serH)*P.teamSeries;
+    for(let i=0; i<5; i++){
+      const sx = X.sm[i], sy = Y.sm[i]; if(!sx||!sy) continue;
+      for(let g=0; g<3; g++){
+        const gx = sx.games[g], gy = sy.games[g];
+        if(gx==null||gy==null) continue;
+        x += cmp(gx+sx.hdcp, gy+sy.hdcp)*P.indGame;
+      }
+      if(sx.games.length===3 && sy.games.length===3) x += cmp(sum(sx.games)+3*sx.hdcp, sum(sy.games)+3*sy.hdcp)*P.indSeries;
+    }
+    return x;
+  }
+
+  // ---- Pythagorean record + luck ----
+  function pythLuck(){
+    const E = engine(); if(E._pl) return E._pl;
+    const meanScr = {}; E.teamIds.forEach(id=>{ meanScr[id] = mean(E.byTeam[id].map(r=>r.scr)); });
+    const rows = E.teamIds.map(id=>{
+      const rs = E.byTeam[id];
+      const won = sum(rs.map(r=>r.won)), lost = sum(rs.map(r=>r.lost));
+      const W = rs.filter(r=>r.result==='W').length, L = rs.filter(r=>r.result==='L').length, T = rs.length-W-L;
+      const pf = sum(rs.map(r=>r.serH)), pa = sum(rs.map(r=>r.oSerH));
+      const weeks = rs.map(r=>{
+        const others = E.byDate[r.date].filter(o=>o!==r);
+        const exp = others.length ? mean(others.map(o=>playPts(E,r,o))) : r.won;
+        return { date:r.date, weekNum:r.weekNum, opp:r.opp, won:r.won, lost:r.lost, exp, form:r.scr-meanScr[id],
+                 oForm:r.oScr-meanScr[r.oppId], scr:r.scr, result:r.result };
+      });
+      const weak = weeks.filter(w=>w.form<0), strong = weeks.filter(w=>w.form>=0);
+      return { id, team:E.names[id], weeks, n:rs.length, W, L, T, won, lost, pf, pa, pct: won/((won+lost)||1),
+        exp: sum(weeks.map(w=>w.exp)), oppForm: mean(weeks.map(w=>w.oForm)),
+        weakN:weak.length, weakAvg: mean(weak.map(w=>w.won)), strongAvg: mean(strong.map(w=>w.won)),
+        weakWins: weak.filter(w=>w.result==='W').length };
+    });
+    // exponent: whatever makes pins-for / pins-against best predict each team's share of the points
+    let bestK = 1, bestE = Infinity;
+    for(let k=1; k<=500; k+=0.5){
+      let e = 0; rows.forEach(t=>{ const w = 1/(1+Math.pow(t.pa/t.pf, k)); e += (t.pct-w)*(t.pct-w); });
+      if(e<bestE){ bestE=e; bestK=k; }
+    }
+    rows.forEach(t=>{
+      t.pyth = 1/(1+Math.pow(t.pa/t.pf, bestK));
+      t.pythPts = t.pyth*(t.won+t.lost); t.pythDiff = t.won - t.pythPts;
+      t.pythW = t.pyth*t.n; t.pythWDiff = (t.W+t.T/2) - t.pythW;
+      t.luck = t.won - t.exp;
+    });
+    E._pl = { rows, k:bestK };
+    return E._pl;
+  }
+
+  // ---- standings position after every week ----
+  function placement(){
+    const E = engine(); if(E._pos) return E._pos;
+    const cum = {}, ranks = {}, pts = {};
+    E.teamIds.forEach(id=>{ cum[id]=0; ranks[id]=[]; pts[id]=[]; });
+    E.dates.forEach(d=>{
+      E.byDate[d].forEach(r=>{ cum[r.teamId] += r.won; });
+      E.teamIds.forEach(id=>{ ranks[id].push(1 + E.teamIds.filter(o=>cum[o]>cum[id]).length); pts[id].push(cum[id]); });
+    });
+    // the last week uses LeaguePals' own standings order, which breaks point ties (earlier weeks share a place)
+    A(D.standings).forEach(t=>{
+      const r = ranks[t.id]; if(r && r.length && Math.abs(pts[t.id][r.length-1]-t.pointsWon)<0.01) r[r.length-1] = t.rank;
+    });
+    E._pos = { dates:E.dates, ranks, pts }; return E._pos;
+  }
+
+  // ---- chart helpers ----
+  const svgWrap = (w, h, inner)=> el('div',{class:'chartwrap',html:`<svg viewBox="0 0 ${w} ${h}" style="width:100%;min-width:${w}px;height:auto">${inner}</svg>`});
+  const lblEvery = n => n>26?4:(n>14?2:1);
+
+  function stepChart(dates, lines, nTeams){
+    // lines: [{ranks:[...], pts:[...], label, color, width, op, dash}] ; rank 1 on top
+    const n = dates.length; if(!n) return el('div',{class:'muted',style:'padding:10px 14px'},'not enough weeks yet');
+    const W = Math.max(520, n*34+60), H = 260, padL = 30, padR = 22, padT = 14, padB = 26;
+    const xOf = i => padL + (n===1? (W-padL-padR)/2 : i*(W-padL-padR)/(n-1));
+    const yOf = r => padT + (r-1)/Math.max(1,nTeams-1)*(H-padT-padB);
+    let svg = '';
+    [1,10,20,30,40].filter(r=>r<=nTeams).forEach(r=>{
+      svg += `<line x1="${padL}" x2="${W-padR}" y1="${yOf(r).toFixed(1)}" y2="${yOf(r).toFixed(1)}" style="stroke:var(--line)"/>`
+           + `<text x="${padL-6}" y="${(yOf(r)+3).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--muted)">${r}</text>`;
+    });
+    const k = lblEvery(n);
+    dates.forEach((d,i)=>{ if(i%k===0 || i===n-1) svg += `<text x="${xOf(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${d.slice(5)}</text>`; });
+    lines.forEach(L=>{
+      const pts = L.ranks.map((r,i)=>[xOf(i), yOf(r)]);
+      // step-after: hold the old position across the week, then move at the next week
+      let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+      for(let i=1; i<pts.length; i++) d += ` H${pts[i][0].toFixed(1)} V${pts[i][1].toFixed(1)}`;
+      svg += `<path d="${d}" fill="none" style="stroke:${L.color}" stroke-width="${L.width}" opacity="${L.op}"${L.dash?` stroke-dasharray="${L.dash}"`:''} stroke-linejoin="round"/>`;
+      if(L.label){
+        L.ranks.forEach((r,i)=>{
+          svg += `<circle cx="${pts[i][0].toFixed(1)}" cy="${pts[i][1].toFixed(1)}" r="3" style="fill:${L.color}"><title>${L.label}, ${dates[i]}: #${r}${L.pts?` (${L.pts[i]} pts)`:''}</title></circle>`;
+          if(i%k===0 || i===pts.length-1) svg += `<text x="${pts[i][0].toFixed(1)}" y="${(pts[i][1]-7).toFixed(1)}" text-anchor="middle" font-size="9" font-weight="700" style="fill:${L.color}">${r}</text>`;
+        });
+      }
+    });
+    return svgWrap(W, H, svg);
+  }
+
+  // generic multi-series line chart over arbitrary labels (seasons etc.); opt.invert puts the biggest value at the bottom (ranks)
+  function multiLine(labels, series, opt){
+    opt = opt||{}; const n = labels.length;
+    const vals = series.flatMap(s=>s.values).filter(x=>x!=null);
+    if(n<1 || !vals.length) return el('div',{class:'muted',style:'padding:10px 14px'},'not enough seasons yet');
+    const W = Math.max(480, n*90), H = opt.h||170, padL = 40, padR = 24, padT = 18, padB = 26;
+    let lo = Math.min(...vals), hi = Math.max(...vals); if(hi===lo){ lo-=1; hi+=1; } const padv = (hi-lo)*0.12; lo-=padv; hi+=padv;
+    const fmt = opt.fmt || (x=>Math.round(x*10)/10);
+    const xOf = i => padL + (n===1? (W-padL-padR)/2 : i*(W-padL-padR)/(n-1));
+    const yOf = v => opt.invert ? padT + (v-lo)/(hi-lo)*(H-padT-padB) : padT + (1-(v-lo)/(hi-lo))*(H-padT-padB);
+    let svg = '';
+    for(let t=0; t<4; t++){
+      const v = lo + (hi-lo)*t/3, y = yOf(v);
+      svg += `<line x1="${padL}" x2="${W-padR}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" style="stroke:var(--line)"/>`
+           + `<text x="${padL-6}" y="${(y+3).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--muted)">${fmt(v)}</text>`;
+    }
+    labels.forEach((l,i)=>{ svg += `<text x="${xOf(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="10" style="fill:var(--muted)">${l}</text>`; });
+    series.forEach((s,si)=>{
+      const col = s.color || (si?'var(--muted)':'var(--accent)');
+      let d = '', pen = false;
+      s.values.forEach((v,i)=>{ if(v==null){ pen=false; return; } d += `${pen?'L':'M'}${xOf(i).toFixed(1)},${yOf(v).toFixed(1)} `; pen=true; });
+      svg += `<path d="${d}" fill="none" style="stroke:${col}" stroke-width="2"${s.dash?` stroke-dasharray="${s.dash}"`:''}/>`;
+      s.values.forEach((v,i)=>{ if(v==null) return;
+        svg += `<circle cx="${xOf(i).toFixed(1)}" cy="${yOf(v).toFixed(1)}" r="3" style="fill:${col}"><title>${s.name}, ${labels[i]}: ${fmt(v)}</title></circle>`;
+        if(!si) svg += `<text x="${xOf(i).toFixed(1)}" y="${(yOf(v)-8).toFixed(1)}" text-anchor="middle" font-size="10" style="fill:${col}">${fmt(v)}</text>`;
+      });
+    });
+    const wrap = svgWrap(W, H, svg);
+    if(series.length>1) wrap.append(el('div',{class:'muted',style:'font-size:11px;padding:2px 0'}, series.map(s=>s.name).join('  ·  ')));
+    return wrap;
+  }
+
+  // ================= Analytics tab =================
+  function viewAnalytics(v){
+    const E = engine();
+    if(!E.recs.length){ v.append(el('div',{class:'panel'}, el('div',{class:'muted',style:'padding:14px'},'No matchups reconstructed yet.'))); return; }
+    marginsPanel(v); pythPanel(v); luckPanel(v); ratesPanel(v);
+  }
+
+  function marginsPanel(v){
+    const E = engine();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Biggest & Smallest Gaps'));
+    p.append(el('div',{class:'muted gapnote'},
+      'How far apart the two teams finished in a single team game or in the 3-game team series. Handicap is what the points are decided on; '
+      +'scratch is raw pins. Ties (a gap of 0) are counted but not listed under smallest.'));
+    let basis = 'H', noBlind = true;
+    const bar = el('div',{class:'toolbar'}); const host = el('div');
+    const mk = (id,label)=>{ const b = el('button',{class:'wkbtn'+(basis===id?' active':'')}, label);
+      b.onclick = ()=>{ basis=id; [...bar.querySelectorAll('.wkbtn')].forEach(x=>x.classList.remove('active')); b.classList.add('active'); draw(); }; return b; };
+    const cb = el('input',{type:'checkbox'}); cb.checked = true;
+    cb.onchange = ()=>{ noBlind = cb.checked; draw(); };
+    bar.append(mk('H','Handicap'), mk('S','Scratch'), el('label',{style:'font-size:13px;display:flex;gap:6px;align-items:center'}, cb, 'Skip matchups where a team had a blind'));
+    p.append(bar, host);
+    function gapCard(title, items){
+      const c = el('div',{class:'card'}, el('h3',{},title)); const ul = el('ul',{class:'lb'});
+      items.forEach((x,i)=> ul.append(el('li',{},
+        el('span',{class:'r'}, (i+1)+''),
+        el('span',{class:'nm'}, `${x.win} ${x.ws}`, el('span',{class:'tm'}, `  over ${x.lose} ${x.ls}`),
+          el('div',{class:'tm'}, (x.weekNum?`Wk ${x.weekNum} · `:'')+x.date.slice(5)+(x.type==='game'?` · game ${x.g}`:'')+(x.blind?' · blind':''))),
+        el('span',{class:'v'}, num(x.margin)))));
+      if(!items.length) ul.append(el('li',{class:'muted'},'— no data yet —'));
+      c.append(ul); return c;
+    }
+    function draw(){
+      host.innerHTML='';
+      const all = E.contests.filter(c=>!(noBlind&&c.blind));
+      const g = el('div',{class:'grid'});
+      const skipped = E.contests.length-all.length;
+      [['game','Team Game'],['series','Team Series']].forEach(([type,name])=>{
+        const L = all.filter(c=>c.type===type).map(c=>{
+          const a = basis==='H'?c.ah:c.as, b = basis==='H'?c.bh:c.bs, aw = a>=b;
+          return Object.assign({}, c, { margin:Math.abs(a-b), win: aw?c.A:c.B, lose: aw?c.B:c.A, ws: aw?a:b, ls: aw?b:a });
+        }).filter(c=>c.ws!=null && c.ls!=null);
+        const ties = L.filter(c=>c.margin===0).length;
+        const big = L.slice().sort((x,y)=>y.margin-x.margin).slice(0,10);
+        const small = L.filter(c=>c.margin>0).sort((x,y)=>x.margin-y.margin).slice(0,10);
+        const ms = L.map(c=>c.margin).sort((a,b)=>a-b), med = ms.length? ms[Math.floor(ms.length/2)] : null;
+        g.append(gapCard(`Largest ${name} Gap`, big), gapCard(`Smallest ${name} Gap`, small));
+        g.append(stat(`${name} gap — typical`, kv([['Average gap', ms.length? Math.round(mean(ms)):null], ['Median gap', med], ['Exact ties', ties], ['Contests', ms.length]])));
+      });
+      host.append(g);
+      if(skipped) host.append(el('div',{class:'muted gapnote'}, `${skipped} contest${skipped>1?'s':''} from matchups with a blind left out.`));
+    }
+    draw(); v.append(p);
+  }
+
+  function pythPanel(v){
+    const PL = pythLuck();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Pythagorean Record'));
+    p.append(el('div',{class:'muted gapnote'},
+      `Like baseball’s: pins scored vs pins allowed (handicap series, the numbers the points are decided on) → the record a team “should” have. `
+      +`Bowling pin totals are bunched far tighter than baseball runs, so instead of baseball’s ~1.83 the exponent is fit to this season’s league: ${PL.k}. `
+      +`Pythag % = PF^k / (PF^k + PA^k); expected points = Pythag % × points available. A positive “vs exp” / “vs Pythag” means the team collected more than its pins deserved.`));
+    p.append(table([
+      {k:'team',label:'Team'},
+      {k:'rec',label:'W-L-T',fmt:(_,r)=>`${r.W}-${r.L}-${r.T}`},
+      {k:'pf',label:'Pins for',cls:'num',fmt:num},
+      {k:'pa',label:'Pins against',cls:'num',fmt:num},
+      {k:'pyth',label:'Pythag %',cls:'num',fmt:x=>pc(x)},
+      {k:'pythW',label:'Pythag W',cls:'num',fmt:x=>f1(x)},
+      {k:'pythWDiff',label:'W vs Pythag',cls:'num',fmt:x=>tone(x,sg1(x))},
+      {k:'pythPts',label:'Exp pts',cls:'num',fmt:x=>f1(x)},
+      {k:'won',label:'Actual pts',cls:'num',fmt:num},
+      {k:'pythDiff',label:'Pts vs exp',cls:'num',fmt:x=>tone(x,sg1(x))},
+    ], PL.rows, {sort:'pythDiff', rank:true}));
+    v.append(p);
+  }
+
+  function luckPanel(v){
+    const PL = pythLuck();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Luck Index'));
+    p.append(el('div',{class:'muted gapnote'},
+      'Expected points = what each week’s lineup would have earned, on average, against every other team’s lineup that week (an “all-play” replay: same seat vs same seat, '
+      +'handicap scores, ties split). Luck = actual points − expected: positive means the schedule/opponents’ off nights handed over points the bowling alone didn’t earn. '
+      +'“Opp form faced” is how the opponents bowled against this team compared with their own season average (negative = they had bad nights against you). '
+      +'Weak weeks are weeks the team’s scratch series was below its own average. Click a team for the week-by-week.'));
+    p.append(table([
+      {k:'team',label:'Team'},
+      {k:'won',label:'Pts',cls:'num',fmt:num},
+      {k:'exp',label:'Exp pts',cls:'num',fmt:x=>f1(x)},
+      {k:'luck',label:'Luck',cls:'num',fmt:x=>tone(x,sg1(x))},
+      {k:'pythDiff',label:'vs Pythag',cls:'num hide-sm',fmt:x=>tone(x,sg1(x))},
+      {k:'oppForm',label:'Opp form faced',cls:'num',fmt:x=>x==null?'—':tone(-x,sg1(x))},
+      {k:'weakN',label:'Weak wks',cls:'num'},
+      {k:'weakAvg',label:'Pts/wk weak',cls:'num',fmt:x=>f1(x)},
+      {k:'strongAvg',label:'Pts/wk strong',cls:'num',fmt:x=>f1(x)},
+    ], PL.rows, {sort:'luck', rank:true, expand:r=>{
+      const d = el('div',{style:'padding:8px 12px'});
+      d.append(table([
+        {k:'date',label:'Week',def:1,fmt:(x,w)=> (w.weekNum?'Wk '+w.weekNum+' · ':'')+x.slice(5)},
+        {k:'opp',label:'Opponent'},
+        {k:'form',label:'Own form',cls:'num',fmt:x=>tone(x,sg1(x))},
+        {k:'oForm',label:'Opp form',cls:'num',fmt:x=>tone(-x,sg1(x))},
+        {k:'won',label:'Pts',cls:'num',fmt:(x,w)=>el('span',{class:w.result==='W'?'pos':(w.result==='L'?'neg':'')}, num(x)+'–'+num(w.lost))},
+        {k:'exp',label:'Exp',cls:'num',fmt:x=>f1(x)},
+        {k:'delta',label:'+/-',cls:'num',fmt:x=>tone(x,sg1(x))},
+      ], r.weeks.map(w=>Object.assign({delta:w.won-w.exp}, w)), {sort:'date',dir:1}));
+      d.append(el('div',{class:'muted',style:'font-size:11px;padding-top:4px'},
+        'Own form = scratch series minus this team’s season average; Opp form = the same for the opponent that night (green = they bowled below their norm). '
+        +'Weak weeks won: '+r.weakWins+' of '+r.weakN+'.'));
+      return d;
+    }}));
+    v.append(p);
+  }
+
+  // ---- rate stats ----
+  function bowlerRates(){
+    const E = engine(); if(E._br) return E._br;
+    const per = {};
+    E.recs.forEach(r=> r.seats.forEach(s=>{
+      if(!s.id || s.kind==='blind' || s.games.length!==3 || s.games.some(x=>x==null)) return;
+      const o = per[s.id] = per[s.id] || { pts:0, wk:0, diff:0, dg:0 };
+      o.wk++; o.pts += s.pts;
+      if(s.oKind!=='blind' && s.oGames.length===3 && !s.oGames.some(x=>x==null)){
+        o.diff += (sum(s.games)+3*s.hdcp) - (sum(s.oGames)+3*s.oHdcp); o.dg += 3; }
+    }));
+    const maxSeat = E.P.indGame*3 + E.P.indSeries;
+    E._br = D.bowlers.map(b=>{
+      const wk = A(b.weeks).filter(w=>!w.absent);
+      const games = wk.flatMap(w=>A(w.games)).filter(x=>x!=null);
+      const full = wk.filter(w=>A(w.games).filter(x=>x!=null).length===3);
+      const o = per[b.id];
+      return { name:b.name, team:b.team, n:games.length, avg:mean(games),
+        r200: games.length? games.filter(x=>x>=200).length/games.length : null,
+        r250: games.length? games.filter(x=>x>=250).length/games.length : null,
+        r600: full.length? full.filter(w=>w.scrSer>=600).length/full.length : null,
+        cv: games.length>1 ? sd(games)/mean(games) : null,
+        share: o && o.wk ? o.pts/(o.wk*maxSeat) : null,
+        ppw: o && o.wk ? o.pts/o.wk : null,
+        diff: o && o.dg ? o.diff/o.dg : null };
+    }).filter(b=>b.n>0);
+    return E._br;
+  }
+
+  function teamRates(){
+    const E = engine(); if(E._tr) return E._tr;
+    const cap = E.P.teamGame*3 + E.P.teamSeries, icap = E.P.indGame*15 + E.P.indSeries*5;
+    E._tr = E.teamIds.map(id=>{
+      const rs = E.byTeam[id], n = rs.length;
+      let gw = 0, gn = 0; rs.forEach(r=>{ for(let g=0; g<3; g++) if(r.gameH[g]!=null && r.oGameH[g]!=null){ gw += cmp(r.gameH[g], r.oGameH[g]); gn++; } });
+      const sw = sum(rs.map(r=>cmp(r.serH,r.oSerH)));
+      const real = rs.flatMap(r=>r.seats.filter(s=>s.kind!=='blind').flatMap(s=>s.games)).filter(x=>x!=null);
+      const close = rs.filter(r=>Math.abs(r.won-r.lost)<=CLUTCH_MARGIN);
+      return { team:E.names[id], n, pct: sum(rs.map(r=>r.won))/((sum(rs.map(r=>r.won))+sum(rs.map(r=>r.lost)))||1),
+        gwin: gn? gw/gn : null, swin: sw/n, margin: mean(rs.map(r=>(r.serH-r.oSerH)/3)),
+        avg: real.length? mean(real) : null, per200: sum(rs.map(r=>r.seats.filter(s=>s.kind!=='blind').flatMap(s=>s.games).filter(x=>x>=200).length))/n,
+        tshare: sum(rs.map(r=>r.tPts))/(n*cap), ishare: sum(rs.map(r=>r.iPts))/(n*icap),
+        sdSer: sd(rs.map(r=>r.scr)), closeW: close.filter(r=>r.result==='W').length, closeN: close.length,
+        closePct: close.length? close.filter(r=>r.result==='W').length/close.length : null };
+    });
+    return E._tr;
+  }
+
+  function ratesPanel(v){
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Rate Stats'));
+    let mode = 'bowlers', minG = D.past ? 30 : 12;
+    const bar = el('div',{class:'toolbar'}), host = el('div');
+    const mkM = (id,label)=>{ const b = el('button',{class:'wkbtn'+(mode===id?' active':'')}, label);
+      b.onclick = ()=>{ mode=id; [...bar.querySelectorAll('.wkbtn')].forEach(x=>x.classList.remove('active')); b.classList.add('active'); draw(); }; return b; };
+    const sel = mkSelect([{label:'min 6 games',value:'6'},{label:'min 12 games',value:'12'},{label:'min 30 games',value:'30'},{label:'min 60 games',value:'60'}]);
+    sel.value = D.past ? '30' : '12'; sel.onchange = ()=>{ minG = +sel.value; draw(); };
+    bar.append(mkM('bowlers','Bowlers'), mkM('teams','Teams'), sel);
+    p.append(bar, host);
+    function draw(){
+      host.innerHTML=''; sel.hidden = mode!=='bowlers';
+      if(mode==='bowlers'){
+        host.append(el('div',{class:'muted gapnote'},
+          '200+ / 250+ = share of games at or over that score. 600+ = share of full 3-game weeks. Pts share = individual points earned ÷ the 5 available per week. '
+          +'Seat margin = handicap pins per game over the bowler on the other side (blind opponents left out). CV = scoring spread ÷ average — lower is steadier. Blind fills excluded.'));
+        host.append(table([
+          {k:'name',label:'Bowler'},{k:'team',label:'Team',cls:'hide-sm'},
+          {k:'n',label:'Gm',cls:'num'},
+          {k:'avg',label:'Avg',cls:'num',fmt:f1},
+          {k:'r200',label:'200+',cls:'num',fmt:x=>pc(x,0)},
+          {k:'r250',label:'250+',cls:'num',fmt:x=>pc(x,0)},
+          {k:'r600',label:'600+ ser',cls:'num',fmt:x=>pc(x,0)},
+          {k:'cv',label:'CV',cls:'num',def:1,fmt:x=>x==null?'—':(x*100).toFixed(1)+'%'},
+          {k:'share',label:'Pts share',cls:'num',fmt:x=>pc(x,0)},
+          {k:'ppw',label:'Pts/wk',cls:'num',fmt:f1},
+          {k:'diff',label:'Seat margin /gm',cls:'num',fmt:x=>x==null?'—':tone(x,sg1(x))},
+        ], bowlerRates().filter(b=>b.n>=minG), {sort:'avg', rank:true}));
+      } else {
+        host.append(el('div',{class:'muted gapnote'},
+          'Game % / Series % = share of the 3 team games / the team series won (ties count half). Margin = handicap pins per game over the opponent. '
+          +'Team pts share = team-contest points earned ÷ 15 available; Indiv share = individual points ÷ 25. 200+/wk = games of 200 or better per week (all five bowlers). '
+          +'Close = matchups decided by 4 points or fewer.'));
+        host.append(table([
+          {k:'team',label:'Team'},
+          {k:'pct',label:'Pts %',cls:'num',fmt:x=>pc(x)},
+          {k:'gwin',label:'Game %',cls:'num',fmt:x=>pc(x,0)},
+          {k:'swin',label:'Series %',cls:'num',fmt:x=>pc(x,0)},
+          {k:'margin',label:'Margin /gm',cls:'num',fmt:x=>tone(x,sg1(x))},
+          {k:'avg',label:'Avg',cls:'num',fmt:f1},
+          {k:'per200',label:'200+ /wk',cls:'num',fmt:f1},
+          {k:'tshare',label:'Team pts share',cls:'num hide-sm',fmt:x=>pc(x,0)},
+          {k:'ishare',label:'Indiv share',cls:'num hide-sm',fmt:x=>pc(x,0)},
+          {k:'sdSer',label:'Series σ',cls:'num hide-sm',def:1,fmt:x=>x==null?'—':Math.round(x)},
+          {k:'closePct',label:'Close',cls:'num',fmt:(x,r)=> r.closeN? `${r.closeW}-${r.closeN-r.closeW}` : '—'},
+        ], teamRates(), {sort:'pct', rank:true}));
+      }
+    }
+    draw(); v.append(p);
+  }
+
+  // ---- per-team blocks used by the Trends tab ----
+  function pointsWeekBlock(host, teamId){
+    const E = engine(), rs = E.byTeam[teamId] || [];
+    host.append(el('h3',{style:'margin:16px 12px 2px'},'Points won / lost by week'));
+    if(!rs.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no matchups yet')); return; }
+    const per = D.meta.pointsPerWeek || 40, won = sum(rs.map(r=>r.won)), lost = sum(rs.map(r=>r.lost));
+    host.append(el('div',{class:'summary'}, `${num(won)} won – ${num(lost)} lost`, '   ·   ', `${f1(won/rs.length)} per week`,
+      '   ·   ', `best ${num(Math.max(...rs.map(r=>r.won)))}, worst ${num(Math.min(...rs.map(r=>r.won)))}`));
+    const n = rs.length, W = Math.max(520, n*34+30), H = 170, pad = 12, top = 18, base = H-22, bw = (W-2*pad)/n, gap = Math.min(8, bw*0.2);
+    let svg = ''; const hOf = x => x/per*(base-top);
+    rs.forEach((r,i)=>{
+      const x = pad+i*bw+gap/2, wd = Math.max(3,bw-gap), wh = hOf(r.won), lh = hOf(r.lost);
+      svg += `<rect x="${x.toFixed(1)}" y="${(base-wh).toFixed(1)}" width="${wd.toFixed(1)}" height="${wh.toFixed(1)}" style="fill:var(--good)" opacity="0.85"><title>${r.date} vs ${r.opp}: won ${num(r.won)}, lost ${num(r.lost)}</title></rect>`
+           + `<rect x="${x.toFixed(1)}" y="${(base-wh-lh).toFixed(1)}" width="${wd.toFixed(1)}" height="${lh.toFixed(1)}" style="fill:var(--bad)" opacity="0.55"/>`
+           + `<text x="${(x+wd/2).toFixed(1)}" y="${(base-wh/2+3).toFixed(1)}" text-anchor="middle" font-size="10" font-weight="700" style="fill:#fff">${num(r.won)}</text>`
+           + `<text x="${(x+wd/2).toFixed(1)}" y="${H-7}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${r.date.slice(5)}</text>`;
+    });
+    svg += `<line x1="${pad}" x2="${W-pad}" y1="${(base-hOf(per/2)).toFixed(1)}" y2="${(base-hOf(per/2)).toFixed(1)}" style="stroke:var(--ink)" stroke-dasharray="4 3" opacity="0.5"/>`;
+    host.append(svgWrap(W, H, svg));
+    host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},'Green = points won, red = points lost (out of '+per+'); dashed line = 20, an even split.'));
+    host.append(table([
+      {k:'date',label:'Week',def:1,fmt:(x,r)=> (r.weekNum?'Wk '+r.weekNum+' · ':'')+x.slice(5)},
+      {k:'opp',label:'Opponent'},
+      {k:'won',label:'Won',cls:'num',fmt:num},
+      {k:'lost',label:'Lost',cls:'num',fmt:num},
+      {k:'net',label:'Net',cls:'num',fmt:x=>tone(x,signed(x))},
+      {k:'tPts',label:'Team pts',cls:'num hide-sm',fmt:num},
+      {k:'iPts',label:'Indiv pts',cls:'num hide-sm',fmt:num},
+    ], rs.map(r=>({date:r.date, weekNum:r.weekNum, opp:r.opp, won:r.won, lost:r.lost, net:r.won-r.lost, tPts:r.tPts, iPts:r.iPts})), {sort:'date',dir:1}));
+  }
+
+  function placementBlock(host, teamId, fav){
+    const E = engine(), PS = placement(), n = E.teamIds.length;
+    host.append(el('h3',{style:'margin:16px 12px 2px'},'League placement by week'));
+    if(!PS.dates.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no weeks yet')); return; }
+    const mine = PS.ranks[teamId]; if(!mine) return;
+    const last = mine[mine.length-1], best = Math.min(...mine), worst = Math.max(...mine);
+    host.append(el('div',{class:'summary'}, `#${last} now`, '   ·   ', `best #${best}, low #${worst}`,
+      '   ·   ', `${PS.pts[teamId][mine.length-1]} points`));
+    const lines = [];
+    E.teamIds.filter(id=>id!==teamId).forEach(id=> lines.push({ ranks:PS.ranks[id], color:'var(--muted)', width:1, op:0.22 }));
+    const favId = fav ? E.teamIds.find(id=>E.names[id]===fav) : null;
+    if(favId && favId!==teamId) lines.push({ ranks:PS.ranks[favId], pts:PS.pts[favId], label:fav, color:'var(--bad)', width:2, op:0.9, dash:'5 3' });
+    lines.push({ ranks:mine, pts:PS.pts[teamId], label:E.names[teamId], color:'var(--accent)', width:3, op:1 });
+    host.append(stepChart(PS.dates, lines, n));
+    host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},
+      'Standing after each week by total points won (ties share a place). Blue = this team'+(favId&&favId!==teamId?`, dashed red = ${fav}`:'')+', grey = everyone else. Hover a dot for the points.'));
+  }
+
+  function clutchBlock(host, teamId){
+    const E = engine(), rs = E.byTeam[teamId] || [];
+    host.append(el('h3',{style:'margin:16px 12px 2px'},'Clutch — who carried'));
+    if(!rs.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no matchups yet')); return; }
+    // the bowler who beat their own average by the most in a given team game / the series
+    const star = (r, c)=>{
+      let best = null;
+      r.seats.forEach(s=>{
+        if(s.kind==='blind' || !s.name || s.games.length!==3 || s.games.some(x=>x==null)) return;
+        const avg = E.base - s.hdcp/E.pctH, raw = c.series ? sum(s.games) : s.games[c.g], over = raw - (c.series?3:1)*avg;
+        if(!best || over>best.over) best = { name:s.name.replace(/ \(blind\)$/,''), raw, over };
+      });
+      return best;
+    };
+    const contests = r => {
+      const out = [];
+      for(let g=0; g<3; g++) if(r.gameH[g]!=null && r.oGameH[g]!=null) out.push({ label:'Game '+(g+1), g, series:false, margin:r.gameH[g]-r.oGameH[g], close:Math.abs(r.gameH[g]-r.oGameH[g])<=CLOSE_GAME });
+      out.push({ label:'Series', g:0, series:true, margin:r.serH-r.oSerH, close:Math.abs(r.serH-r.oSerH)<=CLOSE_SERIES });
+      return out;
+    };
+    // tally: every contest this team won, and the bowler who led it
+    const tally = {}; let wonN = 0, closeN = 0;
+    rs.forEach(r=> contests(r).forEach(c=>{
+      if(c.margin<=0) return; wonN++; if(c.close) closeN++;
+      const st = star(r,c); if(!st) return;
+      const t = tally[st.name] = tally[st.name] || { name:st.name, led:0, closeLed:0, over:[] };
+      t.led++; if(c.close) t.closeLed++; t.over.push(st.over/(c.series?3:1));
+    }));
+    const rows = Object.values(tally).map(t=>({ name:t.name, led:t.led, closeLed:t.closeLed, over:mean(t.over) }));
+    host.append(el('div',{class:'muted',style:'padding:2px 14px 6px;font-size:12px'},
+      `Of ${wonN} team games/series won this season, ${closeN} were close (inside ${CLOSE_GAME} handicap pins for a game, ${CLOSE_SERIES} for the series). `
+      +`The “carrier” of a contest is the bowler who beat their own average by the most pins in it.`));
+    host.append(table([
+      {k:'name',label:'Bowler'},
+      {k:'closeLed',label:'Close wins led',cls:'num'},
+      {k:'led',label:'All wins led',cls:'num'},
+      {k:'over',label:'Avg pins over avg /gm',cls:'num',fmt:x=>tone(x,sg1(x))},
+    ], rows, {sort:'closeLed'}));
+    // the close matchups themselves
+    const closeM = rs.filter(r=>Math.abs(r.won-r.lost)<=CLUTCH_MARGIN);
+    host.append(el('div',{class:'muted',style:'padding:8px 14px 2px;font-size:12px'},
+      closeM.length ? `Matchups decided by ${CLUTCH_MARGIN} points or fewer (${closeM.filter(r=>r.result==='W').length}–${closeM.filter(r=>r.result==='L').length}) — click for the carriers:` : 'No matchups decided by '+CLUTCH_MARGIN+' points or fewer yet.'));
+    closeM.forEach(r=>{
+      const d = el('details',{class:'cl'}), top = r.seats.filter(s=>s.kind!=='blind').slice().sort((a,b)=>b.pts-a.pts)[0];
+      d.append(el('summary',{}, `${r.weekNum?'Wk '+r.weekNum+' · ':''}${r.date.slice(5)} vs ${r.opp} — ${r.result==='W'?'won':(r.result==='L'?'lost':'tied')} ${num(r.won)}–${num(r.lost)}`));
+      contests(r).forEach(c=>{
+        const st = star(r,c);
+        d.append(el('div',{class:'cl-line'}, `${c.label}: ${c.margin>0?'won':(c.margin<0?'lost':'tied')} by ${Math.abs(c.margin)}`,
+          st ? el('span',{class:'muted'}, ` — carried by ${st.name} (${st.raw}, ${sg1(st.over)} vs avg)`) : ''));
+      });
+      if(top) d.append(el('div',{class:'cl-line muted'}, `Most individual points: ${top.name.replace(/ \(blind\)$/,'')} (${num(top.pts)} of 5)`));
+      host.append(d);
+    });
   }
 
   // ================= Trends =================
@@ -1035,7 +1622,10 @@
       if(!tr){ tHost.append(el('div',{class:'muted',style:'padding:12px'},'no data')); return; }
       const an = AT.find(a=>a.teamId===tr.teamId);
       seriesBlock(tHost, tr[metric]);
+      pointsWeekBlock(tHost, tr.teamId);
+      placementBlock(tHost, tr.teamId, fav);
       if(an){ paceBlock(tHost, an.pace, true, tr.teamId); cardsFor(tHost, an, true); }
+      clutchBlock(tHost, tr.teamId);
     }
     function drawBowler(){
       bHost.innerHTML='';

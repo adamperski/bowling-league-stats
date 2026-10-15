@@ -476,6 +476,26 @@ Edit `config.json`:
 Within a week, LeaguePals stores the 3 games in the order it stores them; the
 dashboard shows them as stored. Totals, averages, and highs are unaffected.
 
+## Analytics tab (works for every season)
+
+Computed in the page from a season's schedule (every matchup, seat by seat), so it covers the current
+season and all archived ones with no extra build step.
+
+- **Biggest & smallest gaps** - the largest/smallest margin in a team game and in the team series, on
+  handicap (what the points use) or scratch. Matchups where a team had a blind can be skipped.
+- **Pythagorean record** - handicap pins for / against -> the record a team "should" have. The exponent is
+  fit to the season's league (bowling pin totals are far tighter than baseball runs, so ~17-18, not 1.83).
+- **Luck index** - an all-play replay: each week's lineup is scored against every other team's lineup that
+  week (same seat vs same seat, ties split) to get expected points; luck = actual - expected. Also shows
+  how the opponents bowled against the team relative to their own averages ("opp form faced") and the
+  team's points in weak vs strong weeks. The replay reproduces the official points to within 0.25 on average.
+- **Rate stats** - bowlers (200+/250+ share, 600+ series share, CV, individual-points share, seat margin)
+  and teams (game/series win %, margin per game, points shares, close-match record).
+
+The Trends tab's team analysis also has points won/lost by week, a stepped league-placement chart and a
+"who carried" breakdown of close matchups (carrier = most pins over their own average in that game/series).
+The History tab has year-to-year charts for bowlers and teams (teams matched by name) and biggest movers.
+
 ## Trends tab
 
 Pick a team or a bowler (defaults to your `favoriteTeam`), toggle scratch /
