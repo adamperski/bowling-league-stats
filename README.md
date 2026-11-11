@@ -476,6 +476,20 @@ Edit `config.json`:
 Within a week, LeaguePals stores the 3 games in the order it stores them; the
 dashboard shows them as stored. Totals, averages, and highs are unaffected.
 
+## Ask Claude tab
+
+Free-form questions the tables don't answer. The site is static, so the tab calls the Anthropic API from the
+browser with the viewer's **own API key** (Console account; saved only in that browser's localStorage, never in
+the repo or on the site). Claude answers by writing small JavaScript queries; they run in a Web Worker
+sandbox over every season's data (standings, bowlers, every matchup seat by seat) and the page loops until
+Claude has the numbers (`run_js` tool, 20 s limit per query). Model picker: Opus 5.5 (default), Sonnet 5.5,
+Haiku 5.5. The request uses raw `fetch` (the page is one self-contained file with no bundler) with the
+`anthropic-dangerous-direct-browser-access` header. No key: "Copy prompt" + "Download league-data.json" to ask
+the same question in claude.ai.
+
+Head-to-Head's Team vs Team and Bowler vs Bowler also look across **all seasons** (team by name, bowler by id);
+use the dropdown beside them for "This season only".
+
 ## Analytics tab (works for every season)
 
 Computed in the page from a season's schedule (every matchup, seat by seat), so it covers the current

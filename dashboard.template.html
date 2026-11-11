@@ -121,6 +121,20 @@
   .anchorrow .av{width:2.6em;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
   h3{color:var(--ink)}
   .chartwrap svg{display:block}
+  textarea,input[type=password]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:7px;
+    background:var(--bg);color:var(--ink);font:inherit}
+  .panel > textarea{margin:0 12px;width:calc(100% - 24px)}
+  input[type=password]{flex:1;min-width:220px;width:auto}
+  .ask-log{padding:4px 14px 10px}
+  .ask-q{margin:12px 0 6px;padding:8px 12px;border-radius:8px;background:var(--accent-soft);font-weight:600;white-space:pre-wrap}
+  .ask-a{padding:2px 4px}
+  .ask-md p{margin:6px 0} .ask-md h4{margin:10px 0 4px} .ask-md ul,.ask-md ol{margin:4px 0 6px;padding-left:22px}
+  .ask-md pre,.ask-tool pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;overflow-x:auto;font-size:12px}
+  .ask-md code{background:var(--bg);padding:0 4px;border-radius:4px}
+  .ask-md table th{position:static;cursor:default}
+  .tblwrap{overflow-x:auto;margin:6px 0}
+  details.ask-tool{margin:6px 0;font-size:12px;color:var(--muted)}
+  details.ask-tool summary{cursor:pointer}
   .gapnote{padding:0 14px 8px;font-size:12px}
   details.cl{border-top:1px solid var(--line);padding:6px 14px;font-size:13px}
   details.cl summary{cursor:pointer;font-weight:600}
@@ -218,6 +232,7 @@
     ['h2h','Head-to-Head', viewH2H],
     ['trends','Trends', viewTrends],
     ['analytics','Analytics', viewAnalytics],
+    ['ask','Ask Claude', viewAsk],
     ['lanes','Lanes', viewLanes],
     ['leaders','Leaderboards', viewLeaders],
     ['averages','Averages', viewAverages],
@@ -719,7 +734,7 @@
     return s;
   }
 
-  function matchCard(m, fav){
+  function matchCard(m, fav, showSeason){
     const c = el('div',{class:'matchcard'});
     const mkSide = (s,key)=>{
       const isWin = m.result===key;
@@ -733,6 +748,7 @@
       el('div',{class:'mc-vs'}, !confirmed?'⚠':(m.needsReview?'⚠':(m.result==='T'?'tie':'vs'))),
       mkSide(m.b,'B'));
     const when = el('div',{class:'mc-meta muted'},
+      showSeason && m._label ? el('b',{}, m._label.replace('Pioneer I ','')+'  ·  ') : '',
       el('b',{}, m.weekNum ? 'Week '+m.weekNum : m.date), m.isPos ? ' · position round' : '',
       (m.weekNum ? '  ·  '+m.date : ''), m.lane ? '  ·  Lanes '+m.lane : '');
     // "x–y" with the higher (winning) side in green
@@ -836,57 +852,65 @@
     v.append(p1);
 
     // --- team vs team ---
-    const teamNames = D.standings.map(t=>t.name).sort();
+    // Team and bowler matchups can look across every season (teams are matched by name, bowlers by their
+    // LeaguePals id, which stays the same from season to season).
+    const mkScope = ()=> mkSelect([{label:'All seasons', value:'all'}, {label:'This season only', value:'this'}]);
+    const shortSeason = l => (l||'').replace('Pioneer I ','');
+    const teamNames = [...new Set([CUR].concat(SEASONS).flatMap(S=>A(S.standings).map(t=>t.name)))].sort((x,y)=>x.localeCompare(y));
     const p2 = el('div',{class:'panel'});
     p2.append(el('h2',{},'Team vs Team'));
     const tb2 = el('div',{class:'toolbar'});
-    const a2 = mkSelect(teamNames), b2 = mkSelect(teamNames);
+    const a2 = mkSelect(teamNames), b2 = mkSelect(teamNames), sc2 = mkScope();
     if(teamNames.length>1) b2.selectedIndex = 1;
     if(fav && teamNames.includes(fav)){ a2.value = fav; if(b2.value===fav) b2.selectedIndex = (teamNames[0]===fav?1:0); }
-    tb2.append(a2, el('span',{class:'muted'},'vs'), b2);
+    tb2.append(a2, el('span',{class:'muted'},'vs'), b2, sc2);
     const h2 = el('div'); p2.append(tb2, h2);
     const drawTeam = ()=>{
       h2.innerHTML='';
-      const A1=a2.value, B1=b2.value;
+      const A1=a2.value, B1=b2.value, all = sc2.value==='all';
       if(A1===B1){ h2.append(el('div',{class:'muted',style:'padding:12px'},'Pick two different teams.')); return; }
-      const ms = D.schedule.filter(m=>(m.a.team===A1&&m.b.team===B1)||(m.a.team===B1&&m.b.team===A1))
+      const ms = h2hPool(sc2.value).schedule.filter(m=>(m.a.team===A1&&m.b.team===B1)||(m.a.team===B1&&m.b.team===A1))
                            .sort((x,y)=>x.date<y.date?-1:1);
-      if(!ms.length){ h2.append(el('div',{class:'muted',style:'padding:12px'}, A1+' and '+B1+' haven’t met yet.')); return; }
-      let aP=0,bP=0,aW=0,bW=0,ti=0;
+      if(!ms.length){ h2.append(el('div',{class:'muted',style:'padding:12px'}, A1+' and '+B1+(all?' have never met in the seasons on record.':' haven’t met yet.'))); return; }
+      let aP=0,bP=0,aW=0,bW=0,ti=0; const bySeason = {};
       ms.forEach(m=>{ const [x,y]= m.a.team===A1?[m.a,m.b]:[m.b,m.a];
         aP+=x.total; bP+=y.total;
-        if(x.total>y.total)aW++; else if(y.total>x.total)bW++; else ti++; });
+        const s = bySeason[m._label] = bySeason[m._label] || {w:0,l:0,t:0};
+        if(x.total>y.total){ aW++; s.w++; } else if(y.total>x.total){ bW++; s.l++; } else { ti++; s.t++; } });
       h2.append(el('div',{class:'summary'},
         `${A1}  ${aW}–${bW}${ti?'–'+ti:''}  ${B1}`,
         el('br'),
-        el('span',{class:'muted'}, `points ${num(aP)} – ${num(bP)} across ${ms.length} meeting${ms.length>1?'s':''}`)));
-      ms.forEach(m=>h2.append(matchCard(m, A1)));
+        el('span',{class:'muted'}, `points ${num(aP)} – ${num(bP)} across ${ms.length} meeting${ms.length>1?'s':''}`
+          + (all && Object.keys(bySeason).length>1 ? '  ·  by season: '+Object.keys(bySeason).map(k=>`${shortSeason(k)} ${bySeason[k].w}–${bySeason[k].l}${bySeason[k].t?'–'+bySeason[k].t:''}`).join(', ') : ''))));
+      ms.forEach(m=>h2.append(matchCard(m, A1, all)));
     };
-    a2.onchange=drawTeam; b2.onchange=drawTeam; drawTeam();
+    a2.onchange=drawTeam; b2.onchange=drawTeam; sc2.onchange=drawTeam; drawTeam();
     v.append(p2);
 
     // --- bowler vs bowler ---
-    const bl = D.bowlers.slice().sort((x,y)=>x.name.localeCompare(y.name))
-                        .map(b=>({label:b.name+'  ('+b.team+')', value:b.id}));
+    const seenB = {}, bl = [];
+    [CUR].concat(SEASONS).forEach(S=> A(S.bowlers).forEach(b=>{
+      if(!b.id || seenB[b.id] || !(b.gamesBowled>0)) return; seenB[b.id] = 1; bl.push({label:b.name+'  ('+b.team+')', value:b.id}); }));
+    bl.sort((x,y)=>x.label.localeCompare(y.label));
     const p3 = el('div',{class:'panel'});
     p3.append(el('h2',{},'Bowler vs Bowler'));
     p3.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:12px'},
-      'Individual matchups are inferred from lineup position (LeaguePals doesn’t publish the pairings).'));
+      'Seat-by-seat matchups from the official score sheets. The team in brackets is the most recent one the bowler appeared for.'));
     const tb3 = el('div',{class:'toolbar'});
-    const a3 = mkSelect(bl), b3 = mkSelect(bl);
+    const a3 = mkSelect(bl), b3 = mkSelect(bl), sc3 = mkScope();
     if(bl.length>1) b3.selectedIndex = 1;
     if(fav){
-      const favB = D.bowlers.find(b=>b.team===fav);
+      const favB = A(CUR.bowlers).find(b=>b.team===fav);
       if(favB){ a3.value = favB.id; if(b3.value===favB.id) b3.selectedIndex = (bl[0].value===favB.id?1:0); }
     }
-    tb3.append(a3, el('span',{class:'muted'},'vs'), b3);
+    tb3.append(a3, el('span',{class:'muted'},'vs'), b3, sc3);
     const h3 = el('div'); p3.append(tb3, h3);
     const drawBowler = ()=>{
       h3.innerHTML='';
-      const A1=a3.value, B1=b3.value;
+      const A1=a3.value, B1=b3.value, all = sc3.value==='all';
       if(A1===B1){ h3.append(el('div',{class:'muted',style:'padding:12px'},'Pick two different bowlers.')); return; }
       const rows=[]; let unconfirmedHits=0;
-      D.schedule.forEach(m=>{
+      h2hPool(sc3.value).schedule.forEach(m=>{
         A(m.pairs).forEach(pr=>{
           const hit = (pr.aId===A1&&pr.bId===B1)||(pr.aId===B1&&pr.bId===A1);
           if(!hit) return;
@@ -895,7 +919,7 @@
           const gj = g => A(g).map(x=>x==null?'–':x).join(' ');
           const X = flip?{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind}:{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind};
           const Y = flip?{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind}:{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind};
-          rows.push({date:m.date, weekNum:m.weekNum, lane:m.lane, teams:m.a.team+' v '+m.b.team,
+          rows.push({date:m.date, season:shortSeason(m._label), weekNum:m.weekNum, lane:m.lane, teams:m.a.team+' v '+m.b.team,
             aLine:gj(X.g)+'  ('+X.s+' +'+X.h+')'+(X.k&&X.k!=='bowler'?' ['+X.k+']':''), aPts:X.p,
             bLine:gj(Y.g)+'  ('+Y.s+' +'+Y.h+')'+(Y.k&&Y.k!=='bowler'?' ['+Y.k+']':''), bPts:Y.p});
         });
@@ -904,20 +928,30 @@
       const unsureNote = unconfirmedHits ? ` (${unconfirmedHits} more week${unconfirmedHits>1?'s':''} had a sub/blind that week — excluded, pairing unconfirmed)` : '';
       if(!rows.length){ h3.append(el('div',{class:'muted',style:'padding:12px'},
         nA.split('  (')[0]+' and '+nB.split('  (')[0]+' haven’t had a confirmed matchup (by position) yet.'+unsureNote)); return; }
-      let aP=0,bP=0; rows.forEach(r=>{aP+=r.aPts;bP+=r.bPts});
+      let aP=0,bP=0,aW=0,bW=0; rows.forEach(r=>{aP+=r.aPts;bP+=r.bPts; if(r.aPts>r.bPts)aW++; else if(r.bPts>r.aPts)bW++;});
+      const nSeasons = new Set(rows.map(r=>r.season)).size;
       h3.append(el('div',{class:'summary'},
         `${nA.split('  (')[0]}  ${num(aP)} – ${num(bP)}  ${nB.split('  (')[0]}`,
-        el('br'), el('span',{class:'muted'}, `${rows.length} confirmed head-to-head week${rows.length>1?'s':''}${unsureNote}`)));
+        el('br'), el('span',{class:'muted'}, `${rows.length} head-to-head week${rows.length>1?'s':''}${all&&nSeasons>1?` across ${nSeasons} seasons`:''}  ·  weeks won ${aW}–${bW}${unsureNote}`)));
       h3.append(table([
-        {k:'date',label:'Week',fmt:(x,r)=> (r.weekNum?'Wk '+r.weekNum+' · ':'')+x+(r.lane?'  (lanes '+r.lane+')':'')},
+        {k:'date',label:'Week',fmt:(x,r)=> (all&&r.season?r.season+' · ':'')+(r.weekNum?'Wk '+r.weekNum+' · ':'')+x+(r.lane?'  (lanes '+r.lane+')':'')},
         {k:'aLine',label:nA.split('  (')[0]},
         {k:'aPts',label:'Pts',cls:'num',fmt:num},
         {k:'bPts',label:'Pts',cls:'num',fmt:num},
         {k:'bLine',label:nB.split('  (')[0]},
       ], rows, {sort:'date',dir:1}));
     };
-    a3.onchange=drawBowler; b3.onchange=drawBowler; drawBowler();
+    a3.onchange=drawBowler; b3.onchange=drawBowler; sc3.onchange=drawBowler; drawBowler();
     v.append(p3);
+  }
+
+  // every matchup in the current season plus all archived ones (or just the season on screen), tagged with its season
+  const h2hCache = {};
+  function h2hPool(scope){
+    const key = scope+'|'+D.meta.league;
+    if(h2hCache[key]) return h2hCache[key];
+    const parts = scope==='all' ? [{label:CUR.meta.league, S:CUR}].concat(SEASONS.map(s=>({label:s.label, S:s}))) : [{label:D.meta.league, S:D}];
+    return h2hCache[key] = { schedule: parts.flatMap(p=> A(p.S.schedule).map(m=>Object.assign({}, m, {_label:p.label}))) };
   }
 
   // ================= Analytics engine =================
@@ -1412,6 +1446,256 @@
       if(top) d.append(el('div',{class:'cl-line muted'}, `Most individual points: ${top.name.replace(/ \(blind\)$/,'')} (${num(top.pts)} of 5)`));
       host.append(d);
     });
+  }
+
+  // ================= Ask Claude =================
+  // The page can't call Claude on its own, so this uses the viewer's own Anthropic API key (kept only in
+  // this browser's localStorage). Claude answers by writing small JavaScript queries that run in a Web Worker
+  // against every season's data - the worker has no access to the key or the page.
+  const ASK_KEY = 'lp-anthropic-api-key';
+  const ASK_MODELS = [
+    {value:'claude-opus-5-5',   label:'Claude Opus 5.5 — best answers ($4 / $20 per million tokens)'},
+    {value:'claude-sonnet-5-5', label:'Claude Sonnet 5.5 — faster, cheaper ($2 / $10)'},
+    {value:'claude-haiku-5-5',  label:'Claude Haiku 5.5 — cheapest ($0.10 / $0.50)'}];
+  const lsGet = k=>{ try{ return localStorage.getItem(k)||''; }catch(e){ return ''; } };
+  const lsSet = (k,v)=>{ try{ if(v) localStorage.setItem(k,v); else localStorage.removeItem(k); }catch(e){} };
+
+  const askState = { history:[], logEl:null, busy:false, fallbacks:true, tokIn:0, tokOut:0, worker:null, runId:0 };
+
+  function askData(){
+    if(askData._d) return askData._d;
+    const pack = (S, current)=>({ key:S.meta?S.meta.league.replace('Pioneer I ',''):S.label.replace('Pioneer I ',''),
+      label:S.meta?S.meta.league:S.label, current, standings:A(S.standings), bowlers:A(S.bowlers), schedule:A(S.schedule) });
+    return askData._d = [pack(CUR,true)].concat(SEASONS.map(s=>pack(s,false)));
+  }
+
+  // runs inside the worker (stringified below): read-only data + a few helpers, one query at a time
+  function askWorkerMain(){
+    let DATA = null;
+    const norm = s => String(s==null?'':s).toLowerCase();
+    const H = {
+      findBowlers: q => { const out = {};
+        DATA.forEach(s=> s.bowlers.forEach(b=>{ if(norm(b.name).indexOf(norm(q))>=0){
+          const o = out[b.id] || (out[b.id] = {id:b.id, name:b.name, seasons:[]}); o.seasons.push(s.key+' ('+b.team+')'); } }));
+        return Object.keys(out).map(k=>out[k]); },
+      findTeams: q => { const out = {};
+        DATA.forEach(s=> s.standings.forEach(t=>{ if(norm(t.name).indexOf(norm(q))>=0) (out[t.name] = out[t.name] || []).push(s.key+' #'+t.rank); }));
+        return out; }
+    };
+    self.onmessage = function(e){
+      const m = e.data;
+      if(m.type==='init'){ DATA = m.data; return; }
+      let ok = true, err = null, text = null;
+      try{
+        const fn = new Function('seasons', 'helpers', '"use strict";\n'+m.code);
+        const r = fn(DATA, H);
+        text = JSON.stringify(r, function(k,v){ return (typeof v==='number' && !isFinite(v)) ? null : v; });
+        if(text===undefined) text = 'undefined (the code returned nothing - use `return`)';
+      }catch(x){ ok = false; err = String(x && x.message || x); }
+      self.postMessage({id:m.id, ok:ok, error:err, text:text});
+    };
+  }
+  function askRun(code){
+    return new Promise(resolve=>{
+      try{
+        if(!askState.worker){
+          const src = '(' + askWorkerMain.toString() + ')()';
+          askState.worker = new Worker(URL.createObjectURL(new Blob([src], {type:'text/javascript'})));
+          askState.worker.postMessage({type:'init', data:askData()});
+        }
+      }catch(e){ resolve({ok:false, error:'could not start the query sandbox in this browser: '+e.message}); return; }
+      const w = askState.worker, id = ++askState.runId;
+      const timer = setTimeout(()=>{ w.terminate(); askState.worker = null; resolve({ok:false, error:'query took longer than 20 seconds - make it lighter'}); }, 20000);
+      w.onmessage = e=>{ if(e.data.id!==id) return; clearTimeout(timer); resolve(e.data); };
+      w.postMessage({type:'run', id, code});
+    });
+  }
+
+  const ASK_SCHEMA = [
+    'seasons: array, newest first (seasons[0] is the current, in-progress season). Each season: {key, label, current, standings[], bowlers[], schedule[]}.',
+    'standings[]: {id, name, rank, wins, losses, ties, pointsWon, pointsLost, pctWon, teamAvg, teamHdcp, roster[]}.',
+    'bowlers[]: {id (stable across seasons), name, team, gender, bookAvg, seasonAvg, hdcp, gamesBowled, totalPins, highGame, highSeries, highGameHdcp, highSeriesHdcp, stdev, indPoints (official, only top 40 have it), compIndPoints, weeks:[{date, games:[g1,g2,g3], scrSer, absent?, partial?}]}.',
+    'schedule[]: one entry per team-vs-team matchup: {date, weekNum, lane ("1-2" lane pair), result ("A"|"B"|"T"), a:{team, teamId, scr:[3 team scratch games], ser (scratch series), hdcp, gameH:[3 team handicap games], serH (handicap series), teamPts, indPts, total}, b:{same}, pairs:[{pos 0-4 (seat), aName, aId, aKind ("bowler"|"sub"|"blind"|"partial"), aGames:[3 scratch], aSer, aHdcp (per-game handicap), aPts, bName, bId, bKind, bGames, bSer, bHdcp, bPts}]}.',
+    '`total` is the points that team won that night out of 40 (teamPts + indPts). Seat-by-seat bowler matchups are in `pairs` (a-side vs b-side, same seat).',
+    'helpers.findBowlers(text) and helpers.findTeams(text): case-insensitive partial name search across all seasons.'
+  ].join('\n');
+
+  function askSystem(){
+    const cur = askData()[0], keys = askData().map(s=>s.key).join(', ');
+    const fav = CUR.meta.favoriteTeam || '';
+    return [
+      'You answer questions about a bowling league\'s statistics for a bowler in that league. The league is Pioneer I at '+CUR.meta.center+' (Tuesday nights, 40 teams of 5, three games a week). '
+      +'You have '+askData().length+' seasons of data ('+keys+'); the current one is '+cur.key+', with data through '+CUR.meta.snapshot+' ('+A(CUR.meta.weekDates).length+' weeks bowled).'
+      +(fav?' The person asking bowls for the team "'+fav+'".':''),
+      '',
+      'You cannot see the data directly. Use the run_js tool to compute answers from it: write JavaScript (the body of a function, so `return` the result), keep what you return small by aggregating, and run more than one query if you need to. Compute exact answers rather than estimating, and never state a number you did not compute. If the data cannot answer the question, say what is missing instead of guessing.',
+      '',
+      'League rules: handicap = (235 - average) x 90% (never below 0). Each weekly matchup is worth 40 points: per team game 3 points (hcp score) and 6 for the 3-game series, plus individual seat-vs-seat points of 1 per game and 2 for the series for each of the 5 seats. Games are compared on handicap-adjusted scores. A "blind" is a vacant seat scored at the absent bowler\'s average minus 10; a tie against a blind gives the present bowler half a point and the blind nothing.',
+      'Data notes: team ids change every season but team names carry over (a renamed team looks like a new one); bowler ids stay the same. Past seasons are final; the current season is in progress, so compare partial-season figures to full seasons with care. Scratch = raw pins, "hdcp" = handicap-adjusted.',
+      '',
+      'Style: lead with the answer, then the numbers behind it. Use a short table when comparing several things. Name the season(s) and sample size when it matters. Be concise.'
+    ].join('\n');
+  }
+  const ASK_TOOL = { name:'run_js',
+    description:'Run JavaScript against the league data in a sandbox and get back the JSON-serialized return value (truncated at 15,000 characters; 20 second limit). The code is a function body: use `return`. Available read-only variables:\n'+ASK_SCHEMA,
+    input_schema:{ type:'object', properties:{ code:{ type:'string', description:'JavaScript function body that returns a JSON-serializable value.' } }, required:['code'] } };
+
+  async function askCall(key, model, messages){
+    const body = { model, max_tokens:16000, system:askSystem(), tools:[ASK_TOOL], messages,
+      thinking:{type:'adaptive'}, output_config:{effort:'medium'} };
+    const headers = { 'content-type':'application/json', 'x-api-key':key, 'anthropic-version':'2023-06-01',
+      'anthropic-dangerous-direct-browser-access':'true' };
+    // opt into the server-side refusal fallback where the model supports it; drop it if the API objects
+    const useFb = askState.fallbacks && model!=='claude-haiku-5-5';
+    if(useFb){ body.fallbacks = 'default'; headers['anthropic-beta'] = 'server-side-fallback-2026-07-01'; }
+    let res;
+    try{ res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers, body:JSON.stringify(body) }); }
+    catch(e){ throw new Error('Could not reach api.anthropic.com ('+e.message+'). Check your connection.'); }
+    const data = await res.json().catch(()=>({}));
+    if(!res.ok){
+      const msg = (data.error && data.error.message) || ('HTTP '+res.status);
+      if(useFb && res.status===400 && /fallback|beta/i.test(msg)){ askState.fallbacks = false; return askCall(key, model, messages); }
+      if(res.status===401) throw new Error('The API key was rejected ('+msg+'). Check it in the box above.');
+      if(res.status===429) throw new Error('Rate limited — wait a minute and try again.');
+      throw new Error(msg);
+    }
+    return data;
+  }
+
+  // small markdown -> HTML (escapes first, so nothing from the model can inject markup)
+  function askMd(src){
+    const esc = s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const inl = s=>esc(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+    const L = src.replace(/\r/g,'').split('\n'); let h = '', i = 0, list = null;
+    const close = ()=>{ if(list){ h += '</'+list+'>'; list = null; } };
+    const isRow = l=>/^\s*\|.*\|\s*$/.test(l), cells = l=>l.trim().replace(/^\||\|$/g,'').split('|').map(c=>c.trim());
+    while(i<L.length){
+      const ln = L[i]; let m;
+      if(/^```/.test(ln)){ close(); const code = []; i++; while(i<L.length && !/^```/.test(L[i])) code.push(L[i++]); i++; h += '<pre>'+esc(code.join('\n'))+'</pre>'; continue; }
+      if(isRow(ln) && i+1<L.length && /^\s*\|[\s:|-]+\|\s*$/.test(L[i+1])){
+        close(); const head = cells(ln); i += 2; const rows = []; while(i<L.length && isRow(L[i])) rows.push(cells(L[i++]));
+        h += '<div class="tblwrap"><table><thead><tr>'+head.map(c=>'<th>'+inl(c)+'</th>').join('')+'</tr></thead><tbody>'
+          + rows.map(r=>'<tr>'+r.map(c=>'<td>'+inl(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>'; continue; }
+      if((m = /^#{1,4}\s+(.*)$/.exec(ln))){ close(); h += '<h4>'+inl(m[1])+'</h4>'; i++; continue; }
+      if((m = /^\s*[-*]\s+(.*)$/.exec(ln))){ if(list!=='ul'){ close(); h += '<ul>'; list = 'ul'; } h += '<li>'+inl(m[1])+'</li>'; i++; continue; }
+      if((m = /^\s*\d+[.)]\s+(.*)$/.exec(ln))){ if(list!=='ol'){ close(); h += '<ol>'; list = 'ol'; } h += '<li>'+inl(m[1])+'</li>'; i++; continue; }
+      close(); if(ln.trim()!=='') h += '<p>'+inl(ln)+'</p>'; i++;
+    }
+    close(); return h;
+  }
+
+  async function askQuestion(q, key, model, ui){
+    const start = askState.history.length;
+    askState.history.push({role:'user', content:q});
+    ui.log.append(el('div',{class:'ask-q'}, q));
+    const out = el('div',{class:'ask-a'}); ui.log.append(out);
+    const note = el('div',{class:'muted',style:'font-size:12px'}, 'Thinking…'); out.append(note);
+    try{
+      for(let round=0; round<10; round++){
+        const resp = await askCall(key, model, askState.history);
+        askState.history.push({role:'assistant', content:resp.content});
+        if(resp.usage){ askState.tokIn += (resp.usage.input_tokens||0); askState.tokOut += (resp.usage.output_tokens||0); }
+        const calls = [];
+        A(resp.content).forEach(b=>{
+          if(b.type==='text' && b.text){ out.insertBefore(el('div',{class:'ask-md',html:askMd(b.text)}), note); }
+          else if(b.type==='tool_use'){ calls.push(b); }
+        });
+        if(resp.stop_reason==='tool_use' && calls.length){
+          const results = [];
+          for(const c of calls){
+            const code = (c.input && c.input.code) || '';
+            const det = el('details',{class:'ask-tool'}, el('summary',{}, 'Looked something up'), el('pre',{}, code));
+            out.insertBefore(det, note);
+            const r = code ? await askRun(code) : {ok:false, error:'no code was provided'};
+            let txt = r.ok ? r.text : 'Error: '+r.error;
+            if(txt.length>15000) txt = txt.slice(0,15000)+'\n…(truncated; aggregate more)';
+            det.append(el('div',{class:'muted',style:'font-size:12px'}, r.ok ? 'Result: '+(txt.length>300?txt.slice(0,300)+'…':txt) : txt));
+            results.push({type:'tool_result', tool_use_id:c.id, content:txt, is_error:!r.ok});
+          }
+          askState.history.push({role:'user', content:results});
+          continue;
+        }
+        if(resp.stop_reason==='refusal') out.insertBefore(el('div',{class:'muted'}, 'Claude declined to answer that one.'), note);
+        else if(resp.stop_reason==='max_tokens') out.insertBefore(el('div',{class:'muted'}, 'The answer was cut off — ask a narrower question or ask it to continue.'), note);
+        break;
+      }
+      note.textContent = `${num(askState.tokIn)} tokens in / ${num(askState.tokOut)} out so far this session`;
+    }catch(err){
+      askState.history.length = start;
+      note.remove(); out.append(el('div',{class:'neg'}, 'Couldn’t get an answer: '+err.message));
+    }
+  }
+
+  function askPromptText(q){
+    return 'I bowl in a league (Pioneer I at '+CUR.meta.center+'; 40 teams of 5, 3 games a week; 40 points per matchup; handicap = (235 - average) x 90%). '
+      +'I\'m attaching league-data.json with every season\'s standings, bowlers and every matchup seat by seat. Please answer my question from that data, running code over it if you can, and show the numbers behind the answer.\n\n'
+      +'Structure of the file: an array of seasons (newest first, the first is in progress). '+ASK_SCHEMA.replace(/^seasons: array[^\n]*\n/,'')+'\n\nMy question: '+q;
+  }
+
+  function viewAsk(v){
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Ask Claude'));
+    p.append(el('div',{class:'muted gapnote'},
+      'Ask anything the tables don’t cover — “how did I do against The Money Team over the years?”, “which lane pair do my teammates bowl best on?”, '
+      +'“who has the biggest late-season improvement?”. Claude writes small queries over all '+askData().length+' seasons of data and shows the numbers behind its answer. '
+      +'It uses your own Anthropic API key (Console account, billed separately from a Claude subscription — typically a few cents per question); '
+      +'the key is stored only in this browser, never on the site. Use a key with a spend limit.'));
+    const keyRow = el('div',{class:'toolbar'});
+    const keyIn = el('input',{type:'password', placeholder:'Anthropic API key (sk-ant-…)', autocomplete:'off', spellcheck:'false'});
+    const keyBtn = el('button',{class:'wkbtn'}, lsGet(ASK_KEY) ? 'Replace key' : 'Save key');
+    const keyForget = el('button',{class:'wkbtn'}, 'Forget key');
+    const keyNote = el('span',{class:'muted',style:'font-size:12px'});
+    const syncKey = ()=>{ const has = !!lsGet(ASK_KEY); keyNote.textContent = has ? 'Key saved in this browser.' : 'No key saved yet.';
+      keyBtn.textContent = has ? 'Replace key' : 'Save key'; keyForget.hidden = !has; if(has) keyIn.value=''; };
+    keyBtn.onclick = ()=>{ const k = keyIn.value.trim(); if(k){ lsSet(ASK_KEY,k); keyIn.value=''; } syncKey(); };
+    keyForget.onclick = ()=>{ lsSet(ASK_KEY,''); syncKey(); };
+    keyRow.append(keyIn, keyBtn, keyForget, keyNote); p.append(keyRow); syncKey();
+
+    if(!askState.logEl) askState.logEl = el('div',{class:'ask-log'});
+    const log = askState.logEl;
+    const qIn = el('textarea',{rows:'3', placeholder:'Ask a question about the league…'});
+    const model = mkSelect(ASK_MODELS);
+    const go = el('button',{class:'wkbtn active'}, 'Ask');
+    const clear = el('button',{class:'wkbtn'}, 'New conversation');
+    const ask = async ()=>{
+      const q = qIn.value.trim(); if(!q || askState.busy) return;
+      const key = lsGet(ASK_KEY); if(!key){ keyNote.textContent = 'Paste and save your API key first.'; keyIn.focus(); return; }
+      askState.busy = true; go.disabled = true; qIn.value = '';
+      await askQuestion(q, key, model.value, {log});
+      askState.busy = false; go.disabled = false; qIn.focus();
+      log.lastChild && log.lastChild.scrollIntoView({block:'nearest'});
+    };
+    go.onclick = ask;
+    qIn.onkeydown = e=>{ if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){ e.preventDefault(); ask(); } };
+    clear.onclick = ()=>{ if(askState.busy) return; askState.history = []; log.innerHTML=''; };
+    const chips = el('div',{class:'toolbar'});
+    ['How does '+(CUR.meta.favoriteTeam||'my team')+' fare against each team it has faced, across every season?',
+     'Which bowlers improved the most from last season to this one?',
+     'What was the highest team series ever, and who bowled it?',
+     'Who are the best bowlers in the final game of the night?'].forEach(t=>{
+      const c = el('button',{class:'wkbtn'}, t); c.style.fontWeight='400'; c.style.fontSize='12px'; c.onclick = ()=>{ qIn.value = t; qIn.focus(); }; chips.append(c); });
+    p.append(chips, qIn, el('div',{class:'toolbar',style:'margin-top:8px'}, model, go, clear,
+      el('span',{class:'muted',style:'font-size:12px'}, 'Ctrl+Enter to send')), log);
+    v.append(p);
+
+    // no API key? take the question to claude.ai instead
+    const p2 = el('div',{class:'panel'}); p2.append(el('h2',{},'No API key? Use claude.ai'));
+    p2.append(el('div',{class:'muted gapnote'},
+      'Download the data file, then paste the prompt into a new claude.ai chat and attach the file — you’ll get the same kind of answer using your Claude subscription.'));
+    const fb = el('div',{class:'toolbar'});
+    const cp = el('button',{class:'wkbtn'}, 'Copy prompt (uses the question above)');
+    cp.onclick = async ()=>{
+      const txt = askPromptText(qIn.value.trim() || '(type your question here)');
+      try{ await navigator.clipboard.writeText(txt); cp.textContent = 'Copied ✓'; }
+      catch(e){ window.prompt('Copy this prompt:', txt); }
+      setTimeout(()=>{ cp.textContent = 'Copy prompt (uses the question above)'; }, 2000);
+    };
+    const dl = el('button',{class:'wkbtn'}, 'Download league-data.json');
+    dl.onclick = ()=>{
+      const a = el('a',{href:URL.createObjectURL(new Blob([JSON.stringify(askData())],{type:'application/json'})), download:'league-data.json'});
+      document.body.append(a); a.click(); a.remove();
+    };
+    const open = el('a',{href:'https://claude.ai/new', target:'_blank', rel:'noopener', class:'wkbtn', style:'text-decoration:none'}, 'Open claude.ai');
+    fb.append(cp, dl, open); p2.append(fb); v.append(p2);
   }
 
   // ================= Trends =================
