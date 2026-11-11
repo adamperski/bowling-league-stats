@@ -7,7 +7,7 @@
       "lastName": "Johnson",
       "firstName": "Bob",
       "dexterity": 0,
-      "average": 157,
+      "average": 156,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -87,6 +87,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        157,
+        149,
+        146,
         167,
         199,
         154,
@@ -280,20 +283,33 @@
               733
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45aa5693cfcd8e8ce4426",
+            "weekIdx": 0,
+            "games": [
+              146,
+              149,
+              157,
+              662
+            ]
+          }
         ]
       },
-      "indPointsWon": 34,
+      "indPointsWon": 37,
       "highGame": 199,
       "highGameHdcp": 270,
       "highSeries": 520,
       "highSeriesHdcp": 733,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 157.08333333333334,
-      "realAvg": 157,
-      "realAvgFloat": 157.08,
+      "averageFloat": 156.5897435897436,
+      "realAvg": 156,
+      "realAvgFloat": 156.59,
       "enteringAvg": 166,
-      "gamesPlayed": 36,
+      "gamesPlayed": 39,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -304,8 +320,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 5655,
-      "hdcp": 70
+      "totalPointsScored": 6107,
+      "hdcp": 71
     },
     {
       "_id": "6a84da4ebcc3cf54382f0f23",
@@ -313,7 +329,7 @@
       "bowlerId": "",
       "firstName": "Scott",
       "lastName": "Carothers",
-      "average": 211,
+      "average": 209,
       "averages": [
         {
           "league": "6a82316f249ddaa00e0297fb",
@@ -339,6 +355,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        210,
+        191,
+        173,
         163,
         174,
         201,
@@ -529,6 +548,19 @@
               592
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45aa5693cfcd8e8ce4426",
+            "weekIdx": 0,
+            "games": [
+              173,
+              191,
+              210,
+              637
+            ]
+          }
         ]
       },
       "indPointsWon": 29,
@@ -538,11 +570,11 @@
       "highSeriesHdcp": 797,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 211.66666666666666,
-      "realAvg": 211,
-      "realAvgFloat": 211.67,
+      "averageFloat": 209.97222222222223,
+      "realAvg": 209,
+      "realAvgFloat": 209.97,
       "enteringAvg": 208,
-      "gamesPlayed": 33,
+      "gamesPlayed": 36,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -553,8 +585,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 6985,
-      "hdcp": 21
+      "totalPointsScored": 7559,
+      "hdcp": 23
     },
     {
       "_id": "62fc1e9f8bbd233310bde97d",
@@ -693,6 +725,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        247,
+        167,
+        172,
         178,
         146,
         226,
@@ -883,20 +918,33 @@
               646
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45aa5693cfcd8e8ce4426",
+            "weekIdx": 0,
+            "games": [
+              172,
+              167,
+              247,
+              685
+            ]
+          }
         ]
       },
-      "indPointsWon": 20,
+      "indPointsWon": 23,
       "highGame": 260,
       "highGameHdcp": 297,
       "highSeries": 658,
       "highSeriesHdcp": 784,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 198.27272727272728,
+      "averageFloat": 198.02777777777777,
       "realAvg": 198,
-      "realAvgFloat": 198.27,
+      "realAvgFloat": 198.03,
       "enteringAvg": 188,
-      "gamesPlayed": 33,
+      "gamesPlayed": 36,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -907,7 +955,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 6543,
+      "totalPointsScored": 7129,
       "hdcp": 33
     },
     {
@@ -917,7 +965,7 @@
       "lastName": "Carothers",
       "firstName": "Nolan",
       "dexterity": 0,
-      "average": 179,
+      "average": 178,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -1083,6 +1131,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        170,
+        180,
+        176,
         159,
         167,
         170,
@@ -1270,6 +1321,19 @@
               643
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45aa5693cfcd8e8ce4426",
+            "weekIdx": 0,
+            "games": [
+              176,
+              180,
+              170,
+              676
+            ]
+          }
         ]
       },
       "indPointsWon": 22.5,
@@ -1279,11 +1343,11 @@
       "highSeriesHdcp": 754,
       "blindWeeksTotal": 1,
       "blindWeeksRow": 0,
-      "averageFloat": 179.23333333333332,
-      "realAvg": 179,
-      "realAvgFloat": 179.23,
+      "averageFloat": 178.87878787878788,
+      "realAvg": 178,
+      "realAvgFloat": 178.88,
       "enteringAvg": 176,
-      "gamesPlayed": 30,
+      "gamesPlayed": 33,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -1294,15 +1358,15 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 5377,
-      "hdcp": 50
+      "totalPointsScored": 5903,
+      "hdcp": 51
     },
     {
       "_id": "6abc6b0c5759881b53357a5b",
       "name": "Mike Hinsley",
       "firstName": "Mike",
       "lastName": "Hinsley",
-      "average": 216,
+      "average": 214,
       "averages": [
         {
           "league": "6898c7db0bd718dd744cd493",
@@ -1342,6 +1406,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        188,
+        202,
+        198,
         146,
         214,
         244,
@@ -1532,20 +1599,33 @@
               0
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45aa5693cfcd8e8ce4426",
+            "weekIdx": 0,
+            "games": [
+              198,
+              202,
+              188,
+              639
+            ]
+          }
         ]
       },
-      "indPointsWon": 33,
+      "indPointsWon": 34,
       "highGame": 268,
       "highGameHdcp": 285,
       "highSeries": 740,
       "highSeriesHdcp": 791,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 216.21212121212122,
-      "realAvg": 216,
-      "realAvgFloat": 216.21,
+      "averageFloat": 214.52777777777777,
+      "realAvg": 214,
+      "realAvgFloat": 214.53,
       "enteringAvg": 216,
-      "gamesPlayed": 33,
+      "gamesPlayed": 36,
       "teamName": "Rocky Mountain High",
       "classification": "",
       "team": "6a8231aa249ddaa00e029a99",
@@ -1556,8 +1636,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 7135,
-      "hdcp": 17
+      "totalPointsScored": 7723,
+      "hdcp": 18
     },
     {
       "_id": "62ec9a8fce65adc409f54da1",
@@ -1859,6 +1939,19 @@
               185,
               199,
               668
+            ]
+          }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6a85381c2fe9873e6c628d61",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
             ]
           }
         ]

@@ -6,7 +6,7 @@
       "firstName": "John",
       "lastName": "Lund",
       "dexterity": 0,
-      "average": 205,
+      "average": 207,
       "averages": [
         {
           "league": "62e6924055b9a0101c2da347",
@@ -144,6 +144,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        181,
+        230,
+        255,
         246,
         222,
         215,
@@ -334,20 +337,33 @@
               767
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ae5693cfcd8e8ce4895",
+            "weekIdx": 0,
+            "games": [
+              255,
+              230,
+              181,
+              747
+            ]
+          }
         ]
       },
-      "indPointsWon": 24,
-      "highGame": 246,
-      "highGameHdcp": 274,
+      "indPointsWon": 28,
+      "highGame": 255,
+      "highGameHdcp": 282,
       "highSeries": 683,
       "highSeriesHdcp": 767,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 205.63636363636363,
-      "realAvg": 205,
-      "realAvgFloat": 205.64,
+      "averageFloat": 207,
+      "realAvg": 207,
+      "realAvgFloat": 207,
       "enteringAvg": 206,
-      "gamesPlayed": 33,
+      "gamesPlayed": 36,
       "teamName": "StarDust Lounge",
       "classification": "",
       "team": "6a82317e249ddaa00e0298d0",
@@ -358,8 +374,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 6786,
-      "hdcp": 27
+      "totalPointsScored": 7452,
+      "hdcp": 25
     },
     {
       "_id": "68a5fb19001bdaa34dc3247a",
@@ -582,6 +598,19 @@
               0
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380c2fe9873e6c628a84",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 16,
@@ -616,7 +645,7 @@
       "firstName": "Bob",
       "lastName": "Burkhead",
       "dexterity": 0,
-      "average": 203,
+      "average": 205,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -759,6 +788,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        239,
+        227,
+        205,
         183,
         197,
         170,
@@ -952,20 +984,33 @@
               631
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ae5693cfcd8e8ce4895",
+            "weekIdx": 0,
+            "games": [
+              205,
+              227,
+              239,
+              755
+            ]
+          }
         ]
       },
-      "indPointsWon": 26,
+      "indPointsWon": 27,
       "highGame": 299,
       "highGameHdcp": 326,
       "highSeries": 675,
       "highSeriesHdcp": 762,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 203.5,
-      "realAvg": 203,
-      "realAvgFloat": 203.5,
+      "averageFloat": 205.05128205128204,
+      "realAvg": 205,
+      "realAvgFloat": 205.05,
       "enteringAvg": 207,
-      "gamesPlayed": 36,
+      "gamesPlayed": 39,
       "teamName": "StarDust Lounge",
       "classification": "",
       "team": "6a82317e249ddaa00e0298d0",
@@ -976,8 +1021,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 7326,
-      "hdcp": 28
+      "totalPointsScored": 7997,
+      "hdcp": 27
     },
     {
       "_id": "62ec9a90ce65adc409f55100",
@@ -986,7 +1031,7 @@
       "lastName": "Pike",
       "firstName": "Ian",
       "dexterity": 0,
-      "average": 215,
+      "average": 216,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -1066,6 +1111,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        215,
+        227,
+        245,
         200,
         233,
         168,
@@ -1253,20 +1301,33 @@
               0
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ae5693cfcd8e8ce4895",
+            "weekIdx": 0,
+            "games": [
+              245,
+              227,
+              215,
+              741
+            ]
+          }
         ]
       },
-      "indPointsWon": 27.5,
+      "indPointsWon": 32.5,
       "highGame": 277,
       "highGameHdcp": 290,
       "highSeries": 715,
       "highSeriesHdcp": 754,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 215.3,
-      "realAvg": 215,
-      "realAvgFloat": 215.3,
+      "averageFloat": 216.54545454545453,
+      "realAvg": 216,
+      "realAvgFloat": 216.55,
       "enteringAvg": 220,
-      "gamesPlayed": 30,
+      "gamesPlayed": 33,
       "teamName": "StarDust Lounge",
       "classification": "",
       "team": "6a82317e249ddaa00e0298d0",
@@ -1277,8 +1338,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 6459,
-      "hdcp": 18
+      "totalPointsScored": 7146,
+      "hdcp": 17
     },
     {
       "_id": "62e8187151a588826c522d4b",
@@ -1286,7 +1347,7 @@
       "firstName": "Greg",
       "lastName": "Davies Jr",
       "dexterity": 0,
-      "average": 222,
+      "average": 221,
       "averages": [
         {
           "league": "6897d8a19f29a5d9173bec6c",
@@ -1482,6 +1543,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        202,
+        197,
+        246,
         171,
         204,
         237,
@@ -1675,20 +1739,33 @@
               639
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ae5693cfcd8e8ce4895",
+            "weekIdx": 0,
+            "games": [
+              246,
+              197,
+              202,
+              678
+            ]
+          }
         ]
       },
-      "indPointsWon": 28,
+      "indPointsWon": 29,
       "highGame": 279,
       "highGameHdcp": 290,
       "highSeries": 753,
       "highSeriesHdcp": 780,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 222.36111111111111,
-      "realAvg": 222,
-      "realAvgFloat": 222.36,
+      "averageFloat": 221.7948717948718,
+      "realAvg": 221,
+      "realAvgFloat": 221.79,
       "enteringAvg": 222,
-      "gamesPlayed": 36,
+      "gamesPlayed": 39,
       "teamName": "StarDust Lounge",
       "classification": "",
       "team": "6a82317e249ddaa00e0298d0",
@@ -1699,8 +1776,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 8005,
-      "hdcp": 11
+      "totalPointsScored": 8650,
+      "hdcp": 12
     },
     {
       "_id": "62f96f486af8b8d12ffab181",
@@ -1709,7 +1786,7 @@
       "firstName": "Tony",
       "lastName": "Fleming",
       "dexterity": 0,
-      "average": 233,
+      "average": 224,
       "averages": [
         {
           "league": "62f2f98b025606132ebe0c50",
@@ -1844,6 +1921,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        169,
+        193,
+        201,
         266,
         279,
         222,
@@ -2013,6 +2093,19 @@
               821
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ae5693cfcd8e8ce4895",
+            "weekIdx": 0,
+            "games": [
+              201,
+              193,
+              169,
+              566
+            ]
+          }
         ]
       },
       "indPointsWon": 12,
@@ -2022,11 +2115,11 @@
       "highSeriesHdcp": 821,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 233.41666666666666,
-      "realAvg": 233,
-      "realAvgFloat": 233.42,
+      "averageFloat": 224.26666666666668,
+      "realAvg": 224,
+      "realAvgFloat": 224.27,
       "enteringAvg": 214,
-      "gamesPlayed": 12,
+      "gamesPlayed": 15,
       "teamName": "StarDust Lounge",
       "classification": "",
       "team": "6a82317e249ddaa00e0298d0",
@@ -2037,8 +2130,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 2801,
-      "hdcp": 1
+      "totalPointsScored": 3364,
+      "hdcp": 9
     },
     {
       "_id": "6aa333c5d8ad2042707dae13",
@@ -2320,6 +2413,19 @@
               223,
               227,
               752
+            ]
+          }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380c2fe9873e6c628a84",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
             ]
           }
         ]

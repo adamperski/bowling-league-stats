@@ -6,7 +6,7 @@
       "firstName": "Trey",
       "lastName": "Erickson",
       "dexterity": 0,
-      "average": 205,
+      "average": 204,
       "averages": [
         {
           "_id": "64eeaf7f3d74e155142ad669",
@@ -74,6 +74,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        199,
+        199,
+        186,
         197,
         195,
         258,
@@ -267,6 +270,19 @@
               731
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ab4693cfcd8e8ce4518",
+            "weekIdx": 0,
+            "games": [
+              186,
+              199,
+              199,
+              665
+            ]
+          }
         ]
       },
       "indPointsWon": 37.5,
@@ -276,11 +292,11 @@
       "highSeriesHdcp": 773,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 205.47222222222223,
-      "realAvg": 205,
-      "realAvgFloat": 205.47,
+      "averageFloat": 204.64102564102564,
+      "realAvg": 204,
+      "realAvgFloat": 204.64,
       "enteringAvg": 190,
-      "gamesPlayed": 36,
+      "gamesPlayed": 39,
       "teamName": "Mother Chuckers",
       "classification": "",
       "team": "6a82319a249ddaa00e0299f1",
@@ -291,7 +307,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 7397,
+      "totalPointsScored": 7981,
       "hdcp": 27
     },
     {
@@ -301,7 +317,7 @@
       "lastName": "Dreux",
       "firstName": "Chuck",
       "dexterity": 0,
-      "average": 201,
+      "average": 202,
       "averages": [
         {
           "league": "6897a6f07cb471a57fea4abf",
@@ -494,6 +510,9 @@
       "dontIdentify": false,
       "useNickname": false,
       "games": [
+        224,
+        201,
+        235,
         196,
         204,
         231,
@@ -687,20 +706,33 @@
               724
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ab4693cfcd8e8ce4518",
+            "weekIdx": 0,
+            "games": [
+              235,
+              201,
+              224,
+              750
+            ]
+          }
         ]
       },
-      "indPointsWon": 32.5,
+      "indPointsWon": 37.5,
       "highGame": 259,
       "highGameHdcp": 294,
       "highSeries": 671,
       "highSeriesHdcp": 776,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 201.22222222222223,
-      "realAvg": 201,
-      "realAvgFloat": 201.22,
+      "averageFloat": 202.66666666666666,
+      "realAvg": 202,
+      "realAvgFloat": 202.67,
       "enteringAvg": 193,
-      "gamesPlayed": 36,
+      "gamesPlayed": 39,
       "teamName": "Mother Chuckers",
       "classification": "",
       "team": "6a82319a249ddaa00e0299f1",
@@ -711,8 +743,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 7244,
-      "hdcp": 30
+      "totalPointsScored": 7904,
+      "hdcp": 29
     },
     {
       "_id": "681ed89818e4ed281d278c6d",
@@ -720,7 +752,7 @@
       "bowlerId": "",
       "firstName": "Tim",
       "lastName": "Pester",
-      "average": 221,
+      "average": 219,
       "averages": [
         {
           "league": "6819279b4b2a23f018207dd1",
@@ -788,6 +820,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        188,
+        167,
+        212,
         227,
         204,
         256,
@@ -981,20 +1016,33 @@
               723
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ab4693cfcd8e8ce4518",
+            "weekIdx": 0,
+            "games": [
+              212,
+              167,
+              188,
+              603
+            ]
+          }
         ]
       },
-      "indPointsWon": 37,
+      "indPointsWon": 37.5,
       "highGame": 288,
       "highGameHdcp": 301,
       "highSeries": 760,
       "highSeriesHdcp": 799,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 221.86111111111111,
-      "realAvg": 221,
-      "realAvgFloat": 221.86,
+      "averageFloat": 219.33333333333334,
+      "realAvg": 219,
+      "realAvgFloat": 219.33,
       "enteringAvg": 220,
-      "gamesPlayed": 36,
+      "gamesPlayed": 39,
       "teamName": "Mother Chuckers",
       "classification": "",
       "team": "6a82319a249ddaa00e0299f1",
@@ -1005,8 +1053,8 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 7987,
-      "hdcp": 12
+      "totalPointsScored": 8554,
+      "hdcp": 14
     },
     {
       "_id": "6ab34de46209db617cffb932",
@@ -1117,6 +1165,9 @@
       "avatar": "public%2Fimages%2Fpin-icon.png",
       "dexterity": 0,
       "games": [
+        214,
+        201,
+        222,
         237,
         258,
         204,
@@ -1310,20 +1361,33 @@
               765
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ab4693cfcd8e8ce4518",
+            "weekIdx": 0,
+            "games": [
+              222,
+              201,
+              214,
+              697
+            ]
+          }
         ]
       },
-      "indPointsWon": 22,
+      "indPointsWon": 23,
       "highGame": 282,
       "highGameHdcp": 299,
       "highSeries": 755,
       "highSeriesHdcp": 809,
       "blindWeeksTotal": 0,
       "blindWeeksRow": 0,
-      "averageFloat": 212.19444444444446,
+      "averageFloat": 212.2051282051282,
       "realAvg": 212,
-      "realAvgFloat": 212.19,
+      "realAvgFloat": 212.21,
       "enteringAvg": 214,
-      "gamesPlayed": 36,
+      "gamesPlayed": 39,
       "teamName": "Mother Chuckers",
       "classification": "",
       "team": "6a82319a249ddaa00e0299f1",
@@ -1334,7 +1398,7 @@
       "noTap": false,
       "center": "62d98f124cfb92201338336a",
       "centerName": "Lucky Strike Wheat Ridge - 831",
-      "totalPointsScored": 7639,
+      "totalPointsScored": 8276,
       "hdcp": 20
     },
     {
@@ -1538,6 +1602,19 @@
           }
         ],
         "2026-11-03": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-11-10": [
           {
             "isMatch": false,
             "match_id": "6a85380e2fe9873e6c628ae2",
@@ -1840,6 +1917,19 @@
               678
             ]
           }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
         ]
       },
       "indPointsWon": 24,
@@ -1866,6 +1956,252 @@
       "centerName": "Lucky Strike Wheat Ridge - 831",
       "totalPointsScored": 5164,
       "hdcp": 26
+    },
+    {
+      "_id": "6a1516a0d2e27ac12d34f690",
+      "name": "Zack Hawkins",
+      "bowlerId": "",
+      "firstName": "Zack",
+      "lastName": "Hawkins",
+      "average": 224,
+      "averages": [
+        {
+          "league": "69f8f1dfc8d9841905ef3097",
+          "team": "6a02212835b5dbbc51202686",
+          "_id": "6a1516a0d2e27ac12d34f693",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 0
+        },
+        {
+          "league": "6a82316f249ddaa00e0297fb",
+          "team": "6a82319a249ddaa00e0299f1",
+          "_id": "6af45a8499b36848019f4ee5",
+          "individualPoints": 0,
+          "totalPointsCarryOn": 0,
+          "gamesCarryOn": 0,
+          "highSeriesHdcp": 0,
+          "highGameHdcp": 0,
+          "highSeries": 0,
+          "highGame": 0,
+          "fixedAvg": null,
+          "average": 224
+        }
+      ],
+      "subs": [],
+      "nickNames": [],
+      "useNickname": false,
+      "dontIdentify": false,
+      "isJunior": false,
+      "isFemale": false,
+      "avatar": "public%2Fimages%2Fpin-icon.png",
+      "dexterity": 0,
+      "games": [
+        216,
+        244,
+        194
+      ],
+      "weekGames": {
+        "2026-08-18": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-08-25": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-01": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-08": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-15": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-22": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-09-29": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-06": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-13": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-20": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-10-27": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-11-03": [
+          {
+            "isMatch": false,
+            "match_id": "6a85380e2fe9873e6c628ae2",
+            "weekIdx": 0,
+            "games": [
+              "-",
+              "-",
+              "-",
+              0
+            ]
+          }
+        ],
+        "2026-11-10": [
+          {
+            "isMatch": false,
+            "match_id": "6af45ab4693cfcd8e8ce4518",
+            "weekIdx": 0,
+            "games": [
+              194,
+              244,
+              216,
+              681
+            ]
+          }
+        ]
+      },
+      "indPointsWon": 1,
+      "highGame": 244,
+      "highGameHdcp": 253,
+      "highSeries": 654,
+      "highSeriesHdcp": 681,
+      "blindWeeksTotal": 0,
+      "blindWeeksRow": 0,
+      "averageFloat": 0,
+      "realAvg": 224,
+      "realAvgFloat": 0,
+      "enteringAvg": 224,
+      "gamesPlayed": 3,
+      "teamName": "Mother Chuckers",
+      "classification": "",
+      "team": "6a82319a249ddaa00e0299f1",
+      "isOfficer": null,
+      "isCaptain": false,
+      "league": "6a82316f249ddaa00e0297fb",
+      "leagueName": "Pioneer I 2026-2027",
+      "noTap": false,
+      "center": "62d98f124cfb92201338336a",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "totalPointsScored": 654,
+      "hdcp": 9
     }
   ]
 }
