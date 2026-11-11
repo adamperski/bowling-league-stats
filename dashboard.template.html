@@ -10,18 +10,26 @@
     --accent:#1f6feb; --accent-soft:#e7f0fe; --good:#1a7f37; --bad:#c0392b; --bar:#c9d6e8;
     --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
   }
+  /* dark palette: follows the OS unless a viewer (e.g. the Claude artifact frame) sets data-theme explicitly */
   @media (prefers-color-scheme:dark){
-    :root{
+    :root:not([data-theme="light"]){
       --bg:#0d1117; --panel:#161b22; --ink:#e6edf3; --muted:#8b949e; --line:#2a3038;
       --accent:#4f9dff; --accent-soft:#16324f; --good:#3fb950; --bad:#f85149; --bar:#2f3b4d;
-      --shadow:0 1px 3px rgba(0,0,0,.4);
+      --shadow:0 1px 3px rgba(0,0,0,.4); color-scheme:dark;
     }
   }
+  :root[data-theme="dark"]{
+    --bg:#0d1117; --panel:#161b22; --ink:#e6edf3; --muted:#8b949e; --line:#2a3038;
+    --accent:#4f9dff; --accent-soft:#16324f; --good:#3fb950; --bad:#f85149; --bar:#2f3b4d;
+    --shadow:0 1px 3px rgba(0,0,0,.4); color-scheme:dark;
+  }
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
   body{margin:0;background:var(--bg);color:var(--ink);
     font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   a{color:var(--accent)}
-  .wrap{max-width:1120px;margin:0 auto;padding:20px 16px 80px}
+  .wrap{max-width:1120px;margin:0 auto;padding-block:20px 80px;
+    padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
   header h1{margin:0 0 2px;font-size:22px}
   header .sub{color:var(--muted);font-size:13px}
   .banner{margin:14px 0 0;padding:10px 14px;border-radius:8px;background:var(--accent-soft);
@@ -1460,7 +1468,17 @@
   const lsGet = k=>{ try{ return localStorage.getItem(k)||''; }catch(e){ return ''; } };
   const lsSet = (k,v)=>{ try{ if(v) localStorage.setItem(k,v); else localStorage.removeItem(k); }catch(e){} };
 
-  const askState = { history:[], logEl:null, busy:false, fallbacks:true, tokIn:0, tokOut:0, worker:null, runId:0 };
+  const askState = { history:[], turns:[], logEl:null, busy:false, fallbacks:true, tokIn:0, tokOut:0, worker:null, runId:0, ctl:null };
+  // Inside a published Claude artifact the page can ask Claude through the viewer's own account (the `sample`
+  // capability), so no API key is needed; anywhere else (GitHub Pages) this resolves null and the key box is used.
+  const askSampleP = (function(){
+    try{ return (window.claude && typeof window.claude.use==='function') ? Promise.resolve(window.claude.use('sample')).catch(()=>null) : Promise.resolve(null); }
+    catch(e){ return Promise.resolve(null); }
+  })();
+  const ASK_TIERS = [
+    {value:'default', label:'Balanced (recommended)'},
+    {value:'complex', label:'Most capable — slower, for hard questions'},
+    {value:'quick',   label:'Fast — for simple lookups'}];
 
   function askData(){
     if(askData._d) return askData._d;
@@ -1626,6 +1644,59 @@
     }
   }
 
+  // ---- artifact mode: Claude via the viewer's own account; the page runs the queries ----
+  const askErrCopy = code => ({
+    not_granted:'Claude access for this page was declined. Reload the page and choose Allow when asked.',
+    sampling_disabled:'Claude isn’t available for this account.',
+    rate_limited:'Too many questions or your usage limit was reached — wait a bit and try again.',
+    session_expired:'Your session expired — sign in again and retry.',
+    refused:'Claude declined to answer that one — try rewording it.',
+    empty_completion:'Claude didn’t produce an answer — try asking a narrower question.',
+    prompt_too_large:'That conversation got too long — start a new one.',
+    upstream_error:'The connection to Claude was interrupted — try again.'
+  })[code] || ('Something went wrong ('+code+') — try again.');
+
+  function askRules(){
+    return askSystem()+'\n\nData available to the run_js tool (read-only variables):\n'+ASK_SCHEMA
+      +'\n\nYou get only a few tool rounds per question, so write each query to answer as much as it can at once (combine lookups, aggregate in code) and return small results.';
+  }
+  async function askQuestionSample(sample, q, tier, ui){
+    ui.log.append(el('div',{class:'ask-q'}, q));
+    const out = el('div',{class:'ask-a'}); ui.log.append(out);
+    const steps = el('div'), body = el('div',{class:'ask-md'}), status = el('div',{class:'muted',style:'font-size:12px'}, 'Thinking…');
+    out.append(steps, body, status);
+    askState.turns.push({role:'user', content:q});
+    const ctl = new AbortController(); askState.ctl = ctl; ui.onStart && ui.onStart();
+    const tools = [{ name:'run_js',
+      description:'Runs JavaScript over the league data (variables `seasons` and `helpers`, described in the first message). The code is a function body: `return` a small JSON-serializable value. Gives back that value as JSON, or an error message.',
+      inputSchema:{ type:'object', properties:{ code:{ type:'string', description:'JavaScript function body that returns a JSON-serializable value.' } }, required:['code'] },
+      execute: async (input)=>{
+        const code = String((input && input.code) || '');
+        status.textContent = 'Looking things up…';
+        const det = el('details',{class:'ask-tool'}, el('summary',{}, 'Looked something up'), el('pre',{}, code));
+        steps.append(det);
+        if(!code) throw new Error('no code was provided');
+        const r = await askRun(code);
+        let txt = r.ok ? r.text : 'Error: '+r.error;
+        if(txt.length>30000) txt = txt.slice(0,30000)+'\n…(truncated; aggregate more)';
+        det.append(el('div',{class:'muted',style:'font-size:12px'}, r.ok ? 'Result: '+(txt.length>300?txt.slice(0,300)+'…':txt) : txt));
+        if(!r.ok) throw new Error(r.error);
+        return txt;
+      } }];
+    try{
+      const res = await sample([{role:'user', content:askRules()}].concat(askState.turns.slice(-12)),
+        { signal:ctl.signal, tools, modelTier:tier,
+          onText:({text})=>{ body.innerHTML = askMd(text); status.textContent = ''; } });
+      askState.turns.push({role:'assistant', content:res.text});
+      status.textContent = res.truncated ? 'The answer was cut short — ask a narrower question or ask it to continue.' : '';
+    }catch(e){
+      askState.turns.pop();                                   // drop the failed question so the next one starts clean
+      if(e && e.text) body.innerHTML = askMd(e.text);
+      if(!e || e.code!=='cancelled') status.replaceWith(el('div',{class:'neg'}, askErrCopy(e && e.code)));
+      else status.textContent = 'Stopped.';
+    }finally{ askState.ctl = null; ui.onEnd && ui.onEnd(); }
+  }
+
   function askPromptText(q){
     return 'I bowl in a league (Pioneer I at '+CUR.meta.center+'; 40 teams of 5, 3 games a week; 40 points per matchup; handicap = (235 - average) x 90%). '
       +'I\'m attaching league-data.json with every season\'s standings, bowlers and every matchup seat by seat. Please answer my question from that data, running code over it if you can, and show the numbers behind the answer.\n\n'
@@ -1634,11 +1705,13 @@
 
   function viewAsk(v){
     const p = el('div',{class:'panel'}); p.append(el('h2',{},'Ask Claude'));
-    p.append(el('div',{class:'muted gapnote'},
-      'Ask anything the tables don’t cover — “how did I do against The Money Team over the years?”, “which lane pair do my teammates bowl best on?”, '
-      +'“who has the biggest late-season improvement?”. Claude writes small queries over all '+askData().length+' seasons of data and shows the numbers behind its answer. '
-      +'It uses your own Anthropic API key (Console account, billed separately from a Claude subscription — typically a few cents per question); '
-      +'the key is stored only in this browser, never on the site. Use a key with a spend limit.'));
+    const descBase = 'Ask anything the tables don’t cover — “how did I do against The Money Team over the years?”, “which lane pair do my teammates bowl best on?”, '
+      +'“who has the biggest late-season improvement?”. Claude writes small queries over all '+askData().length+' seasons of data and shows the numbers behind its answer. ';
+    const descKey = descBase+'It uses your own Anthropic API key (Console account, billed separately from a Claude subscription — typically a few cents per question); '
+      +'the key is stored only in this browser, never on the site. Use a key with a spend limit.';
+    const descSample = descBase+'Questions use your own Claude account and count toward your Claude usage; Claude asks you to allow it the first time. '
+      +'Answers can take a minute when it has to look several things up.';
+    const desc = el('div',{class:'muted gapnote'}, descKey); p.append(desc);
     const keyRow = el('div',{class:'toolbar'});
     const keyIn = el('input',{type:'password', placeholder:'Anthropic API key (sk-ant-…)', autocomplete:'off', spellcheck:'false'});
     const keyBtn = el('button',{class:'wkbtn'}, lsGet(ASK_KEY) ? 'Replace key' : 'Save key');
@@ -1655,25 +1728,33 @@
     const qIn = el('textarea',{rows:'3', placeholder:'Ask a question about the league…'});
     const model = mkSelect(ASK_MODELS);
     const go = el('button',{class:'wkbtn active'}, 'Ask');
+    const stop = el('button',{class:'wkbtn'}, 'Stop'); stop.hidden = true;
     const clear = el('button',{class:'wkbtn'}, 'New conversation');
+    let sampleFn = null;      // set once the artifact's `sample` capability resolves
     const ask = async ()=>{
       const q = qIn.value.trim(); if(!q || askState.busy) return;
-      const key = lsGet(ASK_KEY); if(!key){ keyNote.textContent = 'Paste and save your API key first.'; keyIn.focus(); return; }
-      askState.busy = true; go.disabled = true; qIn.value = '';
-      await askQuestion(q, key, model.value, {log});
+      if(sampleFn){
+        askState.busy = true; go.disabled = true; qIn.value = '';
+        await askQuestionSample(sampleFn, q, model.value, {log, onStart:()=>{ stop.hidden = false; }, onEnd:()=>{ stop.hidden = true; }});
+      } else {
+        const key = lsGet(ASK_KEY); if(!key){ keyNote.textContent = 'Paste and save your API key first.'; keyIn.focus(); return; }
+        askState.busy = true; go.disabled = true; qIn.value = '';
+        await askQuestion(q, key, model.value, {log});
+      }
       askState.busy = false; go.disabled = false; qIn.focus();
       log.lastChild && log.lastChild.scrollIntoView({block:'nearest'});
     };
     go.onclick = ask;
+    stop.onclick = ()=>{ if(askState.ctl) askState.ctl.abort(); };
     qIn.onkeydown = e=>{ if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){ e.preventDefault(); ask(); } };
-    clear.onclick = ()=>{ if(askState.busy) return; askState.history = []; log.innerHTML=''; };
+    clear.onclick = ()=>{ if(askState.busy) return; askState.history = []; askState.turns = []; log.innerHTML=''; };
     const chips = el('div',{class:'toolbar'});
     ['How does '+(CUR.meta.favoriteTeam||'my team')+' fare against each team it has faced, across every season?',
      'Which bowlers improved the most from last season to this one?',
      'What was the highest team series ever, and who bowled it?',
      'Who are the best bowlers in the final game of the night?'].forEach(t=>{
       const c = el('button',{class:'wkbtn'}, t); c.style.fontWeight='400'; c.style.fontSize='12px'; c.onclick = ()=>{ qIn.value = t; qIn.focus(); }; chips.append(c); });
-    p.append(chips, qIn, el('div',{class:'toolbar',style:'margin-top:8px'}, model, go, clear,
+    p.append(chips, qIn, el('div',{class:'toolbar',style:'margin-top:8px'}, model, go, stop, clear,
       el('span',{class:'muted',style:'font-size:12px'}, 'Ctrl+Enter to send')), log);
     v.append(p);
 
@@ -1696,6 +1777,14 @@
     };
     const open = el('a',{href:'https://claude.ai/new', target:'_blank', rel:'noopener', class:'wkbtn', style:'text-decoration:none'}, 'Open claude.ai');
     fb.append(cp, dl, open); p2.append(fb); v.append(p2);
+
+    // in a published Claude artifact: use the viewer's own Claude account instead of an API key
+    askSampleP.then(sample=>{
+      if(!sample) return;
+      sampleFn = sample;
+      desc.textContent = descSample; keyRow.hidden = true; p2.hidden = true;
+      model.innerHTML = ''; ASK_TIERS.forEach(t=> model.append(el('option',{value:t.value}, t.label)));
+    });
   }
 
   // ================= Trends =================

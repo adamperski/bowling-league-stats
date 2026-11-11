@@ -487,6 +487,12 @@ Haiku 5.5. The request uses raw `fetch` (the page is one self-contained file wit
 `anthropic-dangerous-direct-browser-access` header. No key: "Copy prompt" + "Download league-data.json" to ask
 the same question in claude.ai.
 
+**Claude artifact version (no API key).** `.\scripts\Make-ArtifactPage.ps1` turns the built `docs\index.html` into the
+page file for a published Claude Artifact (`data\out\artifact\league-stats.html`, ~13 MB of the 16 MB limit). Published with the
+`sample` capability, its Ask Claude tab uses the *viewer's own Claude account* instead of an API key (the page detects
+`window.claude` at load; on GitHub Pages it falls back to the key box). The artifact is a snapshot: it does not update with
+the weekly run, so rebuild, run the script and ask Claude Code to republish it when you want fresh data.
+
 Head-to-Head's Team vs Team and Bowler vs Bowler also look across **all seasons** (team by name, bowler by id);
 use the dropdown beside them for "This season only".
 
