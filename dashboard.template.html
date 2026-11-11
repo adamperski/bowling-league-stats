@@ -1493,12 +1493,14 @@
     const p = el('div',{class:'panel'}); p.append(el('h2',{},'Bowler Seasons & Trends'));
     p.append(el('div',{class:'muted gapnote'},
       'Every full week’s series for one bowler, one line per season, laid on a shared August-to-May calendar so a recurring dip shows up in the same place each year. '
-      +'“vs season average” subtracts that bowler’s own average for the season, so seasons at different levels line up. The heavy bars are the month averages across all seasons; '
-      +'the table gives each month’s average deviation with its margin of error, and the summary tests October–November against the rest of the year. A handful of weeks per month is a small sample: treat a dip as a lead, not a proof.'));
+      +'“vs season average” subtracts that bowler’s own average for the season, so seasons at different levels line up. The heavy bars are the month averages across the seasons shown; '
+      +'the table gives each month’s average deviation with its margin of error, and the summary tests October–November against the rest of the year. '
+      +'Use the season buttons to hide a season (double-click one to show only it); everything below the chart follows what is shown. A handful of weeks per month is a small sample: treat a dip as a lead, not a proof.'));
     const sel = mkSelect(PP.list.map(x=>({label:x.name+'  ('+x.team+')', value:x.key})));
     const fav = CUR.meta.favoriteBowler ? PP.list.find(x=>x.name===CUR.meta.favoriteBowler) : null;
     if(fav) sel.value = fav.key;
     let mode = 'dev';
+    const off = new Set();     // seasons (by index) hidden with the toggles below
     const bar = el('div',{class:'toolbar'}, sel);
     const mk = (id,label)=>{ const b = el('button',{class:'wkbtn'+(mode===id?' active':'')}, label);
       b.onclick = ()=>{ mode=id; [...bar.querySelectorAll('.wkbtn')].forEach(x=>x.classList.remove('active')); b.classList.add('active'); draw(); }; return b; };
@@ -1509,17 +1511,34 @@
       host.innerHTML='';
       const pe = PP.byKey[sel.value]; if(!pe) return;
       const recs = pe.recs.slice().sort((a,b)=>b.si-a.si);      // oldest -> newest
-      const pts = [];
+      const allPts = [];
       recs.forEach(r=>{
         const wks = A(r.b.weeks).filter(w=>!w.absent && A(w.games).filter(x=>x!=null).length===3);
         const all = wks.flatMap(w=>A(w.games)); if(!all.length) return;
         const m = mean(all);
         const y0 = +wks.map(w=>w.date).sort()[0].slice(0,4) - (+wks.map(w=>w.date).sort()[0].slice(5,7) < 7 ? 1 : 0);
         wks.forEach(w=>{ const ser = sum(A(w.games)); const t = Date.UTC(+w.date.slice(0,4), +w.date.slice(5,7)-1, +w.date.slice(8,10));
-          pts.push({ si:r.si, season:r.label.replace('Pioneer I ',''), date:w.date, x:(t-Date.UTC(y0,7,1))/864e5, month:monthIdx(w.date), ser, dev:ser-3*m, v: mode==='dev'? ser-3*m : ser }); });
+          allPts.push({ si:r.si, season:r.label.replace('Pioneer I ',''), date:w.date, x:(t-Date.UTC(y0,7,1))/864e5, month:monthIdx(w.date), ser, dev:ser-3*m, v: mode==='dev'? ser-3*m : ser }); });
       });
-      if(pts.length<3){ host.append(el('div',{class:'muted',style:'padding:12px'},'Not enough full weeks yet.')); return; }
+      if(allPts.length<3){ host.append(el('div',{class:'muted',style:'padding:12px'},'Not enough full weeks yet.')); return; }
       host.append(el('div',{class:'summary'}, pe.name, el('br'), el('span',{class:'muted'}, pe.history)));
+
+      // season toggles: click to show/hide a season, double-click to show only that one
+      const present = [...new Set(allPts.map(q=>q.si))].sort((u,w)=>u-w);
+      [...off].forEach(si=>{ if(!present.includes(si)) off.delete(si); });
+      const chips = el('div',{class:'toolbar'}, el('span',{class:'muted'}, 'Seasons:'));
+      present.forEach(si=>{
+        const on = !off.has(si), col = SEASON_COLORS[si % SEASON_COLORS.length], label = allPts.find(q=>q.si===si).season;
+        const c = el('button',{class:'wkbtn'+(on?' active':''), title:'Click to show or hide; double-click to show only this season',
+          style: on ? `background:${col};border-color:${col};color:#fff` : `border-color:${col}`}, label);
+        c.onclick = ()=>{ if(on){ if(present.length-off.size>1) off.add(si); } else off.delete(si); draw(); };
+        c.ondblclick = ()=>{ off.clear(); present.forEach(s=>{ if(s!==si) off.add(s); }); draw(); };
+        chips.append(c);
+      });
+      const showAll = el('button',{class:'wkbtn'}, 'Show all'); showAll.hidden = !off.size; showAll.onclick = ()=>{ off.clear(); draw(); };
+      chips.append(showAll); host.append(chips);
+      const pts = allPts.filter(q=>!off.has(q.si));
+      if(pts.length<3){ host.append(el('div',{class:'muted',style:'padding:12px'},'Not enough full weeks in the selected seasons.')); return; }
 
       // summary: Oct-Nov vs the rest
       const a = pts.filter(q=>q.month===2||q.month===3).map(q=>q.dev), b = pts.filter(q=>q.month!==2&&q.month!==3).map(q=>q.dev);
