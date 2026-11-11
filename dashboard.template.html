@@ -1457,20 +1457,13 @@
   }
 
   // ================= Ask Claude =================
-  // The page can't call Claude on its own, so this uses the viewer's own Anthropic API key (kept only in
-  // this browser's localStorage). Claude answers by writing small JavaScript queries that run in a Web Worker
-  // against every season's data - the worker has no access to the key or the page.
-  const ASK_KEY = 'lp-anthropic-api-key';
-  const ASK_MODELS = [
-    {value:'claude-opus-5-5',   label:'Claude Opus 5.5 — best answers ($4 / $20 per million tokens)'},
-    {value:'claude-sonnet-5-5', label:'Claude Sonnet 5.5 — faster, cheaper ($2 / $10)'},
-    {value:'claude-haiku-5-5',  label:'Claude Haiku 5.5 — cheapest ($0.10 / $0.50)'}];
-  const lsGet = k=>{ try{ return localStorage.getItem(k)||''; }catch(e){ return ''; } };
-  const lsSet = (k,v)=>{ try{ if(v) localStorage.setItem(k,v); else localStorage.removeItem(k); }catch(e){} };
-
-  const askState = { history:[], turns:[], logEl:null, busy:false, fallbacks:true, tokIn:0, tokOut:0, worker:null, runId:0, ctl:null };
+  // The static site can't call Claude on its own (and deliberately has no paid API-key path). Inside the published
+  // Claude artifact the page asks Claude through the viewer's own Claude account; Claude answers by writing small
+  // JavaScript queries that run in a Web Worker against every season's data.
+  const ASK_ARTIFACT_URL = 'https://claude.ai/artifact/BTyGkoYTpB1N8xqTYhe2vh';   // private: opens only for the owner
+  const askState = { turns:[], logEl:null, busy:false, worker:null, runId:0, ctl:null };
   // Inside a published Claude artifact the page can ask Claude through the viewer's own account (the `sample`
-  // capability), so no API key is needed; anywhere else (GitHub Pages) this resolves null and the key box is used.
+  // capability); anywhere else (GitHub Pages) this resolves null and the tab offers the copy-prompt route instead.
   const askSampleP = (function(){
     try{ return (window.claude && typeof window.claude.use==='function') ? Promise.resolve(window.claude.use('sample')).catch(()=>null) : Promise.resolve(null); }
     catch(e){ return Promise.resolve(null); }
@@ -1554,32 +1547,6 @@
       'Style: lead with the answer, then the numbers behind it. Use a short table when comparing several things. Name the season(s) and sample size when it matters. Be concise.'
     ].join('\n');
   }
-  const ASK_TOOL = { name:'run_js',
-    description:'Run JavaScript against the league data in a sandbox and get back the JSON-serialized return value (truncated at 15,000 characters; 20 second limit). The code is a function body: use `return`. Available read-only variables:\n'+ASK_SCHEMA,
-    input_schema:{ type:'object', properties:{ code:{ type:'string', description:'JavaScript function body that returns a JSON-serializable value.' } }, required:['code'] } };
-
-  async function askCall(key, model, messages){
-    const body = { model, max_tokens:16000, system:askSystem(), tools:[ASK_TOOL], messages,
-      thinking:{type:'adaptive'}, output_config:{effort:'medium'} };
-    const headers = { 'content-type':'application/json', 'x-api-key':key, 'anthropic-version':'2023-06-01',
-      'anthropic-dangerous-direct-browser-access':'true' };
-    // opt into the server-side refusal fallback where the model supports it; drop it if the API objects
-    const useFb = askState.fallbacks && model!=='claude-haiku-5-5';
-    if(useFb){ body.fallbacks = 'default'; headers['anthropic-beta'] = 'server-side-fallback-2026-07-01'; }
-    let res;
-    try{ res = await fetch('https://api.anthropic.com/v1/messages', { method:'POST', headers, body:JSON.stringify(body) }); }
-    catch(e){ throw new Error('Could not reach api.anthropic.com ('+e.message+'). Check your connection.'); }
-    const data = await res.json().catch(()=>({}));
-    if(!res.ok){
-      const msg = (data.error && data.error.message) || ('HTTP '+res.status);
-      if(useFb && res.status===400 && /fallback|beta/i.test(msg)){ askState.fallbacks = false; return askCall(key, model, messages); }
-      if(res.status===401) throw new Error('The API key was rejected ('+msg+'). Check it in the box above.');
-      if(res.status===429) throw new Error('Rate limited — wait a minute and try again.');
-      throw new Error(msg);
-    }
-    return data;
-  }
-
   // small markdown -> HTML (escapes first, so nothing from the model can inject markup)
   function askMd(src){
     const esc = s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -1600,48 +1567,6 @@
       close(); if(ln.trim()!=='') h += '<p>'+inl(ln)+'</p>'; i++;
     }
     close(); return h;
-  }
-
-  async function askQuestion(q, key, model, ui){
-    const start = askState.history.length;
-    askState.history.push({role:'user', content:q});
-    ui.log.append(el('div',{class:'ask-q'}, q));
-    const out = el('div',{class:'ask-a'}); ui.log.append(out);
-    const note = el('div',{class:'muted',style:'font-size:12px'}, 'Thinking…'); out.append(note);
-    try{
-      for(let round=0; round<10; round++){
-        const resp = await askCall(key, model, askState.history);
-        askState.history.push({role:'assistant', content:resp.content});
-        if(resp.usage){ askState.tokIn += (resp.usage.input_tokens||0); askState.tokOut += (resp.usage.output_tokens||0); }
-        const calls = [];
-        A(resp.content).forEach(b=>{
-          if(b.type==='text' && b.text){ out.insertBefore(el('div',{class:'ask-md',html:askMd(b.text)}), note); }
-          else if(b.type==='tool_use'){ calls.push(b); }
-        });
-        if(resp.stop_reason==='tool_use' && calls.length){
-          const results = [];
-          for(const c of calls){
-            const code = (c.input && c.input.code) || '';
-            const det = el('details',{class:'ask-tool'}, el('summary',{}, 'Looked something up'), el('pre',{}, code));
-            out.insertBefore(det, note);
-            const r = code ? await askRun(code) : {ok:false, error:'no code was provided'};
-            let txt = r.ok ? r.text : 'Error: '+r.error;
-            if(txt.length>15000) txt = txt.slice(0,15000)+'\n…(truncated; aggregate more)';
-            det.append(el('div',{class:'muted',style:'font-size:12px'}, r.ok ? 'Result: '+(txt.length>300?txt.slice(0,300)+'…':txt) : txt));
-            results.push({type:'tool_result', tool_use_id:c.id, content:txt, is_error:!r.ok});
-          }
-          askState.history.push({role:'user', content:results});
-          continue;
-        }
-        if(resp.stop_reason==='refusal') out.insertBefore(el('div',{class:'muted'}, 'Claude declined to answer that one.'), note);
-        else if(resp.stop_reason==='max_tokens') out.insertBefore(el('div',{class:'muted'}, 'The answer was cut off — ask a narrower question or ask it to continue.'), note);
-        break;
-      }
-      note.textContent = `${num(askState.tokIn)} tokens in / ${num(askState.tokOut)} out so far this session`;
-    }catch(err){
-      askState.history.length = start;
-      note.remove(); out.append(el('div',{class:'neg'}, 'Couldn’t get an answer: '+err.message));
-    }
   }
 
   // ---- artifact mode: Claude via the viewer's own account; the page runs the queries ----
@@ -1707,61 +1632,48 @@
     const p = el('div',{class:'panel'}); p.append(el('h2',{},'Ask Claude'));
     const descBase = 'Ask anything the tables don’t cover — “how did I do against The Money Team over the years?”, “which lane pair do my teammates bowl best on?”, '
       +'“who has the biggest late-season improvement?”. Claude writes small queries over all '+askData().length+' seasons of data and shows the numbers behind its answer. ';
-    const descKey = descBase+'It uses your own Anthropic API key (Console account, billed separately from a Claude subscription — typically a few cents per question); '
-      +'the key is stored only in this browser, never on the site. Use a key with a spend limit.';
+    const descSite = descBase+'This page can’t ask Claude by itself (and has no pay-per-use option). Ask in the Claude version of this app, which uses your own Claude account, '
+      +'or copy a ready-made prompt and the data file into a claude.ai chat (below).';
     const descSample = descBase+'Questions use your own Claude account and count toward your Claude usage; Claude asks you to allow it the first time. '
       +'Answers can take a minute when it has to look several things up.';
-    const desc = el('div',{class:'muted gapnote'}, descKey); p.append(desc);
-    const keyRow = el('div',{class:'toolbar'});
-    const keyIn = el('input',{type:'password', placeholder:'Anthropic API key (sk-ant-…)', autocomplete:'off', spellcheck:'false'});
-    const keyBtn = el('button',{class:'wkbtn'}, lsGet(ASK_KEY) ? 'Replace key' : 'Save key');
-    const keyForget = el('button',{class:'wkbtn'}, 'Forget key');
-    const keyNote = el('span',{class:'muted',style:'font-size:12px'});
-    const syncKey = ()=>{ const has = !!lsGet(ASK_KEY); keyNote.textContent = has ? 'Key saved in this browser.' : 'No key saved yet.';
-      keyBtn.textContent = has ? 'Replace key' : 'Save key'; keyForget.hidden = !has; if(has) keyIn.value=''; };
-    keyBtn.onclick = ()=>{ const k = keyIn.value.trim(); if(k){ lsSet(ASK_KEY,k); keyIn.value=''; } syncKey(); };
-    keyForget.onclick = ()=>{ lsSet(ASK_KEY,''); syncKey(); };
-    keyRow.append(keyIn, keyBtn, keyForget, keyNote); p.append(keyRow); syncKey();
+    const desc = el('div',{class:'muted gapnote'}, descSite); p.append(desc);
+    const artLink = el('a',{href:ASK_ARTIFACT_URL, target:'_blank', rel:'noopener', class:'wkbtn', style:'text-decoration:none'}, 'Open the Claude version (opens for the owner only)');
+    const artRow = el('div',{class:'toolbar'}, artLink); p.append(artRow);
 
     if(!askState.logEl) askState.logEl = el('div',{class:'ask-log'});
-    const log = askState.logEl;
+    const log = askState.logEl; log.hidden = true;
     const qIn = el('textarea',{rows:'3', placeholder:'Ask a question about the league…'});
-    const model = mkSelect(ASK_MODELS);
+    const model = mkSelect(ASK_TIERS);
     const go = el('button',{class:'wkbtn active'}, 'Ask');
     const stop = el('button',{class:'wkbtn'}, 'Stop'); stop.hidden = true;
     const clear = el('button',{class:'wkbtn'}, 'New conversation');
+    const askRow = el('div',{class:'toolbar',style:'margin-top:8px'}, model, go, stop, clear,
+      el('span',{class:'muted',style:'font-size:12px'}, 'Ctrl+Enter to send')); askRow.hidden = true;
     let sampleFn = null;      // set once the artifact's `sample` capability resolves
     const ask = async ()=>{
-      const q = qIn.value.trim(); if(!q || askState.busy) return;
-      if(sampleFn){
-        askState.busy = true; go.disabled = true; qIn.value = '';
-        await askQuestionSample(sampleFn, q, model.value, {log, onStart:()=>{ stop.hidden = false; }, onEnd:()=>{ stop.hidden = true; }});
-      } else {
-        const key = lsGet(ASK_KEY); if(!key){ keyNote.textContent = 'Paste and save your API key first.'; keyIn.focus(); return; }
-        askState.busy = true; go.disabled = true; qIn.value = '';
-        await askQuestion(q, key, model.value, {log});
-      }
+      const q = qIn.value.trim(); if(!q || askState.busy || !sampleFn) return;
+      askState.busy = true; go.disabled = true; qIn.value = '';
+      await askQuestionSample(sampleFn, q, model.value, {log, onStart:()=>{ stop.hidden = false; }, onEnd:()=>{ stop.hidden = true; }});
       askState.busy = false; go.disabled = false; qIn.focus();
       log.lastChild && log.lastChild.scrollIntoView({block:'nearest'});
     };
     go.onclick = ask;
     stop.onclick = ()=>{ if(askState.ctl) askState.ctl.abort(); };
     qIn.onkeydown = e=>{ if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){ e.preventDefault(); ask(); } };
-    clear.onclick = ()=>{ if(askState.busy) return; askState.history = []; askState.turns = []; log.innerHTML=''; };
+    clear.onclick = ()=>{ if(askState.busy) return; askState.turns = []; log.innerHTML=''; };
     const chips = el('div',{class:'toolbar'});
     ['How does '+(CUR.meta.favoriteTeam||'my team')+' fare against each team it has faced, across every season?',
      'Which bowlers improved the most from last season to this one?',
      'What was the highest team series ever, and who bowled it?',
      'Who are the best bowlers in the final game of the night?'].forEach(t=>{
       const c = el('button',{class:'wkbtn'}, t); c.style.fontWeight='400'; c.style.fontSize='12px'; c.onclick = ()=>{ qIn.value = t; qIn.focus(); }; chips.append(c); });
-    p.append(chips, qIn, el('div',{class:'toolbar',style:'margin-top:8px'}, model, go, stop, clear,
-      el('span',{class:'muted',style:'font-size:12px'}, 'Ctrl+Enter to send')), log);
+    p.append(chips, qIn, askRow, log);
     v.append(p);
 
-    // no API key? take the question to claude.ai instead
-    const p2 = el('div',{class:'panel'}); p2.append(el('h2',{},'No API key? Use claude.ai'));
+    // outside the Claude artifact: take the question to claude.ai instead (free with a Claude account)
+    const p2 = el('div',{class:'panel'}); p2.append(el('h2',{},'Ask in claude.ai instead'));
     p2.append(el('div',{class:'muted gapnote'},
-      'Download the data file, then paste the prompt into a new claude.ai chat and attach the file — you’ll get the same kind of answer using your Claude subscription.'));
+      'Download the data file, then paste the prompt into a new claude.ai chat and attach the file — you’ll get the same kind of answer, using your Claude account’s normal usage.'));
     const fb = el('div',{class:'toolbar'});
     const cp = el('button',{class:'wkbtn'}, 'Copy prompt (uses the question above)');
     cp.onclick = async ()=>{
@@ -1778,15 +1690,13 @@
     const open = el('a',{href:'https://claude.ai/new', target:'_blank', rel:'noopener', class:'wkbtn', style:'text-decoration:none'}, 'Open claude.ai');
     fb.append(cp, dl, open); p2.append(fb); v.append(p2);
 
-    // in a published Claude artifact: use the viewer's own Claude account instead of an API key
+    // inside the published Claude artifact: ask Claude directly through the viewer's own account
     askSampleP.then(sample=>{
       if(!sample) return;
       sampleFn = sample;
-      desc.textContent = descSample; keyRow.hidden = true; p2.hidden = true;
-      model.innerHTML = ''; ASK_TIERS.forEach(t=> model.append(el('option',{value:t.value}, t.label)));
+      desc.textContent = descSample; artRow.hidden = true; p2.hidden = true; askRow.hidden = false; log.hidden = false;
     });
   }
-
   // ================= Trends =================
   function trendChart(weeks, seasonAvg){
     const pts = weeks.filter(w=>w.value>0);

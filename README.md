@@ -478,14 +478,11 @@ dashboard shows them as stored. Totals, averages, and highs are unaffected.
 
 ## Ask Claude tab
 
-Free-form questions the tables don't answer. The site is static, so the tab calls the Anthropic API from the
-browser with the viewer's **own API key** (Console account; saved only in that browser's localStorage, never in
-the repo or on the site). Claude answers by writing small JavaScript queries; they run in a Web Worker
-sandbox over every season's data (standings, bowlers, every matchup seat by seat) and the page loops until
-Claude has the numbers (`run_js` tool, 20 s limit per query). Model picker: Opus 5.5 (default), Sonnet 5.5,
-Haiku 5.5. The request uses raw `fetch` (the page is one self-contained file with no bundler) with the
-`anthropic-dangerous-direct-browser-access` header. No key: "Copy prompt" + "Download league-data.json" to ask
-the same question in claude.ai.
+Free-form questions the tables don't answer. There is deliberately **no pay-per-use (API key) option**.
+On the GitHub site the tab offers "Copy prompt" + "Download league-data.json" to ask the same question in a
+claude.ai chat. Inside the published Claude artifact (below) the tab asks Claude directly through the viewer's
+own Claude account: Claude answers by writing small JavaScript queries (`run_js` tool) that run in a Web Worker
+sandbox over every season's data (standings, bowlers, every matchup seat by seat), 20 s limit per query.
 
 **Claude artifact version (no API key).** `.\scripts\Make-ArtifactPage.ps1` turns the built `docs\index.html` into the
 page file for a published Claude Artifact (`data\out\artifact\league-stats.html`, ~13 MB of the 16 MB limit). Published with the
