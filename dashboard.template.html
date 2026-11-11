@@ -129,6 +129,7 @@
   .anchorrow .av{width:2.6em;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
   h3{color:var(--ink)}
   .chartwrap svg{display:block}
+  input[type=number]{padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);font:inherit}
   textarea,input[type=password]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:7px;
     background:var(--bg);color:var(--ink);font:inherit}
   .panel > textarea{margin:0 12px;width:calc(100% - 24px)}
@@ -896,34 +897,40 @@
     v.append(p2);
 
     // --- bowler vs bowler ---
-    const seenB = {}, bl = [];
-    [CUR].concat(SEASONS).forEach(S=> A(S.bowlers).forEach(b=>{
-      if(!b.id || seenB[b.id] || !(b.gamesBowled>0)) return; seenB[b.id] = 1; bl.push({label:b.name+'  ('+b.team+')', value:b.id}); }));
-    bl.sort((x,y)=>x.label.localeCompare(y.label));
+    // Bowlers are merged across seasons by LeaguePals id and, when the same name turns up under a second id in
+    // seasons the first id wasn't bowling (a team change often creates a new profile), by name.
+    const PP = people();
+    const allBl = PP.list.map(p=>({label:p.name+'  ('+p.team+')', value:p.key}));
     const p3 = el('div',{class:'panel'});
     p3.append(el('h2',{},'Bowler vs Bowler'));
     p3.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:12px'},
-      'Seat-by-seat matchups from the official score sheets. The team in brackets is the most recent one the bowler appeared for.'));
+      'Seat-by-seat matchups from the official score sheets. Pick a bowler and the second list shows only the bowlers they have actually faced. '
+      +'Bowlers are matched across seasons by name as well as id, so a team change doesn’t split someone in two. The team in brackets is the most recent one.'));
     const tb3 = el('div',{class:'toolbar'});
-    const a3 = mkSelect(bl), b3 = mkSelect(bl), sc3 = mkScope();
-    if(bl.length>1) b3.selectedIndex = 1;
-    if(fav){
-      const favB = A(CUR.bowlers).find(b=>b.team===fav);
-      if(favB){ a3.value = favB.id; if(b3.value===favB.id) b3.selectedIndex = (bl[0].value===favB.id?1:0); }
-    }
+    const a3 = mkSelect(allBl), b3 = el('select'), sc3 = mkScope();
+    let favP = CUR.meta.favoriteBowler ? PP.list.find(p=>p.name===CUR.meta.favoriteBowler) : null;
+    if(!favP && fav){ const fb = A(CUR.bowlers).find(b=>b.team===fav); if(fb) favP = PP.ofId[fb.id]; }
+    if(favP) a3.value = favP.key;
     tb3.append(a3, el('span',{class:'muted'},'vs'), b3, sc3);
     const h3 = el('div'); p3.append(tb3, h3);
+    const fillOpp = ()=>{
+      const keep = b3.value; b3.innerHTML = '';
+      const opp = opponentsOf(a3.value, sc3.value);
+      opp.forEach(o=> b3.append(el('option',{value:o.key}, `${o.p.name}  (${o.p.team}) — ${o.n} meeting${o.n>1?'s':''}`)));
+      if(opp.some(o=>o.key===keep)) b3.value = keep;
+    };
     const drawBowler = ()=>{
       h3.innerHTML='';
-      const A1=a3.value, B1=b3.value, all = sc3.value==='all';
-      if(A1===B1){ h3.append(el('div',{class:'muted',style:'padding:12px'},'Pick two different bowlers.')); return; }
+      const pa = PP.byKey[a3.value], pb = PP.byKey[b3.value], all = sc3.value==='all';
+      if(!pa) return;
+      if(!pb){ h3.append(el('div',{class:'muted',style:'padding:12px'}, pa.name+' hasn’t had a seat-by-seat matchup against anyone'+(all?'':' this season')+' yet.')); return; }
       const rows=[]; let unconfirmedHits=0;
       h2hPool(sc3.value).schedule.forEach(m=>{
         A(m.pairs).forEach(pr=>{
-          const hit = (pr.aId===A1&&pr.bId===B1)||(pr.aId===B1&&pr.bId===A1);
-          if(!hit) return;
+          const aIsA = pa.idset.has(pr.aId) && pb.idset.has(pr.bId), aIsB = pa.idset.has(pr.bId) && pb.idset.has(pr.aId);
+          if(!aIsA && !aIsB) return;
           if(m.pairingConfirmed===false){ unconfirmedHits++; return; }
-          const flip = pr.aId===B1;
+          const flip = aIsB;
           const gj = g => A(g).map(x=>x==null?'–':x).join(' ');
           const X = flip?{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind}:{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind};
           const Y = flip?{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind}:{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind};
@@ -932,27 +939,69 @@
             bLine:gj(Y.g)+'  ('+Y.s+' +'+Y.h+')'+(Y.k&&Y.k!=='bowler'?' ['+Y.k+']':''), bPts:Y.p});
         });
       });
-      const nA = (bl.find(x=>x.value===A1)||{}).label||'', nB = (bl.find(x=>x.value===B1)||{}).label||'';
       const unsureNote = unconfirmedHits ? ` (${unconfirmedHits} more week${unconfirmedHits>1?'s':''} had a sub/blind that week — excluded, pairing unconfirmed)` : '';
       if(!rows.length){ h3.append(el('div',{class:'muted',style:'padding:12px'},
-        nA.split('  (')[0]+' and '+nB.split('  (')[0]+' haven’t had a confirmed matchup (by position) yet.'+unsureNote)); return; }
+        pa.name+' and '+pb.name+' haven’t had a confirmed matchup (by position) yet.'+unsureNote)); return; }
       let aP=0,bP=0,aW=0,bW=0; rows.forEach(r=>{aP+=r.aPts;bP+=r.bPts; if(r.aPts>r.bPts)aW++; else if(r.bPts>r.aPts)bW++;});
       const nSeasons = new Set(rows.map(r=>r.season)).size;
       h3.append(el('div',{class:'summary'},
-        `${nA.split('  (')[0]}  ${num(aP)} – ${num(bP)}  ${nB.split('  (')[0]}`,
+        `${pa.name}  ${num(aP)} – ${num(bP)}  ${pb.name}`,
         el('br'), el('span',{class:'muted'}, `${rows.length} head-to-head week${rows.length>1?'s':''}${all&&nSeasons>1?` across ${nSeasons} seasons`:''}  ·  weeks won ${aW}–${bW}${unsureNote}`)));
+      [pa,pb].forEach(p=> h3.append(el('div',{class:'muted',style:'padding:0 14px 2px;font-size:12px'}, p.name+': '+p.history)));
       h3.append(table([
         {k:'date',label:'Week',fmt:(x,r)=> (all&&r.season?r.season+' · ':'')+(r.weekNum?'Wk '+r.weekNum+' · ':'')+x+(r.lane?'  (lanes '+r.lane+')':'')},
-        {k:'aLine',label:nA.split('  (')[0]},
+        {k:'aLine',label:pa.name},
         {k:'aPts',label:'Pts',cls:'num',fmt:num},
         {k:'bPts',label:'Pts',cls:'num',fmt:num},
-        {k:'bLine',label:nB.split('  (')[0]},
+        {k:'bLine',label:pb.name},
       ], rows, {sort:'date',dir:1}));
     };
-    a3.onchange=drawBowler; b3.onchange=drawBowler; sc3.onchange=drawBowler; drawBowler();
+    a3.onchange = ()=>{ fillOpp(); drawBowler(); }; sc3.onchange = ()=>{ fillOpp(); drawBowler(); }; b3.onchange = drawBowler;
+    fillOpp(); drawBowler();
     v.append(p3);
   }
 
+  // Every bowler across all seasons, merged into one "person": same LeaguePals id, or the same name under a second id
+  // when the two ids never bowled in the same season (e.g. a new profile after a team change).
+  function people(){
+    if(people._p) return people._p;
+    const seasons = [{label:CUR.meta.league, S:CUR}].concat(SEASONS.map(s=>({label:s.label, S:s})));
+    const norm = n=>String(n||'').replace(/\(.*?\)/g,'').toLowerCase().replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+    const byId = {};
+    seasons.forEach((se,si)=> A(se.S.bowlers).forEach(b=>{
+      if(!b.id || !(b.gamesBowled>0)) return;
+      (byId[b.id] = byId[b.id] || {ids:[b.id], recs:[]}).recs.push({si, label:se.label, b}); }));
+    const byName = {};
+    Object.values(byId).forEach(r=>{ (byName[norm(r.recs[0].b.name)] = byName[norm(r.recs[0].b.name)] || []).push(r); });
+    const groups = [];
+    Object.keys(byName).forEach(k=>{
+      const rs = byName[k]; let clash = false;
+      if(rs.length>1){ const seen = new Set(); rs.forEach(r=> r.recs.forEach(x=>{ if(seen.has(x.si)) clash = true; seen.add(x.si); })); }
+      if(rs.length>1 && !clash) groups.push({ids:[].concat(...rs.map(r=>r.ids)), recs:[].concat(...rs.map(r=>r.recs))});
+      else rs.forEach(r=>groups.push(r));
+    });
+    const P = { list:[], byKey:{}, ofId:{} };
+    groups.forEach(g=>{
+      g.recs.sort((x,y)=>x.si-y.si);                       // newest season first
+      const latest = g.recs[0].b;
+      const person = { key:latest.id, name:latest.name, team:latest.team, idset:new Set(g.ids), recs:g.recs,
+        history: g.recs.map(r=>r.label.replace('Pioneer I ','').replace(/^(\d{4})-\d{2}(\d{2}).*$/,'$1-$2')+' '+r.b.team).join('  ·  ') };
+      P.list.push(person); P.byKey[person.key] = person; g.ids.forEach(id=>{ P.ofId[id] = person; });
+    });
+    P.list.sort((x,y)=>x.name.localeCompare(y.name));
+    return people._p = P;
+  }
+  const oppCache = {};
+  function opponentsOf(key, scope){
+    const ck = key+'|'+scope+'|'+D.meta.league;
+    if(oppCache[ck]) return oppCache[ck];
+    const P = people(), me = P.byKey[key], out = {};
+    if(me) h2hPool(scope).schedule.forEach(m=> A(m.pairs).forEach(pr=>{
+      const oid = me.idset.has(pr.aId) ? pr.bId : (me.idset.has(pr.bId) ? pr.aId : null);
+      const op = oid && P.ofId[oid]; if(!op || op.key===key) return;
+      out[op.key] = (out[op.key]||0)+1; }));
+    return oppCache[ck] = Object.keys(out).map(k=>({key:k, n:out[k], p:P.byKey[k]})).sort((x,y)=>x.p.name.localeCompare(y.p.name));
+  }
   // every matchup in the current season plus all archived ones (or just the season on screen), tagged with its season
   const h2hCache = {};
   function h2hPool(scope){
@@ -1144,7 +1193,7 @@
   function viewAnalytics(v){
     const E = engine();
     if(!E.recs.length){ v.append(el('div',{class:'panel'}, el('div',{class:'muted',style:'padding:14px'},'No matchups reconstructed yet.'))); return; }
-    marginsPanel(v); pythPanel(v); luckPanel(v); ratesPanel(v);
+    marginsPanel(v); pythPanel(v); luckPanel(v); ratesPanel(v); consistencyPanel(v); seasonsPanel(v);
   }
 
   function marginsPanel(v){
@@ -1350,6 +1399,181 @@
       }
     }
     draw(); v.append(p);
+  }
+
+  // ---- consistency: more ways to describe variance than σ ----
+  const quantile = (sorted, q)=>{ if(!sorted.length) return null; const i = (sorted.length-1)*q, lo = Math.floor(i), hi = Math.ceil(i); return sorted[lo]+(sorted[hi]-sorted[lo])*(i-lo); };
+  // `recs` = one bowler's season records; every figure is measured against that season's own average so a
+  // bowler who improved between seasons isn't scored as erratic.
+  function varianceStats(recs){
+    const gRes = [], sRes = [], nightRes = [], withinVar = [], swings = [], allGames = [];
+    let seasonsG = 0, seasonsS = 0;
+    recs.forEach(r=>{
+      const nights = A(r.b.weeks).filter(w=>!w.absent).map(w=>A(w.games).filter(x=>x!=null)).filter(g=>g.length>0);
+      const games = nights.flat(); if(games.length<3) return;
+      const m = mean(games); seasonsG++; allGames.push(...games);
+      nights.forEach(g=>{
+        g.forEach(x=>gRes.push(x-m));
+        for(let i=1; i<g.length; i++) swings.push(Math.abs(g[i]-g[i-1]));
+        if(g.length===3){ sRes.push(sum(g)-3*m); nightRes.push(mean(g)-m); withinVar.push(sd(g)*sd(g)); }
+      });
+      seasonsS++;
+    });
+    const n = gRes.length, nF = sRes.length; if(n<3) return null;
+    const rms = (a, k)=> a.length>k ? Math.sqrt(sum(a.map(x=>x*x))/(a.length-k)) : null;
+    const sg = gRes.slice().sort((x,y)=>x-y);
+    const avg = mean(allGames);
+    return { n, nF, avg, sdGame: rms(gRes, seasonsG), sdSer: rms(sRes, seasonsS), cv: rms(gRes, seasonsG)/avg,
+      mad: quantile(gRes.map(Math.abs).sort((x,y)=>x-y), 0.5), floor: quantile(sg,0.1), ceil: quantile(sg,0.9),
+      bad: gRes.filter(x=>x<=-40).length/n, hot: gRes.filter(x=>x>=40).length/n, swing: mean(swings),
+      nightSd: nightRes.length>1 ? sd(nightRes) : null, withinSd: withinVar.length ? Math.sqrt(mean(withinVar)) : null };
+  }
+
+  function consistencyPanel(v){
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Consistency & Variance'));
+    p.append(el('div',{class:'muted gapnote'},
+      'σ (standard deviation) is the typical swing from a bowler’s own average, and variance is just σ squared, so it adds nothing new. σ also treats a great game and a terrible one the same and is dragged around by single outliers, '
+      +'so the table adds other angles. All figures are measured against that bowler’s average for the same season. '
+      +'CV = σ ÷ average (fair across different skill levels). MAD = the typical miss (median absolute deviation), steadier than σ when there are outliers. '
+      +'Floor / ceiling = a bad game (10th percentile) and a good game (90th) relative to average. Blow-ups = games 40+ pins under average; hot games = 40+ over. '
+      +'Swing = average pin change from one game to the next in a night. Night σ = how much the nightly average moves from week to week (lane conditions, form), '
+      +'Within-night σ = how much the three games differ inside a night; a bowler with a high Night σ but low Within-night σ is streaky by the week rather than the game.'));
+    let scope = 'this', minG = D.past ? 30 : 12;
+    const mkIn = ph => el('input',{type:'number', min:'0', step:'1', placeholder:ph, style:'width:72px'});
+    const sc = mkSelect([{label:'This season', value:'this'},{label:'All seasons combined', value:'all'}]);
+    const mg = mkSelect([{label:'min 12 games',value:'12'},{label:'min 30 games',value:'30'},{label:'min 60 games',value:'60'},{label:'min 100 games',value:'100'}]);
+    mg.value = D.past ? '30' : '12';
+    const gMin = mkIn('min'), gMax = mkIn('max'), sMin = mkIn('min'), sMax = mkIn('max');
+    const reset = el('button',{class:'wkbtn'}, 'Clear filters');
+    p.append(el('div',{class:'toolbar'}, sc, mg),
+      el('div',{class:'toolbar'}, el('span',{class:'muted'}, 'σ per game'), gMin, '–', gMax, el('span',{class:'muted',style:'margin-left:8px'}, 'σ per series'), sMin, '–', sMax, reset));
+    const host = el('div'); p.append(host);
+    const rowsFor = ()=>{
+      const out = [];
+      if(scope==='all') people().list.forEach(pe=>{ const s = varianceStats(pe.recs); if(s) out.push(Object.assign({name:pe.name, team:pe.team, seasons:pe.recs.length}, s)); });
+      else A(D.bowlers).forEach(b=>{ const s = varianceStats([{b}]); if(s) out.push(Object.assign({name:b.name, team:b.team, seasons:1}, s)); });
+      return out;
+    };
+    const draw = ()=>{
+      host.innerHTML='';
+      const num_ = x=> x.value===''?null:+x.value, lo1 = num_(gMin), hi1 = num_(gMax), lo2 = num_(sMin), hi2 = num_(sMax);
+      const rows = rowsFor().filter(r=> r.n>=minG && (lo1==null||r.sdGame>=lo1) && (hi1==null||r.sdGame<=hi1)
+                                      && (lo2==null||(r.sdSer!=null&&r.sdSer>=lo2)) && (hi2==null||(r.sdSer!=null&&r.sdSer<=hi2)));
+      host.append(el('div',{class:'muted gapnote'}, `${rows.length} bowler${rows.length===1?'':'s'} match.`));
+      const r0 = x=>x==null?'—':Math.round(x);
+      host.append(table([
+        {k:'name',label:'Bowler'},{k:'team',label:'Team',cls:'hide-sm'},
+        {k:'n',label:'Gm',cls:'num'},
+        {k:'avg',label:'Avg',cls:'num',fmt:f1},
+        {k:'sdGame',label:'σ game',cls:'num',def:1,fmt:f1},
+        {k:'sdSer',label:'σ series',cls:'num',def:1,fmt:f1},
+        {k:'cv',label:'CV',cls:'num',def:1,fmt:x=>x==null?'—':(x*100).toFixed(1)+'%'},
+        {k:'mad',label:'MAD',cls:'num',def:1,fmt:f1},
+        {k:'floor',label:'Floor',cls:'num',fmt:x=>x==null?'—':tone(x,r0(x))},
+        {k:'ceil',label:'Ceiling',cls:'num',fmt:x=>x==null?'—':tone(x,'+'+r0(x))},
+        {k:'bad',label:'Blow-ups',cls:'num',def:1,fmt:x=>pc(x,0)},
+        {k:'hot',label:'Hot games',cls:'num',fmt:x=>pc(x,0)},
+        {k:'swing',label:'Swing',cls:'num',def:1,fmt:f1},
+        {k:'nightSd',label:'Night σ',cls:'num',def:1,fmt:f1},
+        {k:'withinSd',label:'Within-night σ',cls:'num',def:1,fmt:f1},
+      ], rows, {sort:'sdGame', dir:1, rank:true}));
+    };
+    sc.onchange = ()=>{ scope = sc.value; draw(); }; mg.onchange = ()=>{ minG = +mg.value; draw(); };
+    [gMin,gMax,sMin,sMax].forEach(i=>{ i.oninput = draw; });
+    reset.onclick = ()=>{ [gMin,gMax,sMin,sMax].forEach(i=>{ i.value=''; }); draw(); };
+    draw(); v.append(p);
+  }
+
+  // ---- one bowler, season by season: is there a time-of-year pattern? ----
+  const SEASON_COLORS = ['var(--accent)','#e0a030','#c0508a','#3aa6a0','#8f7be0'];   // newest first
+  const MONTHS = ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'];
+  const monthIdx = d => { const m = +d.slice(5,7); return (m>=8) ? m-8 : m+4; };     // Aug=0 … May=9
+  function seasonsPanel(v){
+    const PP = people();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Bowler Seasons & Trends'));
+    p.append(el('div',{class:'muted gapnote'},
+      'Every full week’s series for one bowler, one line per season, laid on a shared August-to-May calendar so a recurring dip shows up in the same place each year. '
+      +'“vs season average” subtracts that bowler’s own average for the season, so seasons at different levels line up. The heavy bars are the month averages across all seasons; '
+      +'the table gives each month’s average deviation with its margin of error, and the summary tests October–November against the rest of the year. A handful of weeks per month is a small sample: treat a dip as a lead, not a proof.'));
+    const sel = mkSelect(PP.list.map(x=>({label:x.name+'  ('+x.team+')', value:x.key})));
+    const fav = CUR.meta.favoriteBowler ? PP.list.find(x=>x.name===CUR.meta.favoriteBowler) : null;
+    if(fav) sel.value = fav.key;
+    let mode = 'dev';
+    const bar = el('div',{class:'toolbar'}, sel);
+    const mk = (id,label)=>{ const b = el('button',{class:'wkbtn'+(mode===id?' active':'')}, label);
+      b.onclick = ()=>{ mode=id; [...bar.querySelectorAll('.wkbtn')].forEach(x=>x.classList.remove('active')); b.classList.add('active'); draw(); }; return b; };
+    bar.append(mk('dev','vs season average'), mk('raw','Raw series'));
+    const host = el('div'); p.append(bar, host);
+
+    const draw = ()=>{
+      host.innerHTML='';
+      const pe = PP.byKey[sel.value]; if(!pe) return;
+      const recs = pe.recs.slice().sort((a,b)=>b.si-a.si);      // oldest -> newest
+      const pts = [];
+      recs.forEach(r=>{
+        const wks = A(r.b.weeks).filter(w=>!w.absent && A(w.games).filter(x=>x!=null).length===3);
+        const all = wks.flatMap(w=>A(w.games)); if(!all.length) return;
+        const m = mean(all);
+        const y0 = +wks.map(w=>w.date).sort()[0].slice(0,4) - (+wks.map(w=>w.date).sort()[0].slice(5,7) < 7 ? 1 : 0);
+        wks.forEach(w=>{ const ser = sum(A(w.games)); const t = Date.UTC(+w.date.slice(0,4), +w.date.slice(5,7)-1, +w.date.slice(8,10));
+          pts.push({ si:r.si, season:r.label.replace('Pioneer I ',''), date:w.date, x:(t-Date.UTC(y0,7,1))/864e5, month:monthIdx(w.date), ser, dev:ser-3*m, v: mode==='dev'? ser-3*m : ser }); });
+      });
+      if(pts.length<3){ host.append(el('div',{class:'muted',style:'padding:12px'},'Not enough full weeks yet.')); return; }
+      host.append(el('div',{class:'summary'}, pe.name, el('br'), el('span',{class:'muted'}, pe.history)));
+
+      // summary: Oct-Nov vs the rest
+      const a = pts.filter(q=>q.month===2||q.month===3).map(q=>q.dev), b = pts.filter(q=>q.month!==2&&q.month!==3).map(q=>q.dev);
+      if(a.length>=3 && b.length>=3){
+        const diff = mean(a)-mean(b), se = Math.sqrt(sd(a)*sd(a)/a.length + sd(b)*sd(b)/b.length), t = diff/se;
+        const verdict = Math.abs(t)>=2 ? (diff<0 ? 'a likely real dip' : 'a likely real bump') : (Math.abs(t)>=1 ? 'suggestive, but could be chance' : 'within normal week-to-week noise');
+        host.append(el('div',{class:'summary'}, `October–November: ${tone(diff, sg1(diff)).textContent} pins per 3-game series vs the rest of the year`,
+          el('br'), el('span',{class:'muted'}, `${a.length} weeks vs ${b.length}  ·  margin of error ±${(1.96*se).toFixed(0)}  ·  ${verdict}`)));
+      }
+
+      // chart on a calendar axis
+      const W = 760, H = 260, padL = 44, padR = 16, padT = 14, padB = 30, xMax = 290;
+      const ys = pts.map(q=>q.v), months = [...Array(10).keys()];
+      const mm = months.map(mi=>{ const s = pts.filter(q=>q.month===mi).map(q=>q.v); return s.length ? mean(s) : null; });
+      const vals = ys.concat(mm.filter(x=>x!=null)); let lo = Math.min(...vals), hi = Math.max(...vals); if(hi===lo){ lo-=1; hi+=1; } const pad = (hi-lo)*0.1; lo-=pad; hi+=pad;
+      const xOf = x => padL + x/xMax*(W-padL-padR), yOf = y => padT + (1-(y-lo)/(hi-lo))*(H-padT-padB);
+      let svg = '';
+      for(let t=0; t<5; t++){ const yv = lo+(hi-lo)*t/4, y = yOf(yv);
+        svg += `<line x1="${padL}" x2="${W-padR}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" style="stroke:var(--line)"/><text x="${padL-6}" y="${(y+3).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--muted)">${Math.round(yv)}</text>`; }
+      if(mode==='dev') svg += `<line x1="${padL}" x2="${W-padR}" y1="${yOf(0).toFixed(1)}" y2="${yOf(0).toFixed(1)}" style="stroke:var(--ink)" stroke-dasharray="4 3" opacity="0.5"/>`;
+      // month starts (Aug 1 = 0) and month-average bars
+      const y0 = 2000; const startOf = mi => (Date.UTC(y0+(mi>=5?1:0), (mi+7)%12, 1) - Date.UTC(y0,7,1))/864e5;
+      months.forEach(mi=>{
+        const x1 = xOf(startOf(mi)), x2 = xOf(mi===9 ? xMax : startOf(mi+1));
+        svg += `<line x1="${x1.toFixed(1)}" x2="${x1.toFixed(1)}" y1="${padT}" y2="${H-padB}" style="stroke:var(--line)"/><text x="${((x1+x2)/2).toFixed(1)}" y="${H-10}" text-anchor="middle" font-size="10" style="fill:var(--muted)">${MONTHS[mi]}</text>`;
+        if(mm[mi]!=null) svg += `<line x1="${(x1+3).toFixed(1)}" x2="${(x2-3).toFixed(1)}" y1="${yOf(mm[mi]).toFixed(1)}" y2="${yOf(mm[mi]).toFixed(1)}" style="stroke:var(--ink)" stroke-width="4" opacity="0.28"><title>${MONTHS[mi]} average across seasons: ${mm[mi].toFixed(1)}</title></line>`;
+      });
+      const bySeason = {}; pts.forEach(q=>{ (bySeason[q.si] = bySeason[q.si]||[]).push(q); });
+      Object.keys(bySeason).forEach(si=>{
+        const col = SEASON_COLORS[+si % SEASON_COLORS.length], arr = bySeason[si].sort((u,w)=>u.x-w.x);
+        svg += `<polyline points="${arr.map(q=>xOf(q.x).toFixed(1)+','+yOf(q.v).toFixed(1)).join(' ')}" fill="none" style="stroke:${col}" stroke-width="1.8" opacity="0.9"/>`;
+        arr.forEach(q=>{ svg += `<circle cx="${xOf(q.x).toFixed(1)}" cy="${yOf(q.v).toFixed(1)}" r="3" style="fill:${col}"><title>${q.season} · ${q.date}: series ${q.ser} (${sg1(q.dev)} vs season avg)</title></circle>`; });
+      });
+      host.append(svgWrap(W, H, svg));
+      host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:12px;display:flex;gap:14px;flex-wrap:wrap'},
+        ...Object.keys(bySeason).sort((u,w)=>u-w).map(si=> el('span',{}, el('span',{style:`display:inline-block;width:12px;height:3px;background:${SEASON_COLORS[+si%SEASON_COLORS.length]};vertical-align:middle;margin-right:4px`}), bySeason[si][0].season))));
+
+      // month table: deviation vs season average, per month, with margin of error and the per-season picture
+      const seasonsList = Object.keys(bySeason).sort((u,w)=>w-u);
+      const trows = months.map(mi=>{
+        const here = pts.filter(q=>q.month===mi); if(!here.length) return null;
+        const devs = here.map(q=>q.dev), m = mean(devs), se = devs.length>1 ? sd(devs)/Math.sqrt(devs.length) : null;
+        const row = { month:MONTHS[mi], mi, weeks:here.length, dev:m, moe: se==null?null:1.96*se, raw:mean(here.map(q=>q.ser)) };
+        seasonsList.forEach(si=>{ const s = here.filter(q=>q.si===+si); row['s'+si] = s.length ? mean(s.map(q=>q.dev)) : null; });
+        return row; }).filter(Boolean);
+      host.append(table([
+        {k:'mi',label:'Month',def:1,fmt:(x,r)=>r.month},
+        {k:'weeks',label:'Weeks',cls:'num'},
+        {k:'raw',label:'Avg series',cls:'num',fmt:f1},
+        {k:'dev',label:'vs season avg',cls:'num',fmt:x=>tone(x,sg1(x))},
+        {k:'moe',label:'± margin',cls:'num',fmt:x=>x==null?'—':'±'+x.toFixed(0)},
+      ].concat(seasonsList.map(si=>({k:'s'+si, label:bySeason[si][0].season, cls:'num hide-sm', fmt:x=>x==null?'—':tone(x,sg1(x))}))), trows, {sort:'mi', dir:1}));
+    };
+    sel.onchange = draw; draw(); v.append(p);
   }
 
   // ---- per-team blocks used by the Trends tab ----

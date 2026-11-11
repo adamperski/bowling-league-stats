@@ -1244,6 +1244,7 @@ $data = [ordered]@{
         weekDates  = $weekDates
         pointsPerWeek = $cfg.pointsPerWeek
         favoriteTeam  = $cfg.favoriteTeam
+        favoriteBowler = $cfg.favoriteBowler
         pts = [ordered]@{ indGame = $ptIndGame; indSeries = $ptIndSer; teamGame = $ptTeamGame; teamSeries = $ptTeamSer }
     }
     standings    = $teams

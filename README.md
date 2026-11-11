@@ -490,6 +490,10 @@ page file for a published Claude Artifact (`data\out\artifact\league-stats.html`
 `window.claude` at load; on GitHub Pages it falls back to the key box). The artifact is a snapshot: it does not update with
 the weekly run, so rebuild, run the script and ask Claude Code to republish it when you want fresh data.
 
+Bowler vs Bowler merges a bowler's profiles across seasons (same id, or the same name under a second id when the
+two never bowled in the same season), and its second dropdown lists only bowlers the first has actually faced.
+`config.json` `favoriteBowler` sets the default first bowler.
+
 Head-to-Head's Team vs Team and Bowler vs Bowler also look across **all seasons** (team by name, bowler by id);
 use the dropdown beside them for "This season only".
 
@@ -506,6 +510,11 @@ season and all archived ones with no extra build step.
   week (same seat vs same seat, ties split) to get expected points; luck = actual - expected. Also shows
   how the opponents bowled against the team relative to their own averages ("opp form faced") and the
   team's points in weak vs strong weeks. The replay reproduces the official points to within 0.25 on average.
+- **Consistency & variance** - per bowler (this season or all seasons combined, each measured against their own
+  season average): σ game / σ series, CV, MAD, floor and ceiling (10th / 90th percentile game), blow-up and hot-game
+  rates, game-to-game swing, night-to-night σ vs within-night σ; filter by σ range and minimum games.
+- **Bowler seasons & trends** - one bowler's weekly series, one line per season on a shared Aug-May calendar, with
+  month averages, a month table (deviation ± margin of error per season) and an Oct-Nov vs rest-of-year test.
 - **Rate stats** - bowlers (200+/250+ share, 600+ series share, CV, individual-points share, seat margin)
   and teams (game/series win %, margin per game, points shares, close-match record).
 
