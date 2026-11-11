@@ -28,7 +28,7 @@ if ($Season) {
     }
 } else {
     $slug = $cfg.seasonSlug
-    $out = (Get-ChildItem (Join-Path $root 'data\out') -Directory | Sort-Object Name -Descending | Select-Object -First 1).FullName
+    $out = (Get-ChildItem (Join-Path $root 'data\out') -Directory | Where-Object { $_.Name -match '^\d{4}-\d{2}-\d{2}$' } | Sort-Object Name -Descending | Select-Object -First 1).FullName
     $snap = (Get-ChildItem (Join-Path $root 'data\raw') -Directory | Sort-Object Name -Descending | Select-Object -First 1).FullName
     $st = (Get-Content -Raw (Join-Path $snap 'standings.json') | ConvertFrom-Json).data
     $idOf = @{}; foreach ($r in $st.standings) { if ($r.team._id) { $idOf[$r.team.name] = $r.team._id } }
