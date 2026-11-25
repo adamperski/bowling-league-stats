@@ -1,0 +1,2584 @@
+{
+  "data": {
+    "_id": "6a82316f249ddaa00e0297fb",
+    "againstBlindScore": 10,
+    "againstBlindScorePct": 0,
+    "seasonName": "winter",
+    "lockWeek": 4,
+    "teamsOnLane": 2,
+    "dues": 0,
+    "entryFee": 0,
+    "entryFeeLineage": 0,
+    "leagueType": "Mixed",
+    "lineage": 0,
+    "minGamesforAvg": 12,
+    "name": "Pioneer I 2026-2027",
+    "numLanes": 40,
+    "numPlayers": 5,
+    "paymentWeeks": 36,
+    "previousGamesMin": 21,
+    "positionRounds": "Every other night",
+    "sanction": 1,
+    "startingLane": "1",
+    "time": "6:30 PM",
+    "timeMeeting": "6:00 PM",
+    "weekday": "Tuesday",
+    "startingLaneShift": "1",
+    "teamsOnShift": 10,
+    "totalShift": 2,
+    "prizeFundsInd": {
+      "topTeamSeriesHandicap": {
+        "team": []
+      },
+      "topTeamSeries": {
+        "team": []
+      },
+      "topTeamGameHandicap": {
+        "team": []
+      },
+      "topTeamGame": {
+        "team": []
+      },
+      "topIndividualSeriesHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualSeries": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualPoints": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGameHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGame": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topImprovedAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      }
+    },
+    "prizeFundsDivInd": {
+      "topTeamSeriesHandicap": {
+        "team": []
+      },
+      "topTeamSeries": {
+        "team": []
+      },
+      "topTeamGameHandicap": {
+        "team": []
+      },
+      "topTeamGame": {
+        "team": []
+      },
+      "topIndividualSeriesHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualSeries": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualPoints": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGameHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGame": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topImprovedAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      }
+    },
+    "standingsQualifyList": [
+      {
+        "name": "High Series Scratch",
+        "id": "topIndividualSeries"
+      },
+      {
+        "name": "High Games Scratch",
+        "id": "topIndividualGame"
+      },
+      {
+        "name": "High Series Handicap",
+        "id": "topIndividualSeriesHandicap"
+      },
+      {
+        "name": "High Games Handicap",
+        "id": "topIndividualGameHandicap"
+      }
+    ],
+    "NumberOfSplit": 1,
+    "fileName": "Pion-6a8231-LP",
+    "cutLineName": "",
+    "isMultiEntryFee": false,
+    "customAgreementText": "",
+    "teamsPerPair": 3,
+    "center": "62d98f124cfb92201338336a",
+    "bowlersPerBracket": 8,
+    "gamesPerRound": 1,
+    "allowNicknames": true,
+    "substitutes": [
+      {
+        "user_league_id": [
+          901
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627da",
+        "sub": "6a849e094567694e6f804600"
+      },
+      {
+        "user_league_id": [
+          902
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627db",
+        "sub": "6a84a4bc8b115dfa552a2633"
+      },
+      {
+        "user_league_id": [
+          903
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627dc",
+        "sub": "6a8493c64567694e6f8045f0"
+      },
+      {
+        "user_league_id": [
+          904
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627dd",
+        "sub": "6a84aad2e30d2fd508ad8385"
+      },
+      {
+        "user_league_id": [
+          905
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627de",
+        "sub": "6a848dd059a05c0671b327c0"
+      },
+      {
+        "user_league_id": [
+          906
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627df",
+        "sub": "6a84a87fe6fb13112869ae0e"
+      },
+      {
+        "user_league_id": [
+          907
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e0",
+        "sub": "6a84883c9a7774246b7cf0aa"
+      },
+      {
+        "user_league_id": [
+          908
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e1",
+        "sub": "6a848db7a09d0e0071914913"
+      },
+      {
+        "user_league_id": [
+          909
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e2",
+        "sub": "6a849e799e92cd6342793082"
+      },
+      {
+        "user_league_id": [
+          910
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e3",
+        "sub": "6a84a2f1a186d3f455bdcffa"
+      },
+      {
+        "user_league_id": [
+          911
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e4",
+        "sub": "6a848bc4db318f985563ae5c"
+      },
+      {
+        "user_league_id": [
+          912
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e5",
+        "sub": "6a849d639e92cd6342793055"
+      },
+      {
+        "user_league_id": [
+          913
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e6",
+        "sub": "6a8490212e6fce02714dc875"
+      },
+      {
+        "user_league_id": [
+          914
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e7",
+        "sub": "6a848ff259a05c0671b327ce"
+      },
+      {
+        "user_league_id": [
+          915
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e8",
+        "sub": "6a84a654c19ebc584db5b179"
+      },
+      {
+        "user_league_id": [
+          916
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627e9",
+        "sub": "6a84aa5206593cd3080b2220"
+      },
+      {
+        "user_league_id": [
+          917
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627ea",
+        "sub": "6a848aa0e46b364f75f5b927"
+      },
+      {
+        "user_league_id": [
+          918
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627eb",
+        "sub": "6a849e6b678e40526fb27d44"
+      },
+      {
+        "user_league_id": [
+          919
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627ec",
+        "sub": "6a84a2daa186d3f455bdcff7"
+      },
+      {
+        "user_league_id": [
+          920
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627ed",
+        "sub": "6a848cfd738bdbb7273ed0bb"
+      },
+      {
+        "user_league_id": [
+          921
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627ee",
+        "sub": "6a8493144567694e6f8045ec"
+      },
+      {
+        "user_league_id": [
+          922
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627ef",
+        "sub": "6a84aa57e30d2fd508ad837d"
+      },
+      {
+        "user_league_id": [
+          923
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f0",
+        "sub": "6a84a969e30d2fd508ad8378"
+      },
+      {
+        "user_league_id": [
+          924
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f1",
+        "sub": "6a848dab76aed3296bcae669"
+      },
+      {
+        "user_league_id": [
+          925
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f2",
+        "sub": "6a84957e088808c256a85a51"
+      },
+      {
+        "user_league_id": [
+          926
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f3",
+        "sub": "6a849ea3c1669a68747761e4"
+      },
+      {
+        "user_league_id": [
+          927
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f4",
+        "sub": "6a8495ba9a7774246b7cf0db"
+      },
+      {
+        "user_league_id": [
+          928
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f5",
+        "sub": "6a848a82ec2a7a6b395da9c3"
+      },
+      {
+        "user_league_id": [
+          929
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f6",
+        "sub": "6a84889fa11eafa40e3d1e74"
+      },
+      {
+        "user_league_id": [
+          930
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f7",
+        "sub": "6a84a24da186d3f455bdcff1"
+      },
+      {
+        "user_league_id": [
+          931
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f8",
+        "sub": "6a848bb1a31605c056553571"
+      },
+      {
+        "user_league_id": [
+          932
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627f9",
+        "sub": "6a84a667eb4f2e564d32ec89"
+      },
+      {
+        "user_league_id": [
+          933
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627fa",
+        "sub": "6a8491d0b73454cb1dde5508"
+      },
+      {
+        "user_league_id": [
+          934
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627fb",
+        "sub": "6a849778fb63f671392e6aa1"
+      },
+      {
+        "user_league_id": [
+          935
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627fc",
+        "sub": "6a84976cfb63f671392e6a9e"
+      },
+      {
+        "user_league_id": [
+          936
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627fd",
+        "sub": "6a84a8a6f3ab9b0b28170985"
+      },
+      {
+        "user_league_id": [
+          937
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627fe",
+        "sub": "6a84a2314aed7c4d75cd59db"
+      },
+      {
+        "user_league_id": [
+          938
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e627ff",
+        "sub": "6a84a2636adf474975e5c080"
+      },
+      {
+        "user_league_id": [
+          939
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62800",
+        "sub": "6a84a2a7eb1d8cf655858a7d"
+      },
+      {
+        "user_league_id": [
+          940
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62801",
+        "sub": "6a84a67da31605c05655361b"
+      },
+      {
+        "user_league_id": [
+          941
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62802",
+        "sub": "6a848f9f678e40526fb27cde"
+      },
+      {
+        "user_league_id": [
+          942
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62803",
+        "sub": "6a849e5b43b42266745cfe1e"
+      },
+      {
+        "user_league_id": [
+          943
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62804",
+        "sub": "6a84a66eeb4f2e564d32ec8c"
+      },
+      {
+        "user_league_id": [
+          944
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62805",
+        "sub": "6a84918ca186d3f455bdcf54"
+      },
+      {
+        "user_league_id": [
+          945
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62806",
+        "sub": "6a84954d9a7774246b7cf0d8"
+      },
+      {
+        "user_league_id": [
+          946
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62807",
+        "sub": "6a8488784b0e09a20e7eb7c7"
+      },
+      {
+        "user_league_id": [
+          947
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62808",
+        "sub": "6a84a23a6adf474975e5c07d"
+      },
+      {
+        "user_league_id": [
+          948
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62809",
+        "sub": "6a84a2544aed7c4d75cd59de"
+      },
+      {
+        "user_league_id": [
+          949
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6280a",
+        "sub": "6a8487eac18a54286b3dffb2"
+      },
+      {
+        "user_league_id": [
+          950
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6280b",
+        "sub": "6a84a29c8b115dfa552a25ed"
+      },
+      {
+        "user_league_id": [
+          951
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6280c",
+        "sub": "6a84a778ecbd189217c6ec46"
+      },
+      {
+        "user_league_id": [
+          952
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6280d",
+        "sub": "6a84a4738b115dfa552a2630"
+      },
+      {
+        "user_league_id": [
+          953
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6280e",
+        "sub": "6a84975a42bf72c91ddbdbce"
+      },
+      {
+        "user_league_id": [
+          954
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6280f",
+        "sub": "6a84a27e8b115dfa552a25ea"
+      },
+      {
+        "user_league_id": [
+          955
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62810",
+        "sub": "6a84a93cf203a2d108b74e6c"
+      },
+      {
+        "user_league_id": [
+          956
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62811",
+        "sub": "6a84a65c3bbe37544d588fc1"
+      },
+      {
+        "user_league_id": [
+          957
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62812",
+        "sub": "6a84aa4106593cd3080b221d"
+      },
+      {
+        "user_league_id": [
+          958
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62813",
+        "sub": "6a84aa10f203a2d108b74e72"
+      },
+      {
+        "user_league_id": [
+          959
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62814",
+        "sub": "6a84a988c19ebc584db5b218"
+      },
+      {
+        "user_league_id": [
+          960
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62815",
+        "sub": "6a849d55f9b5015a54cad185"
+      },
+      {
+        "user_league_id": [
+          961
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62816",
+        "sub": "6a849d0e8a91c05c54ce53dd"
+      },
+      {
+        "user_league_id": [
+          962
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62817",
+        "sub": "6a84a9623bbe37544d588fc9"
+      },
+      {
+        "user_league_id": [
+          963
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62818",
+        "sub": "6a84882f9a7774246b7cf0a7"
+      },
+      {
+        "user_league_id": [
+          964
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62819",
+        "sub": "6a849ded417a9d4c6f305020"
+      },
+      {
+        "user_league_id": [
+          965
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6281a",
+        "sub": "6a8488434b0e09a20e7eb7c4"
+      },
+      {
+        "user_league_id": [
+          966
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6281b",
+        "sub": "6a848ce9c18a54286b3dffc3"
+      },
+      {
+        "user_league_id": [
+          967
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6281c",
+        "sub": "6a849e2a678e40526fb27d3e"
+      },
+      {
+        "user_league_id": [
+          968
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6281d",
+        "sub": "6a848cf1605315b9270a91f8"
+      },
+      {
+        "user_league_id": [
+          969
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6281e",
+        "sub": "6a8492e54567694e6f8045e9"
+      },
+      {
+        "user_league_id": [
+          970
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6281f",
+        "sub": "6a84906cb73454cb1dde5504"
+      },
+      {
+        "user_league_id": [
+          971
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62820",
+        "sub": "6a84972842bf72c91ddbdbcb"
+      },
+      {
+        "user_league_id": [
+          972
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62821",
+        "sub": "6a8488afa11eafa40e3d1e77"
+      },
+      {
+        "user_league_id": [
+          973
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62822",
+        "sub": "6a84a23f5ee997f8556fc3ec"
+      },
+      {
+        "user_league_id": [
+          974
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62823",
+        "sub": "6a849067e65dfb0471398acf"
+      },
+      {
+        "user_league_id": [
+          975
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62824",
+        "sub": "6a848de4c18a54286b3dffc6"
+      },
+      {
+        "user_league_id": [
+          976
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62825",
+        "sub": "6a848a5dec2a7a6b395da9c0"
+      },
+      {
+        "user_league_id": [
+          977
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62826",
+        "sub": "6a848893249ddaa00e02a37c"
+      },
+      {
+        "user_league_id": [
+          978
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62827",
+        "sub": "6a8488709a7774246b7cf0ad"
+      },
+      {
+        "user_league_id": [
+          979
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62828",
+        "sub": "6a849eb017781d6474eafd38"
+      },
+      {
+        "user_league_id": [
+          980
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62829",
+        "sub": "6a84a25e5ee997f8556fc3ef"
+      },
+      {
+        "user_league_id": [
+          981
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6282a",
+        "sub": "6a8491d5eb1d8cf655858a21"
+      },
+      {
+        "user_league_id": [
+          982
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6282b",
+        "sub": "6a84a1d6678e40526fb27d54"
+      },
+      {
+        "user_league_id": [
+          983
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6282c",
+        "sub": "6a84aacc2249e8d708ae0d9d"
+      },
+      {
+        "user_league_id": [
+          984
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6282d",
+        "sub": "6a84887e9a7774246b7cf0b0"
+      },
+      {
+        "user_league_id": [
+          985
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6282e",
+        "sub": "6a848857249ddaa00e02a379"
+      },
+      {
+        "user_league_id": [
+          986
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e6282f",
+        "sub": "6a849d2a8a91c05c54ce53e0"
+      },
+      {
+        "user_league_id": [
+          987
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a84b160fd465d4af3e62830",
+        "sub": "6a84a2c8a186d3f455bdcff4"
+      },
+      {
+        "user_league_id": [
+          988
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a8bb6072dce750c70b70ddd",
+        "sub": "6a8601102a6a54b308cc6284"
+      },
+      {
+        "user_league_id": [
+          989
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a8e6733e5295daed70cf107",
+        "sub": "6a8e672a5c277aad479ca84e"
+      },
+      {
+        "user_league_id": [
+          990
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a97a3537bbdfb65e119ab48",
+        "sub": "6a97a34d14e19d5a06838de4"
+      },
+      {
+        "user_league_id": [
+          991
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a97a3537bbdfb65e119ab49",
+        "sub": "6a97a34d14e19d5a06838de7"
+      },
+      {
+        "user_league_id": [
+          992
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6a97a3537bbdfb65e119ab4a",
+        "sub": "6a97a34d14e19d5a06838dea"
+      },
+      {
+        "user_league_id": [
+          993
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6abacbb051ea29a3e5248d31",
+        "sub": "6abac1dd41475e077142a91d"
+      },
+      {
+        "user_league_id": [
+          994
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6abacbb051ea29a3e5248d32",
+        "sub": "6abac1ea3ee2e40571fbf661"
+      },
+      {
+        "user_league_id": [
+          995
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6ae0c18d4d708318a343d2a0",
+        "sub": "6ae0c008105a2272125e8180"
+      },
+      {
+        "user_league_id": [
+          996
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6af37d5100a77437ffddf2bb",
+        "sub": "6af37cbcb350040a21545629"
+      }
+    ],
+    "prizeFundsPaid": false,
+    "wrongCash": [],
+    "splits": [],
+    "maxAvgForfeit": false,
+    "maxAvg": 0,
+    "limitAvgMaxTeam": false,
+    "limitAvgMax": false,
+    "minAvg": 0,
+    "limitAvgTeam": false,
+    "limitAvg": false,
+    "prizeFundMessage": "",
+    "signupMessage": "",
+    "message": "",
+    "textRules": "",
+    "allowVacancyStanding": true,
+    "weeksBehindDues": 3,
+    "showDuesBanner": true,
+    "disableDuesEmail": true,
+    "bankFeeAdditionalToggle": false,
+    "noBlindWinIndOpt": "no-award",
+    "noBlindWinInd": false,
+    "noVacantWinIndOpt": "no-award",
+    "noVacantWinInd": false,
+    "allowBlindWinning": true,
+    "status": "active",
+    "allowIllegalVacants": true,
+    "allowIllegalSubs": true,
+    "legalLineup": 3,
+    "illegalGender": false,
+    "illegalPins": 10,
+    "countIllegalStats": true,
+    "allowIllegalPins": true,
+    "allowVacancyHandicap": true,
+    "allowBowlerBlindPins": false,
+    "bowlerBlindPins": 0,
+    "allowBowlerVacancyPins": false,
+    "bowlerVacancyPins": 0,
+    "allowVacancyPins": true,
+    "vacants": [
+      {
+        "vacantId": 0,
+        "customPos": 0,
+        "_id": "6a82316f249ddaa00e029802",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 1,
+        "customPos": 1,
+        "_id": "6a82316f249ddaa00e029801",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 2,
+        "customPos": 2,
+        "_id": "6a82316f249ddaa00e029800",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 3,
+        "customPos": 3,
+        "_id": "6a82316f249ddaa00e0297ff",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 4,
+        "customPos": 4,
+        "_id": "6a82316f249ddaa00e0297fe",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      }
+    ],
+    "vacancyPins": 10,
+    "vacancyScoreGirl": 175,
+    "vacancyScoreBoy": 175,
+    "vacancyScoreFemale": 175,
+    "vacancyScoreMale": 175,
+    "allowDiffVacancyScore": false,
+    "vacancyScore": 170,
+    "dropTeamAvgBelowEnabled": false,
+    "dropRulePins": 10,
+    "dropRuleEnabled": true,
+    "handicapRulesTeam": {
+      "type": "sum",
+      "percentage": 0,
+      "percentageOf": 0,
+      "useAllInclusive": false,
+      "hasLimit": false,
+      "allowNegative": false,
+      "allowNegativeDiff": false
+    },
+    "handicapRules": {
+      "type": "pctOfNumber",
+      "percentage": 90,
+      "percentageOf": 235,
+      "splits": {
+        "adult": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "junior": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "male": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "female": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "adultMale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "adultFemale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "juniorMale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "juniorFemale": {
+          "percentage": 0,
+          "percentageOf": 0
+        }
+      },
+      "splitJunior": false,
+      "splitGender": false,
+      "allowNegativeDiff": false,
+      "allowNegative": false,
+      "hasLimitGender": false,
+      "hasLimit": false,
+      "useAllInclusive": true,
+      "useTeamAverages": false,
+      "baseCapValue": 300,
+      "capIndividualBase": false,
+      "capAt300": false
+    },
+    "seasons": [
+      {
+        "paymentStart": "2026-08-18T00:00:00.000Z",
+        "paymentEnd": "2027-04-27T00:00:00.000Z",
+        "dateStart": "2026-08-18T00:00:00.000Z",
+        "seasonType": "Full Season",
+        "_id": "6a82316f249ddaa00e0297fc",
+        "teamStats": [
+          {
+            "_id": "6a82316f249ddaa00e0297fd",
+            "teams": [
+              {
+                "team": "6a82316f249ddaa00e029803",
+                "_id": "6a82316f249ddaa00e029809",
+                "wins": 9,
+                "losses": 4,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 297.5,
+                "pointsLost": 222.5,
+                "average": 14047,
+                "scratchPins": 42140,
+                "totalPins": 45110,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823171249ddaa00e02981f",
+                "_id": "6a823171249ddaa00e029825",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 249.5,
+                "pointsLost": 270.5,
+                "average": 13976,
+                "scratchPins": 41925,
+                "totalPins": 45558,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823174249ddaa00e02983e",
+                "_id": "6a823174249ddaa00e029844",
+                "wins": 7,
+                "losses": 4,
+                "ties": 2,
+                "games": 39,
+                "pointsWon": 293,
+                "pointsLost": 227,
+                "average": 13679,
+                "scratchPins": 41034,
+                "totalPins": 44610,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823175249ddaa00e02985d",
+                "_id": "6a823175249ddaa00e029863",
+                "wins": 4,
+                "losses": 9,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 240.5,
+                "pointsLost": 279.5,
+                "average": 13771,
+                "scratchPins": 41313,
+                "totalPins": 44907,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823178249ddaa00e02987c",
+                "_id": "6a823178249ddaa00e029882",
+                "wins": 5,
+                "losses": 8,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 247,
+                "pointsLost": 273,
+                "average": 13217,
+                "scratchPins": 39649,
+                "totalPins": 45325,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317a249ddaa00e029898",
+                "_id": "6a82317a249ddaa00e02989e",
+                "wins": 9,
+                "losses": 4,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 296.5,
+                "pointsLost": 223.5,
+                "average": 13408,
+                "scratchPins": 40222,
+                "totalPins": 45313,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317c249ddaa00e0298b4",
+                "_id": "6a82317c249ddaa00e0298ba",
+                "wins": 9,
+                "losses": 4,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 289,
+                "pointsLost": 231,
+                "average": 13575,
+                "scratchPins": 40724,
+                "totalPins": 45464,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317e249ddaa00e0298d0",
+                "_id": "6a82317e249ddaa00e0298d6",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 254.5,
+                "pointsLost": 265.5,
+                "average": 13698,
+                "scratchPins": 41099,
+                "totalPins": 45455,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823181249ddaa00e0298ec",
+                "_id": "6a823181249ddaa00e0298f2",
+                "wins": 7,
+                "losses": 6,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 287.5,
+                "pointsLost": 232.5,
+                "average": 14316,
+                "scratchPins": 42950,
+                "totalPins": 45992,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823183249ddaa00e029905",
+                "_id": "6a823183249ddaa00e02990b",
+                "wins": 7,
+                "losses": 6,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 268,
+                "pointsLost": 252,
+                "average": 13298,
+                "scratchPins": 39897,
+                "totalPins": 44628,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823185249ddaa00e029924",
+                "_id": "6a823185249ddaa00e02992a",
+                "wins": 8,
+                "losses": 5,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 260,
+                "pointsLost": 260,
+                "average": 13258,
+                "scratchPins": 39779,
+                "totalPins": 45485,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823187249ddaa00e02993d",
+                "_id": "6a823187249ddaa00e029943",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 242,
+                "pointsLost": 278,
+                "average": 13781,
+                "scratchPins": 41338,
+                "totalPins": 45769,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82318b249ddaa00e029959",
+                "_id": "6a82318b249ddaa00e02995f",
+                "wins": 10,
+                "losses": 3,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 301,
+                "pointsLost": 219,
+                "average": 13325,
+                "scratchPins": 39971,
+                "totalPins": 45560,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82318e249ddaa00e029978",
+                "_id": "6a82318e249ddaa00e02997e",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 253.5,
+                "pointsLost": 266.5,
+                "average": 13053,
+                "scratchPins": 39159,
+                "totalPins": 45375,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823191249ddaa00e029994",
+                "_id": "6a823191249ddaa00e02999a",
+                "wins": 5,
+                "losses": 8,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 240,
+                "pointsLost": 280,
+                "average": 13543,
+                "scratchPins": 40633,
+                "totalPins": 44746,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823194249ddaa00e0299b3",
+                "_id": "6a823194249ddaa00e0299b9",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 249.5,
+                "pointsLost": 270.5,
+                "average": 13187,
+                "scratchPins": 39559,
+                "totalPins": 44774,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823197249ddaa00e0299d2",
+                "_id": "6a823197249ddaa00e0299d8",
+                "wins": 8,
+                "losses": 5,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 307,
+                "pointsLost": 213,
+                "average": 13414,
+                "scratchPins": 40246,
+                "totalPins": 45475,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319a249ddaa00e0299f1",
+                "_id": "6a82319a249ddaa00e0299f7",
+                "wins": 8,
+                "losses": 5,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 276.5,
+                "pointsLost": 243.5,
+                "average": 13636,
+                "scratchPins": 40908,
+                "totalPins": 45384,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319d249ddaa00e029a10",
+                "_id": "6a82319d249ddaa00e029a16",
+                "wins": 5,
+                "losses": 7,
+                "ties": 1,
+                "games": 39,
+                "pointsWon": 252.5,
+                "pointsLost": 267.5,
+                "average": 10944,
+                "scratchPins": 32827,
+                "totalPins": 44449,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319f249ddaa00e029a26",
+                "_id": "6a82319f249ddaa00e029a2c",
+                "wins": 12,
+                "losses": 1,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 333,
+                "pointsLost": 187,
+                "average": 13499,
+                "scratchPins": 40490,
+                "totalPins": 45326,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a2249ddaa00e029a42",
+                "_id": "6a8231a2249ddaa00e029a48",
+                "wins": 7,
+                "losses": 6,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 286,
+                "pointsLost": 234,
+                "average": 13538,
+                "scratchPins": 40614,
+                "totalPins": 45330,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a4249ddaa00e029a5e",
+                "_id": "6a8231a4249ddaa00e029a64",
+                "wins": 4,
+                "losses": 9,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 216.5,
+                "pointsLost": 303.5,
+                "average": 13329,
+                "scratchPins": 39991,
+                "totalPins": 45109,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a7249ddaa00e029a7a",
+                "_id": "6a8231a7249ddaa00e029a80",
+                "wins": 5,
+                "losses": 7,
+                "ties": 1,
+                "games": 39,
+                "pointsWon": 250,
+                "pointsLost": 270,
+                "average": 12740,
+                "scratchPins": 38220,
+                "totalPins": 44643,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231aa249ddaa00e029a99",
+                "_id": "6a8231aa249ddaa00e029a9f",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 241.5,
+                "pointsLost": 278.5,
+                "average": 12433,
+                "scratchPins": 37298,
+                "totalPins": 44717,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231ad249ddaa00e029ab6",
+                "_id": "6a8231ad249ddaa00e029abc",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 250,
+                "pointsLost": 270,
+                "average": 13488,
+                "scratchPins": 40460,
+                "totalPins": 44870,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b1249ddaa00e029ad5",
+                "_id": "6a8231b1249ddaa00e029adb",
+                "wins": 4,
+                "losses": 9,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 184.5,
+                "pointsLost": 335.5,
+                "average": 13271,
+                "scratchPins": 39816,
+                "totalPins": 45141,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b3249ddaa00e029af1",
+                "_id": "6a8231b3249ddaa00e029af7",
+                "wins": 4,
+                "losses": 9,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 220.5,
+                "pointsLost": 299.5,
+                "average": 13184,
+                "scratchPins": 39550,
+                "totalPins": 45403,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b5249ddaa00e029b0a",
+                "_id": "6a8231b5249ddaa00e029b10",
+                "wins": 4,
+                "losses": 9,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 223.5,
+                "pointsLost": 296.5,
+                "average": 13095,
+                "scratchPins": 39287,
+                "totalPins": 44960,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b7249ddaa00e029b29",
+                "_id": "6a8231b7249ddaa00e029b2f",
+                "wins": 5,
+                "losses": 8,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 228.5,
+                "pointsLost": 291.5,
+                "average": 13169,
+                "scratchPins": 39506,
+                "totalPins": 44777,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231ba249ddaa00e029b48",
+                "_id": "6a8231ba249ddaa00e029b4e",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 253.5,
+                "pointsLost": 266.5,
+                "average": 12823,
+                "scratchPins": 38468,
+                "totalPins": 45119,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231be249ddaa00e029b64",
+                "_id": "6a8231be249ddaa00e029b6a",
+                "wins": 12,
+                "losses": 1,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 368.5,
+                "pointsLost": 151.5,
+                "average": 12810,
+                "scratchPins": 38432,
+                "totalPins": 45437,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c1249ddaa00e029b86",
+                "_id": "6a8231c1249ddaa00e029b8c",
+                "wins": 5,
+                "losses": 8,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 223.5,
+                "pointsLost": 296.5,
+                "average": 12907,
+                "scratchPins": 38719,
+                "totalPins": 45043,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c3249ddaa00e029ba5",
+                "_id": "6a8231c3249ddaa00e029bab",
+                "wins": 4,
+                "losses": 8,
+                "ties": 1,
+                "games": 39,
+                "pointsWon": 236,
+                "pointsLost": 284,
+                "average": 12781,
+                "scratchPins": 38343,
+                "totalPins": 45075,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c6249ddaa00e029bc1",
+                "_id": "6a8231c6249ddaa00e029bc7",
+                "wins": 7,
+                "losses": 6,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 299,
+                "pointsLost": 221,
+                "average": 12001,
+                "scratchPins": 36003,
+                "totalPins": 45117,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c9249ddaa00e029bda",
+                "_id": "6a8231c9249ddaa00e029be0",
+                "wins": 5,
+                "losses": 8,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 233,
+                "pointsLost": 287,
+                "average": 13244,
+                "scratchPins": 39736,
+                "totalPins": 45394,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231cc249ddaa00e029bf6",
+                "_id": "6a8231cc249ddaa00e029bfc",
+                "wins": 8,
+                "losses": 5,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 274.5,
+                "pointsLost": 245.5,
+                "average": 11388,
+                "scratchPins": 34161,
+                "totalPins": 45117,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231cf249ddaa00e029c15",
+                "_id": "6a8231cf249ddaa00e029c1b",
+                "wins": 7,
+                "losses": 6,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 271.5,
+                "pointsLost": 248.5,
+                "average": 12980,
+                "scratchPins": 38939,
+                "totalPins": 45434,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d3249ddaa00e029c31",
+                "_id": "6a8231d3249ddaa00e029c37",
+                "wins": 5,
+                "losses": 7,
+                "ties": 1,
+                "games": 39,
+                "pointsWon": 252,
+                "pointsLost": 268,
+                "average": 13682,
+                "scratchPins": 41048,
+                "totalPins": 45239,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d5249ddaa00e029c4d",
+                "_id": "6a8231d5249ddaa00e029c53",
+                "wins": 6,
+                "losses": 7,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 227,
+                "pointsLost": 293,
+                "average": 12865,
+                "scratchPins": 38596,
+                "totalPins": 44920,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d7249ddaa00e029c63",
+                "_id": "6a8231d7249ddaa00e029c69",
+                "wins": 4,
+                "losses": 9,
+                "ties": 0,
+                "games": 39,
+                "pointsWon": 192.5,
+                "pointsLost": 327.5,
+                "average": 12098,
+                "scratchPins": 36291,
+                "totalPins": 44832,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              }
+            ]
+          }
+        ],
+        "weeks": [
+          {
+            "weekNum": 20,
+            "date": "2027-01-05T00:00:00.000Z",
+            "_id": "6a84b2deef0762626e1ab346"
+          }
+        ],
+        "highScores": [],
+        "lineagePaidToDate": 0,
+        "matches": [
+          "6a8538052fe9873e6c628922",
+          "6a8538062fe9873e6c628978",
+          "6a8538082fe9873e6c6289cf",
+          "6a85380a2fe9873e6c628a30",
+          "6a85380c2fe9873e6c628a84",
+          "6a85380e2fe9873e6c628ae2",
+          "6a8538102fe9873e6c628b3d",
+          "6a8538122fe9873e6c628b9a",
+          "6a8538142fe9873e6c628bf7",
+          "6a8538162fe9873e6c628c4f",
+          "6a8538182fe9873e6c628ca6",
+          "6a85381a2fe9873e6c628d03",
+          "6a85381c2fe9873e6c628d61",
+          "6a85381e2fe9873e6c628dc2",
+          "6a8538202fe9873e6c628e16",
+          "6a8538222fe9873e6c628e73",
+          "6a8538252fe9873e6c628eca",
+          "6a8538272fe9873e6c628f24",
+          "6a8538292fe9873e6c628f7a",
+          "6a85382c2fe9873e6c628fcd",
+          "6a8e673fe5295daed70cf109",
+          "6a8e6741e5295daed70cf151",
+          "6a8e6743e5295daed70cf19f",
+          "6a8e6745e5295daed70cf1f2",
+          "6a8e6748e5295daed70cf23d",
+          "6a8e674ae5295daed70cf292",
+          "6a8e674de5295daed70cf2e6",
+          "6a8e674fe5295daed70cf33c",
+          "6a8e6752e5295daed70cf38d",
+          "6a8e6754e5295daed70cf3dc",
+          "6a8e6757e5295daed70cf431",
+          "6a8e675ae5295daed70cf486",
+          "6a8e675de5295daed70cf4d7",
+          "6a8e6760e5295daed70cf52e",
+          "6a8e6763e5295daed70cf57e",
+          "6a8e6766e5295daed70cf5cc",
+          "6a8e6769e5295daed70cf624",
+          "6a8e676ce5295daed70cf678",
+          "6a8e676fe5295daed70cf6cd",
+          "6a8e6772e5295daed70cf727",
+          "6a97a35f7bbdfb65e119ab4c",
+          "6a97a3627bbdfb65e119ab99",
+          "6a97a3647bbdfb65e119abf1",
+          "6a97a3677bbdfb65e119ac48",
+          "6a97a3697bbdfb65e119ac9f",
+          "6a97a36b7bbdfb65e119acf0",
+          "6a97a36e7bbdfb65e119ad43",
+          "6a97a3717bbdfb65e119ad9b",
+          "6a97a3737bbdfb65e119adea",
+          "6a97a3767bbdfb65e119ae35",
+          "6a97a3797bbdfb65e119ae87",
+          "6a97a37d7bbdfb65e119aed1",
+          "6a97a37f7bbdfb65e119af25",
+          "6a97a3837bbdfb65e119af7c",
+          "6a97a3857bbdfb65e119afd5",
+          "6a97a3887bbdfb65e119b029",
+          "6a97a38b7bbdfb65e119b084",
+          "6a97a38e7bbdfb65e119b0ce",
+          "6a97a3927bbdfb65e119b11c",
+          "6a97a3957bbdfb65e119b173",
+          "6aa0f58c0893e877aaaf8bce",
+          "6aa0f58f0893e877aaaf8c26",
+          "6aa0f5910893e877aaaf8c76",
+          "6aa0f5940893e877aaaf8ccb",
+          "6aa0f5960893e877aaaf8d26",
+          "6aa0f5980893e877aaaf8d7a",
+          "6aa0f59b0893e877aaaf8dd5",
+          "6aa0f59d0893e877aaaf8e21",
+          "6aa0f59f0893e877aaaf8e72",
+          "6aa0f5a20893e877aaaf8ec7",
+          "6aa0f5a40893e877aaaf8f13",
+          "6aa0f5a70893e877aaaf8f66",
+          "6aa0f5aa0893e877aaaf8fb6",
+          "6aa0f5ac0893e877aaaf9006",
+          "6aa0f5af0893e877aaaf905b",
+          "6aa0f5b20893e877aaaf90ab",
+          "6aa0f5b50893e877aaaf9103",
+          "6aa0f5b80893e877aaaf9155",
+          "6aa0f5bb0893e877aaaf91af",
+          "6aa0f5be0893e877aaaf9208",
+          "6aaa13f30e783f1ee1c8d3cb",
+          "6aaa13f60e783f1ee1c8d416",
+          "6aaa13f80e783f1ee1c8d468",
+          "6aaa13fb0e783f1ee1c8d4be",
+          "6aaa13fe0e783f1ee1c8d508",
+          "6aaa14000e783f1ee1c8d55f",
+          "6aaa14030e783f1ee1c8d5ab",
+          "6aaa14050e783f1ee1c8d604",
+          "6aaa14090e783f1ee1c8d65b",
+          "6aaa140d0e783f1ee1c8d6a8",
+          "6aaa14110e783f1ee1c8d710",
+          "6aaa14140e783f1ee1c8d761",
+          "6aaa14170e783f1ee1c8d7b6",
+          "6aaa141a0e783f1ee1c8d801",
+          "6aaa141d0e783f1ee1c8d84c",
+          "6aaa14210e783f1ee1c8d89a",
+          "6aaa14240e783f1ee1c8d8f4",
+          "6aaa14270e783f1ee1c8d940",
+          "6aaa142b0e783f1ee1c8d997",
+          "6aaa142e0e783f1ee1c8d9e6",
+          "6ab3bbdd4e69e9dc816b8155",
+          "6ab3bbe04e69e9dc816b81a5",
+          "6ab3bbe34e69e9dc816b81f9",
+          "6ab3bbe64e69e9dc816b824e",
+          "6ab3bbe84e69e9dc816b82a3",
+          "6ab3bbeb4e69e9dc816b82f4",
+          "6ab3bbee4e69e9dc816b8345",
+          "6ab3bbf04e69e9dc816b8398",
+          "6ab3bbf34e69e9dc816b83ef",
+          "6ab3bbf64e69e9dc816b843b",
+          "6ab3bbf94e69e9dc816b8490",
+          "6ab3bbfc4e69e9dc816b84e3",
+          "6ab3bbff4e69e9dc816b8532",
+          "6ab3bc024e69e9dc816b8580",
+          "6ab3bc054e69e9dc816b85ce",
+          "6ab3bc084e69e9dc816b861c",
+          "6ab3bc0c4e69e9dc816b866a",
+          "6ab3bc0f4e69e9dc816b86b6",
+          "6ab3bc124e69e9dc816b8706",
+          "6ab3bc154e69e9dc816b8754",
+          "6abc8cfbef564f045c45d36b",
+          "6abc8cfeef564f045c45d3c0",
+          "6abc8d00ef564f045c45d417",
+          "6abc8d03ef564f045c45d469",
+          "6abc8d06ef564f045c45d4b8",
+          "6abc8d09ef564f045c45d50a",
+          "6abc8d0cef564f045c45d55f",
+          "6abc8d0fef564f045c45d5b5",
+          "6abc8d11ef564f045c45d605",
+          "6abc8d14ef564f045c45d653",
+          "6abc8d17ef564f045c45d6a4",
+          "6abc8d1aef564f045c45d6f5",
+          "6abc8d1def564f045c45d747",
+          "6abc8d21ef564f045c45d79c",
+          "6abc8d24ef564f045c45d7ef",
+          "6abc8d27ef564f045c45d843",
+          "6abc8d2aef564f045c45d897",
+          "6abc8d2def564f045c45d8e2",
+          "6abc8d31ef564f045c45d942",
+          "6abc8d34ef564f045c45d994",
+          "6ac62bbb1c6ecb6011bc0870",
+          "6ac62bbe1c6ecb6011bc08bf",
+          "6ac62bc11c6ecb6011bc091b",
+          "6ac62bc51c6ecb6011bc0974",
+          "6ac62bc81c6ecb6011bc09c4",
+          "6ac62bcb1c6ecb6011bc0a19",
+          "6ac62bce1c6ecb6011bc0a6c",
+          "6ac62bd21c6ecb6011bc0ac0",
+          "6ac62bd61c6ecb6011bc0b1c",
+          "6ac62bd91c6ecb6011bc0b68",
+          "6ac62bdd1c6ecb6011bc0bb7",
+          "6ac62be01c6ecb6011bc0c08",
+          "6ac62be41c6ecb6011bc0c59",
+          "6ac62be71c6ecb6011bc0cb1",
+          "6ac62beb1c6ecb6011bc0d04",
+          "6ac62bef1c6ecb6011bc0d55",
+          "6ac62bf31c6ecb6011bc0daa",
+          "6ac62bf71c6ecb6011bc0dfb",
+          "6ac62bfb1c6ecb6011bc0e50",
+          "6ac62bfe1c6ecb6011bc0ea0",
+          "6acef491f43f6882497ade3f",
+          "6acef5fd88fe6e82430bbb27",
+          "6acef65488fe6e82430bbcfa",
+          "6acef68ff43f6882497ae038",
+          "6acef6aef43f6882497ae208",
+          "6acef72788fe6e82430bbee8",
+          "6acef7bcf43f6882497ae42b",
+          "6acef833f43f6882497ae5fc",
+          "6acef8c888fe6e82430bc0de",
+          "6acef9b888fe6e82430bc44e",
+          "6acefa8df43f6882497ae7e0",
+          "6acefaa9f43f6882497ae9b2",
+          "6acefb4088fe6e82430bc7b7",
+          "6acefc1088fe6e82430bc999",
+          "6acefc2ef43f6882497aed20",
+          "6acefc4af43f6882497aeefd",
+          "6acefc4df43f6882497aef51",
+          "6acefdd288fe6e82430bcb83",
+          "6acefec5f43f6882497af38f",
+          "6aceff1af43f6882497af563",
+          "6ad83ab8fe7c4e5b0dd4f4d3",
+          "6ad83abbfe7c4e5b0dd4f51f",
+          "6ad83abefe7c4e5b0dd4f56e",
+          "6ad83ac1fe7c4e5b0dd4f5b7",
+          "6ad83ac4fe7c4e5b0dd4f60b",
+          "6ad83ac6fe7c4e5b0dd4f65a",
+          "6ad83acbfe7c4e5b0dd4f78a",
+          "6ad83acffe7c4e5b0dd4f7df",
+          "6ad83ad2fe7c4e5b0dd4f82b",
+          "6ad83ad6fe7c4e5b0dd4f8bb",
+          "6ad83ad9fe7c4e5b0dd4f911",
+          "6ad83adcfe7c4e5b0dd4f968",
+          "6ad83ae1fe7c4e5b0dd4f9b7",
+          "6ad83ae4fe7c4e5b0dd4fa02",
+          "6ad83aeafe7c4e5b0dd4fb39",
+          "6ad83aeefe7c4e5b0dd4fb85",
+          "6ad83af2fe7c4e5b0dd4fbd3",
+          "6ad83af6fe7c4e5b0dd4fc29",
+          "6ad83afafe7c4e5b0dd4fc7b",
+          "6ad83afefe7c4e5b0dd4fcca",
+          "6ae16e8421c139a776bceced",
+          "6ae16e8721c139a776bced3f",
+          "6ae16e8a21c139a776bced95",
+          "6ae16e8d21c139a776bcede7",
+          "6ae16e9121c139a776bcee31",
+          "6ae16e9521c139a776bcee8c",
+          "6ae16e9821c139a776bceedb",
+          "6ae16e9c21c139a776bcef2f",
+          "6ae16ea121c139a776bcef87",
+          "6ae16ea421c139a776bcefd3",
+          "6ae16ea821c139a776bcf021",
+          "6ae16eac21c139a776bcf071",
+          "6ae16eda5fb404a76972eee0",
+          "6ae16f1621c139a776bcf257",
+          "6ae16f1921c139a776bcf2a5",
+          "6ae16f6f5fb404a76972f0bb",
+          "6ae171322db591a76f50f817",
+          "6ae1727b2db591a76f50f9f9",
+          "6ae1727e2db591a76f50fa4a",
+          "6ae173c65fb404a76972f2c1",
+          "6aeaac6df5664f4eec0beefa",
+          "6aeab1f08fc0644eebabfa43",
+          "6aeab20ff5664f4eec0c00f3",
+          "6aeab3b78fc0644eebac0452",
+          "6aeab4648fc0644eebac082e",
+          "6aeab482f5664f4eec0c0cb8",
+          "6aeab4faf5664f4eec0c0f88",
+          "6aeab535f5664f4eec0c124a",
+          "6aeab5538fc0644eebac115a",
+          "6aeab6108fc0644eebac178f",
+          "6aeab6808fc0644eebac1b39",
+          "6aeab69c8fc0644eebac1d1e",
+          "6aeab6d8f5664f4eec0c17db",
+          "6aeab7ab8fc0644eebac1fb1",
+          "6aeab803f5664f4eec0c1c11",
+          "6aeab8f58fc0644eebac2257",
+          "6aeab9508fc0644eebac2479",
+          "6aeab9548fc0644eebac24d6",
+          "6aeab98a8fc0644eebac26bc",
+          "6aeab9e38fc0644eebac2a91",
+          "6af45a98693cfcd8e8ce4341",
+          "6af45a9d693cfcd8e8ce438c",
+          "6af45aa1693cfcd8e8ce43db",
+          "6af45aa5693cfcd8e8ce4426",
+          "6af45aaa693cfcd8e8ce4477",
+          "6af45aaf693cfcd8e8ce44c9",
+          "6af45ab4693cfcd8e8ce4518",
+          "6af45ab7693cfcd8e8ce4565",
+          "6af45abc693cfcd8e8ce45ac",
+          "6af45ac0693cfcd8e8ce4603",
+          "6af45ac4693cfcd8e8ce4650",
+          "6af45ac9693cfcd8e8ce469f",
+          "6af45acd693cfcd8e8ce46e5",
+          "6af45ad1693cfcd8e8ce473c",
+          "6af45ad6693cfcd8e8ce478d",
+          "6af45ada693cfcd8e8ce47e1",
+          "6af45ae0693cfcd8e8ce4837",
+          "6af45ae5693cfcd8e8ce4895",
+          "6af45aea693cfcd8e8ce48e6",
+          "6af45aef693cfcd8e8ce4941"
+        ],
+        "dateEnd": "2027-04-27T00:00:00.000Z"
+      }
+    ],
+    "pointsAwardedHS": 0,
+    "seriesPointsAwardedHS": 0,
+    "teamSeriesPointsAwardedHS": 0,
+    "teamPointsAwardedHS": 0,
+    "pointsAwardedHH": 0,
+    "seriesPointsAwardedHH": 0,
+    "teamSeriesPointsAwardedHH": 0,
+    "teamPointsAwardedHH": 0,
+    "pointsAwardedAvg": [],
+    "seriesPointsAwardedAvg": [],
+    "teamSeriesPointsAwardedAvg": [],
+    "teamPointsAwardedAvg": [],
+    "pointsAwardedScratchOpp": [],
+    "pointsAwardedHdcpOpp": [],
+    "seriesPointsAwardedScratchOpp": [],
+    "seriesPointsAwardedHdcpOpp": [],
+    "teamSeriesPointsAwardedScratchOpp": [],
+    "teamSeriesPointsAwardedHdcpOpp": [],
+    "teamPointsAwardedScratchOpp": [],
+    "teamPointsAwardedHdcpOpp": [],
+    "teamPointsAwardedWoodScratch": 0,
+    "teamPointsAwardedGameScratch": 0,
+    "pointsAwardedWoodScratch": 0,
+    "pointsAwardedGameScratch": 0,
+    "teamPointsAwardedWood": 6,
+    "teamPointsAwardedGame": 3,
+    "pointsAwardedWood": 2,
+    "pointsAwardedGame": 1,
+    "regressivePointsType": "series",
+    "regressivePoints": false,
+    "rotateIndividual": false,
+    "bonusPins": 0,
+    "allowBonusPins": false,
+    "pointsQualifyPrePost": true,
+    "blindConsecutiveSubsReset": false,
+    "blindConsecutivePins": 1,
+    "blindConsecutiveAddPins": false,
+    "blindConsecutiveOpt": "whole",
+    "blindConsecutiveWeeks": 1,
+    "blindConsecutive": false,
+    "useBlindPct": false,
+    "fixedAvgGirl": 0,
+    "fixedAvgBoy": 0,
+    "fixedAvgFemale": 0,
+    "fixedAvgMale": 0,
+    "fixedAvg": 0,
+    "useDiffFixedAvg": false,
+    "useFixedAvg": false,
+    "diffOppsLastGameAvg": false,
+    "entAvg369": false,
+    "holdNightAvg": false,
+    "holdAvg": false,
+    "blindTeamCantWinPoints": true,
+    "bankLP": false,
+    "feeToggle": true,
+    "canOverpay": false,
+    "allowJoinInvite": false,
+    "requireEntryFee": false,
+    "weekEntryDue": 1,
+    "discountedEntries": [],
+    "creationNotified": false,
+    "members": [],
+    "standingsBowlerDivisions": [],
+    "standingsDivisions": [],
+    "individualPrizeAwarded": true,
+    "prizeFundsDiv": [],
+    "prizeFunds": [],
+    "dateMeeting": "2026-08-18T06:00:00.000Z",
+    "hasMeeting": true,
+    "laneShiftOnScheduleRepeat": false,
+    "leagueFrequency": "weekly",
+    "shiftTime": [],
+    "oppPerWeek": 2,
+    "diffMultiShift": false,
+    "sendMultiShiftReminder": false,
+    "useMultiStartLane": false,
+    "isMultiShift": false,
+    "isFeatured": false,
+    "isAutomated": false,
+    "pbaEventRegions": [],
+    "pbaEventType": 0,
+    "fullPointsAmongTeammates": false,
+    "pbaTier": 1,
+    "pbaMemberType": 2,
+    "pbaReqVerification": false,
+    "pbaRegFee": 0,
+    "pbaHasRegFee": false,
+    "pbaMonthlyFee": 0,
+    "pbaAnnualFee": 0,
+    "pbaMemberReg": false,
+    "pbaEvent": false,
+    "lmaNumber": 1200105320,
+    "proAm": false,
+    "onlyBowleroTournament": false,
+    "maxEntrySquad": 200,
+    "tournamentMessage": "",
+    "tournamentDetails": "",
+    "potentialPrize": 0,
+    "allowsTournament": false,
+    "numShootout": 1,
+    "useBlindTrueAvg": false,
+    "allowsShootout": false,
+    "ratioTo": 0,
+    "ratioFrom": 0,
+    "isRatioPrize": false,
+    "duesByTeam": true,
+    "allBowlersOwe": false,
+    "payAsYouGo": false,
+    "showSquadAssignment": false,
+    "showLaneSquadInfo": false,
+    "hideVacants": true,
+    "assignByWraparound": false,
+    "multipleTeamLanes": false,
+    "splitDoubles": false,
+    "allowBowlWith": true,
+    "customAgreementDisplay": false,
+    "ageRestrictedAsOf": "2024-01-03T07:00:00.000Z",
+    "ageRestrictedAge": 1,
+    "ageRestrictedOp": "gt",
+    "ageRestricted": false,
+    "tieSelectBrackets": false,
+    "allowsBakerGames": false,
+    "allowBrackets": true,
+    "allowsRoster": true,
+    "cloudScoring": true,
+    "isVirtual": false,
+    "wholePos": false,
+    "showThisWeek": false,
+    "cutLinePos": 1,
+    "cutLineWinTeamSplit": [],
+    "cutLinePosSplit": [],
+    "cutLineNameSplit": [],
+    "cutLineStandings": false,
+    "showCarryOn": false,
+    "teams": [
+      "6a82316f249ddaa00e029803",
+      "6a823171249ddaa00e02981f",
+      "6a823174249ddaa00e02983e",
+      "6a823175249ddaa00e02985d",
+      "6a823178249ddaa00e02987c",
+      "6a82317a249ddaa00e029898",
+      "6a82317c249ddaa00e0298b4",
+      "6a82317e249ddaa00e0298d0",
+      "6a823181249ddaa00e0298ec",
+      "6a823183249ddaa00e029905",
+      "6a823185249ddaa00e029924",
+      "6a823187249ddaa00e02993d",
+      "6a82318b249ddaa00e029959",
+      "6a82318e249ddaa00e029978",
+      "6a823191249ddaa00e029994",
+      "6a823194249ddaa00e0299b3",
+      "6a823197249ddaa00e0299d2",
+      "6a82319a249ddaa00e0299f1",
+      "6a82319d249ddaa00e029a10",
+      "6a82319f249ddaa00e029a26",
+      "6a8231a2249ddaa00e029a42",
+      "6a8231a4249ddaa00e029a5e",
+      "6a8231a7249ddaa00e029a7a",
+      "6a8231aa249ddaa00e029a99",
+      "6a8231ad249ddaa00e029ab6",
+      "6a8231b1249ddaa00e029ad5",
+      "6a8231b3249ddaa00e029af1",
+      "6a8231b5249ddaa00e029b0a",
+      "6a8231b7249ddaa00e029b29",
+      "6a8231ba249ddaa00e029b48",
+      "6a8231be249ddaa00e029b64",
+      "6a8231c1249ddaa00e029b86",
+      "6a8231c3249ddaa00e029ba5",
+      "6a8231c6249ddaa00e029bc1",
+      "6a8231c9249ddaa00e029bda",
+      "6a8231cc249ddaa00e029bf6",
+      "6a8231cf249ddaa00e029c15",
+      "6a8231d3249ddaa00e029c31",
+      "6a8231d5249ddaa00e029c4d",
+      "6a8231d7249ddaa00e029c63"
+    ],
+    "gamesPerWeek": 3,
+    "entireCenter": false,
+    "createdOn": "2026-08-16T21:53:51.376Z",
+    "allowPacers": false,
+    "frameBowler": 4,
+    "gameSwitch": true,
+    "foulLights": true,
+    "singleLaneMode": false,
+    "dropAvgBelowEnabled": false,
+    "practiceDay": false,
+    "practiceBefore": true,
+    "practiceTime": 15,
+    "shadow": false,
+    "splitDivisionLastWeek": true,
+    "splitDivisionSeasonal": true,
+    "splitDivision": false,
+    "splitGenderLastWeek": true,
+    "splitGenderSeasonal": true,
+    "splitGender": false,
+    "gamesForEnteringAvgImprove": 3,
+    "gamesForAvgImprove": 9,
+    "avgAfterImprove": false,
+    "minGamesImproveQualify": false,
+    "minGamesImprove": 9,
+    "standingsBowlerDivLastWeek": true,
+    "standingsBowlerDivSeasonal": true,
+    "standingsBowlerDiv": false,
+    "standingsDiv": false,
+    "standingsPlusMinusCalc": false,
+    "standingsPlusMinus": false,
+    "standingsPct": false,
+    "displayGamesCol": false,
+    "standingsGamesSort": false,
+    "standingsScratchSort": false,
+    "standingsPinSplitTotalSort": false,
+    "standingsPinSplitSort": false,
+    "standingsPinSplit": false,
+    "standingsQualifyHigher": false,
+    "standingsQualifyOneLastWeek": true,
+    "standingsQualifyOneSeasonal": true,
+    "standingsQualifyOne": false,
+    "standingsQualifySubLastWeek": true,
+    "standingsQualifySubSeasonal": true,
+    "standingsQualifySub": false,
+    "standingsQualifyLastWeek": true,
+    "standingsQualifySeasonal": true,
+    "standingsQualify": true,
+    "teamBlindVacantDisqualifyLastWeek": true,
+    "teamBlindVacantDisqualifySeasonal": true,
+    "teamBlindVacantDisqualify": false,
+    "leaderboardReset": false,
+    "poaGameLeaderboardLastWeek": true,
+    "poaGameLeaderboardSeasonal": true,
+    "poaGameLeaderboard": false,
+    "poaSeriesLeaderboardLastWeek": true,
+    "poaSeriesLeaderboardSeasonal": true,
+    "poaSeriesLeaderboard": false,
+    "showScratchLeaderboardLastWeek": true,
+    "showScratchLeaderboardSeasonal": true,
+    "showScratchLeaderboard": true,
+    "showHdcpLeaderboardLastWeek": true,
+    "showHdcpLeaderboardSeasonal": true,
+    "showHdcpLeaderboard": true,
+    "standingsQualifyPrePostLastWeek": true,
+    "standingsQualifyPrePostSeasonal": true,
+    "standingsQualifyPrePost": true,
+    "standingsHighs": true,
+    "allowBye": false,
+    "reportBoardPositions": 5,
+    "webBoardPositions": 10,
+    "splitJuniorLastWeek": true,
+    "splitJuniorSeasonal": true,
+    "splitJunior": false,
+    "bowlsOnEvenLanes": false,
+    "oneTeamPairLane": false,
+    "flipGameLane": false,
+    "moveGameLane": false,
+    "skipPairLane": false,
+    "registrationFields": {
+      "bowlerId": {
+        "show": false,
+        "required": false
+      },
+      "squadOrganizer": {
+        "show": false,
+        "required": false
+      },
+      "bowlingCenterName": {
+        "show": false,
+        "required": false
+      },
+      "comments": {
+        "show": false,
+        "required": false
+      },
+      "average": {
+        "show": false,
+        "required": false
+      },
+      "customFields": []
+    },
+    "disableRegister": false,
+    "bowlersOtherGamesCount": true,
+    "noTapPins": 9,
+    "noTap": false,
+    "isSideEvent": false,
+    "isLinkedEvent": false,
+    "switchDivEvery": 5,
+    "multiEntryLimit": 1,
+    "allowMultiEntryUnlimited": false,
+    "allowMultiEntry": false,
+    "liveStandingsDarkMode2": false,
+    "liveStandingsDarkMode": false,
+    "liveStandingsHideAvatar": false,
+    "hasLiveStandings": false,
+    "sortLineupByAvg": false,
+    "showEventInLobby": true,
+    "user_team_ids": {
+      "6a8231d7249ddaa00e029c63": 36,
+      "6a8231d5249ddaa00e029c4d": 31,
+      "6a8231d3249ddaa00e029c31": 19,
+      "6a8231cf249ddaa00e029c15": 35,
+      "6a8231cc249ddaa00e029bf6": 34,
+      "6a8231c9249ddaa00e029bda": 23,
+      "6a8231c6249ddaa00e029bc1": 38,
+      "6a8231c3249ddaa00e029ba5": 37,
+      "6a8231c1249ddaa00e029b86": 40,
+      "6a8231be249ddaa00e029b64": 7,
+      "6a8231ba249ddaa00e029b48": 22,
+      "6a8231b7249ddaa00e029b29": 18,
+      "6a8231b5249ddaa00e029b0a": 16,
+      "6a8231b3249ddaa00e029af1": 8,
+      "6a8231b1249ddaa00e029ad5": 12,
+      "6a8231ad249ddaa00e029ab6": 25,
+      "6a8231aa249ddaa00e029a99": 26,
+      "6a8231a7249ddaa00e029a7a": 27,
+      "6a8231a4249ddaa00e029a5e": 39,
+      "6a8231a2249ddaa00e029a42": 20,
+      "6a82319f249ddaa00e029a26": 21,
+      "6a82319d249ddaa00e029a10": 28,
+      "6a82319a249ddaa00e0299f1": 11,
+      "6a823197249ddaa00e0299d2": 13,
+      "6a823194249ddaa00e0299b3": 9,
+      "6a823191249ddaa00e029994": 24,
+      "6a82318e249ddaa00e029978": 4,
+      "6a82318b249ddaa00e029959": 2,
+      "6a823187249ddaa00e02993d": 29,
+      "6a823185249ddaa00e029924": 14,
+      "6a823183249ddaa00e029905": 17,
+      "6a823181249ddaa00e0298ec": 5,
+      "6a82317e249ddaa00e0298d0": 10,
+      "6a82317c249ddaa00e0298b4": 1,
+      "6a82317a249ddaa00e029898": 30,
+      "6a823178249ddaa00e02987c": 6,
+      "6a823175249ddaa00e02985d": 32,
+      "6a823174249ddaa00e02983e": 33,
+      "6a823171249ddaa00e02981f": 15,
+      "6a82316f249ddaa00e029803": 3,
+      "6a84b109098097666e7d51b2": 7999
+    },
+    "baker_league_ids": {},
+    "__v": 43,
+    "locked": null,
+    "automaticBowlerDivisionAssignment": false,
+    "automaticVacancyBlindPinDrop": false,
+    "sponsors": [],
+    "allowWaitlist": false,
+    "chargeWaitlistFee": true,
+    "pbaRegionByClassification": false
+  }
+}

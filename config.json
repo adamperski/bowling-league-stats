@@ -1,0 +1,29 @@
+{
+  "leagueId": "6a82316f249ddaa00e0297fb",
+  "leagueName": "Pioneer I 2026-2027",
+  "seasonSlug": "2026-27",
+  "center": "Lucky Strike Wheat Ridge",
+  "baseUrl": "https://www.leaguepals.com",
+  "pastSeasons": [
+    { "slug": "2025-26", "label": "Pioneer I 2025-2026", "leagueId": "6898c7db0bd718dd744cd493" },
+    { "slug": "2024-25", "label": "Pioneer I 2024-2025", "leagueId": "66b407e25dbb6ac34d152150" },
+    { "slug": "2023-24", "label": "Pioneer I 2023-2024", "leagueId": "64d2b443a9304a7d2dc029ee" },
+    { "slug": "2022-23", "label": "Pioneer I 2022-2023", "leagueId": "62f2f98b025606132ebe0c50" }
+  ],
+  "requestDelaySeconds": 1.0,
+  "pointsPerWeek": 40,
+  "favoriteTeam": "Sloppy Hookers",
+  "favoriteBowler": "Adam Perski",
+  "seasonWeeks": 36,
+  "positionRoundWeeks": [5, 10, 15, 20, 25, 30, 35, 36],
+  "skipWeeks": ["2026-12-29"],
+  "positionRoundComment": "positionRoundWeeks: 1-based league week numbers that are position rounds. Week number = calendar weeks since seasonStart, minus any skipWeeks dates that fall before the bowl date. skipWeeks: Tuesdays with no league (holidays).",
+  "blindRules": {
+    "deltaPerGame": 10,
+    "getsHandicap": true,
+    "presentMustBeatStrictly": true,
+    "blindPointsCountToMatchupTotal": true,
+    "blindPointsCountToSeasonIndividual": false,
+    "missedGameUsesOwnAverageMinusDelta": true
+  }
+}

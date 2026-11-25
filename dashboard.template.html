@@ -1,0 +1,2171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>League Stats</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#ffffff; --ink:#1a1d21; --muted:#5b6470; --line:#e2e5ea;
+    --accent:#1f6feb; --accent-soft:#e7f0fe; --good:#1a7f37; --bad:#c0392b; --bar:#c9d6e8;
+    --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+  }
+  /* dark palette: follows the OS unless a viewer (e.g. the Claude artifact frame) sets data-theme explicitly */
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0d1117; --panel:#161b22; --ink:#e6edf3; --muted:#8b949e; --line:#2a3038;
+      --accent:#4f9dff; --accent-soft:#16324f; --good:#3fb950; --bad:#f85149; --bar:#2f3b4d;
+      --shadow:0 1px 3px rgba(0,0,0,.4); color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d1117; --panel:#161b22; --ink:#e6edf3; --muted:#8b949e; --line:#2a3038;
+    --accent:#4f9dff; --accent-soft:#16324f; --good:#3fb950; --bad:#f85149; --bar:#2f3b4d;
+    --shadow:0 1px 3px rgba(0,0,0,.4); color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--accent)}
+  .wrap{max-width:1120px;margin:0 auto;padding-block:20px 80px;
+    padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  header h1{margin:0 0 2px;font-size:22px}
+  header .sub{color:var(--muted);font-size:13px}
+  .banner{margin:14px 0 0;padding:10px 14px;border-radius:8px;background:var(--accent-soft);
+    color:var(--ink);font-size:13px;border:1px solid var(--line)}
+  nav{display:flex;gap:4px;flex-wrap:wrap;margin:18px 0 16px;border-bottom:1px solid var(--line)}
+  nav button{appearance:none;border:0;background:none;color:var(--muted);font:inherit;font-weight:600;
+    padding:9px 14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  nav button:hover{color:var(--ink)}
+  nav button.active{color:var(--accent);border-color:var(--accent)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);
+    padding:4px;margin-bottom:18px;overflow-x:auto}
+  .panel h2{font-size:14px;margin:12px 12px 4px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:right;padding:8px 10px;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;
+    position:sticky;top:0;background:var(--panel);user-select:none}
+  th.sortable::after{content:"\2195";opacity:.35;margin-left:4px}
+  th.asc::after{content:"\2191";opacity:.9}
+  th.desc::after{content:"\2193";opacity:.9}
+  tbody tr{border-top:1px solid var(--line)}
+  tbody tr:hover{background:var(--accent-soft)}
+  td.num{font-variant-numeric:tabular-nums}
+  .pos{color:var(--good)} .neg{color:var(--bad)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:12px 14px}
+  .card h3{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .lb{list-style:none;margin:0;padding:0}
+  .lb li{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-top:1px solid var(--line);font-size:14px}
+  .lb li:first-child{border-top:0}
+  .lb .r{color:var(--muted);width:1.6em;display:inline-block;text-align:right;font-variant-numeric:tabular-nums}
+  .lb .nm{flex:1;overflow:hidden;text-overflow:ellipsis}
+  .lb .tm{color:var(--muted);font-size:12px}
+  .lb .v{font-weight:700;font-variant-numeric:tabular-nums}
+  .toolbar{display:flex;gap:10px;align-items:center;margin:0 12px 8px;flex-wrap:wrap}
+  input[type=search]{flex:1;min-width:180px;padding:7px 10px;border:1px solid var(--line);border-radius:7px;
+    background:var(--bg);color:var(--ink);font:inherit}
+  .bar{display:inline-block;height:8px;border-radius:4px;background:var(--accent);vertical-align:middle}
+  .barbg{display:inline-block;width:120px;height:8px;border-radius:4px;background:var(--bar);vertical-align:middle;overflow:hidden}
+  .barbg > i{display:block;height:100%;background:var(--accent)}
+  tr.detail td{background:var(--bg);padding:0}
+  .weeks{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px}
+  .wk{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--panel)}
+  .wk b{font-variant-numeric:tabular-nums}
+  .wk .d{color:var(--muted);font-size:11px}
+  .muted{color:var(--muted)}
+  footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  /* head-to-head */
+  select{padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);font:inherit;max-width:240px}
+  .wkbtn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--muted);font:inherit;font-weight:600;padding:6px 12px;border-radius:7px;cursor:pointer}
+  .wkbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .summary{padding:10px 14px;font-weight:700}
+  .matchcard{border:1px solid var(--line);border-radius:10px;margin:10px 12px;overflow:hidden;background:var(--panel)}
+  .mc-head{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer}
+  .mc-side{flex:1;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 10px;border-radius:8px}
+  .mc-side.win{background:var(--accent-soft)}
+  .mc-side.fav .mc-team{text-decoration:underline}
+  .mc-side:last-child{flex-direction:row-reverse}
+  .mc-team{font-weight:600}
+  .mc-pts{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+  .mc-vs{color:var(--muted);font-size:12px}
+  .mc-meta{padding:0 14px 10px;font-size:12px}
+  .mc-pairs{border-top:1px solid var(--line);padding:6px 0;background:var(--bg)}
+  .pair{display:grid;grid-template-columns:1fr auto auto 1.4em auto auto 1fr;
+    grid-template-areas:"an ag ap vs bp bg bn";gap:8px;align-items:center;padding:4px 14px;font-size:13px}
+  .pair .an{grid-area:an} .pair .ag{grid-area:ag} .pair .ap{grid-area:ap} .pair .pvs{grid-area:vs}
+  .pair .bp{grid-area:bp} .pair .bg{grid-area:bg;text-align:right} .pair .bn{grid-area:bn}
+  .pair .pn{font-weight:600}
+  .pair .pn.r{text-align:right}
+  .gw{color:var(--good);font-weight:700}
+  .mc-side.win .mc-pts{color:var(--good)}
+  .pair .pg{color:var(--muted);font-variant-numeric:tabular-nums}
+  .pair .pp{font-weight:700;font-variant-numeric:tabular-nums}
+  .pair .pvs{color:var(--muted);text-align:center}
+  .pair.unsure{opacity:0.55}
+  .mc-unconfirmed{margin:8px 14px;padding:8px 10px;border-radius:8px;background:var(--accent-soft);
+    border:1px solid var(--bad);font-size:12px;line-height:1.5}
+  .review{border-color:var(--bad)}
+  .review h2{color:var(--bad)}
+  .rv-date{font-weight:700;font-size:13px;padding:10px 14px 2px;font-variant-numeric:tabular-nums}
+  .rv-team{padding:4px 14px 8px;font-size:13px}
+  .rv-flag{color:var(--muted);padding-left:10px}
+  .mc-flags{padding:6px 14px;font-size:12px;color:var(--bad)}
+  .ktag{display:inline-block;margin:0 4px;padding:0 5px;border-radius:4px;font-size:10px;font-weight:700;
+    text-transform:uppercase;vertical-align:middle;background:var(--bar);color:var(--muted)}
+  .ktag.blind{background:#8a5a00;color:#fff}
+  .ktag.sub{background:var(--accent);color:#fff}
+  .ktag.part{background:#7a4bb5;color:#fff}
+  .chartwrap{padding:8px 14px 2px;overflow-x:auto}
+  .card h3{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  table.kv{width:100%;border-collapse:collapse;font-size:13px}
+  table.kv td{padding:3px 6px;border:0;text-align:right}
+  table.kv td:first-child{text-align:left;color:var(--muted)}
+  table.kv tr{border:0}
+  .anchorrow{display:flex;align-items:center;gap:8px;padding:2px 0;font-size:13px}
+  .anchorrow .ap{width:3.4em;color:var(--muted)}
+  .anchorrow .av{width:2.6em;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+  h3{color:var(--ink)}
+  .chartwrap svg{display:block}
+  input[type=number]{padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);font:inherit}
+  textarea,input[type=password]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:7px;
+    background:var(--bg);color:var(--ink);font:inherit}
+  .panel > textarea{margin:0 12px;width:calc(100% - 24px)}
+  input[type=password]{flex:1;min-width:220px;width:auto}
+  .ask-log{padding:4px 14px 10px}
+  .ask-q{margin:12px 0 6px;padding:8px 12px;border-radius:8px;background:var(--accent-soft);font-weight:600;white-space:pre-wrap}
+  .ask-a{padding:2px 4px}
+  .ask-md p{margin:6px 0} .ask-md h4{margin:10px 0 4px} .ask-md ul,.ask-md ol{margin:4px 0 6px;padding-left:22px}
+  .ask-md pre,.ask-tool pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;overflow-x:auto;font-size:12px}
+  .ask-md code{background:var(--bg);padding:0 4px;border-radius:4px}
+  .ask-md table th{position:static;cursor:default}
+  .tblwrap{overflow-x:auto;margin:6px 0}
+  details.ask-tool{margin:6px 0;font-size:12px;color:var(--muted)}
+  details.ask-tool summary{cursor:pointer}
+  .gapnote{padding:0 14px 8px;font-size:12px}
+  details.cl{border-top:1px solid var(--line);padding:6px 14px;font-size:13px}
+  details.cl summary{cursor:pointer;font-weight:600}
+  details.cl .cl-line{padding:2px 0 0 14px;font-size:12px}
+  /* phones in portrait: every column stays visible (panels scroll sideways); seat rows stack names over games */
+  @media (max-width:640px){ th,td{padding:7px 6px}
+    .pair{grid-template-columns:1fr auto 1.4em auto 1fr;grid-template-areas:"an ap vs bp bn" "ag ag . bg bg"} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="ttl">League Stats</h1>
+    <div class="sub" id="sub"></div>
+    <div class="banner" id="banner" hidden></div>
+  </header>
+
+  <nav id="nav"></nav>
+  <div id="view"></div>
+
+  <footer>
+    Generated locally from a LeaguePals public-data snapshot. Not affiliated with LeaguePals.
+  </footer>
+</div>
+
+<script>/*DATA*/</script>
+<script>
+(function(){
+  const CUR = window.LEAGUE_DATA;
+  let D = CUR;          // the season currently on screen (CUR, or a past-season view built by setSeason)
+  const $ = (s,el=document)=>el.querySelector(s);
+  const el = (t,a={},...kids)=>{const n=document.createElement(t);
+    for(const k in a){ if(k==='class')n.className=a[k]; else if(k==='html')n.innerHTML=a[k]; else n.setAttribute(k,a[k]); }
+    for(const c of kids.flat()){ if(c!=null) n.append(c.nodeType?c:document.createTextNode(c)); } return n;};
+  const num = n => (n==null||n==='')?'':(''+n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  const signed = n => n==null?'':(n>0?'+':'')+n;
+  // PowerShell's ConvertTo-Json turns a 1-element array into an object and an
+  // empty array into "" / null — coerce everything we iterate back to an array.
+  const A = x => Array.isArray(x) ? x : (x==null||x==='') ? [] : [x];
+
+  const SEASONS = A(CUR.seasons);   // archived past seasons, newest first
+
+  function renderHeader(){
+    $('#ttl').textContent = D.meta.league;
+    const b = $('#banner'); b.hidden = true;
+    if(D.past){
+      $('#sub').textContent = D.meta.center + '  •  past season, final standings  •  ' + D.past.weeksPlayed + ' weeks  •  '
+        + D.bowlers.filter(x=>x.gamesBowled>0).length + ' bowlers / ' + D.standings.length + ' teams';
+      return;
+    }
+    $('#sub').textContent = D.meta.center + '  •  Week ' + D.meta.weekNum
+        + '  •  snapshot ' + D.meta.snapshot + '  •  ' + D.bowlers.length + ' bowlers / ' + D.standings.length + ' teams';
+    if(!D.meta.counting){
+      b.hidden = false;
+      b.textContent='Season is still in the average-establishing phase — no weeks are counting toward points/standings yet. '
+        + 'Scores shown are from practice/position weeks. Handicap = ('+D.meta.hcBase+' − average) × '+D.meta.hcPct+'%.';
+    }
+  }
+
+  // A past season carries standings, bowlers, leaderboards, its full schedule/results and lane data;
+  // only Trends (needs the live weekly analysis) stays current-season-only.
+  const CURRENT_ONLY = ['trends'];
+  function setSeason(slug){
+    const S = SEASONS.find(s=>s.slug===slug);
+    if(!S){ D = CUR; }
+    else {
+      D = Object.assign({}, CUR, {
+        past: S,
+        meta: Object.assign({}, CUR.meta, { league: S.label, weekNum: S.weeksPlayed }),
+        standings: A(S.standings), bowlers: A(S.bowlers),
+        leaderboards: S.leaderboards, teamLeaderboards: S.teamLeaderboards,
+        schedule: A(S.schedule), reviews: [], lanes: S.lanes || null
+      });
+      D._an = null;   // analytics cache is per season (Object.assign would otherwise copy the current season's)
+    }
+    const sel = $('#season'); if(sel) sel.value = S ? S.slug : '';
+    renderHeader();
+    const nav = $('#nav');
+    let active = [...nav.children].findIndex(c=>c.classList.contains('active'));
+    TABS.forEach(([id],i)=>{ nav.children[i].hidden = !!S && CURRENT_ONLY.includes(id); });
+    if(active<0 || nav.children[active].hidden) active = 0;
+    nav.children[active].click();
+  }
+  renderHeader();
+  if(SEASONS.length){
+    const sel = el('select',{id:'season',style:'margin-top:8px'});
+    sel.append(el('option',{value:''}, CUR.meta.league+' (current)'));
+    SEASONS.forEach(s=> sel.append(el('option',{value:s.slug}, s.label)));
+    sel.onchange = ()=> setSeason(sel.value);
+    $('#sub').after(sel);
+  }
+
+  const TABS = [
+    ['standings','Standings', viewStandings],
+    ['h2h','Head-to-Head', viewH2H],
+    ['trends','Trends', viewTrends],
+    ['analytics','Analytics', viewAnalytics],
+    ['ask','Ask Claude', viewAsk],
+    ['lanes','Lanes', viewLanes],
+    ['leaders','Leaderboards', viewLeaders],
+    ['averages','Averages', viewAverages],
+    ['bowlers','Bowlers', viewBowlers],
+    ['teams','Teams', viewTeams],
+    ['history','History', viewHistory],
+  ];
+  const nav = $('#nav');
+  TABS.forEach(([id,label],i)=>{
+    const btn = el('button',{}, label);
+    btn.onclick = ()=>{ [...nav.children].forEach(c=>c.classList.remove('active')); btn.classList.add('active');
+      const v=$('#view'); v.innerHTML=''; TABS[i][2](v); };
+    nav.append(btn);
+    if(i===0) btn.click();
+  });
+
+  // ---- sortable table helper ----
+  function table(cols, rows, opts={}){
+    // cols: [{k,label,fmt,cls,def}]  rows: array of objects
+    // opts.rank: prepend a '#' column showing each row's 1-based position in
+    // the table's current sort order (recomputed on every sort/redraw).
+    rows = A(rows);
+    const t = el('table');
+    const thead = el('thead'); const tr = el('tr');
+    let sortK = opts.sort || cols[0].k, sortDir = opts.dir || -1;
+    if(opts.rank) tr.append(el('th',{class:'num'}, '#'));
+    cols.forEach(c=>{
+      const th = el('th',{class:'sortable'}, c.label);
+      th.onclick = ()=>{ if(sortK===c.k) sortDir*=-1; else { sortK=c.k; sortDir=(c.def||-1); } render(); };
+      th._k = c.k; tr.append(th);
+    });
+    thead.append(tr); t.append(thead);
+    const tb = el('tbody'); t.append(tb);
+    function render(){
+      [...tr.children].forEach(th=>{ th.classList.remove('asc','desc');
+        if(th._k===sortK) th.classList.add(sortDir>0?'asc':'desc'); });
+      const sorted = rows.slice().sort((a,b)=>{
+        let x=a[sortK], y=b[sortK];
+        if(x==null) x=-Infinity; if(y==null) y=-Infinity;
+        if(typeof x==='string'||typeof y==='string') return (''+x).localeCompare(''+y)*sortDir;
+        return (x-y)*sortDir;
+      });
+      tb.innerHTML='';
+      sorted.forEach((r,i)=>{
+        const row = el('tr');
+        if(opts.rank) row.append(el('td',{class:'num muted'}, (i+1)+''));
+        cols.forEach(c=>{
+          const raw = r[c.k];
+          const cell = c.fmt ? c.fmt(raw,r) : (raw==null?'':raw);
+          const td = el('td',{class:(c.cls||'')}, cell && cell.nodeType ? cell : (''+ (cell==null?'':cell)) );
+          row.append(td);
+        });
+        tb.append(row);
+        if(opts.onrow){ row.style.cursor='pointer'; row.onclick = ()=>opts.onrow(r); }
+        if(opts.expand){
+          row.style.cursor='pointer';
+          row.onclick = ()=>{
+            const nx = row.nextSibling;
+            if(nx && nx.classList && nx.classList.contains('detail')){ nx.remove(); return; }
+            const dr = el('tr',{class:'detail'}); const dtd = el('td',{colspan:cols.length+(opts.rank?1:0)});
+            dtd.append(opts.expand(r)); dr.append(dtd); row.after(dr);
+          };
+        }
+      });
+    }
+    render();
+    return t;
+  }
+
+  function viewStandings(v){
+    const p = el('div',{class:'panel'});
+    p.append(table([
+      {k:'rank',label:'#',cls:'num',def:1},
+      {k:'name',label:'Team'},
+      {k:'record',label:'W-L-T',fmt:(_,r)=>`${r.wins}-${r.losses}-${r.ties}`},
+      {k:'pointsWon',label:'Pts Won',cls:'num',fmt:num},
+      {k:'pointsLost',label:'Pts Lost',cls:'num',fmt:num},
+      {k:'pctWon',label:'Pts %',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+      {k:'teamAvg',label:'Team Avg',cls:'num hide-sm',fmt:num},
+      {k:'teamHdcp',label:'Team Hdcp',cls:'num hide-sm',fmt:num},
+    ], D.standings, {sort:'rank',dir:1,expand:r=>{
+      const d = el('div',{class:'weeks'});
+      d.append(el('div',{class:'wk'}, el('span',{class:'d'},'Roster'), el('br'), A(r.roster).join(', ')));
+      return d;
+    }}));
+    v.append(p);
+  }
+
+  // PowerShell 5.1 serializes an EMPTY list as {} - A() would turn that into a
+  // one-item list and draw a blank row, so only keep entries that have a name.
+  const lbItems = l => A(l).filter(it=> it && typeof it==='object' && it.name!=null);
+
+  function lbCard(title, list, fmt){
+    const c = el('div',{class:'card'}, el('h3',{},title));
+    const ul = el('ul',{class:'lb'});
+    const items = lbItems(list);
+    items.forEach((it,i)=>{
+      ul.append(el('li',{},
+        el('span',{class:'r'}, (i+1)+''),
+        el('span',{class:'nm'}, it.name, it.team? el('span',{class:'tm'},'  '+it.team):null),
+        el('span',{class:'v'}, fmt?fmt(it.value):num(it.value))
+      ));
+    });
+    if(!items.length) ul.append(el('li',{class:'muted'},'— no data yet —'));
+    c.append(ul); return c;
+  }
+
+  function viewLeaders(v){
+    const g = el('div',{class:'grid'});
+    const L = D.leaderboards, T = D.teamLeaderboards;
+    g.append(lbCard('High Game (scratch)', L.highGame));
+    g.append(lbCard('High Series (scratch)', L.highSeries));
+    g.append(lbCard('High Game (handicap)', L.highGameHdcp));
+    g.append(lbCard('High Series (handicap)', L.highSeriesHdcp));
+    g.append(lbCard('Top Average (this season)', L.topSeasonAvg, x=>x==null?'':x.toFixed(1)));
+    g.append(lbCard('Most Improved', L.mostImproved, signed));
+    g.append(lbCard('Biggest Drop', L.mostDeclined, signed));
+    // Official figure (LeaguePals publishes its top 40) when there is one; my own
+    // computed estimate is shown alongside it, or alone if nothing official yet.
+    if(lbItems(L.indPoints).length) g.append(lbCard('Individual Points', L.indPoints));
+    if(lbItems(L.indPointsComp).length) g.append(lbCard(lbItems(L.indPoints).length ? 'Individual Points (computed estimate)' : 'Individual Points (computed)', L.indPointsComp));
+    g.append(lbCard('Team High Game (scratch)', T.teamGame));
+    g.append(lbCard('Team High Series (scratch)', T.teamSeries));
+    g.append(lbCard('Team High Game (handicap)', T.teamGameHdcp));
+    g.append(lbCard('Team High Series (handicap)', T.teamSeriesHdcp));
+    g.append(lbCard('Team Points', T.teamPoints));
+    v.append(g);
+  }
+
+  function viewAverages(v){
+    const p = el('div',{class:'panel'});
+    const max = Math.max(...D.bowlers.map(b=>b.bookAvg||0), 1);
+    p.append(table([
+      {k:'name',label:'Bowler'},
+      {k:'team',label:'Team',cls:'hide-sm'},
+      {k:'bookAvg',label:'Book',cls:'num',fmt:(x)=>{
+        const w = Math.round((x/max)*120);
+        return el('span',{}, x+' ', el('span',{class:'barbg'}, el('i',{style:`width:${w}px`})));
+      }},
+      {k:'seasonAvg',label:'Season',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+      {k:'improve',label:'+/-',cls:'num',fmt:(x)=> x==null?'': el('span',{class:x>0?'pos':(x<0?'neg':'')}, signed(x))},
+      {k:'gamesBowled',label:'Gm',cls:'num'},
+      {k:'hdcp',label:'Hdcp',cls:'num hide-sm'},
+    ], D.bowlers, {sort:'bookAvg', rank:true}));
+    v.append(p);
+  }
+
+  function viewBowlers(v){
+    const p = el('div',{class:'panel'});
+    const tb = el('div',{class:'toolbar'});
+    const search = el('input',{type:'search',placeholder:'Filter bowlers or teams…'});
+    tb.append(search); p.append(tb);
+    const host = el('div'); p.append(host);
+    function draw(q){
+      host.innerHTML='';
+      const rows = D.bowlers.filter(b=> !q ||
+        b.name.toLowerCase().includes(q) || b.team.toLowerCase().includes(q));
+      host.append(table([
+        {k:'name',label:'Bowler'},
+        {k:'team',label:'Team',cls:'hide-sm'},
+        {k:'bookAvg',label:'Avg',cls:'num'},
+        {k:'gamesBowled',label:'Gm',cls:'num'},
+        {k:'highGame',label:'Hi Gm',cls:'num'},
+        {k:'highSeries',label:'Hi Ser',cls:'num'},
+        {k:'highGameHdcp',label:'Hi Gm+H',cls:'num hide-sm'},
+        {k:'highSeriesHdcp',label:'Hi Ser+H',cls:'num hide-sm'},
+        {k:'stdev',label:'σ',cls:'num hide-sm',fmt:x=>x==null?'':x},
+        {k:'indPoints',label:'Pts',cls:'num',fmt:(x,r)=> x>0 ? num(x)
+            : (r.compIndPoints>0 ? el('span',{class:'muted'}, num(r.compIndPoints)+'*') : '')},
+      ], rows, {sort:'bookAvg', rank:true, expand:r=>{
+        const d = el('div',{class:'weeks'});
+        const wks = A(r.weeks);
+        wks.forEach(w=>{
+          d.append(el('div',{class:'wk'},
+            el('span',{class:'d'}, w.date + (w.isMatch?' • counts':'') + (w.partial?' • partial':'')), el('br'),
+            w.absent ? el('span',{class:'muted'},'absent')
+                     : el('b',{}, A(w.games).map(x=>x==null?'–':x).join('  ') + '   = ' + w.scrSer)
+          ));
+        });
+        if(!wks.length) d.append(el('span',{class:'muted'},'no games'));
+        return d;
+      }}));
+      if(D.bowlers.some(b=>b.indPoints===0 && b.compIndPoints>0))
+        host.append(el('div',{class:'muted',style:'padding:6px 12px;font-size:12px'},
+          '* computed estimate — LeaguePals only publishes official individual points for its top 40, so everyone below that shows my own calculation; it only counts weeks where the lineup pairing was confirmed (no sub/blind, or manually verified in data\\lineups\\), and excludes points won as a blind.'));
+    }
+    draw('');
+    search.oninput = ()=>draw(search.value.trim().toLowerCase());
+    v.append(p);
+  }
+
+  function viewTeams(v){
+    const g = el('div',{class:'grid'});
+    D.standings.forEach(t=>{
+      const c = el('div',{class:'card'});
+      c.append(el('h3',{}, '#'+t.rank+'  '+t.name));
+      c.append(el('div',{class:'muted',html:
+        `${t.wins}-${t.losses}-${t.ties} &nbsp;•&nbsp; ${num(t.pointsWon)} pts (${t.pctWon.toFixed(1)}%) `
+        +`&nbsp;•&nbsp; team avg ${num(t.teamAvg)}`}));
+      const ul = el('ul',{class:'lb'});
+      A(t.roster).forEach(nm=>{
+        const b = D.bowlers.find(x=>x.name===nm && x.team===t.name) || {};
+        ul.append(el('li',{},
+          el('span',{class:'nm'}, nm),
+          el('span',{class:'v'}, b.bookAvg!=null?b.bookAvg:'')
+        ));
+      });
+      c.append(ul);
+      g.append(c);
+    });
+    v.append(g);
+  }
+
+  // ================= Lanes =================
+  function viewLanes(v){
+    const LN = D.lanes || {};
+    const pairs = A(LN.pairs).map(r=>Object.assign({n:parseInt(r.pair,10)}, r));
+    const brows = A(LN.bowlers).map(r=>Object.assign({n:parseInt(r.pair,10)}, r));
+    const fav = D.meta.favoriteTeam || '';
+    const dev = x => x==null ? '' : el('span',{class:x>0?'pos':(x<0?'neg':'')}, signed(x));
+    const f1 = x => x==null ? '' : (+x).toFixed(1);
+    if(!pairs.length){
+      v.append(el('div',{class:'panel'}, el('div',{class:'muted',style:'padding:12px'},
+        'No lane data yet. Add scripts\\lane-sources\\<date>.ps1 for a week and run scripts\\Import-Lanes.ps1.')));
+      return;
+    }
+    const cols = [
+      {k:'n',label:'Pair',cls:'num',def:1,fmt:(x,r)=>r.pair},
+      {k:'weeks',label:'Wks',cls:'num'},
+      {k:'games',label:'Gm',cls:'num'},
+      {k:'avg',label:'Avg',cls:'num',fmt:f1},
+      {k:'vsAvg',label:'vs own avg',cls:'num',fmt:dev},
+      {k:'highGame',label:'Hi Gm',cls:'num'},
+      {k:'highSeries',label:'Hi Ser',cls:'num'},
+    ];
+
+    // --- league by pair ---
+    const p1 = el('div',{class:'panel'});
+    p1.append(el('h2',{},'League by Lane Pair'));
+    p1.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
+      `Scratch scores across ${LN.weeksWithLanes} week${LN.weeksWithLanes===1?'':'s'} of lane data. Only real recorded games count `
+      + '(blinds, missed-game fills and subs with no data are left out). “vs own avg” is each game minus that bowler’s season average, '
+      + 'which factors out who happened to bowl where — positive means the pair scores high. Lane pairs come from LeaguePals’ weekly score sheets.'));
+    p1.append(table(cols, pairs, {sort:'vsAvg', rank:true}));
+    v.append(p1);
+
+    // --- one bowler across pairs ---
+    const byBowler = {};
+    brows.forEach(r=>{ (byBowler[r.id]=byBowler[r.id]||{name:r.name,team:r.team,id:r.id,rows:[]}).rows.push(r); });
+    const bl = Object.values(byBowler).sort((a,b)=>a.name.localeCompare(b.name));
+    const p2 = el('div',{class:'panel'});
+    p2.append(el('h2',{},'Bowler by Lane Pair'));
+    const tb2 = el('div',{class:'toolbar'});
+    const sel2 = mkSelect(bl.map(b=>({label:b.name+'  ('+b.team+')', value:b.id})));
+    const favB = bl.find(b=>b.team===fav); if(favB) sel2.value = favB.id;
+    tb2.append(sel2); p2.append(tb2);
+    const h2 = el('div'); p2.append(h2);
+    const draw2 = ()=>{
+      h2.innerHTML='';
+      const b = byBowler[sel2.value]; if(!b) return;
+      const bw = D.bowlers.find(x=>x.id===b.id) || {};
+      const used = b.rows.slice().filter(r=>r.games>=3).sort((x,y)=>y.vsAvg-x.vsAvg);
+      h2.append(el('div',{class:'summary'}, b.name,
+        el('br'), el('span',{class:'muted'}, `season avg ${bw.seasonAvg!=null?(+bw.seasonAvg).toFixed(1):'—'}  ·  ${b.rows.reduce((s,r)=>s+r.games,0)} real games on ${b.rows.length} pair${b.rows.length===1?'':'s'}`
+          + (used.length>1 ? `  ·  best ${used[0].pair} (${signed(used[0].vsAvg)}), toughest ${used[used.length-1].pair} (${signed(used[used.length-1].vsAvg)})` : ''))));
+      h2.append(table(cols, b.rows, {sort:'n', dir:1, expand:r=>{
+        const d = el('div',{class:'weeks'});
+        A(r.log).forEach(w=> d.append(el('div',{class:'wk'},
+          el('span',{class:'d'}, 'Wk '+w.weekNum+' · '+w.date), el('br'),
+          el('b',{}, A(w.games).join('  ')+'   = '+w.ser))));
+        if(!A(r.log).length) d.append(el('span',{class:'muted'},'weekly detail is only kept for the current season'));
+        return d;
+      }}));
+    };
+    sel2.onchange = draw2; draw2();
+    v.append(p2);
+
+    // --- everyone on one pair ---
+    const p3 = el('div',{class:'panel'});
+    p3.append(el('h2',{},'Bowlers on a Lane Pair'));
+    const tb3 = el('div',{class:'toolbar'});
+    const sel3 = mkSelect(pairs.map(r=>({label:'Lanes '+r.pair, value:r.pair})));
+    const minSel = mkSelect([{label:'any games',value:'0'},{label:'6+ games',value:'6'},{label:'9+ games',value:'9'}]);
+    tb3.append(sel3, minSel); p3.append(tb3);
+    const h3 = el('div'); p3.append(h3);
+    const bcols = [{k:'name',label:'Bowler'},{k:'team',label:'Team',cls:'hide-sm'}].concat(cols.slice(1));
+    const draw3 = ()=>{
+      h3.innerHTML='';
+      const min = +minSel.value;
+      const rows = brows.filter(r=>r.pair===sel3.value && r.games>=min);
+      if(!rows.length){ h3.append(el('div',{class:'muted',style:'padding:12px'},'No bowlers with that many games on this pair yet.')); return; }
+      h3.append(table(bcols, rows, {sort:'vsAvg', rank:true}));
+    };
+    sel3.onchange = draw3; minSel.onchange = draw3; draw3();
+    v.append(p3);
+
+    // --- which pair each team bowled each week ---
+    const wk = [...new Set(D.schedule.filter(m=>m.lane).map(m=>m.date))].sort();
+    const wkNum = {}; D.schedule.forEach(m=>{ wkNum[m.date]=m.weekNum; });
+    const byTeam = {};
+    D.schedule.filter(m=>m.lane).forEach(m=>{
+      [m.a.team, m.b.team].forEach(t=>{ (byTeam[t]=byTeam[t]||{})[m.date] = m.lane; });
+    });
+    const det = el('details',{class:'panel'});
+    det.append(el('summary',{style:'padding:10px 14px;cursor:pointer;font-weight:700'}, 'Lane pair by team and week'));
+    const tw = el('div',{style:'overflow-x:auto'});
+    const t = el('table'); const th = el('tr'); th.append(el('th',{},'Team'));
+    wk.forEach(d=> th.append(el('th',{class:'num'}, 'Wk '+wkNum[d]))); t.append(el('thead',{},th));
+    const tbd = el('tbody');
+    Object.keys(byTeam).sort().forEach(tm=>{
+      const tr = el('tr',{class:tm===fav?'fav':''}); tr.append(el('td',{}, tm));
+      wk.forEach(d=> tr.append(el('td',{class:'num'}, byTeam[tm][d]||'')));
+      tbd.append(tr);
+    });
+    t.append(tbd); tw.append(t); det.append(tw); v.append(det);
+  }
+
+  // ================= History (all seasons) =================
+  function viewHistory(v){
+    // current season first (in progress), then archived seasons newest -> oldest
+    const all = [{ slug:'', label:CUR.meta.league, short:'now', inProgress:true,
+                   standings:A(CUR.standings), bowlers:A(CUR.bowlers), weeksPlayed:(A(CUR.meta.weekDates).length || CUR.meta.weekNum) }]
+      .concat(SEASONS.map(s=>({ slug:s.slug, label:s.label, short:s.slug, inProgress:false,
+                   standings:A(s.standings), bowlers:A(s.bowlers), weeksPlayed:s.weeksPlayed })));
+    all.forEach((s,i)=>{ s.order = i; });
+    const fav = CUR.meta.favoriteTeam || '';
+    const played = s => s.bowlers.filter(b=>b.gamesBowled>0);
+    const best = (s,k)=> played(s).reduce((m,b)=> (b[k]||0)>(m?m[k]:0) ? b : m, null);
+
+    // --- season by season ---
+    const rows = all.map(s=>{
+      const champ = s.standings.slice().sort((a,b)=>b.pointsWon-a.pointsWon)[0] || {};
+      const ps = played(s);
+      const pins = ps.reduce((t,b)=>t+(b.totalPins||0),0), gms = ps.reduce((t,b)=>t+(b.gamesBowled||0),0);
+      const hg = best(s,'highGame'), hs = best(s,'highSeries');
+      const mine = s.standings.find(t=>t.name===fav);
+      return { order:s.order, slug:s.slug, label:s.label+(s.inProgress?' (in progress)':''),
+        weeks:s.weeksPlayed, teams:s.standings.length, bowlers:ps.length,
+        champ:champ.name||'', champRec: champ.name ? `${champ.wins}-${champ.losses}-${champ.ties}` : '', champPts:champ.pointsWon,
+        avg: gms ? Math.round(pins/gms*10)/10 : null,
+        hg: hg?hg.highGame:null, hgWho: hg?hg.name:'', hs: hs?hs.highSeries:null, hsWho: hs?hs.name:'',
+        mine: mine ? `#${mine.rank}  ${mine.wins}-${mine.losses}-${mine.ties}` : '' };
+    });
+    const p1 = el('div',{class:'panel'});
+    p1.append(el('h2',{},'Season by Season'));
+    p1.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
+      'Top team = most points won. Click a row to open that season: every tab except Trends works for past seasons (Trends needs the live weekly analysis). '
+      +'League avg = scratch pins per game.'));
+    p1.append(table([
+      {k:'order',label:'Season',def:1,fmt:(x,r)=>r.label},
+      {k:'weeks',label:'Wks',cls:'num'},
+      {k:'teams',label:'Teams',cls:'num hide-sm'},
+      {k:'bowlers',label:'Bowlers',cls:'num hide-sm'},
+      {k:'champ',label:'Top team',fmt:(x,r)=> x ? `${x}  (${r.champRec})` : ''},
+      {k:'avg',label:'League avg',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+      {k:'hg',label:'Hi Gm',cls:'num',fmt:(x,r)=> x ? el('span',{}, x+' ', el('span',{class:'muted'}, r.hgWho)) : ''},
+      {k:'hs',label:'Hi Ser',cls:'num hide-sm',fmt:(x,r)=> x ? el('span',{}, x+' ', el('span',{class:'muted'}, r.hsWho)) : ''},
+      {k:'mine',label:fav||'My team',cls:'hide-sm'},
+    ], rows, {sort:'order', dir:1, onrow:r=>{
+      setSeason(r.slug);
+    }}));
+    v.append(p1);
+
+    // --- all-time bests across every season ---
+    const flat = [];
+    all.forEach(s=> played(s).forEach(b=> flat.push({ b, s })));
+    const top = (k, n, min, getter)=> flat.filter(x=>(x.b.gamesBowled||0)>=(min||0) && (getter?getter(x.b):x.b[k])>0)
+      .sort((a,c)=> (getter?getter(c.b):c.b[k]) - (getter?getter(a.b):a.b[k])).slice(0,n)
+      .map(x=>({ name:x.b.name, team:x.b.team+'  '+x.s.short, value:(getter?getter(x.b):x.b[k]) }));
+    const g = el('div',{class:'grid'});
+    g.append(lbCard('Highest Season Average (60+ games)', top('seasonAvg',15,60), x=>x==null?'':x.toFixed(1)));
+    g.append(lbCard('High Game (scratch)', top('highGame',15)));
+    g.append(lbCard('High Series (scratch)', top('highSeries',15)));
+    g.append(lbCard('Individual Points in a Season', top('indPoints',15)));
+    const p2 = el('div',{class:'panel'});
+    p2.append(el('h2',{},'All-Time Bests'));
+    p2.append(el('div',{class:'muted',style:'padding:0 14px 8px;font-size:12px'},
+      'Across all seasons loaded, including the one in progress. The tag after each team is the season (“now” = current). Individual points are LeaguePals’ official figure, so the current season is blank until it posts them.'));
+    p2.append(g);
+    v.append(p2);
+
+    // --- one bowler's career ---
+    const byId = {};
+    flat.forEach(x=>{ if(x.b.id){ (byId[x.b.id] = byId[x.b.id] || {id:x.b.id, name:x.b.name, rows:[]}).rows.push(x); } });
+    const people = Object.values(byId).sort((a,b)=>a.name.localeCompare(b.name));
+    const p3 = el('div',{class:'panel'});
+    p3.append(el('h2',{},'Bowler Career'));
+    const tb = el('div',{class:'toolbar'});
+    const sel = mkSelect(people.map(p=>({label:p.name+'  ('+p.rows.length+' season'+(p.rows.length>1?'s':'')+')', value:p.id})));
+    const mine = people.find(p=>p.rows.some(x=>x.b.team===fav && x.s.inProgress));
+    if(mine) sel.value = mine.id;
+    tb.append(sel); p3.append(tb);
+    const host = el('div'); p3.append(host);
+    const draw = ()=>{
+      host.innerHTML='';
+      const p = byId[sel.value]; if(!p) return;
+      const rs = p.rows.map(x=>({ order:x.s.order, label:x.s.label+(x.s.inProgress?' (in progress)':''), team:x.b.team,
+        seasonAvg:x.b.seasonAvg, bookAvg:x.b.bookAvg, games:x.b.gamesBowled, highGame:x.b.highGame, highSeries:x.b.highSeries, pts:x.b.indPoints }));
+      const gms = p.rows.reduce((t,x)=>t+(x.b.gamesBowled||0),0), pins = p.rows.reduce((t,x)=>t+(x.b.totalPins||0),0);
+      host.append(el('div',{class:'summary'}, p.name, el('br'),
+        el('span',{class:'muted'}, `${p.rows.length} season${p.rows.length>1?'s':''}  ·  ${num(gms)} games  ·  career average ${gms?(pins/gms).toFixed(1):'—'}`
+          + `  ·  high game ${Math.max(...rs.map(r=>r.highGame||0))}  ·  high series ${Math.max(...rs.map(r=>r.highSeries||0))}`)));
+      const chrono = rs.slice().sort((a,b)=>b.order-a.order);   // oldest -> newest for the chart
+      host.append(multiLine(chrono.map(r=>r.label.replace(/^.*?(\d{4})-(\d{4}).*$/,'$1-$2').replace(/ \(in progress\)/,'*')),
+        [{name:'Season average', values:chrono.map(r=>r.seasonAvg)}, {name:'End-of-season book avg', values:chrono.map(r=>r.bookAvg), dash:'4 3'}],
+        {fmt:x=>Math.round(x*10)/10}));
+      host.append(table([
+        {k:'order',label:'Season',def:1,fmt:(x,r)=>r.label},
+        {k:'team',label:'Team',cls:'hide-sm'},
+        {k:'seasonAvg',label:'Avg',cls:'num',fmt:x=>x==null?'':x.toFixed(1)},
+        {k:'bookAvg',label:'End avg',cls:'num hide-sm'},
+        {k:'games',label:'Gm',cls:'num'},
+        {k:'highGame',label:'Hi Gm',cls:'num'},
+        {k:'highSeries',label:'Hi Ser',cls:'num'},
+        {k:'pts',label:'Ind pts',cls:'num hide-sm',fmt:x=>x>0?num(x):''},
+      ], rs, {sort:'order', dir:1}));
+    };
+    sel.onchange = draw; draw();
+    p3.append(el('div',{class:'muted',style:'padding:6px 14px;font-size:12px'},
+      'Avg = scratch pins per game in that season (from the games themselves); End avg = the book average LeaguePals carried at season end.'));
+    v.append(p3);
+
+    // --- one team across seasons (matched by team name: ids change every season) ---
+    const teamNames = [...new Set(all.flatMap(s=>s.standings.map(t=>t.name)))].sort((a,b)=>a.localeCompare(b));
+    const p4 = el('div',{class:'panel'});
+    p4.append(el('h2',{},'Team Year-to-Year'));
+    p4.append(el('div',{class:'muted gapnote'},'Teams are matched by name, so a team that changed its name shows up as a new team.'));
+    const sel4 = mkSelect(teamNames);
+    if(fav && teamNames.includes(fav)) sel4.value = fav;
+    p4.append(el('div',{class:'toolbar'}, sel4));
+    const host4 = el('div'); p4.append(host4);
+    const draw4 = ()=>{
+      host4.innerHTML='';
+      const chrono = all.slice().reverse();
+      const rows = chrono.map(s=>{ const t = s.standings.find(x=>x.name===sel4.value);
+        return t ? { s, t, order:s.order } : null; }).filter(Boolean);
+      if(!rows.length) return;
+      const lab = r => r.s.inProgress ? 'now*' : r.s.short;
+      host4.append(el('div',{class:'summary'}, sel4.value, el('br'), el('span',{class:'muted'},
+        `${rows.length} season${rows.length>1?'s':''} on record  ·  best finish #${Math.min(...rows.map(r=>r.t.rank))}`)));
+      host4.append(el('h3',{style:'margin:8px 12px 0;font-size:13px'},'Finish (1 = first)'));
+      host4.append(multiLine(rows.map(lab), [{name:'Final rank', values:rows.map(r=>r.t.rank)}], {invert:true, fmt:x=>Math.round(x)}));
+      host4.append(el('h3',{style:'margin:8px 12px 0;font-size:13px'},'Points % and team average'));
+      host4.append(multiLine(rows.map(lab), [{name:'Points % won', values:rows.map(r=>r.t.pctWon)}], {fmt:x=>Math.round(x*10)/10}));
+      host4.append(multiLine(rows.map(lab), [{name:'Team average', values:rows.map(r=>r.t.teamAvg)}], {fmt:x=>Math.round(x*10)/10}));
+      host4.append(table([
+        {k:'order',label:'Season',def:1,fmt:(x,r)=>r.s.label+(r.s.inProgress?' (in progress)':'')},
+        {k:'rank',label:'Rank',cls:'num',fmt:(x,r)=>'#'+r.t.rank+' / '+r.s.standings.length},
+        {k:'rec',label:'W-L-T',fmt:(x,r)=>`${r.t.wins}-${r.t.losses}-${r.t.ties}`},
+        {k:'pts',label:'Pts won',cls:'num',fmt:(x,r)=>num(r.t.pointsWon)},
+        {k:'pct',label:'Pts %',cls:'num',fmt:(x,r)=>r.t.pctWon==null?'':r.t.pctWon.toFixed(1)},
+        {k:'avg',label:'Team avg',cls:'num',fmt:(x,r)=>num(r.t.teamAvg)},
+      ], rows, {sort:'order', dir:1}));
+    };
+    sel4.onchange = draw4; draw4();
+    v.append(p4);
+
+    // --- biggest movers from one season to the next ---
+    const p5 = el('div',{class:'panel'});
+    p5.append(el('h2',{},'Biggest Movers Year-over-Year'));
+    p5.append(el('div',{class:'muted gapnote'},'Bowlers need enough games in both seasons (30; 18 when the newer one is still in progress). Teams are matched by name.'));
+    const steps = all.slice(0,-1).map((s,i)=>({ to:s, from:all[i+1], value:String(i), label:all[i+1].label.replace('Pioneer I ','')+'  →  '+s.label.replace('Pioneer I ','')+(s.inProgress?' (so far)':'') }));
+    const sel5 = mkSelect(steps.map(s=>({label:s.label, value:s.value})));
+    p5.append(el('div',{class:'toolbar'}, sel5));
+    const host5 = el('div'); p5.append(host5);
+    const draw5 = ()=>{
+      host5.innerHTML='';
+      const st = steps[+sel5.value]; if(!st) return;
+      const min = st.to.inProgress ? 18 : 30;
+      const fromBy = {}; played(st.from).forEach(b=>{ if(b.id) fromBy[b.id] = b; });
+      const mv = played(st.to).filter(b=>b.id && fromBy[b.id] && (b.gamesBowled||0)>=min && (fromBy[b.id].gamesBowled||0)>=min
+          && b.seasonAvg!=null && fromBy[b.id].seasonAvg!=null)
+        .map(b=>({ name:b.name, team:`${fromBy[b.id].seasonAvg.toFixed(1)} → ${b.seasonAvg.toFixed(1)}`, value:Math.round((b.seasonAvg-fromBy[b.id].seasonAvg)*10)/10 }))
+        .sort((a,b)=>b.value-a.value);
+      const fromT = {}; st.from.standings.forEach(t=>{ fromT[t.name] = t; });
+      const tm = st.to.standings.filter(t=>fromT[t.name] && t.pctWon!=null && fromT[t.name].pctWon!=null)
+        .map(t=>({ name:t.name, team:`#${fromT[t.name].rank} → #${t.rank}  (${fromT[t.name].pctWon.toFixed(1)}% → ${t.pctWon.toFixed(1)}%)`, value:Math.round((t.pctWon-fromT[t.name].pctWon)*10)/10 }))
+        .sort((a,b)=>b.value-a.value);
+      const g = el('div',{class:'grid'});
+      g.append(lbCard(`Bowlers: biggest average gains (${mv.length} compared)`, mv.slice(0,15), signed));
+      g.append(lbCard('Bowlers: biggest average drops', mv.slice().reverse().slice(0,15).filter(x=>x.value<0), signed));
+      g.append(lbCard(`Teams: biggest points-% rise (${tm.length} returning names)`, tm.slice(0,10), signed));
+      g.append(lbCard('Teams: biggest points-% fall', tm.slice().reverse().slice(0,10).filter(x=>x.value<0), signed));
+      host5.append(g);
+    };
+    sel5.onchange = draw5; draw5();
+    v.append(p5);
+  }
+
+  // ================= Head-to-Head =================
+  function mkSelect(items){
+    const s = el('select');
+    items.forEach(it=>{
+      const o = el('option');
+      if(typeof it==='string'){ o.value=it; o.textContent=it; }
+      else { o.value=it.value; o.textContent=it.label; }
+      s.append(o);
+    });
+    return s;
+  }
+
+  function matchCard(m, fav, showSeason){
+    const c = el('div',{class:'matchcard'});
+    const mkSide = (s,key)=>{
+      const isWin = m.result===key;
+      return el('div',{class:'mc-side'+(isWin?' win':'')+(fav&&s.team===fav?' fav':'')},
+        el('div',{class:'mc-team'}, s.team),
+        el('div',{class:'mc-pts'}, num(s.total)));
+    };
+    const confirmed = m.pairingConfirmed !== false;
+    const head = el('div',{class:'mc-head'},
+      mkSide(m.a,'A'),
+      el('div',{class:'mc-vs'}, !confirmed?'⚠':(m.needsReview?'⚠':(m.result==='T'?'tie':'vs'))),
+      mkSide(m.b,'B'));
+    const when = el('div',{class:'mc-meta muted'},
+      showSeason && m._label ? el('b',{}, m._label.replace('Pioneer I ','')+'  ·  ') : '',
+      el('b',{}, m.weekNum ? 'Week '+m.weekNum : m.date), m.isPos ? ' · position round' : '',
+      (m.weekNum ? '  ·  '+m.date : ''), m.lane ? '  ·  Lanes '+m.lane : '');
+    // "x–y" with the higher (winning) side in green
+    const duo = (x,y,f)=>{ f=f||(n=>num(n)); return el('span',{}, el('span',{class:x>y?'gw':''}, f(x)), '–', el('span',{class:y>x?'gw':''}, f(y))); };
+    const dot = '   ·   ';
+    const meta = el('div',{class:'mc-meta muted'},
+      'scratch series ', duo(m.a.ser,m.b.ser), dot, 'hcp series ', duo(m.a.serH,m.b.serH),
+      dot, 'team pts ', duo(m.a.teamPts,m.b.teamPts), dot, 'indiv pts ', duo(m.a.indPts,m.b.indPts),
+      (m.estimated?dot+'estimated (short lineup / missing games)':''),
+      (m.counts?'':dot+'practice week'));
+    const gA = A(m.a.gameH), gB = A(m.b.gameH);
+    const tg = gA.length===3 && gB.length===3 ? el('div',{class:'mc-meta muted'}, 'team games (hcp) ',
+      ...[0,1,2].flatMap(i=>[i?dot:'', duo(gA[i],gB[i])])) : null;
+    const det = el('div',{class:'mc-pairs'}); det.hidden = true;
+    if(!confirmed){
+      det.append(el('div',{class:'mc-unconfirmed'},
+        '⚠ Individual pairing not confirmed this week — a sub or blind was involved and LeaguePals doesn’t publish real seating order, '
+        + 'so who-faced-who below is a best guess (an absence can shift other seats too, not just the empty one). '
+        + 'Team totals above are exact either way. To fix: check the real score sheet / recap sheet and edit the matching team in '
+        + 'data\\lineups\\'+m.date+'.json with the true lineup, then set "resolved": true.'));
+    }
+    const kindTag = k => k==='blind' ? el('span',{class:'ktag blind'},'blind')
+                       : k==='sub' ? el('span',{class:'ktag sub'},'sub')
+                       : k==='partial' ? el('span',{class:'ktag part'},'part') : null;
+    const gtxt = g => A(g).map(x=>x==null?'–':x).join(' ');
+    // each game score in green when that bowler won the game (handicap-adjusted, like the scoring)
+    const gsp = (mine, mh, theirs, th)=>{
+      const a = A(mine), b = A(theirs);
+      return el('span',{}, ...a.map((x,i)=>[i?' ':'', el('span',{class:(x!=null && b[i]!=null && x+(mh||0) > b[i]+(th||0))?'gw':''}, x==null?'–':x)]).flat());
+    };
+    A(m.pairs).forEach(p=>{
+      det.append(el('div',{class:'pair'+(confirmed?'':' unsure')},
+        el('span',{class:'pn an'}, p.aName, kindTag(p.aKind)),
+        el('span',{class:'pg ag'}, gsp(p.aGames,p.aHdcp,p.bGames,p.bHdcp)),
+        el('span',{class:'pp ap'+(p.aPts>p.bPts?' gw':'')}, num(p.aPts)),
+        el('span',{class:'pvs'}, '–'),
+        el('span',{class:'pp bp'+(p.bPts>p.aPts?' gw':'')}, num(p.bPts)),
+        el('span',{class:'pg bg'}, gsp(p.bGames,p.bHdcp,p.aGames,p.aHdcp)),
+        el('span',{class:'pn r bn'}, kindTag(p.bKind), p.bName)
+      ));
+    });
+    if(m.needsReview && A(m.flags).length){
+      const fl = el('div',{class:'mc-flags'});
+      A(m.flags).forEach(f=> fl.append(el('div',{}, '⚠ '+f)));
+      det.append(fl);
+    }
+    if(!A(m.pairs).length) det.append(el('div',{class:'muted',style:'padding:4px 14px'},'no lineup detail'));
+    head.onclick = ()=>{ det.hidden = !det.hidden; };
+    c.append(when, head, meta); if(tg) c.append(tg); c.append(det);
+    return c;
+  }
+
+  function viewH2H(v){
+    const weeks = [...new Set(D.schedule.map(m=>m.date))].sort();
+    const fav = D.meta.favoriteTeam || '';
+    const favFirst = arr => fav ? arr.slice().sort((a,b)=>
+      ((a.a.team===fav||a.b.team===fav)?0:1) - ((b.a.team===fav||b.b.team===fav)?0:1)) : arr;
+
+    // --- needs review ---
+    const reviews = A(D.reviews).filter(r=>!r.resolved);
+    if(reviews.length){
+      const p0 = el('div',{class:'panel review'});
+      p0.append(el('h2',{}, `Needs Review — ${reviews.length} lineup${reviews.length>1?'s':''}`));
+      p0.append(el('div',{class:'muted',style:'padding:2px 14px 8px;font-size:12px'},
+        'Subs, blinds and missed games below were auto-guessed. Edit the matching '
+        + 'data\\lineups\\<date>.json file, set that team’s "resolved": true, and re-run Build-Stats.ps1.'));
+      const byDate = {};
+      reviews.forEach(r=>{ (byDate[r.date]=byDate[r.date]||[]).push(r); });
+      Object.keys(byDate).sort().forEach(d=>{
+        p0.append(el('div',{class:'rv-date'}, d + '   (data\\lineups\\'+d+'.json)'));
+        byDate[d].forEach(r=>{
+          const box = el('div',{class:'rv-team'});
+          box.append(el('b',{}, r.team));
+          A(r.flags).forEach(f=> box.append(el('div',{class:'rv-flag'}, '• '+f)));
+          p0.append(box);
+        });
+      });
+      v.append(p0);
+    }
+
+    // --- schedule & results ---
+    const p1 = el('div',{class:'panel'});
+    p1.append(el('h2',{},'Schedule & Results'));
+    if(!D.schedule.length){
+      p1.append(el('div',{class:'muted',style:'padding:12px'},'No matchups reconstructed yet.'));
+    } else {
+      const bar = el('div',{class:'toolbar'});
+      const host = el('div');
+      let cur = weeks[weeks.length-1];
+      const drawWk = ()=>{ host.innerHTML='';
+        favFirst(D.schedule.filter(m=>m.date===cur)).forEach(m=>host.append(matchCard(m, fav))); };
+      const wkOf = {}; D.schedule.forEach(m=>{ wkOf[m.date] = m; });
+      weeks.forEach(w=>{
+        const wm = wkOf[w];
+        const b = el('button',{class:'wkbtn'+(w===cur?' active':'')}, (wm&&wm.weekNum ? 'Wk '+wm.weekNum+(wm.isPos?'★':'')+' · ' : '')+w);
+        b.onclick = ()=>{ cur=w; [...bar.children].forEach(x=>x.classList.remove('active')); b.classList.add('active'); drawWk(); };
+        bar.append(b);
+      });
+      p1.append(bar, host); drawWk();
+    }
+    v.append(p1);
+
+    // --- team vs team ---
+    // Team and bowler matchups can look across every season (teams are matched by name, bowlers by their
+    // LeaguePals id, which stays the same from season to season).
+    const mkScope = ()=> mkSelect([{label:'All seasons', value:'all'}, {label:'This season only', value:'this'}]);
+    const shortSeason = l => (l||'').replace('Pioneer I ','');
+    const teamNames = [...new Set([CUR].concat(SEASONS).flatMap(S=>A(S.standings).map(t=>t.name)))].sort((x,y)=>x.localeCompare(y));
+    const p2 = el('div',{class:'panel'});
+    p2.append(el('h2',{},'Team vs Team'));
+    const tb2 = el('div',{class:'toolbar'});
+    const a2 = mkSelect(teamNames), b2 = mkSelect(teamNames), sc2 = mkScope();
+    if(teamNames.length>1) b2.selectedIndex = 1;
+    if(fav && teamNames.includes(fav)){ a2.value = fav; if(b2.value===fav) b2.selectedIndex = (teamNames[0]===fav?1:0); }
+    tb2.append(a2, el('span',{class:'muted'},'vs'), b2, sc2);
+    const h2 = el('div'); p2.append(tb2, h2);
+    const drawTeam = ()=>{
+      h2.innerHTML='';
+      const A1=a2.value, B1=b2.value, all = sc2.value==='all';
+      if(A1===B1){ h2.append(el('div',{class:'muted',style:'padding:12px'},'Pick two different teams.')); return; }
+      const ms = h2hPool(sc2.value).schedule.filter(m=>(m.a.team===A1&&m.b.team===B1)||(m.a.team===B1&&m.b.team===A1))
+                           .sort((x,y)=>x.date<y.date?-1:1);
+      if(!ms.length){ h2.append(el('div',{class:'muted',style:'padding:12px'}, A1+' and '+B1+(all?' have never met in the seasons on record.':' haven’t met yet.'))); return; }
+      let aP=0,bP=0,aW=0,bW=0,ti=0; const bySeason = {};
+      ms.forEach(m=>{ const [x,y]= m.a.team===A1?[m.a,m.b]:[m.b,m.a];
+        aP+=x.total; bP+=y.total;
+        const s = bySeason[m._label] = bySeason[m._label] || {w:0,l:0,t:0};
+        if(x.total>y.total){ aW++; s.w++; } else if(y.total>x.total){ bW++; s.l++; } else { ti++; s.t++; } });
+      h2.append(el('div',{class:'summary'},
+        `${A1}  ${aW}–${bW}${ti?'–'+ti:''}  ${B1}`,
+        el('br'),
+        el('span',{class:'muted'}, `points ${num(aP)} – ${num(bP)} across ${ms.length} meeting${ms.length>1?'s':''}`
+          + (all && Object.keys(bySeason).length>1 ? '  ·  by season: '+Object.keys(bySeason).map(k=>`${shortSeason(k)} ${bySeason[k].w}–${bySeason[k].l}${bySeason[k].t?'–'+bySeason[k].t:''}`).join(', ') : ''))));
+      ms.forEach(m=>h2.append(matchCard(m, A1, all)));
+    };
+    a2.onchange=drawTeam; b2.onchange=drawTeam; sc2.onchange=drawTeam; drawTeam();
+    v.append(p2);
+
+    // --- bowler vs bowler ---
+    // Bowlers are merged across seasons by LeaguePals id and, when the same name turns up under a second id in
+    // seasons the first id wasn't bowling (a team change often creates a new profile), by name.
+    const PP = people();
+    const allBl = PP.list.map(p=>({label:p.name+'  ('+p.team+')', value:p.key}));
+    const p3 = el('div',{class:'panel'});
+    p3.append(el('h2',{},'Bowler vs Bowler'));
+    p3.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:12px'},
+      'Seat-by-seat matchups from the official score sheets. Pick a bowler and the second list shows only the bowlers they have actually faced. '
+      +'Bowlers are matched across seasons by name as well as id, so a team change doesn’t split someone in two. The team in brackets is the most recent one.'));
+    const tb3 = el('div',{class:'toolbar'});
+    const a3 = mkSelect(allBl), b3 = el('select'), sc3 = mkScope();
+    let favP = CUR.meta.favoriteBowler ? PP.list.find(p=>p.name===CUR.meta.favoriteBowler) : null;
+    if(!favP && fav){ const fb = A(CUR.bowlers).find(b=>b.team===fav); if(fb) favP = PP.ofId[fb.id]; }
+    if(favP) a3.value = favP.key;
+    tb3.append(a3, el('span',{class:'muted'},'vs'), b3, sc3);
+    const h3 = el('div'); p3.append(tb3, h3);
+    const fillOpp = ()=>{
+      const keep = b3.value; b3.innerHTML = '';
+      const opp = opponentsOf(a3.value, sc3.value);
+      opp.forEach(o=> b3.append(el('option',{value:o.key}, `${o.p.name}  (${o.p.team}) — ${o.n} meeting${o.n>1?'s':''}`)));
+      if(opp.some(o=>o.key===keep)) b3.value = keep;
+    };
+    const drawBowler = ()=>{
+      h3.innerHTML='';
+      const pa = PP.byKey[a3.value], pb = PP.byKey[b3.value], all = sc3.value==='all';
+      if(!pa) return;
+      if(!pb){ h3.append(el('div',{class:'muted',style:'padding:12px'}, pa.name+' hasn’t had a seat-by-seat matchup against anyone'+(all?'':' this season')+' yet.')); return; }
+      const rows=[]; let unconfirmedHits=0;
+      h2hPool(sc3.value).schedule.forEach(m=>{
+        A(m.pairs).forEach(pr=>{
+          const aIsA = pa.idset.has(pr.aId) && pb.idset.has(pr.bId), aIsB = pa.idset.has(pr.bId) && pb.idset.has(pr.aId);
+          if(!aIsA && !aIsB) return;
+          if(m.pairingConfirmed===false){ unconfirmedHits++; return; }
+          const flip = aIsB;
+          const gj = g => A(g).map(x=>x==null?'–':x).join(' ');
+          const X = flip?{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind}:{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind};
+          const Y = flip?{g:pr.aGames,s:pr.aSer,h:pr.aHdcp,p:pr.aPts,k:pr.aKind}:{g:pr.bGames,s:pr.bSer,h:pr.bHdcp,p:pr.bPts,k:pr.bKind};
+          rows.push({date:m.date, season:shortSeason(m._label), weekNum:m.weekNum, lane:m.lane, teams:m.a.team+' v '+m.b.team,
+            aLine:gj(X.g)+'  ('+X.s+' +'+X.h+')'+(X.k&&X.k!=='bowler'?' ['+X.k+']':''), aPts:X.p,
+            bLine:gj(Y.g)+'  ('+Y.s+' +'+Y.h+')'+(Y.k&&Y.k!=='bowler'?' ['+Y.k+']':''), bPts:Y.p});
+        });
+      });
+      const unsureNote = unconfirmedHits ? ` (${unconfirmedHits} more week${unconfirmedHits>1?'s':''} had a sub/blind that week — excluded, pairing unconfirmed)` : '';
+      if(!rows.length){ h3.append(el('div',{class:'muted',style:'padding:12px'},
+        pa.name+' and '+pb.name+' haven’t had a confirmed matchup (by position) yet.'+unsureNote)); return; }
+      let aP=0,bP=0,aW=0,bW=0; rows.forEach(r=>{aP+=r.aPts;bP+=r.bPts; if(r.aPts>r.bPts)aW++; else if(r.bPts>r.aPts)bW++;});
+      const nSeasons = new Set(rows.map(r=>r.season)).size;
+      h3.append(el('div',{class:'summary'},
+        `${pa.name}  ${num(aP)} – ${num(bP)}  ${pb.name}`,
+        el('br'), el('span',{class:'muted'}, `${rows.length} head-to-head week${rows.length>1?'s':''}${all&&nSeasons>1?` across ${nSeasons} seasons`:''}  ·  weeks won ${aW}–${bW}${unsureNote}`)));
+      [pa,pb].forEach(p=> h3.append(el('div',{class:'muted',style:'padding:0 14px 2px;font-size:12px'}, p.name+': '+p.history)));
+      h3.append(table([
+        {k:'date',label:'Week',fmt:(x,r)=> (all&&r.season?r.season+' · ':'')+(r.weekNum?'Wk '+r.weekNum+' · ':'')+x+(r.lane?'  (lanes '+r.lane+')':'')},
+        {k:'aLine',label:pa.name},
+        {k:'aPts',label:'Pts',cls:'num',fmt:num},
+        {k:'bPts',label:'Pts',cls:'num',fmt:num},
+        {k:'bLine',label:pb.name},
+      ], rows, {sort:'date',dir:1}));
+    };
+    a3.onchange = ()=>{ fillOpp(); drawBowler(); }; sc3.onchange = ()=>{ fillOpp(); drawBowler(); }; b3.onchange = drawBowler;
+    fillOpp(); drawBowler();
+    v.append(p3);
+  }
+
+  // Every bowler across all seasons, merged into one "person": same LeaguePals id, or the same name under a second id
+  // when the two ids never bowled in the same season (e.g. a new profile after a team change).
+  function people(){
+    if(people._p) return people._p;
+    const seasons = [{label:CUR.meta.league, S:CUR}].concat(SEASONS.map(s=>({label:s.label, S:s})));
+    const norm = n=>String(n||'').replace(/\(.*?\)/g,'').toLowerCase().replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+    const byId = {};
+    seasons.forEach((se,si)=> A(se.S.bowlers).forEach(b=>{
+      if(!b.id || !(b.gamesBowled>0)) return;
+      (byId[b.id] = byId[b.id] || {ids:[b.id], recs:[]}).recs.push({si, label:se.label, b}); }));
+    const byName = {};
+    Object.values(byId).forEach(r=>{ (byName[norm(r.recs[0].b.name)] = byName[norm(r.recs[0].b.name)] || []).push(r); });
+    const groups = [];
+    Object.keys(byName).forEach(k=>{
+      const rs = byName[k]; let clash = false;
+      if(rs.length>1){ const seen = new Set(); rs.forEach(r=> r.recs.forEach(x=>{ if(seen.has(x.si)) clash = true; seen.add(x.si); })); }
+      if(rs.length>1 && !clash) groups.push({ids:[].concat(...rs.map(r=>r.ids)), recs:[].concat(...rs.map(r=>r.recs))});
+      else rs.forEach(r=>groups.push(r));
+    });
+    const P = { list:[], byKey:{}, ofId:{} };
+    groups.forEach(g=>{
+      g.recs.sort((x,y)=>x.si-y.si);                       // newest season first
+      const latest = g.recs[0].b;
+      const person = { key:latest.id, name:latest.name, team:latest.team, idset:new Set(g.ids), recs:g.recs,
+        history: g.recs.map(r=>r.label.replace('Pioneer I ','').replace(/^(\d{4})-\d{2}(\d{2}).*$/,'$1-$2')+' '+r.b.team).join('  ·  ') };
+      P.list.push(person); P.byKey[person.key] = person; g.ids.forEach(id=>{ P.ofId[id] = person; });
+    });
+    P.list.sort((x,y)=>x.name.localeCompare(y.name));
+    return people._p = P;
+  }
+  const oppCache = {};
+  function opponentsOf(key, scope){
+    const ck = key+'|'+scope+'|'+D.meta.league;
+    if(oppCache[ck]) return oppCache[ck];
+    const P = people(), me = P.byKey[key], out = {};
+    if(me) h2hPool(scope).schedule.forEach(m=> A(m.pairs).forEach(pr=>{
+      const oid = me.idset.has(pr.aId) ? pr.bId : (me.idset.has(pr.bId) ? pr.aId : null);
+      const op = oid && P.ofId[oid]; if(!op || op.key===key) return;
+      out[op.key] = (out[op.key]||0)+1; }));
+    return oppCache[ck] = Object.keys(out).map(k=>({key:k, n:out[k], p:P.byKey[k]})).sort((x,y)=>x.p.name.localeCompare(y.p.name));
+  }
+  // every matchup in the current season plus all archived ones (or just the season on screen), tagged with its season
+  const h2hCache = {};
+  function h2hPool(scope){
+    const key = scope+'|'+D.meta.league;
+    if(h2hCache[key]) return h2hCache[key];
+    const parts = scope==='all' ? [{label:CUR.meta.league, S:CUR}].concat(SEASONS.map(s=>({label:s.label, S:s}))) : [{label:D.meta.league, S:D}];
+    return h2hCache[key] = { schedule: parts.flatMap(p=> A(p.S.schedule).map(m=>Object.assign({}, m, {_label:p.label}))) };
+  }
+
+  // ================= Analytics engine =================
+  // Everything below is computed in the page from a season's schedule (every matchup, seat by seat),
+  // so it works for the current season and every archived one.
+  const CLOSE_GAME = 25, CLOSE_SERIES = 60, CLUTCH_MARGIN = 4;   // "close" = decided by this many handicap pins / points
+  const sum = a => a.reduce((s,x)=>s+(x||0),0);
+  const mean = a => a.length ? sum(a)/a.length : null;
+  const sd = a => { if(a.length<2) return null; const m=mean(a); return Math.sqrt(sum(a.map(x=>(x-m)*(x-m)))/(a.length-1)); };
+  const cmp = (x,y)=> x>y?1:(x<y?0:0.5);
+  const f1 = x => x==null?'—':x.toFixed(1);
+  const pc = (x,d)=> x==null?'—':(x*100).toFixed(d==null?1:d)+'%';
+  const sg1 = x => x==null?'—':(x>0?'+':'')+x.toFixed(1);
+  const tone = (x,txt)=> el('span',{class:x>0.05?'pos':(x<-0.05?'neg':'')}, txt);
+
+  function engine(){
+    if(D._an) return D._an;
+    const P = Object.assign({indGame:1,indSeries:2,teamGame:3,teamSeries:6}, D.meta.pts||{});
+    const E = { P, base:D.meta.hcBase||235, pctH:(D.meta.hcPct||90)/100, recs:[], byTeam:{}, byDate:{}, contests:[], names:{} };
+    A(D.schedule).forEach(m=>{
+      const blind = A(m.pairs).some(p=>p.aKind==='blind'||p.bKind==='blind');
+      ['a','b'].forEach(me=>{
+        const op = me==='a'?'b':'a', s=m[me], o=m[op];
+        const seats = A(m.pairs).map(p=>({ pos:p.pos, name:p[me+'Name'], id:p[me+'Id'], kind:p[me+'Kind'],
+          games:A(p[me+'Games']), hdcp:p[me+'Hdcp']||0, pts:p[me+'Pts']||0,
+          oKind:p[op+'Kind'], oGames:A(p[op+'Games']), oHdcp:p[op+'Hdcp']||0 }));
+        const sm = {}; seats.forEach(x=>{ sm[x.pos]=x; });
+        const r = { teamId:s.teamId, team:s.team, oppId:o.teamId, opp:o.team, date:m.date, weekNum:m.weekNum, blind,
+          won:s.total, lost:o.total, tPts:s.teamPts, iPts:s.indPts, scr:s.ser, serH:s.serH, oSerH:o.serH, oScr:o.ser,
+          gameH:A(s.gameH), oGameH:A(o.gameH), scrG:A(s.scr), oScrG:A(o.scr), seats, sm, m, override:!!m.officialOverride };
+        r.result = r.won>r.lost?'W':(r.won<r.lost?'L':'T');
+        E.recs.push(r); E.names[r.teamId]=r.team;
+        (E.byTeam[r.teamId]=E.byTeam[r.teamId]||[]).push(r);
+        (E.byDate[r.date]=E.byDate[r.date]||[]).push(r);
+      });
+      const ga = A(m.a.gameH), gb = A(m.b.gameH), sa = A(m.a.scr), sb = A(m.b.scr);
+      for(let g=0; g<3; g++) E.contests.push({ type:'game', g:g+1, date:m.date, weekNum:m.weekNum, A:m.a.team, B:m.b.team, ah:ga[g], bh:gb[g], as:sa[g], bs:sb[g], blind });
+      E.contests.push({ type:'series', g:0, date:m.date, weekNum:m.weekNum, A:m.a.team, B:m.b.team, ah:m.a.serH, bh:m.b.serH, as:m.a.ser, bs:m.b.ser, blind });
+    });
+    Object.keys(E.byTeam).forEach(id=> E.byTeam[id].sort((x,y)=>x.date<y.date?-1:1));
+    E.dates = Object.keys(E.byDate).sort();
+    E.teamIds = Object.keys(E.byTeam);
+    D._an = E; return E;
+  }
+
+  // points X would earn against Y under the league's scoring (blind special-cases ignored, ties split)
+  function playPts(E, X, Y){
+    const P = E.P; let x = 0;
+    for(let g=0; g<3; g++) if(X.gameH[g]!=null && Y.gameH[g]!=null) x += cmp(X.gameH[g],Y.gameH[g])*P.teamGame;
+    x += cmp(X.serH,Y.serH)*P.teamSeries;
+    for(let i=0; i<5; i++){
+      const sx = X.sm[i], sy = Y.sm[i]; if(!sx||!sy) continue;
+      for(let g=0; g<3; g++){
+        const gx = sx.games[g], gy = sy.games[g];
+        if(gx==null||gy==null) continue;
+        x += cmp(gx+sx.hdcp, gy+sy.hdcp)*P.indGame;
+      }
+      if(sx.games.length===3 && sy.games.length===3) x += cmp(sum(sx.games)+3*sx.hdcp, sum(sy.games)+3*sy.hdcp)*P.indSeries;
+    }
+    return x;
+  }
+
+  // ---- Pythagorean record + luck ----
+  function pythLuck(){
+    const E = engine(); if(E._pl) return E._pl;
+    const meanScr = {}; E.teamIds.forEach(id=>{ meanScr[id] = mean(E.byTeam[id].map(r=>r.scr)); });
+    const rows = E.teamIds.map(id=>{
+      const rs = E.byTeam[id];
+      const won = sum(rs.map(r=>r.won)), lost = sum(rs.map(r=>r.lost));
+      const W = rs.filter(r=>r.result==='W').length, L = rs.filter(r=>r.result==='L').length, T = rs.length-W-L;
+      const pf = sum(rs.map(r=>r.serH)), pa = sum(rs.map(r=>r.oSerH));
+      const weeks = rs.map(r=>{
+        const others = E.byDate[r.date].filter(o=>o!==r);
+        const exp = others.length ? mean(others.map(o=>playPts(E,r,o))) : r.won;
+        return { date:r.date, weekNum:r.weekNum, opp:r.opp, won:r.won, lost:r.lost, exp, form:r.scr-meanScr[id],
+                 oForm:r.oScr-meanScr[r.oppId], scr:r.scr, result:r.result };
+      });
+      const weak = weeks.filter(w=>w.form<0), strong = weeks.filter(w=>w.form>=0);
+      return { id, team:E.names[id], weeks, n:rs.length, W, L, T, won, lost, pf, pa, pct: won/((won+lost)||1),
+        exp: sum(weeks.map(w=>w.exp)), oppForm: mean(weeks.map(w=>w.oForm)),
+        weakN:weak.length, weakAvg: mean(weak.map(w=>w.won)), strongAvg: mean(strong.map(w=>w.won)),
+        weakWins: weak.filter(w=>w.result==='W').length };
+    });
+    // exponent: whatever makes pins-for / pins-against best predict each team's share of the points
+    let bestK = 1, bestE = Infinity;
+    for(let k=1; k<=500; k+=0.5){
+      let e = 0; rows.forEach(t=>{ const w = 1/(1+Math.pow(t.pa/t.pf, k)); e += (t.pct-w)*(t.pct-w); });
+      if(e<bestE){ bestE=e; bestK=k; }
+    }
+    rows.forEach(t=>{
+      t.pyth = 1/(1+Math.pow(t.pa/t.pf, bestK));
+      t.pythPts = t.pyth*(t.won+t.lost); t.pythDiff = t.won - t.pythPts;
+      t.pythW = t.pyth*t.n; t.pythWDiff = (t.W+t.T/2) - t.pythW;
+      t.luck = t.won - t.exp;
+    });
+    E._pl = { rows, k:bestK };
+    return E._pl;
+  }
+
+  // ---- standings position after every week ----
+  function placement(){
+    const E = engine(); if(E._pos) return E._pos;
+    const cum = {}, ranks = {}, pts = {};
+    E.teamIds.forEach(id=>{ cum[id]=0; ranks[id]=[]; pts[id]=[]; });
+    E.dates.forEach(d=>{
+      E.byDate[d].forEach(r=>{ cum[r.teamId] += r.won; });
+      E.teamIds.forEach(id=>{ ranks[id].push(1 + E.teamIds.filter(o=>cum[o]>cum[id]).length); pts[id].push(cum[id]); });
+    });
+    // the last week uses LeaguePals' own standings order, which breaks point ties (earlier weeks share a place)
+    A(D.standings).forEach(t=>{
+      const r = ranks[t.id]; if(r && r.length && Math.abs(pts[t.id][r.length-1]-t.pointsWon)<0.01) r[r.length-1] = t.rank;
+    });
+    E._pos = { dates:E.dates, ranks, pts }; return E._pos;
+  }
+
+  // ---- chart helpers ----
+  const svgWrap = (w, h, inner)=> el('div',{class:'chartwrap',html:`<svg viewBox="0 0 ${w} ${h}" style="width:100%;min-width:${w}px;height:auto">${inner}</svg>`});
+  const lblEvery = n => n>26?4:(n>14?2:1);
+
+  function stepChart(dates, lines, nTeams){
+    // lines: [{ranks:[...], pts:[...], label, color, width, op, dash}] ; rank 1 on top
+    const n = dates.length; if(!n) return el('div',{class:'muted',style:'padding:10px 14px'},'not enough weeks yet');
+    const W = Math.max(520, n*34+60), H = 260, padL = 30, padR = 22, padT = 14, padB = 26;
+    const xOf = i => padL + (n===1? (W-padL-padR)/2 : i*(W-padL-padR)/(n-1));
+    const yOf = r => padT + (r-1)/Math.max(1,nTeams-1)*(H-padT-padB);
+    let svg = '';
+    [1,10,20,30,40].filter(r=>r<=nTeams).forEach(r=>{
+      svg += `<line x1="${padL}" x2="${W-padR}" y1="${yOf(r).toFixed(1)}" y2="${yOf(r).toFixed(1)}" style="stroke:var(--line)"/>`
+           + `<text x="${padL-6}" y="${(yOf(r)+3).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--muted)">${r}</text>`;
+    });
+    const k = lblEvery(n);
+    dates.forEach((d,i)=>{ if(i%k===0 || i===n-1) svg += `<text x="${xOf(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${d.slice(5)}</text>`; });
+    lines.forEach(L=>{
+      const pts = L.ranks.map((r,i)=>[xOf(i), yOf(r)]);
+      // step-after: hold the old position across the week, then move at the next week
+      let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+      for(let i=1; i<pts.length; i++) d += ` H${pts[i][0].toFixed(1)} V${pts[i][1].toFixed(1)}`;
+      svg += `<path d="${d}" fill="none" style="stroke:${L.color}" stroke-width="${L.width}" opacity="${L.op}"${L.dash?` stroke-dasharray="${L.dash}"`:''} stroke-linejoin="round"/>`;
+      if(L.label){
+        L.ranks.forEach((r,i)=>{
+          svg += `<circle cx="${pts[i][0].toFixed(1)}" cy="${pts[i][1].toFixed(1)}" r="3" style="fill:${L.color}"><title>${L.label}, ${dates[i]}: #${r}${L.pts?` (${L.pts[i]} pts)`:''}</title></circle>`;
+          if(i%k===0 || i===pts.length-1) svg += `<text x="${pts[i][0].toFixed(1)}" y="${(pts[i][1]-7).toFixed(1)}" text-anchor="middle" font-size="9" font-weight="700" style="fill:${L.color}">${r}</text>`;
+        });
+      }
+    });
+    return svgWrap(W, H, svg);
+  }
+
+  // generic multi-series line chart over arbitrary labels (seasons etc.); opt.invert puts the biggest value at the bottom (ranks)
+  function multiLine(labels, series, opt){
+    opt = opt||{}; const n = labels.length;
+    const vals = series.flatMap(s=>s.values).filter(x=>x!=null);
+    if(n<1 || !vals.length) return el('div',{class:'muted',style:'padding:10px 14px'},'not enough seasons yet');
+    const W = Math.max(480, n*90), H = opt.h||170, padL = 40, padR = 24, padT = 18, padB = 26;
+    let lo = Math.min(...vals), hi = Math.max(...vals); if(hi===lo){ lo-=1; hi+=1; } const padv = (hi-lo)*0.12; lo-=padv; hi+=padv;
+    const fmt = opt.fmt || (x=>Math.round(x*10)/10);
+    const xOf = i => padL + (n===1? (W-padL-padR)/2 : i*(W-padL-padR)/(n-1));
+    const yOf = v => opt.invert ? padT + (v-lo)/(hi-lo)*(H-padT-padB) : padT + (1-(v-lo)/(hi-lo))*(H-padT-padB);
+    let svg = '';
+    for(let t=0; t<4; t++){
+      const v = lo + (hi-lo)*t/3, y = yOf(v);
+      svg += `<line x1="${padL}" x2="${W-padR}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" style="stroke:var(--line)"/>`
+           + `<text x="${padL-6}" y="${(y+3).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--muted)">${fmt(v)}</text>`;
+    }
+    labels.forEach((l,i)=>{ svg += `<text x="${xOf(i).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="10" style="fill:var(--muted)">${l}</text>`; });
+    series.forEach((s,si)=>{
+      const col = s.color || (si?'var(--muted)':'var(--accent)');
+      let d = '', pen = false;
+      s.values.forEach((v,i)=>{ if(v==null){ pen=false; return; } d += `${pen?'L':'M'}${xOf(i).toFixed(1)},${yOf(v).toFixed(1)} `; pen=true; });
+      svg += `<path d="${d}" fill="none" style="stroke:${col}" stroke-width="2"${s.dash?` stroke-dasharray="${s.dash}"`:''}/>`;
+      s.values.forEach((v,i)=>{ if(v==null) return;
+        svg += `<circle cx="${xOf(i).toFixed(1)}" cy="${yOf(v).toFixed(1)}" r="3" style="fill:${col}"><title>${s.name}, ${labels[i]}: ${fmt(v)}</title></circle>`;
+        if(!si) svg += `<text x="${xOf(i).toFixed(1)}" y="${(yOf(v)-8).toFixed(1)}" text-anchor="middle" font-size="10" style="fill:${col}">${fmt(v)}</text>`;
+      });
+    });
+    const wrap = svgWrap(W, H, svg);
+    if(series.length>1) wrap.append(el('div',{class:'muted',style:'font-size:11px;padding:2px 0'}, series.map(s=>s.name).join('  ·  ')));
+    return wrap;
+  }
+
+  // ================= Analytics tab =================
+  function viewAnalytics(v){
+    const E = engine();
+    if(!E.recs.length){ v.append(el('div',{class:'panel'}, el('div',{class:'muted',style:'padding:14px'},'No matchups reconstructed yet.'))); return; }
+    marginsPanel(v); pythPanel(v); luckPanel(v); ratesPanel(v); consistencyPanel(v); seasonsPanel(v);
+  }
+
+  function marginsPanel(v){
+    const E = engine();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Biggest & Smallest Gaps'));
+    p.append(el('div',{class:'muted gapnote'},
+      'How far apart the two teams finished in a single team game or in the 3-game team series. Handicap is what the points are decided on; '
+      +'scratch is raw pins. Ties (a gap of 0) are counted but not listed under smallest.'));
+    let basis = 'H', noBlind = true;
+    const bar = el('div',{class:'toolbar'}); const host = el('div');
+    const mk = (id,label)=>{ const b = el('button',{class:'wkbtn'+(basis===id?' active':'')}, label);
+      b.onclick = ()=>{ basis=id; [...bar.querySelectorAll('.wkbtn')].forEach(x=>x.classList.remove('active')); b.classList.add('active'); draw(); }; return b; };
+    const cb = el('input',{type:'checkbox'}); cb.checked = true;
+    cb.onchange = ()=>{ noBlind = cb.checked; draw(); };
+    bar.append(mk('H','Handicap'), mk('S','Scratch'), el('label',{style:'font-size:13px;display:flex;gap:6px;align-items:center'}, cb, 'Skip matchups where a team had a blind'));
+    p.append(bar, host);
+    function gapCard(title, items){
+      const c = el('div',{class:'card'}, el('h3',{},title)); const ul = el('ul',{class:'lb'});
+      items.forEach((x,i)=> ul.append(el('li',{},
+        el('span',{class:'r'}, (i+1)+''),
+        el('span',{class:'nm'}, `${x.win} ${x.ws}`, el('span',{class:'tm'}, `  over ${x.lose} ${x.ls}`),
+          el('div',{class:'tm'}, (x.weekNum?`Wk ${x.weekNum} · `:'')+x.date.slice(5)+(x.type==='game'?` · game ${x.g}`:'')+(x.blind?' · blind':''))),
+        el('span',{class:'v'}, num(x.margin)))));
+      if(!items.length) ul.append(el('li',{class:'muted'},'— no data yet —'));
+      c.append(ul); return c;
+    }
+    function draw(){
+      host.innerHTML='';
+      const all = E.contests.filter(c=>!(noBlind&&c.blind));
+      const g = el('div',{class:'grid'});
+      const skipped = E.contests.length-all.length;
+      [['game','Team Game'],['series','Team Series']].forEach(([type,name])=>{
+        const L = all.filter(c=>c.type===type).map(c=>{
+          const a = basis==='H'?c.ah:c.as, b = basis==='H'?c.bh:c.bs, aw = a>=b;
+          return Object.assign({}, c, { margin:Math.abs(a-b), win: aw?c.A:c.B, lose: aw?c.B:c.A, ws: aw?a:b, ls: aw?b:a });
+        }).filter(c=>c.ws!=null && c.ls!=null);
+        const ties = L.filter(c=>c.margin===0).length;
+        const big = L.slice().sort((x,y)=>y.margin-x.margin).slice(0,10);
+        const small = L.filter(c=>c.margin>0).sort((x,y)=>x.margin-y.margin).slice(0,10);
+        const ms = L.map(c=>c.margin).sort((a,b)=>a-b), med = ms.length? ms[Math.floor(ms.length/2)] : null;
+        g.append(gapCard(`Largest ${name} Gap`, big), gapCard(`Smallest ${name} Gap`, small));
+        g.append(stat(`${name} gap — typical`, kv([['Average gap', ms.length? Math.round(mean(ms)):null], ['Median gap', med], ['Exact ties', ties], ['Contests', ms.length]])));
+      });
+      host.append(g);
+      if(skipped) host.append(el('div',{class:'muted gapnote'}, `${skipped} contest${skipped>1?'s':''} from matchups with a blind left out.`));
+    }
+    draw(); v.append(p);
+  }
+
+  function pythPanel(v){
+    const PL = pythLuck();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Pythagorean Record'));
+    p.append(el('div',{class:'muted gapnote'},
+      `Like baseball’s: pins scored vs pins allowed (handicap series, the numbers the points are decided on) → the record a team “should” have. `
+      +`Bowling pin totals are bunched far tighter than baseball runs, so instead of baseball’s ~1.83 the exponent is fit to this season’s league: ${PL.k}. `
+      +`Pythag % = PF^k / (PF^k + PA^k); expected points = Pythag % × points available. A positive “vs exp” / “vs Pythag” means the team collected more than its pins deserved.`));
+    p.append(table([
+      {k:'team',label:'Team'},
+      {k:'rec',label:'W-L-T',fmt:(_,r)=>`${r.W}-${r.L}-${r.T}`},
+      {k:'pf',label:'Pins for',cls:'num',fmt:num},
+      {k:'pa',label:'Pins against',cls:'num',fmt:num},
+      {k:'pyth',label:'Pythag %',cls:'num',fmt:x=>pc(x)},
+      {k:'pythW',label:'Pythag W',cls:'num',fmt:x=>f1(x)},
+      {k:'pythWDiff',label:'W vs Pythag',cls:'num',fmt:x=>tone(x,sg1(x))},
+      {k:'pythPts',label:'Exp pts',cls:'num',fmt:x=>f1(x)},
+      {k:'won',label:'Actual pts',cls:'num',fmt:num},
+      {k:'pythDiff',label:'Pts vs exp',cls:'num',fmt:x=>tone(x,sg1(x))},
+    ], PL.rows, {sort:'pythDiff', rank:true}));
+    v.append(p);
+  }
+
+  function luckPanel(v){
+    const PL = pythLuck();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Luck Index'));
+    p.append(el('div',{class:'muted gapnote'},
+      'Expected points = what each week’s lineup would have earned, on average, against every other team’s lineup that week (an “all-play” replay: same seat vs same seat, '
+      +'handicap scores, ties split). Luck = actual points − expected: positive means the schedule/opponents’ off nights handed over points the bowling alone didn’t earn. '
+      +'“Opp form faced” is how the opponents bowled against this team compared with their own season average (negative = they had bad nights against you). '
+      +'Weak weeks are weeks the team’s scratch series was below its own average. Click a team for the week-by-week.'));
+    p.append(table([
+      {k:'team',label:'Team'},
+      {k:'won',label:'Pts',cls:'num',fmt:num},
+      {k:'exp',label:'Exp pts',cls:'num',fmt:x=>f1(x)},
+      {k:'luck',label:'Luck',cls:'num',fmt:x=>tone(x,sg1(x))},
+      {k:'pythDiff',label:'vs Pythag',cls:'num hide-sm',fmt:x=>tone(x,sg1(x))},
+      {k:'oppForm',label:'Opp form faced',cls:'num',fmt:x=>x==null?'—':tone(-x,sg1(x))},
+      {k:'weakN',label:'Weak wks',cls:'num'},
+      {k:'weakAvg',label:'Pts/wk weak',cls:'num',fmt:x=>f1(x)},
+      {k:'strongAvg',label:'Pts/wk strong',cls:'num',fmt:x=>f1(x)},
+    ], PL.rows, {sort:'luck', rank:true, expand:r=>{
+      const d = el('div',{style:'padding:8px 12px'});
+      d.append(table([
+        {k:'date',label:'Week',def:1,fmt:(x,w)=> (w.weekNum?'Wk '+w.weekNum+' · ':'')+x.slice(5)},
+        {k:'opp',label:'Opponent'},
+        {k:'form',label:'Own form',cls:'num',fmt:x=>tone(x,sg1(x))},
+        {k:'oForm',label:'Opp form',cls:'num',fmt:x=>tone(-x,sg1(x))},
+        {k:'won',label:'Pts',cls:'num',fmt:(x,w)=>el('span',{class:w.result==='W'?'pos':(w.result==='L'?'neg':'')}, num(x)+'–'+num(w.lost))},
+        {k:'exp',label:'Exp',cls:'num',fmt:x=>f1(x)},
+        {k:'delta',label:'+/-',cls:'num',fmt:x=>tone(x,sg1(x))},
+      ], r.weeks.map(w=>Object.assign({delta:w.won-w.exp}, w)), {sort:'date',dir:1}));
+      d.append(el('div',{class:'muted',style:'font-size:11px;padding-top:4px'},
+        'Own form = scratch series minus this team’s season average; Opp form = the same for the opponent that night (green = they bowled below their norm). '
+        +'Weak weeks won: '+r.weakWins+' of '+r.weakN+'.'));
+      return d;
+    }}));
+    v.append(p);
+  }
+
+  // ---- rate stats ----
+  function bowlerRates(){
+    const E = engine(); if(E._br) return E._br;
+    const per = {};
+    E.recs.forEach(r=> r.seats.forEach(s=>{
+      if(!s.id || s.kind==='blind' || s.games.length!==3 || s.games.some(x=>x==null)) return;
+      const o = per[s.id] = per[s.id] || { pts:0, wk:0, diff:0, dg:0 };
+      o.wk++; o.pts += s.pts;
+      if(s.oKind!=='blind' && s.oGames.length===3 && !s.oGames.some(x=>x==null)){
+        o.diff += (sum(s.games)+3*s.hdcp) - (sum(s.oGames)+3*s.oHdcp); o.dg += 3; }
+    }));
+    const maxSeat = E.P.indGame*3 + E.P.indSeries;
+    E._br = D.bowlers.map(b=>{
+      const wk = A(b.weeks).filter(w=>!w.absent);
+      const games = wk.flatMap(w=>A(w.games)).filter(x=>x!=null);
+      const full = wk.filter(w=>A(w.games).filter(x=>x!=null).length===3);
+      const o = per[b.id];
+      return { name:b.name, team:b.team, n:games.length, avg:mean(games),
+        r200: games.length? games.filter(x=>x>=200).length/games.length : null,
+        r250: games.length? games.filter(x=>x>=250).length/games.length : null,
+        r600: full.length? full.filter(w=>w.scrSer>=600).length/full.length : null,
+        cv: games.length>1 ? sd(games)/mean(games) : null,
+        share: o && o.wk ? o.pts/(o.wk*maxSeat) : null,
+        ppw: o && o.wk ? o.pts/o.wk : null,
+        diff: o && o.dg ? o.diff/o.dg : null };
+    }).filter(b=>b.n>0);
+    return E._br;
+  }
+
+  function teamRates(){
+    const E = engine(); if(E._tr) return E._tr;
+    const cap = E.P.teamGame*3 + E.P.teamSeries, icap = E.P.indGame*15 + E.P.indSeries*5;
+    E._tr = E.teamIds.map(id=>{
+      const rs = E.byTeam[id], n = rs.length;
+      let gw = 0, gn = 0; rs.forEach(r=>{ for(let g=0; g<3; g++) if(r.gameH[g]!=null && r.oGameH[g]!=null){ gw += cmp(r.gameH[g], r.oGameH[g]); gn++; } });
+      const sw = sum(rs.map(r=>cmp(r.serH,r.oSerH)));
+      const real = rs.flatMap(r=>r.seats.filter(s=>s.kind!=='blind').flatMap(s=>s.games)).filter(x=>x!=null);
+      const close = rs.filter(r=>Math.abs(r.won-r.lost)<=CLUTCH_MARGIN);
+      return { team:E.names[id], n, pct: sum(rs.map(r=>r.won))/((sum(rs.map(r=>r.won))+sum(rs.map(r=>r.lost)))||1),
+        gwin: gn? gw/gn : null, swin: sw/n, margin: mean(rs.map(r=>(r.serH-r.oSerH)/3)),
+        avg: real.length? mean(real) : null, per200: sum(rs.map(r=>r.seats.filter(s=>s.kind!=='blind').flatMap(s=>s.games).filter(x=>x>=200).length))/n,
+        tshare: sum(rs.map(r=>r.tPts))/(n*cap), ishare: sum(rs.map(r=>r.iPts))/(n*icap),
+        sdSer: sd(rs.map(r=>r.scr)), closeW: close.filter(r=>r.result==='W').length, closeN: close.length,
+        closePct: close.length? close.filter(r=>r.result==='W').length/close.length : null };
+    });
+    return E._tr;
+  }
+
+  function ratesPanel(v){
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Rate Stats'));
+    let mode = 'bowlers', minG = D.past ? 30 : 12;
+    const bar = el('div',{class:'toolbar'}), host = el('div');
+    const mkM = (id,label)=>{ const b = el('button',{class:'wkbtn'+(mode===id?' active':'')}, label);
+      b.onclick = ()=>{ mode=id; [...bar.querySelectorAll('.wkbtn')].forEach(x=>x.classList.remove('active')); b.classList.add('active'); draw(); }; return b; };
+    const sel = mkSelect([{label:'min 6 games',value:'6'},{label:'min 12 games',value:'12'},{label:'min 30 games',value:'30'},{label:'min 60 games',value:'60'}]);
+    sel.value = D.past ? '30' : '12'; sel.onchange = ()=>{ minG = +sel.value; draw(); };
+    bar.append(mkM('bowlers','Bowlers'), mkM('teams','Teams'), sel);
+    p.append(bar, host);
+    function draw(){
+      host.innerHTML=''; sel.hidden = mode!=='bowlers';
+      if(mode==='bowlers'){
+        host.append(el('div',{class:'muted gapnote'},
+          '200+ / 250+ = share of games at or over that score. 600+ = share of full 3-game weeks. Pts share = individual points earned ÷ the 5 available per week. '
+          +'Seat margin = handicap pins per game over the bowler on the other side (blind opponents left out). CV = scoring spread ÷ average — lower is steadier. Blind fills excluded.'));
+        host.append(table([
+          {k:'name',label:'Bowler'},{k:'team',label:'Team',cls:'hide-sm'},
+          {k:'n',label:'Gm',cls:'num'},
+          {k:'avg',label:'Avg',cls:'num',fmt:f1},
+          {k:'r200',label:'200+',cls:'num',fmt:x=>pc(x,0)},
+          {k:'r250',label:'250+',cls:'num',fmt:x=>pc(x,0)},
+          {k:'r600',label:'600+ ser',cls:'num',fmt:x=>pc(x,0)},
+          {k:'cv',label:'CV',cls:'num',def:1,fmt:x=>x==null?'—':(x*100).toFixed(1)+'%'},
+          {k:'share',label:'Pts share',cls:'num',fmt:x=>pc(x,0)},
+          {k:'ppw',label:'Pts/wk',cls:'num',fmt:f1},
+          {k:'diff',label:'Seat margin /gm',cls:'num',fmt:x=>x==null?'—':tone(x,sg1(x))},
+        ], bowlerRates().filter(b=>b.n>=minG), {sort:'avg', rank:true}));
+      } else {
+        host.append(el('div',{class:'muted gapnote'},
+          'Game % / Series % = share of the 3 team games / the team series won (ties count half). Margin = handicap pins per game over the opponent. '
+          +'Team pts share = team-contest points earned ÷ 15 available; Indiv share = individual points ÷ 25. 200+/wk = games of 200 or better per week (all five bowlers). '
+          +'Close = matchups decided by 4 points or fewer.'));
+        host.append(table([
+          {k:'team',label:'Team'},
+          {k:'pct',label:'Pts %',cls:'num',fmt:x=>pc(x)},
+          {k:'gwin',label:'Game %',cls:'num',fmt:x=>pc(x,0)},
+          {k:'swin',label:'Series %',cls:'num',fmt:x=>pc(x,0)},
+          {k:'margin',label:'Margin /gm',cls:'num',fmt:x=>tone(x,sg1(x))},
+          {k:'avg',label:'Avg',cls:'num',fmt:f1},
+          {k:'per200',label:'200+ /wk',cls:'num',fmt:f1},
+          {k:'tshare',label:'Team pts share',cls:'num hide-sm',fmt:x=>pc(x,0)},
+          {k:'ishare',label:'Indiv share',cls:'num hide-sm',fmt:x=>pc(x,0)},
+          {k:'sdSer',label:'Series σ',cls:'num hide-sm',def:1,fmt:x=>x==null?'—':Math.round(x)},
+          {k:'closePct',label:'Close',cls:'num',fmt:(x,r)=> r.closeN? `${r.closeW}-${r.closeN-r.closeW}` : '—'},
+        ], teamRates(), {sort:'pct', rank:true}));
+      }
+    }
+    draw(); v.append(p);
+  }
+
+  // ---- consistency: more ways to describe variance than σ ----
+  const quantile = (sorted, q)=>{ if(!sorted.length) return null; const i = (sorted.length-1)*q, lo = Math.floor(i), hi = Math.ceil(i); return sorted[lo]+(sorted[hi]-sorted[lo])*(i-lo); };
+  // `recs` = one bowler's season records; every figure is measured against that season's own average so a
+  // bowler who improved between seasons isn't scored as erratic.
+  function varianceStats(recs){
+    const gRes = [], sRes = [], nightRes = [], withinVar = [], swings = [], allGames = [];
+    let seasonsG = 0, seasonsS = 0;
+    recs.forEach(r=>{
+      const nights = A(r.b.weeks).filter(w=>!w.absent).map(w=>A(w.games).filter(x=>x!=null)).filter(g=>g.length>0);
+      const games = nights.flat(); if(games.length<3) return;
+      const m = mean(games); seasonsG++; allGames.push(...games);
+      nights.forEach(g=>{
+        g.forEach(x=>gRes.push(x-m));
+        for(let i=1; i<g.length; i++) swings.push(Math.abs(g[i]-g[i-1]));
+        if(g.length===3){ sRes.push(sum(g)-3*m); nightRes.push(mean(g)-m); withinVar.push(sd(g)*sd(g)); }
+      });
+      seasonsS++;
+    });
+    const n = gRes.length, nF = sRes.length; if(n<3) return null;
+    const rms = (a, k)=> a.length>k ? Math.sqrt(sum(a.map(x=>x*x))/(a.length-k)) : null;
+    const sg = gRes.slice().sort((x,y)=>x-y);
+    const avg = mean(allGames);
+    return { n, nF, avg, sdGame: rms(gRes, seasonsG), sdSer: rms(sRes, seasonsS), cv: rms(gRes, seasonsG)/avg,
+      mad: quantile(gRes.map(Math.abs).sort((x,y)=>x-y), 0.5), floor: quantile(sg,0.1), ceil: quantile(sg,0.9),
+      bad: gRes.filter(x=>x<=-40).length/n, hot: gRes.filter(x=>x>=40).length/n, swing: mean(swings),
+      nightSd: nightRes.length>1 ? sd(nightRes) : null, withinSd: withinVar.length ? Math.sqrt(mean(withinVar)) : null };
+  }
+
+  function consistencyPanel(v){
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Consistency & Variance'));
+    p.append(el('div',{class:'muted gapnote'},
+      'σ (standard deviation) is the typical swing from a bowler’s own average, and variance is just σ squared, so it adds nothing new. σ also treats a great game and a terrible one the same and is dragged around by single outliers, '
+      +'so the table adds other angles. All figures are measured against that bowler’s average for the same season. '
+      +'CV = σ ÷ average (fair across different skill levels). MAD = the typical miss (median absolute deviation), steadier than σ when there are outliers. '
+      +'Floor / ceiling = a bad game (10th percentile) and a good game (90th) relative to average. Blow-ups = games 40+ pins under average; hot games = 40+ over. '
+      +'Swing = average pin change from one game to the next in a night. Night σ = how much the nightly average moves from week to week (lane conditions, form), '
+      +'Within-night σ = how much the three games differ inside a night; a bowler with a high Night σ but low Within-night σ is streaky by the week rather than the game.'));
+    let scope = 'this', minG = D.past ? 30 : 12;
+    const mkIn = ph => el('input',{type:'number', min:'0', step:'1', placeholder:ph, style:'width:72px'});
+    const sc = mkSelect([{label:'This season', value:'this'},{label:'All seasons combined', value:'all'}]);
+    const mg = mkSelect([{label:'min 12 games',value:'12'},{label:'min 30 games',value:'30'},{label:'min 60 games',value:'60'},{label:'min 100 games',value:'100'}]);
+    mg.value = D.past ? '30' : '12';
+    const gMin = mkIn('min'), gMax = mkIn('max'), sMin = mkIn('min'), sMax = mkIn('max');
+    const reset = el('button',{class:'wkbtn'}, 'Clear filters');
+    p.append(el('div',{class:'toolbar'}, sc, mg),
+      el('div',{class:'toolbar'}, el('span',{class:'muted'}, 'σ per game'), gMin, '–', gMax, el('span',{class:'muted',style:'margin-left:8px'}, 'σ per series'), sMin, '–', sMax, reset));
+    const host = el('div'); p.append(host);
+    const rowsFor = ()=>{
+      const out = [];
+      if(scope==='all') people().list.forEach(pe=>{ const s = varianceStats(pe.recs); if(s) out.push(Object.assign({name:pe.name, team:pe.team, seasons:pe.recs.length}, s)); });
+      else A(D.bowlers).forEach(b=>{ const s = varianceStats([{b}]); if(s) out.push(Object.assign({name:b.name, team:b.team, seasons:1}, s)); });
+      return out;
+    };
+    const draw = ()=>{
+      host.innerHTML='';
+      const num_ = x=> x.value===''?null:+x.value, lo1 = num_(gMin), hi1 = num_(gMax), lo2 = num_(sMin), hi2 = num_(sMax);
+      const rows = rowsFor().filter(r=> r.n>=minG && (lo1==null||r.sdGame>=lo1) && (hi1==null||r.sdGame<=hi1)
+                                      && (lo2==null||(r.sdSer!=null&&r.sdSer>=lo2)) && (hi2==null||(r.sdSer!=null&&r.sdSer<=hi2)));
+      host.append(el('div',{class:'muted gapnote'}, `${rows.length} bowler${rows.length===1?'':'s'} match.`));
+      const r0 = x=>x==null?'—':Math.round(x);
+      host.append(table([
+        {k:'name',label:'Bowler'},{k:'team',label:'Team',cls:'hide-sm'},
+        {k:'n',label:'Gm',cls:'num'},
+        {k:'avg',label:'Avg',cls:'num',fmt:f1},
+        {k:'sdGame',label:'σ game',cls:'num',def:1,fmt:f1},
+        {k:'sdSer',label:'σ series',cls:'num',def:1,fmt:f1},
+        {k:'cv',label:'CV',cls:'num',def:1,fmt:x=>x==null?'—':(x*100).toFixed(1)+'%'},
+        {k:'mad',label:'MAD',cls:'num',def:1,fmt:f1},
+        {k:'floor',label:'Floor',cls:'num',fmt:x=>x==null?'—':tone(x,r0(x))},
+        {k:'ceil',label:'Ceiling',cls:'num',fmt:x=>x==null?'—':tone(x,'+'+r0(x))},
+        {k:'bad',label:'Blow-ups',cls:'num',def:1,fmt:x=>pc(x,0)},
+        {k:'hot',label:'Hot games',cls:'num',fmt:x=>pc(x,0)},
+        {k:'swing',label:'Swing',cls:'num',def:1,fmt:f1},
+        {k:'nightSd',label:'Night σ',cls:'num',def:1,fmt:f1},
+        {k:'withinSd',label:'Within-night σ',cls:'num',def:1,fmt:f1},
+      ], rows, {sort:'sdGame', dir:1, rank:true}));
+    };
+    sc.onchange = ()=>{ scope = sc.value; draw(); }; mg.onchange = ()=>{ minG = +mg.value; draw(); };
+    [gMin,gMax,sMin,sMax].forEach(i=>{ i.oninput = draw; });
+    reset.onclick = ()=>{ [gMin,gMax,sMin,sMax].forEach(i=>{ i.value=''; }); draw(); };
+    draw(); v.append(p);
+  }
+
+  // ---- one bowler, season by season: is there a time-of-year pattern? ----
+  const SEASON_COLORS = ['var(--accent)','#e0a030','#c0508a','#3aa6a0','#8f7be0'];   // newest first
+  const MONTHS = ['Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'];
+  const monthIdx = d => { const m = +d.slice(5,7); return (m>=8) ? m-8 : m+4; };     // Aug=0 … May=9
+  function seasonsPanel(v){
+    const PP = people();
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Bowler Seasons & Trends'));
+    p.append(el('div',{class:'muted gapnote'},
+      'Every full week’s series for one bowler, one line per season, laid on a shared August-to-May calendar so a recurring dip shows up in the same place each year. '
+      +'“vs season average” subtracts that bowler’s own average for the season, so seasons at different levels line up. The heavy bars are the month averages across the seasons shown; '
+      +'the table gives each month’s average deviation with its margin of error, and the summary tests October–November against the rest of the year. '
+      +'Use the season buttons to hide a season (double-click one to show only it); everything below the chart follows what is shown. A handful of weeks per month is a small sample: treat a dip as a lead, not a proof.'));
+    const sel = mkSelect(PP.list.map(x=>({label:x.name+'  ('+x.team+')', value:x.key})));
+    const fav = CUR.meta.favoriteBowler ? PP.list.find(x=>x.name===CUR.meta.favoriteBowler) : null;
+    if(fav) sel.value = fav.key;
+    let mode = 'dev';
+    const off = new Set();     // seasons (by index) hidden with the toggles below
+    const bar = el('div',{class:'toolbar'}, sel);
+    const mk = (id,label)=>{ const b = el('button',{class:'wkbtn'+(mode===id?' active':'')}, label);
+      b.onclick = ()=>{ mode=id; [...bar.querySelectorAll('.wkbtn')].forEach(x=>x.classList.remove('active')); b.classList.add('active'); draw(); }; return b; };
+    bar.append(mk('dev','vs season average'), mk('raw','Raw series'));
+    const host = el('div'); p.append(bar, host);
+
+    const draw = ()=>{
+      host.innerHTML='';
+      const pe = PP.byKey[sel.value]; if(!pe) return;
+      const recs = pe.recs.slice().sort((a,b)=>b.si-a.si);      // oldest -> newest
+      const allPts = [];
+      recs.forEach(r=>{
+        const wks = A(r.b.weeks).filter(w=>!w.absent && A(w.games).filter(x=>x!=null).length===3);
+        const all = wks.flatMap(w=>A(w.games)); if(!all.length) return;
+        const m = mean(all);
+        const y0 = +wks.map(w=>w.date).sort()[0].slice(0,4) - (+wks.map(w=>w.date).sort()[0].slice(5,7) < 7 ? 1 : 0);
+        wks.forEach(w=>{ const ser = sum(A(w.games)); const t = Date.UTC(+w.date.slice(0,4), +w.date.slice(5,7)-1, +w.date.slice(8,10));
+          allPts.push({ si:r.si, season:r.label.replace('Pioneer I ',''), date:w.date, x:(t-Date.UTC(y0,7,1))/864e5, month:monthIdx(w.date), ser, dev:ser-3*m, v: mode==='dev'? ser-3*m : ser }); });
+      });
+      if(allPts.length<3){ host.append(el('div',{class:'muted',style:'padding:12px'},'Not enough full weeks yet.')); return; }
+      host.append(el('div',{class:'summary'}, pe.name, el('br'), el('span',{class:'muted'}, pe.history)));
+
+      // season toggles: click to show/hide a season, double-click to show only that one
+      const present = [...new Set(allPts.map(q=>q.si))].sort((u,w)=>u-w);
+      [...off].forEach(si=>{ if(!present.includes(si)) off.delete(si); });
+      const chips = el('div',{class:'toolbar'}, el('span',{class:'muted'}, 'Seasons:'));
+      present.forEach(si=>{
+        const on = !off.has(si), col = SEASON_COLORS[si % SEASON_COLORS.length], label = allPts.find(q=>q.si===si).season;
+        const c = el('button',{class:'wkbtn'+(on?' active':''), title:'Click to show or hide; double-click to show only this season',
+          style: on ? `background:${col};border-color:${col};color:#fff` : `border-color:${col}`}, label);
+        c.onclick = ()=>{ if(on){ if(present.length-off.size>1) off.add(si); } else off.delete(si); draw(); };
+        c.ondblclick = ()=>{ off.clear(); present.forEach(s=>{ if(s!==si) off.add(s); }); draw(); };
+        chips.append(c);
+      });
+      const showAll = el('button',{class:'wkbtn'}, 'Show all'); showAll.hidden = !off.size; showAll.onclick = ()=>{ off.clear(); draw(); };
+      chips.append(showAll); host.append(chips);
+      const pts = allPts.filter(q=>!off.has(q.si));
+      if(pts.length<3){ host.append(el('div',{class:'muted',style:'padding:12px'},'Not enough full weeks in the selected seasons.')); return; }
+
+      // summary: Oct-Nov vs the rest
+      const a = pts.filter(q=>q.month===2||q.month===3).map(q=>q.dev), b = pts.filter(q=>q.month!==2&&q.month!==3).map(q=>q.dev);
+      if(a.length>=3 && b.length>=3){
+        const diff = mean(a)-mean(b), se = Math.sqrt(sd(a)*sd(a)/a.length + sd(b)*sd(b)/b.length), t = diff/se;
+        const verdict = Math.abs(t)>=2 ? (diff<0 ? 'a likely real dip' : 'a likely real bump') : (Math.abs(t)>=1 ? 'suggestive, but could be chance' : 'within normal week-to-week noise');
+        host.append(el('div',{class:'summary'}, `October–November: ${tone(diff, sg1(diff)).textContent} pins per 3-game series vs the rest of the year`,
+          el('br'), el('span',{class:'muted'}, `${a.length} weeks vs ${b.length}  ·  margin of error ±${(1.96*se).toFixed(0)}  ·  ${verdict}`)));
+      }
+
+      // chart on a calendar axis
+      const W = 760, H = 260, padL = 44, padR = 16, padT = 14, padB = 30, xMax = 290;
+      const ys = pts.map(q=>q.v), months = [...Array(10).keys()];
+      const mm = months.map(mi=>{ const s = pts.filter(q=>q.month===mi).map(q=>q.v); return s.length ? mean(s) : null; });
+      const vals = ys.concat(mm.filter(x=>x!=null)); let lo = Math.min(...vals), hi = Math.max(...vals); if(hi===lo){ lo-=1; hi+=1; } const pad = (hi-lo)*0.1; lo-=pad; hi+=pad;
+      const xOf = x => padL + x/xMax*(W-padL-padR), yOf = y => padT + (1-(y-lo)/(hi-lo))*(H-padT-padB);
+      let svg = '';
+      for(let t=0; t<5; t++){ const yv = lo+(hi-lo)*t/4, y = yOf(yv);
+        svg += `<line x1="${padL}" x2="${W-padR}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" style="stroke:var(--line)"/><text x="${padL-6}" y="${(y+3).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--muted)">${Math.round(yv)}</text>`; }
+      if(mode==='dev') svg += `<line x1="${padL}" x2="${W-padR}" y1="${yOf(0).toFixed(1)}" y2="${yOf(0).toFixed(1)}" style="stroke:var(--ink)" stroke-dasharray="4 3" opacity="0.5"/>`;
+      // month starts (Aug 1 = 0) and month-average bars
+      const y0 = 2000; const startOf = mi => (Date.UTC(y0+(mi>=5?1:0), (mi+7)%12, 1) - Date.UTC(y0,7,1))/864e5;
+      months.forEach(mi=>{
+        const x1 = xOf(startOf(mi)), x2 = xOf(mi===9 ? xMax : startOf(mi+1));
+        svg += `<line x1="${x1.toFixed(1)}" x2="${x1.toFixed(1)}" y1="${padT}" y2="${H-padB}" style="stroke:var(--line)"/><text x="${((x1+x2)/2).toFixed(1)}" y="${H-10}" text-anchor="middle" font-size="10" style="fill:var(--muted)">${MONTHS[mi]}</text>`;
+        if(mm[mi]!=null) svg += `<line x1="${(x1+3).toFixed(1)}" x2="${(x2-3).toFixed(1)}" y1="${yOf(mm[mi]).toFixed(1)}" y2="${yOf(mm[mi]).toFixed(1)}" style="stroke:var(--ink)" stroke-width="4" opacity="0.28"><title>${MONTHS[mi]} average across seasons: ${mm[mi].toFixed(1)}</title></line>`;
+      });
+      const bySeason = {}; pts.forEach(q=>{ (bySeason[q.si] = bySeason[q.si]||[]).push(q); });
+      Object.keys(bySeason).forEach(si=>{
+        const col = SEASON_COLORS[+si % SEASON_COLORS.length], arr = bySeason[si].sort((u,w)=>u.x-w.x);
+        svg += `<polyline points="${arr.map(q=>xOf(q.x).toFixed(1)+','+yOf(q.v).toFixed(1)).join(' ')}" fill="none" style="stroke:${col}" stroke-width="1.8" opacity="0.9"/>`;
+        arr.forEach(q=>{ svg += `<circle cx="${xOf(q.x).toFixed(1)}" cy="${yOf(q.v).toFixed(1)}" r="3" style="fill:${col}"><title>${q.season} · ${q.date}: series ${q.ser} (${sg1(q.dev)} vs season avg)</title></circle>`; });
+      });
+      host.append(svgWrap(W, H, svg));
+      host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:12px;display:flex;gap:14px;flex-wrap:wrap'},
+        ...Object.keys(bySeason).sort((u,w)=>u-w).map(si=> el('span',{}, el('span',{style:`display:inline-block;width:12px;height:3px;background:${SEASON_COLORS[+si%SEASON_COLORS.length]};vertical-align:middle;margin-right:4px`}), bySeason[si][0].season))));
+
+      // month table: deviation vs season average, per month, with margin of error and the per-season picture
+      const seasonsList = Object.keys(bySeason).sort((u,w)=>w-u);
+      const trows = months.map(mi=>{
+        const here = pts.filter(q=>q.month===mi); if(!here.length) return null;
+        const devs = here.map(q=>q.dev), m = mean(devs), se = devs.length>1 ? sd(devs)/Math.sqrt(devs.length) : null;
+        const row = { month:MONTHS[mi], mi, weeks:here.length, dev:m, moe: se==null?null:1.96*se, raw:mean(here.map(q=>q.ser)) };
+        seasonsList.forEach(si=>{ const s = here.filter(q=>q.si===+si); row['s'+si] = s.length ? mean(s.map(q=>q.dev)) : null; });
+        return row; }).filter(Boolean);
+      host.append(table([
+        {k:'mi',label:'Month',def:1,fmt:(x,r)=>r.month},
+        {k:'weeks',label:'Weeks',cls:'num'},
+        {k:'raw',label:'Avg series',cls:'num',fmt:f1},
+        {k:'dev',label:'vs season avg',cls:'num',fmt:x=>tone(x,sg1(x))},
+        {k:'moe',label:'± margin',cls:'num',fmt:x=>x==null?'—':'±'+x.toFixed(0)},
+      ].concat(seasonsList.map(si=>({k:'s'+si, label:bySeason[si][0].season, cls:'num hide-sm', fmt:x=>x==null?'—':tone(x,sg1(x))}))), trows, {sort:'mi', dir:1}));
+    };
+    sel.onchange = draw; draw(); v.append(p);
+  }
+
+  // ---- per-team blocks used by the Trends tab ----
+  function pointsWeekBlock(host, teamId){
+    const E = engine(), rs = E.byTeam[teamId] || [];
+    host.append(el('h3',{style:'margin:16px 12px 2px'},'Points won / lost by week'));
+    if(!rs.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no matchups yet')); return; }
+    const per = D.meta.pointsPerWeek || 40, won = sum(rs.map(r=>r.won)), lost = sum(rs.map(r=>r.lost));
+    host.append(el('div',{class:'summary'}, `${num(won)} won – ${num(lost)} lost`, '   ·   ', `${f1(won/rs.length)} per week`,
+      '   ·   ', `best ${num(Math.max(...rs.map(r=>r.won)))}, worst ${num(Math.min(...rs.map(r=>r.won)))}`));
+    const n = rs.length, W = Math.max(520, n*34+30), H = 170, pad = 12, top = 18, base = H-22, bw = (W-2*pad)/n, gap = Math.min(8, bw*0.2);
+    let svg = ''; const hOf = x => x/per*(base-top);
+    rs.forEach((r,i)=>{
+      const x = pad+i*bw+gap/2, wd = Math.max(3,bw-gap), wh = hOf(r.won), lh = hOf(r.lost);
+      svg += `<rect x="${x.toFixed(1)}" y="${(base-wh).toFixed(1)}" width="${wd.toFixed(1)}" height="${wh.toFixed(1)}" style="fill:var(--good)" opacity="0.85"><title>${r.date} vs ${r.opp}: won ${num(r.won)}, lost ${num(r.lost)}</title></rect>`
+           + `<rect x="${x.toFixed(1)}" y="${(base-wh-lh).toFixed(1)}" width="${wd.toFixed(1)}" height="${lh.toFixed(1)}" style="fill:var(--bad)" opacity="0.55"/>`
+           + `<text x="${(x+wd/2).toFixed(1)}" y="${(base-wh/2+3).toFixed(1)}" text-anchor="middle" font-size="10" font-weight="700" style="fill:#fff">${num(r.won)}</text>`
+           + `<text x="${(x+wd/2).toFixed(1)}" y="${H-7}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${r.date.slice(5)}</text>`;
+    });
+    svg += `<line x1="${pad}" x2="${W-pad}" y1="${(base-hOf(per/2)).toFixed(1)}" y2="${(base-hOf(per/2)).toFixed(1)}" style="stroke:var(--ink)" stroke-dasharray="4 3" opacity="0.5"/>`;
+    host.append(svgWrap(W, H, svg));
+    host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},'Green = points won, red = points lost (out of '+per+'); dashed line = 20, an even split.'));
+    host.append(table([
+      {k:'date',label:'Week',def:1,fmt:(x,r)=> (r.weekNum?'Wk '+r.weekNum+' · ':'')+x.slice(5)},
+      {k:'opp',label:'Opponent'},
+      {k:'won',label:'Won',cls:'num',fmt:num},
+      {k:'lost',label:'Lost',cls:'num',fmt:num},
+      {k:'net',label:'Net',cls:'num',fmt:x=>tone(x,signed(x))},
+      {k:'tPts',label:'Team pts',cls:'num hide-sm',fmt:num},
+      {k:'iPts',label:'Indiv pts',cls:'num hide-sm',fmt:num},
+    ], rs.map(r=>({date:r.date, weekNum:r.weekNum, opp:r.opp, won:r.won, lost:r.lost, net:r.won-r.lost, tPts:r.tPts, iPts:r.iPts})), {sort:'date',dir:1}));
+  }
+
+  function placementBlock(host, teamId, fav){
+    const E = engine(), PS = placement(), n = E.teamIds.length;
+    host.append(el('h3',{style:'margin:16px 12px 2px'},'League placement by week'));
+    if(!PS.dates.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no weeks yet')); return; }
+    const mine = PS.ranks[teamId]; if(!mine) return;
+    const last = mine[mine.length-1], best = Math.min(...mine), worst = Math.max(...mine);
+    host.append(el('div',{class:'summary'}, `#${last} now`, '   ·   ', `best #${best}, low #${worst}`,
+      '   ·   ', `${PS.pts[teamId][mine.length-1]} points`));
+    const lines = [];
+    E.teamIds.filter(id=>id!==teamId).forEach(id=> lines.push({ ranks:PS.ranks[id], color:'var(--muted)', width:1, op:0.22 }));
+    const favId = fav ? E.teamIds.find(id=>E.names[id]===fav) : null;
+    if(favId && favId!==teamId) lines.push({ ranks:PS.ranks[favId], pts:PS.pts[favId], label:fav, color:'var(--bad)', width:2, op:0.9, dash:'5 3' });
+    lines.push({ ranks:mine, pts:PS.pts[teamId], label:E.names[teamId], color:'var(--accent)', width:3, op:1 });
+    host.append(stepChart(PS.dates, lines, n));
+    host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},
+      'Standing after each week by total points won (ties share a place). Blue = this team'+(favId&&favId!==teamId?`, dashed red = ${fav}`:'')+', grey = everyone else. Hover a dot for the points.'));
+  }
+
+  function clutchBlock(host, teamId){
+    const E = engine(), rs = E.byTeam[teamId] || [];
+    host.append(el('h3',{style:'margin:16px 12px 2px'},'Clutch — who carried'));
+    if(!rs.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no matchups yet')); return; }
+    // the bowler who beat their own average by the most in a given team game / the series
+    const star = (r, c)=>{
+      let best = null;
+      r.seats.forEach(s=>{
+        if(s.kind==='blind' || !s.name || s.games.length!==3 || s.games.some(x=>x==null)) return;
+        const avg = E.base - s.hdcp/E.pctH, raw = c.series ? sum(s.games) : s.games[c.g], over = raw - (c.series?3:1)*avg;
+        if(!best || over>best.over) best = { name:s.name.replace(/ \(blind\)$/,''), raw, over };
+      });
+      return best;
+    };
+    const contests = r => {
+      const out = [];
+      for(let g=0; g<3; g++) if(r.gameH[g]!=null && r.oGameH[g]!=null) out.push({ label:'Game '+(g+1), g, series:false, margin:r.gameH[g]-r.oGameH[g], close:Math.abs(r.gameH[g]-r.oGameH[g])<=CLOSE_GAME });
+      out.push({ label:'Series', g:0, series:true, margin:r.serH-r.oSerH, close:Math.abs(r.serH-r.oSerH)<=CLOSE_SERIES });
+      return out;
+    };
+    // tally: every contest this team won, and the bowler who led it
+    const tally = {}; let wonN = 0, closeN = 0;
+    rs.forEach(r=> contests(r).forEach(c=>{
+      if(c.margin<=0) return; wonN++; if(c.close) closeN++;
+      const st = star(r,c); if(!st) return;
+      const t = tally[st.name] = tally[st.name] || { name:st.name, led:0, closeLed:0, over:[] };
+      t.led++; if(c.close) t.closeLed++; t.over.push(st.over/(c.series?3:1));
+    }));
+    const rows = Object.values(tally).map(t=>({ name:t.name, led:t.led, closeLed:t.closeLed, over:mean(t.over) }));
+    host.append(el('div',{class:'muted',style:'padding:2px 14px 6px;font-size:12px'},
+      `Of ${wonN} team games/series won this season, ${closeN} were close (inside ${CLOSE_GAME} handicap pins for a game, ${CLOSE_SERIES} for the series). `
+      +`The “carrier” of a contest is the bowler who beat their own average by the most pins in it.`));
+    host.append(table([
+      {k:'name',label:'Bowler'},
+      {k:'closeLed',label:'Close wins led',cls:'num'},
+      {k:'led',label:'All wins led',cls:'num'},
+      {k:'over',label:'Avg pins over avg /gm',cls:'num',fmt:x=>tone(x,sg1(x))},
+    ], rows, {sort:'closeLed'}));
+    // the close matchups themselves
+    const closeM = rs.filter(r=>Math.abs(r.won-r.lost)<=CLUTCH_MARGIN);
+    host.append(el('div',{class:'muted',style:'padding:8px 14px 2px;font-size:12px'},
+      closeM.length ? `Matchups decided by ${CLUTCH_MARGIN} points or fewer (${closeM.filter(r=>r.result==='W').length}–${closeM.filter(r=>r.result==='L').length}) — click for the carriers:` : 'No matchups decided by '+CLUTCH_MARGIN+' points or fewer yet.'));
+    closeM.forEach(r=>{
+      const d = el('details',{class:'cl'}), top = r.seats.filter(s=>s.kind!=='blind').slice().sort((a,b)=>b.pts-a.pts)[0];
+      d.append(el('summary',{}, `${r.weekNum?'Wk '+r.weekNum+' · ':''}${r.date.slice(5)} vs ${r.opp} — ${r.result==='W'?'won':(r.result==='L'?'lost':'tied')} ${num(r.won)}–${num(r.lost)}`));
+      contests(r).forEach(c=>{
+        const st = star(r,c);
+        d.append(el('div',{class:'cl-line'}, `${c.label}: ${c.margin>0?'won':(c.margin<0?'lost':'tied')} by ${Math.abs(c.margin)}`,
+          st ? el('span',{class:'muted'}, ` — carried by ${st.name} (${st.raw}, ${sg1(st.over)} vs avg)`) : ''));
+      });
+      if(top) d.append(el('div',{class:'cl-line muted'}, `Most individual points: ${top.name.replace(/ \(blind\)$/,'')} (${num(top.pts)} of 5)`));
+      host.append(d);
+    });
+  }
+
+  // ================= Ask Claude =================
+  // The static site can't call Claude on its own (and deliberately has no paid API-key path). Inside the published
+  // Claude artifact the page asks Claude through the viewer's own Claude account; Claude answers by writing small
+  // JavaScript queries that run in a Web Worker against every season's data.
+  const ASK_ARTIFACT_URL = 'https://claude.ai/artifact/BTyGkoYTpB1N8xqTYhe2vh';   // private: opens only for the owner
+  const askState = { turns:[], logEl:null, busy:false, worker:null, runId:0, ctl:null };
+  // Inside a published Claude artifact the page can ask Claude through the viewer's own account (the `sample`
+  // capability); anywhere else (GitHub Pages) this resolves null and the tab offers the copy-prompt route instead.
+  const askSampleP = (function(){
+    try{ return (window.claude && typeof window.claude.use==='function') ? Promise.resolve(window.claude.use('sample')).catch(()=>null) : Promise.resolve(null); }
+    catch(e){ return Promise.resolve(null); }
+  })();
+  const ASK_TIERS = [
+    {value:'default', label:'Balanced (recommended)'},
+    {value:'complex', label:'Most capable — slower, for hard questions'},
+    {value:'quick',   label:'Fast — for simple lookups'}];
+
+  function askData(){
+    if(askData._d) return askData._d;
+    const pack = (S, current)=>({ key:S.meta?S.meta.league.replace('Pioneer I ',''):S.label.replace('Pioneer I ',''),
+      label:S.meta?S.meta.league:S.label, current, standings:A(S.standings), bowlers:A(S.bowlers), schedule:A(S.schedule) });
+    return askData._d = [pack(CUR,true)].concat(SEASONS.map(s=>pack(s,false)));
+  }
+
+  // runs inside the worker (stringified below): read-only data + a few helpers, one query at a time
+  function askWorkerMain(){
+    let DATA = null;
+    const norm = s => String(s==null?'':s).toLowerCase();
+    const H = {
+      findBowlers: q => { const out = {};
+        DATA.forEach(s=> s.bowlers.forEach(b=>{ if(norm(b.name).indexOf(norm(q))>=0){
+          const o = out[b.id] || (out[b.id] = {id:b.id, name:b.name, seasons:[]}); o.seasons.push(s.key+' ('+b.team+')'); } }));
+        return Object.keys(out).map(k=>out[k]); },
+      findTeams: q => { const out = {};
+        DATA.forEach(s=> s.standings.forEach(t=>{ if(norm(t.name).indexOf(norm(q))>=0) (out[t.name] = out[t.name] || []).push(s.key+' #'+t.rank); }));
+        return out; }
+    };
+    self.onmessage = function(e){
+      const m = e.data;
+      if(m.type==='init'){ DATA = m.data; return; }
+      let ok = true, err = null, text = null;
+      try{
+        const fn = new Function('seasons', 'helpers', '"use strict";\n'+m.code);
+        const r = fn(DATA, H);
+        text = JSON.stringify(r, function(k,v){ return (typeof v==='number' && !isFinite(v)) ? null : v; });
+        if(text===undefined) text = 'undefined (the code returned nothing - use `return`)';
+      }catch(x){ ok = false; err = String(x && x.message || x); }
+      self.postMessage({id:m.id, ok:ok, error:err, text:text});
+    };
+  }
+  function askRun(code){
+    return new Promise(resolve=>{
+      try{
+        if(!askState.worker){
+          const src = '(' + askWorkerMain.toString() + ')()';
+          askState.worker = new Worker(URL.createObjectURL(new Blob([src], {type:'text/javascript'})));
+          askState.worker.postMessage({type:'init', data:askData()});
+        }
+      }catch(e){ resolve({ok:false, error:'could not start the query sandbox in this browser: '+e.message}); return; }
+      const w = askState.worker, id = ++askState.runId;
+      const timer = setTimeout(()=>{ w.terminate(); askState.worker = null; resolve({ok:false, error:'query took longer than 20 seconds - make it lighter'}); }, 20000);
+      w.onmessage = e=>{ if(e.data.id!==id) return; clearTimeout(timer); resolve(e.data); };
+      w.postMessage({type:'run', id, code});
+    });
+  }
+
+  const ASK_SCHEMA = [
+    'seasons: array, newest first (seasons[0] is the current, in-progress season). Each season: {key, label, current, standings[], bowlers[], schedule[]}.',
+    'standings[]: {id, name, rank, wins, losses, ties, pointsWon, pointsLost, pctWon, teamAvg, teamHdcp, roster[]}.',
+    'bowlers[]: {id (stable across seasons), name, team, gender, bookAvg, seasonAvg, hdcp, gamesBowled, totalPins, highGame, highSeries, highGameHdcp, highSeriesHdcp, stdev, indPoints (official, only top 40 have it), compIndPoints, weeks:[{date, games:[g1,g2,g3], scrSer, absent?, partial?}]}.',
+    'schedule[]: one entry per team-vs-team matchup: {date, weekNum, lane ("1-2" lane pair), result ("A"|"B"|"T"), a:{team, teamId, scr:[3 team scratch games], ser (scratch series), hdcp, gameH:[3 team handicap games], serH (handicap series), teamPts, indPts, total}, b:{same}, pairs:[{pos 0-4 (seat), aName, aId, aKind ("bowler"|"sub"|"blind"|"partial"), aGames:[3 scratch], aSer, aHdcp (per-game handicap), aPts, bName, bId, bKind, bGames, bSer, bHdcp, bPts}]}.',
+    '`total` is the points that team won that night out of 40 (teamPts + indPts). Seat-by-seat bowler matchups are in `pairs` (a-side vs b-side, same seat).',
+    'helpers.findBowlers(text) and helpers.findTeams(text): case-insensitive partial name search across all seasons.'
+  ].join('\n');
+
+  function askSystem(){
+    const cur = askData()[0], keys = askData().map(s=>s.key).join(', ');
+    const fav = CUR.meta.favoriteTeam || '';
+    return [
+      'You answer questions about a bowling league\'s statistics for a bowler in that league. The league is Pioneer I at '+CUR.meta.center+' (Tuesday nights, 40 teams of 5, three games a week). '
+      +'You have '+askData().length+' seasons of data ('+keys+'); the current one is '+cur.key+', with data through '+CUR.meta.snapshot+' ('+A(CUR.meta.weekDates).length+' weeks bowled).'
+      +(fav?' The person asking bowls for the team "'+fav+'".':''),
+      '',
+      'You cannot see the data directly. Use the run_js tool to compute answers from it: write JavaScript (the body of a function, so `return` the result), keep what you return small by aggregating, and run more than one query if you need to. Compute exact answers rather than estimating, and never state a number you did not compute. If the data cannot answer the question, say what is missing instead of guessing.',
+      '',
+      'League rules: handicap = (235 - average) x 90% (never below 0). Each weekly matchup is worth 40 points: per team game 3 points (hcp score) and 6 for the 3-game series, plus individual seat-vs-seat points of 1 per game and 2 for the series for each of the 5 seats. Games are compared on handicap-adjusted scores. A "blind" is a vacant seat scored at the absent bowler\'s average minus 10; a tie against a blind gives the present bowler half a point and the blind nothing.',
+      'Data notes: team ids change every season but team names carry over (a renamed team looks like a new one); bowler ids stay the same. Past seasons are final; the current season is in progress, so compare partial-season figures to full seasons with care. Scratch = raw pins, "hdcp" = handicap-adjusted.',
+      '',
+      'Style: lead with the answer, then the numbers behind it. Use a short table when comparing several things. Name the season(s) and sample size when it matters. Be concise.'
+    ].join('\n');
+  }
+  // small markdown -> HTML (escapes first, so nothing from the model can inject markup)
+  function askMd(src){
+    const esc = s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const inl = s=>esc(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+    const L = src.replace(/\r/g,'').split('\n'); let h = '', i = 0, list = null;
+    const close = ()=>{ if(list){ h += '</'+list+'>'; list = null; } };
+    const isRow = l=>/^\s*\|.*\|\s*$/.test(l), cells = l=>l.trim().replace(/^\||\|$/g,'').split('|').map(c=>c.trim());
+    while(i<L.length){
+      const ln = L[i]; let m;
+      if(/^```/.test(ln)){ close(); const code = []; i++; while(i<L.length && !/^```/.test(L[i])) code.push(L[i++]); i++; h += '<pre>'+esc(code.join('\n'))+'</pre>'; continue; }
+      if(isRow(ln) && i+1<L.length && /^\s*\|[\s:|-]+\|\s*$/.test(L[i+1])){
+        close(); const head = cells(ln); i += 2; const rows = []; while(i<L.length && isRow(L[i])) rows.push(cells(L[i++]));
+        h += '<div class="tblwrap"><table><thead><tr>'+head.map(c=>'<th>'+inl(c)+'</th>').join('')+'</tr></thead><tbody>'
+          + rows.map(r=>'<tr>'+r.map(c=>'<td>'+inl(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>'; continue; }
+      if((m = /^#{1,4}\s+(.*)$/.exec(ln))){ close(); h += '<h4>'+inl(m[1])+'</h4>'; i++; continue; }
+      if((m = /^\s*[-*]\s+(.*)$/.exec(ln))){ if(list!=='ul'){ close(); h += '<ul>'; list = 'ul'; } h += '<li>'+inl(m[1])+'</li>'; i++; continue; }
+      if((m = /^\s*\d+[.)]\s+(.*)$/.exec(ln))){ if(list!=='ol'){ close(); h += '<ol>'; list = 'ol'; } h += '<li>'+inl(m[1])+'</li>'; i++; continue; }
+      close(); if(ln.trim()!=='') h += '<p>'+inl(ln)+'</p>'; i++;
+    }
+    close(); return h;
+  }
+
+  // ---- artifact mode: Claude via the viewer's own account; the page runs the queries ----
+  const askErrCopy = code => ({
+    not_granted:'Claude access for this page was declined. Reload the page and choose Allow when asked.',
+    sampling_disabled:'Claude isn’t available for this account.',
+    rate_limited:'Too many questions or your usage limit was reached — wait a bit and try again.',
+    session_expired:'Your session expired — sign in again and retry.',
+    refused:'Claude declined to answer that one — try rewording it.',
+    empty_completion:'Claude didn’t produce an answer — try asking a narrower question.',
+    prompt_too_large:'That conversation got too long — start a new one.',
+    upstream_error:'The connection to Claude was interrupted — try again.'
+  })[code] || ('Something went wrong ('+code+') — try again.');
+
+  function askRules(){
+    return askSystem()+'\n\nData available to the run_js tool (read-only variables):\n'+ASK_SCHEMA
+      +'\n\nYou get only a few tool rounds per question, so write each query to answer as much as it can at once (combine lookups, aggregate in code) and return small results.';
+  }
+  async function askQuestionSample(sample, q, tier, ui){
+    ui.log.append(el('div',{class:'ask-q'}, q));
+    const out = el('div',{class:'ask-a'}); ui.log.append(out);
+    const steps = el('div'), body = el('div',{class:'ask-md'}), status = el('div',{class:'muted',style:'font-size:12px'}, 'Thinking…');
+    out.append(steps, body, status);
+    askState.turns.push({role:'user', content:q});
+    const ctl = new AbortController(); askState.ctl = ctl; ui.onStart && ui.onStart();
+    const tools = [{ name:'run_js',
+      description:'Runs JavaScript over the league data (variables `seasons` and `helpers`, described in the first message). The code is a function body: `return` a small JSON-serializable value. Gives back that value as JSON, or an error message.',
+      inputSchema:{ type:'object', properties:{ code:{ type:'string', description:'JavaScript function body that returns a JSON-serializable value.' } }, required:['code'] },
+      execute: async (input)=>{
+        const code = String((input && input.code) || '');
+        status.textContent = 'Looking things up…';
+        const det = el('details',{class:'ask-tool'}, el('summary',{}, 'Looked something up'), el('pre',{}, code));
+        steps.append(det);
+        if(!code) throw new Error('no code was provided');
+        const r = await askRun(code);
+        let txt = r.ok ? r.text : 'Error: '+r.error;
+        if(txt.length>30000) txt = txt.slice(0,30000)+'\n…(truncated; aggregate more)';
+        det.append(el('div',{class:'muted',style:'font-size:12px'}, r.ok ? 'Result: '+(txt.length>300?txt.slice(0,300)+'…':txt) : txt));
+        if(!r.ok) throw new Error(r.error);
+        return txt;
+      } }];
+    try{
+      const res = await sample([{role:'user', content:askRules()}].concat(askState.turns.slice(-12)),
+        { signal:ctl.signal, tools, modelTier:tier,
+          onText:({text})=>{ body.innerHTML = askMd(text); status.textContent = ''; } });
+      askState.turns.push({role:'assistant', content:res.text});
+      status.textContent = res.truncated ? 'The answer was cut short — ask a narrower question or ask it to continue.' : '';
+    }catch(e){
+      askState.turns.pop();                                   // drop the failed question so the next one starts clean
+      if(e && e.text) body.innerHTML = askMd(e.text);
+      if(!e || e.code!=='cancelled') status.replaceWith(el('div',{class:'neg'}, askErrCopy(e && e.code)));
+      else status.textContent = 'Stopped.';
+    }finally{ askState.ctl = null; ui.onEnd && ui.onEnd(); }
+  }
+
+  function askPromptText(q){
+    return 'I bowl in a league (Pioneer I at '+CUR.meta.center+'; 40 teams of 5, 3 games a week; 40 points per matchup; handicap = (235 - average) x 90%). '
+      +'I\'m attaching league-data.json with every season\'s standings, bowlers and every matchup seat by seat. Please answer my question from that data, running code over it if you can, and show the numbers behind the answer.\n\n'
+      +'Structure of the file: an array of seasons (newest first, the first is in progress). '+ASK_SCHEMA.replace(/^seasons: array[^\n]*\n/,'')+'\n\nMy question: '+q;
+  }
+
+  function viewAsk(v){
+    const p = el('div',{class:'panel'}); p.append(el('h2',{},'Ask Claude'));
+    const descBase = 'Ask anything the tables don’t cover — “how did I do against The Money Team over the years?”, “which lane pair do my teammates bowl best on?”, '
+      +'“who has the biggest late-season improvement?”. Claude writes small queries over all '+askData().length+' seasons of data and shows the numbers behind its answer. ';
+    const descSite = descBase+'This page can’t ask Claude by itself (and has no pay-per-use option). Ask in the Claude version of this app, which uses your own Claude account, '
+      +'or copy a ready-made prompt and the data file into a claude.ai chat (below).';
+    const descSample = descBase+'Questions use your own Claude account and count toward your Claude usage; Claude asks you to allow it the first time. '
+      +'Answers can take a minute when it has to look several things up.';
+    const desc = el('div',{class:'muted gapnote'}, descSite); p.append(desc);
+    const artLink = el('a',{href:ASK_ARTIFACT_URL, target:'_blank', rel:'noopener', class:'wkbtn', style:'text-decoration:none'}, 'Open the Claude version (opens for the owner only)');
+    const artRow = el('div',{class:'toolbar'}, artLink); p.append(artRow);
+
+    if(!askState.logEl) askState.logEl = el('div',{class:'ask-log'});
+    const log = askState.logEl; log.hidden = true;
+    const qIn = el('textarea',{rows:'3', placeholder:'Ask a question about the league…'});
+    const model = mkSelect(ASK_TIERS);
+    const go = el('button',{class:'wkbtn active'}, 'Ask');
+    const stop = el('button',{class:'wkbtn'}, 'Stop'); stop.hidden = true;
+    const clear = el('button',{class:'wkbtn'}, 'New conversation');
+    const askRow = el('div',{class:'toolbar',style:'margin-top:8px'}, model, go, stop, clear,
+      el('span',{class:'muted',style:'font-size:12px'}, 'Ctrl+Enter to send')); askRow.hidden = true;
+    let sampleFn = null;      // set once the artifact's `sample` capability resolves
+    const ask = async ()=>{
+      const q = qIn.value.trim(); if(!q || askState.busy || !sampleFn) return;
+      askState.busy = true; go.disabled = true; qIn.value = '';
+      await askQuestionSample(sampleFn, q, model.value, {log, onStart:()=>{ stop.hidden = false; }, onEnd:()=>{ stop.hidden = true; }});
+      askState.busy = false; go.disabled = false; qIn.focus();
+      log.lastChild && log.lastChild.scrollIntoView({block:'nearest'});
+    };
+    go.onclick = ask;
+    stop.onclick = ()=>{ if(askState.ctl) askState.ctl.abort(); };
+    qIn.onkeydown = e=>{ if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){ e.preventDefault(); ask(); } };
+    clear.onclick = ()=>{ if(askState.busy) return; askState.turns = []; log.innerHTML=''; };
+    const chips = el('div',{class:'toolbar'});
+    ['How does '+(CUR.meta.favoriteTeam||'my team')+' fare against each team it has faced, across every season?',
+     'Which bowlers improved the most from last season to this one?',
+     'What was the highest team series ever, and who bowled it?',
+     'Who are the best bowlers in the final game of the night?'].forEach(t=>{
+      const c = el('button',{class:'wkbtn'}, t); c.style.fontWeight='400'; c.style.fontSize='12px'; c.onclick = ()=>{ qIn.value = t; qIn.focus(); }; chips.append(c); });
+    p.append(chips, qIn, askRow, log);
+    v.append(p);
+
+    // outside the Claude artifact: take the question to claude.ai instead (free with a Claude account)
+    const p2 = el('div',{class:'panel'}); p2.append(el('h2',{},'Ask in claude.ai instead'));
+    p2.append(el('div',{class:'muted gapnote'},
+      'Download the data file, then paste the prompt into a new claude.ai chat and attach the file — you’ll get the same kind of answer, using your Claude account’s normal usage.'));
+    const fb = el('div',{class:'toolbar'});
+    const cp = el('button',{class:'wkbtn'}, 'Copy prompt (uses the question above)');
+    cp.onclick = async ()=>{
+      const txt = askPromptText(qIn.value.trim() || '(type your question here)');
+      try{ await navigator.clipboard.writeText(txt); cp.textContent = 'Copied ✓'; }
+      catch(e){ window.prompt('Copy this prompt:', txt); }
+      setTimeout(()=>{ cp.textContent = 'Copy prompt (uses the question above)'; }, 2000);
+    };
+    const dl = el('button',{class:'wkbtn'}, 'Download league-data.json');
+    dl.onclick = ()=>{
+      const a = el('a',{href:URL.createObjectURL(new Blob([JSON.stringify(askData())],{type:'application/json'})), download:'league-data.json'});
+      document.body.append(a); a.click(); a.remove();
+    };
+    const open = el('a',{href:'https://claude.ai/new', target:'_blank', rel:'noopener', class:'wkbtn', style:'text-decoration:none'}, 'Open claude.ai');
+    fb.append(cp, dl, open); p2.append(fb); v.append(p2);
+
+    // inside the published Claude artifact: ask Claude directly through the viewer's own account
+    askSampleP.then(sample=>{
+      if(!sample) return;
+      sampleFn = sample;
+      desc.textContent = descSample; artRow.hidden = true; p2.hidden = true; askRow.hidden = false; log.hidden = false;
+    });
+  }
+  // ================= Trends =================
+  function trendChart(weeks, seasonAvg){
+    const pts = weeks.filter(w=>w.value>0);
+    if(pts.length<1) return el('div',{class:'muted',style:'padding:10px 14px'},'not enough weeks yet');
+    const sa = seasonAvg || Math.round(pts.reduce((s,w)=>s+w.value,0)/pts.length);
+    const W=680, H=140, pad=8, base=H-16;
+    const vals = pts.map(w=>w.value).concat([sa, ...weeks.map(w=>w.toDateAvg).filter(Boolean)]);
+    const dMin=Math.min(...vals), dMax=Math.max(...vals), span=(dMax-dMin)||1;
+    const floor = dMin - span*0.35, ceil = dMax + span*0.12;      // compressed scale so week-to-week differences read
+    const yOf = v => pad + (1-(v-floor)/(ceil-floor))*(base-pad);
+    const bw = (W-2*pad)/weeks.length, gap = Math.min(10, bw*0.22);
+    let svg='';
+    const ay = yOf(sa);
+    svg += `<line x1="${pad}" x2="${W-pad}" y1="${ay.toFixed(1)}" y2="${ay.toFixed(1)}" style="stroke:var(--ink)" stroke-dasharray="4 3" opacity="0.45"/>`;
+    svg += `<text x="${W-pad}" y="${(ay-4).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--muted)">season avg ${num(sa)}</text>`;
+    // to-date average line (stepped) = "form"
+    const tdPts = weeks.map((w,i)=> w.toDateAvg? `${(pad+(i+0.5)*bw).toFixed(1)},${yOf(w.toDateAvg).toFixed(1)}` : null).filter(Boolean);
+    if(tdPts.length>1) svg += `<polyline points="${tdPts.join(' ')}" fill="none" style="stroke:var(--accent)" stroke-width="1.5" opacity="0.75"/>`;
+    weeks.forEach((w,i)=>{
+      if(!w.value) return;
+      const x=pad+i*bw+gap/2, wd=Math.max(2,bw-gap);
+      const top=yOf(w.value), h=base-top;
+      const above = w.vsSeason==null ? true : w.vsSeason>=0;
+      svg += `<rect x="${x.toFixed(1)}" y="${top.toFixed(1)}" width="${wd.toFixed(1)}" height="${Math.max(0,h).toFixed(1)}" rx="2" style="fill:var(--${above?'good':'bad'})" opacity="${w.full?0.9:0.4}"/>`;
+      svg += `<text x="${(x+wd/2).toFixed(1)}" y="${(top-3).toFixed(1)}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${num(w.value)}</text>`;
+      svg += `<text x="${(x+wd/2).toFixed(1)}" y="${(H-3)}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${w.date.slice(5)}</text>`;
+    });
+    return el('div',{class:'chartwrap',html:
+      `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;max-width:${W}px">${svg}</svg>`});
+  }
+
+  function trendTable(weeks){
+    const hasOpp = weeks.some(w=>w.opp);
+    const cols = [{k:'date',label:'Week',fmt:(x,r)=> r.weekNum ? el('span',{}, x+' ', r.isPos? el('span',{class:'ktag',style:'background:var(--accent);color:#fff'},'pos') : el('span',{class:'muted',style:'font-size:11px'},'w'+r.weekNum)) : x}];
+    if(hasOpp) cols.push({k:'opp',label:'Opp',cls:'hide-sm'});
+    cols.push(
+      {k:'value',label:'Series',cls:'num',fmt:(x,r)=> r.full? num(x) : el('span',{class:'muted'}, num(x)+' ('+r.games+'g)')},
+      {k:'perGame',label:'/gm',cls:'num hide-sm'},
+      {k:'vsToDate',label:'vs form',cls:'num',fmt:d=> d==null?'—': el('span',{class:d>0?'pos':(d<0?'neg':'')}, signed(d))},
+      {k:'vsSeason',label:'vs season',cls:'num',fmt:d=> d==null?'—': el('span',{class:d>0?'pos':(d<0?'neg':'')}, signed(d))},
+      {k:'rank',label:'Week rank',cls:'num',fmt:(x,r)=> x? x+' / '+r.field : '—'},
+    );
+    return table(cols, weeks, {sort:'date',dir:1});
+  }
+
+  function lineChart(rows, a, b){
+    // rows: [{date}], a/b: {key,label,color,dash}  -> two overlaid polylines
+    if(rows.length<1) return el('div',{class:'muted',style:'padding:10px 14px'},'not enough weeks yet');
+    const W=680,H=140,pad=10,base=H-16;
+    const vals = rows.flatMap(r=>[r[a.key], b?r[b.key]:null]).filter(x=>x!=null);
+    const lo=Math.min(...vals), hi=Math.max(...vals), rng=(hi-lo)||1;
+    const yOf=v=> pad + (1-(v-lo)/rng)*(base-pad);
+    const xOf=i=> pad + (rows.length===1? (W-2*pad)/2 : i*(W-2*pad)/(rows.length-1));
+    const poly = s => rows.map((r,i)=> r[s.key]==null?null:`${xOf(i).toFixed(1)},${yOf(r[s.key]).toFixed(1)}`).filter(Boolean).join(' ');
+    let svg='';
+    if(b) svg += `<polyline points="${poly(b)}" fill="none" style="stroke:var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>`;
+    svg += `<polyline points="${poly(a)}" fill="none" style="stroke:var(--accent)" stroke-width="2"/>`;
+    rows.forEach((r,i)=>{
+      if(r[a.key]!=null) svg += `<circle cx="${xOf(i).toFixed(1)}" cy="${yOf(r[a.key]).toFixed(1)}" r="2.5" style="fill:var(--accent)"/>`;
+      svg += `<text x="${xOf(i).toFixed(1)}" y="${H-3}" text-anchor="middle" font-size="9" style="fill:var(--muted)">${r.date.slice(5)}</text>`;
+    });
+    const last = rows[rows.length-1];
+    if(last[a.key]!=null) svg += `<text x="${W-pad}" y="${(yOf(last[a.key])-4).toFixed(1)}" text-anchor="end" font-size="10" style="fill:var(--accent)">${a.label} ${num(Math.round(last[a.key]))}</text>`;
+    return el('div',{class:'chartwrap',html:`<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;max-width:${W}px">${svg}</svg>`});
+  }
+  function spark(byWeek, key){
+    const vals = A(byWeek).map(w=>w[key]).filter(x=>x!=null);
+    if(vals.length<2) return el('span',{class:'muted'},'—');
+    const W=120,H=26,lo=Math.min(...vals),hi=Math.max(...vals),rng=(hi-lo)||1;
+    const pts = A(byWeek).map((w,i)=> w[key]==null?null:`${(2+i*(W-4)/(A(byWeek).length-1)).toFixed(1)},${(2+(1-(w[key]-lo)/rng)*(H-4)).toFixed(1)}`).filter(Boolean).join(' ');
+    return el('span',{html:`<svg viewBox="0 0 ${W} ${H}" style="width:${W}px;height:${H}px;vertical-align:middle"><polyline points="${pts}" fill="none" style="stroke:var(--accent)" stroke-width="1.5"/></svg>`});
+  }
+  function stat(title, ...body){
+    const c = el('div',{class:'card'}); c.append(el('h3',{},title), ...body.flat().filter(Boolean)); return c;
+  }
+  function kv(pairs){
+    const t = el('table',{class:'kv'});
+    pairs.forEach(([k,...vs])=>{
+      const tr=el('tr'); tr.append(el('td',{},k));
+      vs.forEach(vv=>tr.append(el('td',{class:'num'}, vv==null||vv===''? '—' : (vv.nodeType?vv:''+vv))));
+      t.append(tr);
+    });
+    return t;
+  }
+  function delta(n, unit){ if(n==null) return el('span',{class:'muted'},'—');
+    return el('span',{class:n>0?'pos':(n<0?'neg':'muted')}, signed(n)+(unit||'')); }
+
+  function viewTrends(v){
+    const fav = D.meta.favoriteTeam || '';
+    let metric = 'scr';
+    const AT = A(D.analysis.teams), AB = A(D.analysis.bowlers), NT = AT.length;
+    const projRank = {};
+    AT.map(t=>({id:t.teamId,p:(t.pace&&t.pace.projectedTotal)||0})).sort((a,b)=>b.p-a.p)
+      .forEach((r,i)=>projRank[r.id]=i+1);
+
+    const bar = el('div',{class:'toolbar'});
+    const mkM = (id,label)=>{ const b=el('button',{class:'wkbtn'+(metric===id?' active':'')}, label);
+      b.onclick=()=>{ metric=id; [...bar.children].forEach(c=>c.classList.remove('active')); b.classList.add('active'); renderAll(); };
+      return b; };
+    bar.append(el('span',{class:'muted',style:'align-self:center'},'Metric:'), mkM('scr','Scratch'), mkM('hcp','Handicap'));
+    v.append(bar);
+
+    const teams = D.trends.teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
+    const pT = el('div',{class:'panel'}); pT.append(el('h2',{},'Team analysis'));
+    const tSel = mkSelect(teams.map(t=>t.name));
+    if(fav && teams.some(t=>t.name===fav)) tSel.value = fav;
+    pT.append(el('div',{class:'toolbar'}, tSel));
+    const tHost = el('div'); pT.append(tHost); v.append(pT);
+
+    const bwls = D.trends.bowlers.slice().sort((a,b)=>a.name.localeCompare(b.name));
+    const pB = el('div',{class:'panel'}); pB.append(el('h2',{},'Bowler analysis'));
+    const bSel = mkSelect(bwls.map(b=>({label:b.name+'  ('+b.team+')', value:b.id})));
+    if(fav){ const fb = bwls.find(b=>b.team===fav); if(fb) bSel.value = fb.id; }
+    pB.append(el('div',{class:'toolbar'}, bSel));
+    const bHost = el('div'); pB.append(bHost); v.append(pB);
+
+    function seriesBlock(host, t){
+      const weeks = A(t.weeks);
+      host.append(el('h3',{style:'margin:14px 12px 2px'},'Series by week'));
+      if(!weeks.length){ host.append(el('div',{class:'muted',style:'padding:6px 14px'},'no weeks bowled yet')); return; }
+      const parts = [`season avg ${num(t.seasonAvg)}`];
+      if(t.best)  parts.push(`best ${t.best.date.slice(5)} ${signed(t.best.vsSeason)}`);
+      if(t.worst && (!t.best || t.worst.date!==t.best.date)) parts.push(`worst ${t.worst.date.slice(5)} ${signed(t.worst.vsSeason)}`);
+      if(t.stdev!=null) parts.push(`consistency σ ${t.stdev}`);
+      host.append(el('div',{class:'summary'}, parts.join('   ·   ')));
+      host.append(trendChart(weeks, t.seasonAvg));
+      host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},
+        'Green above the season average, red below. Blue line = running average (“form”). Faint = partial weeks.'));
+      host.append(trendTable(weeks));
+    }
+
+    function paceBlock(host, pace, isTeam, teamId){
+      if(!pace || !A(pace.rows).length) return;
+      host.append(el('h3',{style:'margin:16px 12px 2px'}, isTeam?'Points pace':'Your points pace'));
+      const bits = [`${signed(pace.currentVsEven)} vs the even line`];
+      if(isTeam && pace.projectedTotal!=null)
+        bits.push(`projected ${num(pace.projectedTotal)} over ${pace.seasonWeeks} weeks` + (projRank[teamId]?` — would rank ${projRank[teamId]} / ${NT}`:''));
+      host.append(el('div',{class:'summary'}, bits.join('   ·   ')));
+      host.append(lineChart(A(pace.rows), {key:'cum',label:'points'}, {key:'even',label:'even'}));
+      host.append(el('div',{class:'muted',style:'padding:0 14px 6px;font-size:11px'},
+        'Solid = cumulative points. Dashed = the even line ('+(isTeam?(D.meta.pointsPerWeek/2):2.5)+'/week).'));
+    }
+
+    function cardsFor(host, an, isTeam){
+      const g = el('div',{class:'grid'});
+      // position rounds
+      if(an.positionRounds && an.positionRounds.enabled){
+        const pr = an.positionRounds;
+        const rows = [['Avg points', pr.posAvgPts, pr.regAvgPts], ['Avg series', pr.posAvgSer, pr.regAvgSer]];
+        if(isTeam) rows.push(['Record', pr.posRecord, pr.regRecord]);
+        const pw = A(D.analysis.positionRoundWeeks).join(', ');
+        g.append(stat('Position rounds vs regular',
+          kv([['', el('b',{},'Position'), el('b',{},'Regular')], ...rows]),
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'},
+            `${pr.posWeeks} position / ${pr.regWeeks} regular weeks bowled` + (pw?` · position weeks: ${pw}`:''))));
+      }
+      // anchor (team only)
+      if(isTeam && an.anchor){
+        const mx = Math.max(...an.anchor.map(a=>a.avgPts||0), 0.1);
+        const rows = an.anchor.map(a=> el('div',{class:'anchorrow'},
+          el('span',{class:'ap'}, 'Pos '+a.pos),
+          el('span',{class:'barbg',style:'flex:1'}, el('i',{style:`width:${Math.round((a.avgPts||0)/mx*100)}%`})),
+          el('span',{class:'av'}, a.avgPts==null?'—':a.avgPts)));
+        g.append(stat('Points by lineup position',
+          ...rows, el('div',{class:'muted',style:'font-size:11px;margin-top:4px'},'avg individual points earned per week, this season')));
+      }
+      // handicap trend
+      if(an.handicap){
+        const h = an.handicap;
+        g.append(stat('Handicap trend',
+          el('div',{}, (h.first==null?'—':h.first)+' → '+(h.last==null?'—':h.last)+'  ', delta(h.delta)),
+          el('div',{style:'margin-top:4px'}, spark(h.byWeek,'hdcp')),
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, h.delta<0?'handicap falling — average rising':(h.delta>0?'handicap rising — average slipping':'flat'))));
+      }
+      // clutch (team only)
+      if(isTeam && an.clutch){
+        const c = an.clutch;
+        const body = [el('div',{}, `${c.wins}–${c.losses} in matchups decided by ≤ 4 points`)];
+        A(c.list).forEach(x=> body.push(el('div',{class:'muted',style:'font-size:12px'},
+          `${x.date.slice(5)} vs ${x.opp} — ${x.won?'won':'lost'} by ${Math.abs(x.margin)}`)));
+        if(!A(c.list).length) body.push(el('div',{class:'muted',style:'font-size:11px'},'no close matchups yet'));
+        g.append(stat('Clutch', ...body));
+      }
+      // halves
+      if(an.halves){
+        const h = an.halves;
+        const rows = [['Avg series', h.h1Ser, h.h2Ser]];
+        if(h.h1Pts!=null || h.h2Pts!=null) rows.unshift(['Avg points', h.h1Pts, h.h2Pts]);
+        g.append(stat('Season halves',
+          kv([['', el('b',{},'1st half'), el('b',{},'2nd half')], ...rows]),
+          el('div',{class:'muted',style:'font-size:11px;margin-top:4px'}, `weeks 1–${D.analysis.halfWeek} vs ${D.analysis.halfWeek+1}–${D.analysis.seasonWeeks}`)));
+      }
+      // streaks
+      if(an.streaks){
+        const s = an.streaks, body=[];
+        body.push(el('div',{}, `Above season avg series — longest ${s.aboveSeason.longest}, current ${s.aboveSeason.current}`));
+        if(s.matchupWins) body.push(el('div',{}, `Matchup wins — longest ${s.matchupWins.longest}, current ${s.matchupWins.current}`));
+        g.append(stat('Streaks', ...body));
+      }
+      host.append(g);
+    }
+
+    function drawTeam(){
+      tHost.innerHTML='';
+      const tr = teams.find(t=>t.name===tSel.value);
+      if(!tr){ tHost.append(el('div',{class:'muted',style:'padding:12px'},'no data')); return; }
+      const an = AT.find(a=>a.teamId===tr.teamId);
+      seriesBlock(tHost, tr[metric]);
+      pointsWeekBlock(tHost, tr.teamId);
+      placementBlock(tHost, tr.teamId, fav);
+      if(an){ paceBlock(tHost, an.pace, true, tr.teamId); cardsFor(tHost, an, true); }
+      clutchBlock(tHost, tr.teamId);
+    }
+    function drawBowler(){
+      bHost.innerHTML='';
+      const tr = bwls.find(b=>b.id===bSel.value);
+      if(!tr){ bHost.append(el('div',{class:'muted',style:'padding:12px'},'no data')); return; }
+      const an = AB.find(a=>a.id===tr.id);
+      seriesBlock(bHost, tr[metric]);
+      if(an){ paceBlock(bHost, an.pace, false); cardsFor(bHost, an, false); }
+    }
+    function renderAll(){ drawTeam(); drawBowler(); }
+    tSel.onchange = drawTeam; bSel.onchange = drawBowler;
+    renderAll();
+  }
+})();
+</script>
+</body>
+</html>

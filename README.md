@@ -1,0 +1,565 @@
+# Pioneer I 2026-2027 - League Stats
+
+Tools to archive and analyze data for the **Pioneer I 2026-2027** league at
+**Lucky Strike Wheat Ridge** (home team: **Sloppy Hookers**), tracked on LeaguePals.
+
+## How the data gets here
+
+LeaguePals has no official public API, but the pages under
+`leaguepals.com/league-info` are driven by a handful of **public, no-login JSON
+endpoints**. `Fetch-LeaguePals.ps1` calls them and saves the raw responses.
+
+| File written | Source endpoint | What's in it |
+|---|---|---|
+| `league.json` | `/getLeaguePublic?id=` | Full league config: handicap rule, points rule, blind/vacancy scores, min games |
+| `league_full.json` | `/fullLeagueInfoPublic?id=` | Schedule, season dates, teams, per-team season totals |
+| `standings.json` | `/api/getStandingsPublic?leagueId=` | Every team: points won/lost/tied, games, pins, average; every bowler's games by week |
+| `standings_split{0..3}.json` | same, `&split=N` | Same, scoped to each half/segment of the season |
+| `tops.json` | `/api/getTopsPublic` (POST) | Leaderboards: high team/individual game & series, individual points, top averages |
+| `team_<name>__<id>.json` | `/api/loadIndividualTeamPublic?id=<teamId>` | Per bowler: real name, every game, series, `individualPoints`, high game/series (scratch + hcp) |
+| `_manifest.json` | (generated) | Snapshot date, team list |
+
+### Individual data caveat
+
+The league's public **individual leaderboards are turned off**
+(`tops.json` -> `topIndividual*` come back empty), and `standings.json` masks
+bowler emails. Real per-bowler names and scores still come through
+`team_*.json` (`loadIndividualTeamPublic`), which is what we rely on.
+
+## Usage
+
+Run once after league night (Tuesdays):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Fetch-LeaguePals.ps1
+```
+
+Backfill or re-pull a specific date:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Fetch-LeaguePals.ps1 -Date 2026-09-08
+```
+
+Each run writes a new dated folder under `data\raw\`. Runs are additive - the
+folder is a permanent archive that survives any future change on LeaguePals'
+side. **Commit `data\raw\` to git** (or back it up) so nothing is ever lost.
+
+## The 40-point week (from `league.json`)
+
+| Contest | Points | Basis |
+|---|---|---|
+| Individual game (x3) | 1 each | your handicap game vs the opposing bowler in your lineup slot |
+| Individual series | 2 | your handicap series vs that same bowler |
+| Team game (x3) | 3 each | team handicap game vs the other team |
+| Team series | 6 | team handicap series vs the other team |
+
+`5 bowlers x (3x1 + 2) + (3x3 + 6) = 25 + 15 = 40`
+
+- Handicap = `(235 - average) x 90%`, not below 0, based on all-inclusive average.
+- `fullPointsAmongTeammates = false` -> individual points are head-to-head vs the
+  one opposing bowler in the same position, not vs the whole other team.
+- Bowling against a blind (absent) bowler: opponent scores avg then adjusted;
+  `blindTeamCantWinPoints = true`.
+- Season runs 2026-08-18 -> 2027-04-27. The first weeks may be establishing
+  averages (`minGamesforAvg = 12`, `previousGamesMin = 21`) before points count.
+
+## Build the stats + dashboard
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Build-Stats.ps1
+```
+
+Reads the newest snapshot under `data\raw\` (or pass `-Date 2026-09-08`) and writes:
+
+- `data\out\<date>\bowlers.csv` - one row per bowler: book avg, season avg,
+  +/-, games, high game/series (scratch + handicap), std-dev, individual points.
+- `data\out\<date>\bowler_weeks.csv` - one row per bowler per week: the 3 games,
+  scratch & handicap series, absent / partial flags.
+- `data\out\<date>\teams.csv` - standings with points, record, team avg/handicap, roster.
+- `data\out\<date>\leaderboards.csv` - every leaderboard flattened.
+- `data\out\<date>\matchups.csv` - one row per team-vs-team matchup: scratch &
+  handicap series, team/individual/total points each side, winner, needs-review flag.
+- `data\out\<date>\headtohead_bowlers.csv` - one row per position pairing:
+  both bowlers' games, series, handicap, points, and kind (bowler/partial/sub/blind).
+- `data\out\<date>\lineup_review.csv` - every unresolved sub/blind/missed-game flag.
+- `data\out\<date>\trends.csv` - team & bowler series by week with running average,
+  vs-form, vs-season, and week rank.
+- `dashboard.html` - a **self-contained** page (no server, no internet). Open it
+  in any browser. Tabs: Standings / Head-to-Head / Trends / Leaderboards /
+  Averages / Bowlers / Teams. Sortable tables; click a bowler, team, or matchup
+  row to expand detail. Also copied to `data\out\<date>\dashboard.html`.
+
+`dashboard.template.html` is the layout/JS; `Build-Stats.ps1` injects the data.
+Edit the template to change how the dashboard looks.
+
+### Weekly routine
+
+If the GitHub Action is set up (see below), the Tuesday-night run does the fetch,
+build, commit and publish for you. Your only job is to resolve any **Needs
+Review** lineups it flags:
+
+```powershell
+git pull                                                   # get the auto-committed snapshot
+# edit data\lineups\<date>.json - fix subs/blinds, set "resolved": true
+powershell -ExecutionPolicy Bypass -File .\Build-Stats.ps1  # rebuild with your fixes
+git add -A
+git commit -m "resolve lineups, week of <date>"
+git push                                                    # republishes automatically
+```
+
+Doing it entirely by hand (no Action):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Fetch-LeaguePals.ps1
+powershell -ExecutionPolicy Bypass -File .\Build-Stats.ps1
+# resolve Needs Review items, re-run Build-Stats.ps1
+git add -A
+git commit -m "week of <date>"
+git push
+```
+
+## Personal data (this repo is public)
+
+LeaguePals' public responses include details this project must not republish. `scripts\lib\PersonalData.ps1`
+strips birth dates, profile pictures, phone numbers, street addresses, real email addresses and league member
+lists **before** anything is written to disk (the `bowlerN@teamM` placeholders stay - the build reads roster
+position from them). `.\scripts\Remove-PersonalData.ps1` cleans existing files; `-Check` changes nothing and
+fails if any file still holds personal data, and the weekly workflow runs it before committing. If you add a
+new fetch, pass its output through `Protect-LeagueJson`. The fetch scripts identify themselves with a generic
+name and no contact address.
+
+## The archive is a git repo
+
+`data\raw\` is committed to git so every week's snapshot is version-controlled
+and recoverable. `dashboard.html` and `data\out\` are gitignored (they rebuild
+from the raw data any time); `docs\index.html` and `data\lineups\` are committed.
+
+## Publishing + auto-updating with GitHub Actions
+
+`.github\workflows\league-site.yml` runs the whole pipeline in the cloud:
+
+- **Tuesday ~10:30 PM Mountain** - pulls a fresh snapshot, rebuilds, commits it,
+  publishes to GitHub Pages. (Two cron lines cover MDT and MST; the run with no
+  new scores commits nothing.)
+- **Any push to `main`** - rebuilds the dashboard from committed data and
+  republishes (so your manual `git push` after resolving lineups goes live).
+- **"Run workflow" button** - full pull + rebuild + publish on demand.
+
+> The published site is **public and Google-indexable** (true even on a private
+> repo, on the free/Pro plan). It shows 245 real names + scores. If that's not
+> OK: don't enable Pages - just send people `dashboard.html` (self-contained),
+> or use a password-protected host (Cloudflare Pages Access, Netlify).
+
+### One-time setup on GitHub
+
+1. **Settings -> Actions -> General -> Workflow permissions** -> "Read and write
+   permissions" -> Save. (Lets the Tuesday run commit the new snapshot back.)
+2. **Settings -> Pages -> Build and deployment -> Source: GitHub Actions.**
+3. Push this repo (the workflow file has to be on `main` before it can run):
+   ```
+   git push
+   ```
+4. First publish: **Actions** tab -> **League site** -> **Run workflow** ->
+   Branch `main` -> green **Run workflow**. ~3 min later the site is at
+   `https://<you>.github.io/bowling-league-stats/`.
+
+### Running it manually any time
+
+**Actions** tab -> **League site** (left sidebar) -> **Run workflow** button
+(right side) -> keep branch `main` -> **Run workflow**. Watch it under the runs
+list; the `deploy` job's summary links the live URL.
+
+The live site is always current. The `docs\index.html` committed in the repo
+catches up on the next Tuesday run - or immediately if you run `Build-Stats.ps1`
+locally before you push (the weekly routine below already does).
+
+## Head-to-head (how the schedule is rebuilt)
+
+**Update:** the seating order, lanes, blind/sub flags and official points DO exist
+publicly, in the "Scores" feed behind LeaguePals' Scores page (see "Score
+sheets" below), and the build now uses that as the source of truth. What
+follows describes the older best-effort reconstruction from the weekly
+snapshot, which is still what runs for any week that has no score sheet yet:
+
+LeaguePals' weekly snapshot has no "match result" or seating order, so
+`Build-Stats.ps1` reconstructs a best effort:
+
+1. **Team pairing is solid.** Each bowler's week carries a `match_id`; a team's
+   real id for a week is the one shared by the bowlers who actually bowled
+   (absentees keep a stale id) - majority vote. Two teams sharing a
+   `(week, match_id)` are that matchup. This part is verified reliable.
+2. **Individual position is always a guess until you say otherwise.** The
+   standings feed lists each team's five roster bowlers in order (masked email
+   `bowlerN@teamM` gives slot `N`), and the fallback guess pairs position *i*
+   vs position *i* (`fullPointsAmongTeammates = false`). **A full 5-of-5
+   lineup does NOT mean this guess is right** - teams can and do reorder even
+   a full-strength lineup week to week (matchups, rivalries), so "nobody was
+   absent" is not evidence the roster-slot order was actually used that night.
+   The real order only exists on LeaguePals' own recap/score-sheet report,
+   which needs a login to view (see below) - so nothing is trusted here unless
+   you've verified it against that report.
+3. **Points** (team 3/3/3/6, individual 1/1/1/2) are recomputed on the handicap
+   scores. LeaguePals' 4th games value is `scratch + perGameHdcp x games`, so
+   the per-week handicap is derived from it directly.
+
+Because of (2), every matchup carries a **`pairingConfirmed`** flag: true only
+when **both sides have been hand-verified** for that week in
+`data\lineups\<date>.json` (see below) - never inferred just because nobody was
+absent. Team totals and results are exact regardless of this flag; only the
+*who-faced-who* breakdown and anything built from it (individual points,
+bowler-vs-bowler history, the computed points leaderboard) are gated by it.
+Unconfirmed matchups show a clear warning in the dashboard instead of a
+confident-looking wrong answer.
+
+Once real weeks count, LeaguePals' own `pointsWon` / `individualPoints` would be
+authoritative for the point totals - but its `individualPoints` field has
+stayed `0` all season even as real standings advance, so in practice it never
+becomes available through the public feed. The reconstruction is what you get.
+
+### Subs, blinds, missed games - the review workflow
+
+Anything that isn't "all five regulars bowled three games" is auto-resolved as
+best it can and written to **`data\lineups\<date>.json`**:
+
+- **blind** - an absent regular with no sub. Blind score = that bowler's
+  average - 10 per game, plus their handicap. The present opponent must beat it
+  to take the point; if they score LESS, the point goes to the blind, and an exact TIE splits the point 0.5/0.5 like any other tie (confirmed against a real report), and the blind's share (it counts toward the
+  matchup's 40 but **not** toward the blind bowler's season individual total).
+- **sub** - a non-roster bowler who bowled. One sub + one open slot is
+  auto-assigned; multiple are guessed and flagged. Sub bowls off their own book
+  average.
+- **partial** - a present bowler who missed a game; the missed game is scored at
+  their own average - 10.
+- **blind vs blind** - when both teams are missing the same position, those five
+  individual points follow the matching team contest (team game 1 point -> team
+  game 1 winner, etc.), so every week still totals 40.
+
+The dashboard's **Needs Review** panel (top of Head-to-Head) lists every
+unresolved case with the file to edit. Open `data\lineups\<date>.json`, fix the
+`lineup` entries (swap a sub's `pos`, correct a `name`/`avg`, change a `kind`),
+set that team's `"resolved": true`, and re-run `Build-Stats.ps1`. Your edits are
+never overwritten; delete a file to regenerate it from scratch.
+
+**Marking `resolved: true` is a claim, not a dismissal.** Only set it once
+you've checked the real order (LeaguePals -> your league -> Scoring tab -> that
+week -> your matchup -> "View Score Sheet" - or the manager's recap-sheet PDF)
+and edited the `lineup` array to match. Once resolved, that side counts as
+`pairingConfirmed` for that week even though a sub/blind was involved. Resolving
+a flag just to clear it without checking the real order will make that week
+look confirmed when it isn't - leave it unresolved instead if you're not sure.
+
+**Put the real per-week average in `avg` when you resolve a flag**, not just
+the name. LeaguePals recalculates a bowler's stored handicap using their
+*current* average, not their average as of that week - fine for a stable
+regular, wrong for an occasional sub whose average is still moving. A
+`resolved: true` entry's `avg` is trusted over that live recalculation, so
+copying the average straight off the real score sheet (rather than leaving
+the auto-guess) is what makes the numbers match exactly. Verified end-to-end
+against a real "View Score Sheet" screenshot (Sloppy Hookers vs The Bowler
+Depot, 2026-09-08): once the true lineup and per-week averages were entered,
+every individual pairing, both teams' handicaps, and the 25-15 final score
+reproduced exactly.
+
+Blind behaviour is configurable in `config.json` -> `blindRules`.
+
+`data\lineups\` is committed to git alongside `data\raw\` - it's your work, not
+regenerable output.
+
+### Score sheets (the source of truth for lineups, lanes and points)
+
+`GET /recentScoresPublic?leagueId=<id>&minDate=<ms>&maxDate=<ms>&weekIdx=0`
+(the call LeaguePals' own public Scores page makes; no login, doesn't expire,
+works for any past or current week) returns every match that week: each team's
+five seats **in seat order**, per-game pins / average / handicap with **blind,
+substitute (with the sub's name), vacant, incomplete** flags, the **lane**, the
+points breakdown (team vs individual contests) and each bowler's per-game
+points. `minDate`/`maxDate` are epoch milliseconds for a 7-day window counted
+from the league's start date.
+
+```powershell
+.\Fetch-ScoreSheets.ps1                    # current season: new weeks + re-pull the latest 2
+.\Fetch-ScoreSheets.ps1 -Season 2022-23    # a past season (data\scoresheets\<slug>\<date>.json, ~65 KB/week)
+.\scripts\Import-ScoreSheets.ps1           # -> data\lineups\<date>.json + data\lanes.json (current season)
+.\scripts\Import-ScoreSheets.ps1 -Season 2022-23   # -> data\seasons\2022-23\lineups\ + lanes.json
+.\scripts\Verify-AgainstScoreSheets.ps1    # compare the engine's results with the official numbers
+```
+
+The weekly GitHub Action runs the first and third lines, so a finished week's
+matchups are confirmed automatically with nothing to type in. Lineup entries
+carry the bowler's **ID** (so nicknames, renames and name changes can't break
+matching), the team ID, each seat's exact games / per-game handicap / flags, and
+the official points; the build scores the matchup from exactly that.
+
+What verification found (all five seasons, ~3,000 matchups): total points, scratch
+series, handicap series and the team-vs-individual points split match the sheets
+exactly, and seat N did face seat N in all but 6 of ~11,000 seat pairs. A few
+quirks the sheets settled, which the old report-based approach had wrong:
+- a **tie against a blind** gives the present bowler 0.5 and the blind 0 (the other
+  half point is simply not awarded, so that match totals 39.5);
+- LeaguePals counts a rostered player who's rotating in as a regular bowler, not a
+  sub - "sub" only means someone covering a rostered bowler's seat;
+- a seat can be blind for only some games, or change bowlers mid-match.
+~62 past matchups (about 2%) can't be reproduced by the standard rules (scoring
+outages, handicap quirks) and show the sheet's official points instead. ~83
+older-season matchups aren't reconstructed because a team in them isn't in that
+season's final standings (withdrawn / replaced teams).
+
+The `opponents` ids inside the sheets are partial (usually only the winner's row
+names the opponent), so seat pairing is verified from the points complementing,
+not from them.
+
+### Legacy: printed reports and typed-in lineups
+
+Everything below this point describes how lineups were entered by hand from
+printed reports before the score sheets turned out to be public. It still works
+(`Import-WeekReport.ps1`), and is the fallback if the Scores feed ever changes.
+
+### Getting the real data: score sheets and full-week reports
+
+- **Per-matchup**: LeaguePals -> your league -> Scoring tab -> pick the week ->
+  your matchup -> "View Score Sheet". Needs a login.
+- **Whole week at once**: a league manager can print a full report PDF covering
+  all matchups for a week (one page per matchup - same score-sheet layout).
+  Adam gets these; if you can too, one PDF is worth more than a screenshot per
+  matchup.
+- **A public URL exists, but it's not a stable data source**: each week's
+  full report links to `https://www.leaguepals.com/currentscores?id=<reportId>`
+  (visible at the bottom of every page of the printed PDF), and that page
+  **loads with no login** - verified by fetching it cold. However, `reportId`
+  is generated fresh, server-side, only when you click the print icon on a
+  "View Score Sheet" and select matchups to print - it's not derivable from
+  the public feed and not a stable per-week identifier, so it can't be
+  automated or pre-fetched. Treat it the same as the PDF: something you hand
+  over when you happen to print one, not something this pipeline can go get
+  on its own.
+- Extracting text from a PDF report locally: `pdftotext.exe` ships with Git for
+  Windows at `C:\Program Files\Git\mingw64\bin\pdftotext.exe` (no separate
+  install needed on this machine) - `pdftotext -layout file.pdf out.txt`. If a
+  block's columns come out misaligned (numbers not lined up with names),
+  re-extract just that page without `-layout` (`pdftotext -f N -l N file.pdf
+  page.txt`) and use the raw column-major token order instead; cross-check
+  each bowler's printed handicap total against
+  `scratchTotal + 3*floor((235-avg)*0.9)` to confirm which numbers are theirs
+  before transcribing.
+
+### Importing a full-week report
+
+`scripts\Import-WeekReport.ps1` writes a full week's hand-transcribed lineups
+(all 40 teams) into `data\lineups\<date>.json` as `resolved: true` entries in
+one shot, instead of hand-editing each team. To use it:
+
+1. Transcribe the printed report into its own small data file under
+   `scripts\lineup-sources\<date>.ps1` (see `2026-09-08.ps1` for the format -
+   one `T name avg [kind] [subFor] [blindFor]` line per bowler, grouped by
+   team name).
+2. Run:
+   ```powershell
+   .\scripts\Import-WeekReport.ps1 -Date 2026-09-08 `
+       -DataFile scripts\lineup-sources\2026-09-08.ps1 `
+       -Source "Full week report PDF, printed 2026-09-15"
+   ```
+
+It sanity-checks the transcription before writing: flags any team name that
+doesn't match the latest snapshot (typo, or a mid-season team rename - lineup
+files must key by the CURRENT team name, not whatever name was live that
+week), any lineup that isn't exactly 5 entries, any bowler listed twice on
+the same team, any bowler name that doesn't match a known name/nickname in
+the latest snapshot (catches the nickname-suffix bug below), and any known
+team the import doesn't cover - review those warnings before trusting the
+result.
+
+**If you can fetch the report directly** (e.g. it's still live at its
+`currentscores?id=` URL), `scripts\Parse-WeekReport.ps1` converts a saved copy
+of the page text straight into a `lineup-sources\<date>.ps1` file, instead of
+hand-transcribing every team:
+```powershell
+.\scripts\Parse-WeekReport.ps1 -InputFile week1_report.txt -Date 2026-08-18 `
+    -OutFile scripts\lineup-sources\2026-08-18.ps1
+```
+It expects one bowler per line as `- Name (Regular|Blind|Substitute, Avg NNN):
+scores`, grouped under `**Team Name:**` headers. The live report's format has
+varied between weeks (sometimes omitting averages, or not tagging subs at
+all) - always review the generated file, and re-run
+`Import-WeekReport.ps1` afterward so its sanity checks get a look too.
+
+A hand-verified import still can't recover individual game scores for a
+bowler with **no `weekGames` record at all** under their identity for that
+date (seen for a couple of first-time subs) - the lineup position/pairing is
+correctly confirmed, but their 3 games still fall back to a blind-average
+estimate, since the schema stores name/avg/kind, not raw per-game scores.
+
+**Nicknames**: a bowler with `useNickname` set on LeaguePals is indexed
+internally under BOTH their nickname and their full name (e.g. "Rick
+Armstrong (Showtime)" is also "Showtime") - but a report can print a THIRD
+variant (just "Rick Armstrong", no suffix) that matches neither. The bowler
+name-validation check above exists specifically to catch this; if it fires,
+find the bowler's real indexed name in the snapshot (`grep` their last name
+across `data\raw\<date>\team_*.json` for `useNickname`/`nickNames`) and use
+that exact string.
+This is a LeaguePals data gap, not a bug.
+
+### Individual points
+
+LeaguePals' **official** individual points are NOT on each bowler's own record
+(that field is always 0). They only appear in the leaderboard feed, `tops.json` ->
+`topIndividualPoints[].indPointsWon`, and only for the league's **top 40**. The
+build reads that list, so the Leaderboards card and the Bowlers "Pts" column show
+the official number for those 40. Below the top 40, the Pts column shows my own
+calculation, marked `*`, and Leaderboards keeps a second "computed estimate" card
+for comparison (the estimate needs a confirmed lineup, so it can differ slightly
+from LeaguePals, e.g. around blinds).
+
+### Past seasons
+
+Earlier seasons of the league are archived once, because they're finished and
+LeaguePals still serves them through the same public endpoints. Their league IDs
+came from the `averages` list on each bowler (every bowler record lists the league
+ID of each league they've bowled in); `config.json` -> `pastSeasons` holds the four
+Pioneer I seasons. To add or refresh one:
+
+```powershell
+.\Fetch-LeaguePals.ps1 -Season 2025-26   # archives to data\seasons\2025-26\ (~45 requests, slow: allow ~40 min)
+.\Fetch-ScoreSheets.ps1 -Season 2025-26  # the week-by-week score sheets (see "Score sheets")
+.\scripts\Import-ScoreSheets.ps1 -Season 2025-26   # lineups + lanes (regenerable, not committed)
+.\Build-Stats.ps1 -Season 2025-26        # writes data\seasons\2025-26\summary.json
+.\Build-Stats.ps1                        # normal build; embeds every summary.json
+```
+
+The dashboard gets a season picker under the title and a **History** tab (season
+by season, all-time bests, and a per-bowler career). Every tab except **Trends** works
+for a past season, including the full schedule and results, seat-by-seat matchups
+and lane stats (Trends needs the live weekly analysis). Past seasons are built from
+the committed `summary.json`; their generated `lineups\` / `lanes.json` are not
+committed (regenerate with `Import-ScoreSheets.ps1 -Season`). The weekly CI run
+doesn't touch `data\seasons\`.
+
+### Lane pairs
+
+The LeaguePals feed has **no lane data**, so lane pairs are transcribed from the
+printed report (each matchup is headed "Lanes 1-2", "Lanes 3-4", ... and the
+report lists matchup N on lanes 2N-1 and 2N). They live in `data\lanes.json`
+(committed) and drive the **Lanes** tab (league average and high scores per
+pair, one bowler across pairs, everyone on one pair) plus the week / lane line
+on every Head-to-Head matchup card.
+
+Each week, after importing the lineups:
+
+1. Create `scripts\lane-sources\<date>.ps1`, one `L '<pair>' '<team A>' '<team B>'`
+   line per matchup, copied from the report's lane headings (team names must be
+   the CURRENT names, as with lineups).
+2. Run `.\scripts\Import-Lanes.ps1 -Date <date>`. It checks that every team
+   appears exactly once, each pair is used once, and names resolve to current
+   team IDs (stored, so later renames don't matter).
+3. `Build-Stats.ps1` warns if a lanes.json pairing was never an actual matchup
+   (a sign the order is wrong) or if a week has no lane data.
+
+Only **real recorded games** feed the lane stats - blinds, missed-game fills and
+subs with no API record are fabricated scores and are excluded. "vs own avg" is
+each game minus that bowler's season average, which factors out who bowled where.
+
+Caveats: weeks 2-3 and 5-8 were read from printed "Lanes N-M" headings (week 4
+from the PDF, which prints each team's starting lane). Week 1's report printed no
+lane numbers, but week 1 puts team N on lane N, so its pairs follow from the team
+numbers printed in the reports (all 20 checked: lanes 1-2 are teams 1 and 2, lanes
+3-4 are teams 3 and 4, and so on). Report links expire after a few days, so
+capture lanes when you import the week. Only the pair is tracked, not which lane of the pair a team
+started on.
+
+## Config
+
+Edit `config.json`:
+- `leagueId` - the `id=` in the `league-info` URL (point at a different league).
+- `favoriteTeam` - your team; the dashboard floats its matchups to the top and
+  pre-selects it in the Head-to-Head and Trends pickers.
+- `seasonWeeks` - total bowling weeks in the season (used for pace projection).
+- `positionRoundWeeks` - 1-based league week numbers that are position rounds
+  (e.g. `[5,10,15,20,25,30,35,36]`). Empty list turns the split off. The public
+  data doesn't mark position weeks, so this is manual.
+- `skipWeeks` - Tuesdays with no league (holidays), e.g. `["2026-12-29"]`. Week
+  number = calendar weeks since `seasonStart`, minus the skipped Tuesdays before
+  that date - so week numbers stay aligned with the printed schedule.
+- `blindRules` - blind delta, whether the blind gets handicap, (the old strict-beat flag no longer changes anything: a tie vs a blind always splits), and
+  whether blind points count toward the matchup total / season individual total.
+
+## Known nuance
+
+Within a week, LeaguePals stores the 3 games in the order it stores them; the
+dashboard shows them as stored. Totals, averages, and highs are unaffected.
+
+## Ask Claude tab
+
+Free-form questions the tables don't answer. There is deliberately **no pay-per-use (API key) option**.
+On the GitHub site the tab offers "Copy prompt" + "Download league-data.json" to ask the same question in a
+claude.ai chat. Inside the published Claude artifact (below) the tab asks Claude directly through the viewer's
+own Claude account: Claude answers by writing small JavaScript queries (`run_js` tool) that run in a Web Worker
+sandbox over every season's data (standings, bowlers, every matchup seat by seat), 20 s limit per query.
+
+**Claude artifact version (no API key).** `.\scripts\Make-ArtifactPage.ps1` turns the built `docs\index.html` into the
+page file for a published Claude Artifact (`data\out\artifact\league-stats.html`, ~13 MB of the 16 MB limit). Published with the
+`sample` capability, its Ask Claude tab uses the *viewer's own Claude account* instead of an API key (the page detects
+`window.claude` at load; on GitHub Pages it falls back to the key box). The artifact is a snapshot: it does not update with
+the weekly run, so rebuild, run the script and ask Claude Code to republish it when you want fresh data.
+
+Bowler vs Bowler merges a bowler's profiles across seasons (same id, or the same name under a second id when the
+two never bowled in the same season), and its second dropdown lists only bowlers the first has actually faced.
+`config.json` `favoriteBowler` sets the default first bowler.
+
+Head-to-Head's Team vs Team and Bowler vs Bowler also look across **all seasons** (team by name, bowler by id);
+use the dropdown beside them for "This season only".
+
+## Analytics tab (works for every season)
+
+Computed in the page from a season's schedule (every matchup, seat by seat), so it covers the current
+season and all archived ones with no extra build step.
+
+- **Biggest & smallest gaps** - the largest/smallest margin in a team game and in the team series, on
+  handicap (what the points use) or scratch. Matchups where a team had a blind can be skipped.
+- **Pythagorean record** - handicap pins for / against -> the record a team "should" have. The exponent is
+  fit to the season's league (bowling pin totals are far tighter than baseball runs, so ~17-18, not 1.83).
+- **Luck index** - an all-play replay: each week's lineup is scored against every other team's lineup that
+  week (same seat vs same seat, ties split) to get expected points; luck = actual - expected. Also shows
+  how the opponents bowled against the team relative to their own averages ("opp form faced") and the
+  team's points in weak vs strong weeks. The replay reproduces the official points to within 0.25 on average.
+- **Consistency & variance** - per bowler (this season or all seasons combined, each measured against their own
+  season average): σ game / σ series, CV, MAD, floor and ceiling (10th / 90th percentile game), blow-up and hot-game
+  rates, game-to-game swing, night-to-night σ vs within-night σ; filter by σ range and minimum games.
+- **Bowler seasons & trends** - one bowler's weekly series, one line per season on a shared Aug-May calendar, with
+  month averages, a month table (deviation ± margin of error per season) and an Oct-Nov vs rest-of-year test.
+- **Rate stats** - bowlers (200+/250+ share, 600+ series share, CV, individual-points share, seat margin)
+  and teams (game/series win %, margin per game, points shares, close-match record).
+
+The Trends tab's team analysis also has points won/lost by week, a stepped league-placement chart and a
+"who carried" breakdown of close matchups (carrier = most pins over their own average in that game/series).
+The History tab has year-to-year charts for bowlers and teams (teams matched by name) and biggest movers.
+
+## Trends tab
+
+Pick a team or a bowler (defaults to your `favoriteTeam`), toggle scratch /
+handicap, and get:
+
+- **Series by week** - the week's series, `vs form` (minus the running to-date
+  average), `vs season` (minus the full-season average), and `week rank` among
+  all teams / all full-3-game bowlers. Bar chart: green above the season
+  average, red below; blue line = running average. Partial weeks are faint and
+  excluded from the baselines.
+- **Points pace** - cumulative points vs the even line (20/week for teams,
+  2.5/week for a bowler); for teams, the projected season total and where that
+  would rank.
+- **Position rounds vs regular** - average points, average series, and record in
+  position-round weeks vs regular weeks. Position weeks are listed in
+  `config.json` -> `positionRoundWeeks`.
+- **Points by lineup position** (teams) - average individual points each of the
+  five slots earns per week.
+- **Handicap trend** - first -> latest, with a sparkline. Falling = average rising.
+- **Clutch** (teams) - record in matchups decided by <= 4 of the 40 points.
+- **Season halves** - 1st half vs 2nd half average points and series.
+- **Streaks** - longest / current run of weeks above the season-average series,
+  and (teams) of matchup wins.
+
+`trends.csv` and `team_analysis.csv` carry the numbers for spreadsheet work.
+
+## Ideas for later
+
+- Publish `dashboard.html` as a shareable link instead of emailing the file.
+- Lane / pair-of-lanes performance, once a schedule with lane assignments is available.
+- "On pace to make/miss the cut" once the prize/cut line is known.

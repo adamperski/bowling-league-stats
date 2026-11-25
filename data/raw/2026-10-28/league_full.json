@@ -1,0 +1,2910 @@
+{
+  "data": {
+    "_id": "6a82316f249ddaa00e0297fb",
+    "teamsOnLane": 2,
+    "name": "Pioneer I 2026-2027",
+    "numLanes": 40,
+    "numPlayers": 5,
+    "startingLane": "1",
+    "time": "6:30 PM",
+    "teamsOnShift": 10,
+    "totalShift": 2,
+    "center": "62d98f124cfb92201338336a",
+    "splits": [],
+    "vacants": [
+      {
+        "vacantId": 0,
+        "customPos": 0,
+        "_id": "6a82316f249ddaa00e029802",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 1,
+        "customPos": 1,
+        "_id": "6a82316f249ddaa00e029801",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 2,
+        "customPos": 2,
+        "_id": "6a82316f249ddaa00e029800",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 3,
+        "customPos": 3,
+        "_id": "6a82316f249ddaa00e0297ff",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 4,
+        "customPos": 4,
+        "_id": "6a82316f249ddaa00e0297fe",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      }
+    ],
+    "vacancyScoreGirl": 175,
+    "vacancyScoreBoy": 175,
+    "vacancyScoreFemale": 175,
+    "vacancyScoreMale": 175,
+    "allowDiffVacancyScore": false,
+    "vacancyScore": 170,
+    "dropRuleEnabled": true,
+    "handicapRulesTeam": {
+      "type": "sum",
+      "percentage": 0,
+      "percentageOf": 0,
+      "useAllInclusive": false,
+      "hasLimit": false,
+      "allowNegative": false,
+      "allowNegativeDiff": false
+    },
+    "handicapRules": {
+      "type": "pctOfNumber",
+      "percentage": 90,
+      "percentageOf": 235,
+      "splits": {
+        "adult": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "junior": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "male": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "female": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "adultMale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "adultFemale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "juniorMale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "juniorFemale": {
+          "percentage": 0,
+          "percentageOf": 0
+        }
+      },
+      "splitJunior": false,
+      "splitGender": false,
+      "allowNegativeDiff": false,
+      "allowNegative": false,
+      "hasLimitGender": false,
+      "hasLimit": false,
+      "useAllInclusive": true,
+      "useTeamAverages": false,
+      "baseCapValue": 300,
+      "capIndividualBase": false,
+      "capAt300": false
+    },
+    "seasons": [
+      {
+        "paymentStart": "2026-08-18T00:00:00.000Z",
+        "paymentEnd": "2027-04-27T00:00:00.000Z",
+        "dateStart": "2026-08-18T00:00:00.000Z",
+        "seasonType": "Full Season",
+        "_id": "6a82316f249ddaa00e0297fc",
+        "teamStats": [
+          {
+            "_id": "6a82316f249ddaa00e0297fd",
+            "teams": [
+              {
+                "team": "6a82316f249ddaa00e029803",
+                "_id": "6a82316f249ddaa00e029809",
+                "wins": 7,
+                "losses": 4,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 244.5,
+                "pointsLost": 195.5,
+                "average": 11877,
+                "scratchPins": 35630,
+                "totalPins": 38126,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823171249ddaa00e02981f",
+                "_id": "6a823171249ddaa00e029825",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 224,
+                "pointsLost": 216,
+                "average": 11921,
+                "scratchPins": 35761,
+                "totalPins": 38653,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823174249ddaa00e02983e",
+                "_id": "6a823174249ddaa00e029844",
+                "wins": 6,
+                "losses": 4,
+                "ties": 1,
+                "games": 33,
+                "pointsWon": 248,
+                "pointsLost": 192,
+                "average": 11553,
+                "scratchPins": 34658,
+                "totalPins": 37664,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823175249ddaa00e02985d",
+                "_id": "6a823175249ddaa00e029863",
+                "wins": 3,
+                "losses": 8,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 206,
+                "pointsLost": 234,
+                "average": 11686,
+                "scratchPins": 35058,
+                "totalPins": 38049,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823178249ddaa00e02987c",
+                "_id": "6a823178249ddaa00e029882",
+                "wins": 4,
+                "losses": 7,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 213,
+                "pointsLost": 227,
+                "average": 11180,
+                "scratchPins": 33538,
+                "totalPins": 38344,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317a249ddaa00e029898",
+                "_id": "6a82317a249ddaa00e02989e",
+                "wins": 8,
+                "losses": 3,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 248,
+                "pointsLost": 192,
+                "average": 11308,
+                "scratchPins": 33920,
+                "totalPins": 38249,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317c249ddaa00e0298b4",
+                "_id": "6a82317c249ddaa00e0298ba",
+                "wins": 7,
+                "losses": 4,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 237,
+                "pointsLost": 203,
+                "average": 11475,
+                "scratchPins": 34422,
+                "totalPins": 38469,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317e249ddaa00e0298d0",
+                "_id": "6a82317e249ddaa00e0298d6",
+                "wins": 5,
+                "losses": 6,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 210,
+                "pointsLost": 230,
+                "average": 11545,
+                "scratchPins": 34638,
+                "totalPins": 38358,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823181249ddaa00e0298ec",
+                "_id": "6a823181249ddaa00e0298f2",
+                "wins": 5,
+                "losses": 6,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 218.5,
+                "pointsLost": 221.5,
+                "average": 12047,
+                "scratchPins": 36143,
+                "totalPins": 38666,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823183249ddaa00e029905",
+                "_id": "6a823183249ddaa00e02990b",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 235.5,
+                "pointsLost": 204.5,
+                "average": 11261,
+                "scratchPins": 33786,
+                "totalPins": 37815,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823185249ddaa00e029924",
+                "_id": "6a823185249ddaa00e02992a",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 199,
+                "pointsLost": 241,
+                "average": 11114,
+                "scratchPins": 33347,
+                "totalPins": 38195,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823187249ddaa00e02993d",
+                "_id": "6a823187249ddaa00e029943",
+                "wins": 5,
+                "losses": 6,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 204,
+                "pointsLost": 236,
+                "average": 11703,
+                "scratchPins": 35104,
+                "totalPins": 38965,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82318b249ddaa00e029959",
+                "_id": "6a82318b249ddaa00e02995f",
+                "wins": 8,
+                "losses": 3,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 239,
+                "pointsLost": 201,
+                "average": 11117,
+                "scratchPins": 33346,
+                "totalPins": 38098,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82318e249ddaa00e029978",
+                "_id": "6a82318e249ddaa00e02997e",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 239,
+                "pointsLost": 201,
+                "average": 11102,
+                "scratchPins": 33305,
+                "totalPins": 38624,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823191249ddaa00e029994",
+                "_id": "6a823191249ddaa00e02999a",
+                "wins": 5,
+                "losses": 6,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 223,
+                "pointsLost": 217,
+                "average": 11538,
+                "scratchPins": 34616,
+                "totalPins": 38171,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823194249ddaa00e0299b3",
+                "_id": "6a823194249ddaa00e0299b9",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 239.5,
+                "pointsLost": 200.5,
+                "average": 11268,
+                "scratchPins": 33801,
+                "totalPins": 38125,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823197249ddaa00e0299d2",
+                "_id": "6a823197249ddaa00e0299d8",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 243,
+                "pointsLost": 197,
+                "average": 11352,
+                "scratchPins": 34059,
+                "totalPins": 38385,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319a249ddaa00e0299f1",
+                "_id": "6a82319a249ddaa00e0299f7",
+                "wins": 7,
+                "losses": 4,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 244.5,
+                "pointsLost": 195.5,
+                "average": 11512,
+                "scratchPins": 34536,
+                "totalPins": 38367,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319d249ddaa00e029a10",
+                "_id": "6a82319d249ddaa00e029a16",
+                "wins": 4,
+                "losses": 6,
+                "ties": 1,
+                "games": 33,
+                "pointsWon": 203,
+                "pointsLost": 237,
+                "average": 9282,
+                "scratchPins": 27842,
+                "totalPins": 37526,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319f249ddaa00e029a26",
+                "_id": "6a82319f249ddaa00e029a2c",
+                "wins": 10,
+                "losses": 1,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 279.5,
+                "pointsLost": 160.5,
+                "average": 11417,
+                "scratchPins": 34245,
+                "totalPins": 38349,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a2249ddaa00e029a42",
+                "_id": "6a8231a2249ddaa00e029a48",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 240,
+                "pointsLost": 200,
+                "average": 11445,
+                "scratchPins": 34336,
+                "totalPins": 38359,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a4249ddaa00e029a5e",
+                "_id": "6a8231a4249ddaa00e029a64",
+                "wins": 4,
+                "losses": 7,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 208.5,
+                "pointsLost": 231.5,
+                "average": 11313,
+                "scratchPins": 33942,
+                "totalPins": 38181,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a7249ddaa00e029a7a",
+                "_id": "6a8231a7249ddaa00e029a80",
+                "wins": 4,
+                "losses": 7,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 200,
+                "pointsLost": 240,
+                "average": 10752,
+                "scratchPins": 32258,
+                "totalPins": 37703,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231aa249ddaa00e029a99",
+                "_id": "6a8231aa249ddaa00e029a9f",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 229.5,
+                "pointsLost": 210.5,
+                "average": 10636,
+                "scratchPins": 31908,
+                "totalPins": 38136,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231ad249ddaa00e029ab6",
+                "_id": "6a8231ad249ddaa00e029abc",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 239,
+                "pointsLost": 201,
+                "average": 11474,
+                "scratchPins": 34418,
+                "totalPins": 38129,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b1249ddaa00e029ad5",
+                "_id": "6a8231b1249ddaa00e029adb",
+                "wins": 4,
+                "losses": 7,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 161,
+                "pointsLost": 279,
+                "average": 11194,
+                "scratchPins": 33585,
+                "totalPins": 38040,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b3249ddaa00e029af1",
+                "_id": "6a8231b3249ddaa00e029af7",
+                "wins": 3,
+                "losses": 8,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 189,
+                "pointsLost": 251,
+                "average": 11105,
+                "scratchPins": 33315,
+                "totalPins": 38256,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b5249ddaa00e029b0a",
+                "_id": "6a8231b5249ddaa00e029b10",
+                "wins": 3,
+                "losses": 8,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 173,
+                "pointsLost": 267,
+                "average": 10956,
+                "scratchPins": 32872,
+                "totalPins": 37627,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b7249ddaa00e029b29",
+                "_id": "6a8231b7249ddaa00e029b2f",
+                "wins": 4,
+                "losses": 7,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 186,
+                "pointsLost": 254,
+                "average": 11106,
+                "scratchPins": 33317,
+                "totalPins": 37724,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231ba249ddaa00e029b48",
+                "_id": "6a8231ba249ddaa00e029b4e",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 225.5,
+                "pointsLost": 214.5,
+                "average": 10871,
+                "scratchPins": 32610,
+                "totalPins": 38256,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231be249ddaa00e029b64",
+                "_id": "6a8231be249ddaa00e029b6a",
+                "wins": 10,
+                "losses": 1,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 305,
+                "pointsLost": 135,
+                "average": 10835,
+                "scratchPins": 32506,
+                "totalPins": 38383,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c1249ddaa00e029b86",
+                "_id": "6a8231c1249ddaa00e029b8c",
+                "wins": 4,
+                "losses": 7,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 191,
+                "pointsLost": 249,
+                "average": 10941,
+                "scratchPins": 32820,
+                "totalPins": 38175,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c3249ddaa00e029ba5",
+                "_id": "6a8231c3249ddaa00e029bab",
+                "wins": 3,
+                "losses": 7,
+                "ties": 1,
+                "games": 33,
+                "pointsWon": 190,
+                "pointsLost": 250,
+                "average": 10702,
+                "scratchPins": 32105,
+                "totalPins": 37907,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c6249ddaa00e029bc1",
+                "_id": "6a8231c6249ddaa00e029bc7",
+                "wins": 5,
+                "losses": 6,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 233.5,
+                "pointsLost": 206.5,
+                "average": 10104,
+                "scratchPins": 30312,
+                "totalPins": 38196,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c9249ddaa00e029bda",
+                "_id": "6a8231c9249ddaa00e029be0",
+                "wins": 3,
+                "losses": 8,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 173.5,
+                "pointsLost": 266.5,
+                "average": 11096,
+                "scratchPins": 33290,
+                "totalPins": 38069,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231cc249ddaa00e029bf6",
+                "_id": "6a8231cc249ddaa00e029bfc",
+                "wins": 7,
+                "losses": 4,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 247.5,
+                "pointsLost": 192.5,
+                "average": 9619,
+                "scratchPins": 28853,
+                "totalPins": 38195,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231cf249ddaa00e029c15",
+                "_id": "6a8231cf249ddaa00e029c1b",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 225.5,
+                "pointsLost": 214.5,
+                "average": 10957,
+                "scratchPins": 32870,
+                "totalPins": 38420,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d3249ddaa00e029c31",
+                "_id": "6a8231d3249ddaa00e029c37",
+                "wins": 5,
+                "losses": 5,
+                "ties": 1,
+                "games": 33,
+                "pointsWon": 226.5,
+                "pointsLost": 213.5,
+                "average": 11728,
+                "scratchPins": 35185,
+                "totalPins": 38551,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d5249ddaa00e029c4d",
+                "_id": "6a8231d5249ddaa00e029c53",
+                "wins": 6,
+                "losses": 5,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 206.5,
+                "pointsLost": 233.5,
+                "average": 10864,
+                "scratchPins": 32592,
+                "totalPins": 37968,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d7249ddaa00e029c63",
+                "_id": "6a8231d7249ddaa00e029c69",
+                "wins": 3,
+                "losses": 8,
+                "ties": 0,
+                "games": 33,
+                "pointsWon": 151.5,
+                "pointsLost": 288.5,
+                "average": 10156,
+                "scratchPins": 30465,
+                "totalPins": 37719,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              }
+            ]
+          }
+        ],
+        "weeks": [
+          {
+            "weekNum": 20,
+            "date": "2027-01-05T00:00:00.000Z",
+            "_id": "6a84b2deef0762626e1ab346"
+          }
+        ],
+        "highScores": [],
+        "lineagePaidToDate": 0,
+        "matches": [
+          "6a8538052fe9873e6c628922",
+          "6a8538062fe9873e6c628978",
+          "6a8538082fe9873e6c6289cf",
+          "6a85380a2fe9873e6c628a30",
+          "6a85380c2fe9873e6c628a84",
+          "6a85380e2fe9873e6c628ae2",
+          "6a8538102fe9873e6c628b3d",
+          "6a8538122fe9873e6c628b9a",
+          "6a8538142fe9873e6c628bf7",
+          "6a8538162fe9873e6c628c4f",
+          "6a8538182fe9873e6c628ca6",
+          "6a85381a2fe9873e6c628d03",
+          "6a85381c2fe9873e6c628d61",
+          "6a85381e2fe9873e6c628dc2",
+          "6a8538202fe9873e6c628e16",
+          "6a8538222fe9873e6c628e73",
+          "6a8538252fe9873e6c628eca",
+          "6a8538272fe9873e6c628f24",
+          "6a8538292fe9873e6c628f7a",
+          "6a85382c2fe9873e6c628fcd",
+          "6a8e673fe5295daed70cf109",
+          "6a8e6741e5295daed70cf151",
+          "6a8e6743e5295daed70cf19f",
+          "6a8e6745e5295daed70cf1f2",
+          "6a8e6748e5295daed70cf23d",
+          "6a8e674ae5295daed70cf292",
+          "6a8e674de5295daed70cf2e6",
+          "6a8e674fe5295daed70cf33c",
+          "6a8e6752e5295daed70cf38d",
+          "6a8e6754e5295daed70cf3dc",
+          "6a8e6757e5295daed70cf431",
+          "6a8e675ae5295daed70cf486",
+          "6a8e675de5295daed70cf4d7",
+          "6a8e6760e5295daed70cf52e",
+          "6a8e6763e5295daed70cf57e",
+          "6a8e6766e5295daed70cf5cc",
+          "6a8e6769e5295daed70cf624",
+          "6a8e676ce5295daed70cf678",
+          "6a8e676fe5295daed70cf6cd",
+          "6a8e6772e5295daed70cf727",
+          "6a97a35f7bbdfb65e119ab4c",
+          "6a97a3627bbdfb65e119ab99",
+          "6a97a3647bbdfb65e119abf1",
+          "6a97a3677bbdfb65e119ac48",
+          "6a97a3697bbdfb65e119ac9f",
+          "6a97a36b7bbdfb65e119acf0",
+          "6a97a36e7bbdfb65e119ad43",
+          "6a97a3717bbdfb65e119ad9b",
+          "6a97a3737bbdfb65e119adea",
+          "6a97a3767bbdfb65e119ae35",
+          "6a97a3797bbdfb65e119ae87",
+          "6a97a37d7bbdfb65e119aed1",
+          "6a97a37f7bbdfb65e119af25",
+          "6a97a3837bbdfb65e119af7c",
+          "6a97a3857bbdfb65e119afd5",
+          "6a97a3887bbdfb65e119b029",
+          "6a97a38b7bbdfb65e119b084",
+          "6a97a38e7bbdfb65e119b0ce",
+          "6a97a3927bbdfb65e119b11c",
+          "6a97a3957bbdfb65e119b173",
+          "6aa0f58c0893e877aaaf8bce",
+          "6aa0f58f0893e877aaaf8c26",
+          "6aa0f5910893e877aaaf8c76",
+          "6aa0f5940893e877aaaf8ccb",
+          "6aa0f5960893e877aaaf8d26",
+          "6aa0f5980893e877aaaf8d7a",
+          "6aa0f59b0893e877aaaf8dd5",
+          "6aa0f59d0893e877aaaf8e21",
+          "6aa0f59f0893e877aaaf8e72",
+          "6aa0f5a20893e877aaaf8ec7",
+          "6aa0f5a40893e877aaaf8f13",
+          "6aa0f5a70893e877aaaf8f66",
+          "6aa0f5aa0893e877aaaf8fb6",
+          "6aa0f5ac0893e877aaaf9006",
+          "6aa0f5af0893e877aaaf905b",
+          "6aa0f5b20893e877aaaf90ab",
+          "6aa0f5b50893e877aaaf9103",
+          "6aa0f5b80893e877aaaf9155",
+          "6aa0f5bb0893e877aaaf91af",
+          "6aa0f5be0893e877aaaf9208",
+          "6aaa13f30e783f1ee1c8d3cb",
+          "6aaa13f60e783f1ee1c8d416",
+          "6aaa13f80e783f1ee1c8d468",
+          "6aaa13fb0e783f1ee1c8d4be",
+          "6aaa13fe0e783f1ee1c8d508",
+          "6aaa14000e783f1ee1c8d55f",
+          "6aaa14030e783f1ee1c8d5ab",
+          "6aaa14050e783f1ee1c8d604",
+          "6aaa14090e783f1ee1c8d65b",
+          "6aaa140d0e783f1ee1c8d6a8",
+          "6aaa14110e783f1ee1c8d710",
+          "6aaa14140e783f1ee1c8d761",
+          "6aaa14170e783f1ee1c8d7b6",
+          "6aaa141a0e783f1ee1c8d801",
+          "6aaa141d0e783f1ee1c8d84c",
+          "6aaa14210e783f1ee1c8d89a",
+          "6aaa14240e783f1ee1c8d8f4",
+          "6aaa14270e783f1ee1c8d940",
+          "6aaa142b0e783f1ee1c8d997",
+          "6aaa142e0e783f1ee1c8d9e6",
+          "6ab3bbdd4e69e9dc816b8155",
+          "6ab3bbe04e69e9dc816b81a5",
+          "6ab3bbe34e69e9dc816b81f9",
+          "6ab3bbe64e69e9dc816b824e",
+          "6ab3bbe84e69e9dc816b82a3",
+          "6ab3bbeb4e69e9dc816b82f4",
+          "6ab3bbee4e69e9dc816b8345",
+          "6ab3bbf04e69e9dc816b8398",
+          "6ab3bbf34e69e9dc816b83ef",
+          "6ab3bbf64e69e9dc816b843b",
+          "6ab3bbf94e69e9dc816b8490",
+          "6ab3bbfc4e69e9dc816b84e3",
+          "6ab3bbff4e69e9dc816b8532",
+          "6ab3bc024e69e9dc816b8580",
+          "6ab3bc054e69e9dc816b85ce",
+          "6ab3bc084e69e9dc816b861c",
+          "6ab3bc0c4e69e9dc816b866a",
+          "6ab3bc0f4e69e9dc816b86b6",
+          "6ab3bc124e69e9dc816b8706",
+          "6ab3bc154e69e9dc816b8754",
+          "6abc8cfbef564f045c45d36b",
+          "6abc8cfeef564f045c45d3c0",
+          "6abc8d00ef564f045c45d417",
+          "6abc8d03ef564f045c45d469",
+          "6abc8d06ef564f045c45d4b8",
+          "6abc8d09ef564f045c45d50a",
+          "6abc8d0cef564f045c45d55f",
+          "6abc8d0fef564f045c45d5b5",
+          "6abc8d11ef564f045c45d605",
+          "6abc8d14ef564f045c45d653",
+          "6abc8d17ef564f045c45d6a4",
+          "6abc8d1aef564f045c45d6f5",
+          "6abc8d1def564f045c45d747",
+          "6abc8d21ef564f045c45d79c",
+          "6abc8d24ef564f045c45d7ef",
+          "6abc8d27ef564f045c45d843",
+          "6abc8d2aef564f045c45d897",
+          "6abc8d2def564f045c45d8e2",
+          "6abc8d31ef564f045c45d942",
+          "6abc8d34ef564f045c45d994",
+          "6ac62bbb1c6ecb6011bc0870",
+          "6ac62bbe1c6ecb6011bc08bf",
+          "6ac62bc11c6ecb6011bc091b",
+          "6ac62bc51c6ecb6011bc0974",
+          "6ac62bc81c6ecb6011bc09c4",
+          "6ac62bcb1c6ecb6011bc0a19",
+          "6ac62bce1c6ecb6011bc0a6c",
+          "6ac62bd21c6ecb6011bc0ac0",
+          "6ac62bd61c6ecb6011bc0b1c",
+          "6ac62bd91c6ecb6011bc0b68",
+          "6ac62bdd1c6ecb6011bc0bb7",
+          "6ac62be01c6ecb6011bc0c08",
+          "6ac62be41c6ecb6011bc0c59",
+          "6ac62be71c6ecb6011bc0cb1",
+          "6ac62beb1c6ecb6011bc0d04",
+          "6ac62bef1c6ecb6011bc0d55",
+          "6ac62bf31c6ecb6011bc0daa",
+          "6ac62bf71c6ecb6011bc0dfb",
+          "6ac62bfb1c6ecb6011bc0e50",
+          "6ac62bfe1c6ecb6011bc0ea0",
+          "6acef491f43f6882497ade3f",
+          "6acef5fd88fe6e82430bbb27",
+          "6acef65488fe6e82430bbcfa",
+          "6acef68ff43f6882497ae038",
+          "6acef6aef43f6882497ae208",
+          "6acef72788fe6e82430bbee8",
+          "6acef7bcf43f6882497ae42b",
+          "6acef833f43f6882497ae5fc",
+          "6acef8c888fe6e82430bc0de",
+          "6acef9b888fe6e82430bc44e",
+          "6acefa8df43f6882497ae7e0",
+          "6acefaa9f43f6882497ae9b2",
+          "6acefb4088fe6e82430bc7b7",
+          "6acefc1088fe6e82430bc999",
+          "6acefc2ef43f6882497aed20",
+          "6acefc4af43f6882497aeefd",
+          "6acefc4df43f6882497aef51",
+          "6acefdd288fe6e82430bcb83",
+          "6acefec5f43f6882497af38f",
+          "6aceff1af43f6882497af563",
+          "6ad83ab8fe7c4e5b0dd4f4d3",
+          "6ad83abbfe7c4e5b0dd4f51f",
+          "6ad83abefe7c4e5b0dd4f56e",
+          "6ad83ac1fe7c4e5b0dd4f5b7",
+          "6ad83ac4fe7c4e5b0dd4f60b",
+          "6ad83ac6fe7c4e5b0dd4f65a",
+          "6ad83acbfe7c4e5b0dd4f78a",
+          "6ad83acffe7c4e5b0dd4f7df",
+          "6ad83ad2fe7c4e5b0dd4f82b",
+          "6ad83ad6fe7c4e5b0dd4f8bb",
+          "6ad83ad9fe7c4e5b0dd4f911",
+          "6ad83adcfe7c4e5b0dd4f968",
+          "6ad83ae1fe7c4e5b0dd4f9b7",
+          "6ad83ae4fe7c4e5b0dd4fa02",
+          "6ad83aeafe7c4e5b0dd4fb39",
+          "6ad83aeefe7c4e5b0dd4fb85",
+          "6ad83af2fe7c4e5b0dd4fbd3",
+          "6ad83af6fe7c4e5b0dd4fc29",
+          "6ad83afafe7c4e5b0dd4fc7b",
+          "6ad83afefe7c4e5b0dd4fcca",
+          "6ae16e8421c139a776bceced",
+          "6ae16e8721c139a776bced3f",
+          "6ae16e8a21c139a776bced95",
+          "6ae16e8d21c139a776bcede7",
+          "6ae16e9121c139a776bcee31",
+          "6ae16e9521c139a776bcee8c",
+          "6ae16e9821c139a776bceedb",
+          "6ae16e9c21c139a776bcef2f",
+          "6ae16ea121c139a776bcef87",
+          "6ae16ea421c139a776bcefd3",
+          "6ae16ea821c139a776bcf021",
+          "6ae16eac21c139a776bcf071",
+          "6ae16eda5fb404a76972eee0",
+          "6ae16f1621c139a776bcf257",
+          "6ae16f1921c139a776bcf2a5",
+          "6ae16f6f5fb404a76972f0bb",
+          "6ae171322db591a76f50f817",
+          "6ae1727b2db591a76f50f9f9",
+          "6ae1727e2db591a76f50fa4a",
+          "6ae173c65fb404a76972f2c1"
+        ],
+        "dateEnd": "2027-04-27T00:00:00.000Z"
+      }
+    ],
+    "standingsBowlerDivisions": [],
+    "standingsDivisions": [],
+    "oppPerWeek": 2,
+    "diffMultiShift": false,
+    "useMultiStartLane": false,
+    "isMultiShift": false,
+    "pbaEventRegions": [],
+    "pbaEventType": 0,
+    "fullPointsAmongTeammates": false,
+    "pbaTier": 1,
+    "pbaMemberType": 2,
+    "pbaReqVerification": false,
+    "pbaRegFee": 0,
+    "pbaHasRegFee": false,
+    "pbaMonthlyFee": 0,
+    "pbaAnnualFee": 0,
+    "pbaMemberReg": false,
+    "pbaEvent": false,
+    "proAm": false,
+    "onlyBowleroTournament": false,
+    "maxEntrySquad": 200,
+    "tournamentMessage": "",
+    "tournamentDetails": "",
+    "potentialPrize": 0,
+    "allowsTournament": false,
+    "allowsShootout": false,
+    "splitDoubles": false,
+    "allowBrackets": true,
+    "isVirtual": false,
+    "teams": [
+      {
+        "_id": "6a82316f249ddaa00e029803",
+        "name": "Leave Your Mark Pro Shop",
+        "vacants": [
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a82316f249ddaa00e029806",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a82316f249ddaa00e029805",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a82316f249ddaa00e029808",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a82316f249ddaa00e029807",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a82316f249ddaa00e029804",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823171249ddaa00e02981f",
+        "name": "The Bowler Depot",
+        "vacants": [
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a823171249ddaa00e029823",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a823171249ddaa00e029824",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a823171249ddaa00e029822",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a823171249ddaa00e029821",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a823171249ddaa00e029820",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823174249ddaa00e02983e",
+        "name": "Luxury Box Sports",
+        "vacants": [
+          {
+            "_id": "6a823174249ddaa00e029841",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a823174249ddaa00e02983f",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a823174249ddaa00e029843",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823174249ddaa00e029842",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823174249ddaa00e029840",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823175249ddaa00e02985d",
+        "name": "Light 'Em Up",
+        "vacants": [
+          {
+            "_id": "6a823175249ddaa00e029862",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823175249ddaa00e029861",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823175249ddaa00e029860",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823175249ddaa00e02985f",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823175249ddaa00e02985e",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823178249ddaa00e02987c",
+        "name": "Hot XXX",
+        "vacants": [
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a823178249ddaa00e02987f",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a823178249ddaa00e029881",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a823178249ddaa00e029880",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a823178249ddaa00e02987e",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a823178249ddaa00e02987d",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82317a249ddaa00e029898",
+        "name": "Denver Vibrator",
+        "vacants": [
+          {
+            "_id": "6a82317a249ddaa00e02989a",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a82317a249ddaa00e02989d",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82317a249ddaa00e02989c",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82317a249ddaa00e02989b",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82317a249ddaa00e029899",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82317c249ddaa00e0298b4",
+        "name": "Bowlscore.com",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a82317c249ddaa00e0298b9",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a82317c249ddaa00e0298b8",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a82317c249ddaa00e0298b7",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a82317c249ddaa00e0298b6",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a82317c249ddaa00e0298b5",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82317e249ddaa00e0298d0",
+        "name": "StarDust Lounge",
+        "vacants": [
+          {
+            "_id": "6a82317e249ddaa00e0298d5",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82317e249ddaa00e0298d4",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82317e249ddaa00e0298d3",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82317e249ddaa00e0298d2",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82317e249ddaa00e0298d1",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823181249ddaa00e0298ec",
+        "name": "PIN-A-TRATORS",
+        "vacants": [
+          {
+            "_id": "6a823181249ddaa00e0298f1",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823181249ddaa00e0298f0",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823181249ddaa00e0298ef",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823181249ddaa00e0298ee",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823181249ddaa00e0298ed",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823183249ddaa00e029905",
+        "name": "Chicken Nuggies",
+        "vacants": [
+          {
+            "_id": "6a823183249ddaa00e02990a",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a823183249ddaa00e029907",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a823183249ddaa00e029906",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a823183249ddaa00e029909",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823183249ddaa00e029908",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823185249ddaa00e029924",
+        "name": "Matrix Auto Body",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a823185249ddaa00e029929",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a823185249ddaa00e029928",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a823185249ddaa00e029927",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a823185249ddaa00e029926",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a823185249ddaa00e029925",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823187249ddaa00e02993d",
+        "name": "Apex Auto Glass",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a823187249ddaa00e029942",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a823187249ddaa00e029941",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a823187249ddaa00e029940",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a823187249ddaa00e02993f",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a823187249ddaa00e02993e",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82318b249ddaa00e029959",
+        "name": "Motiv",
+        "vacants": [
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a82318b249ddaa00e02995d",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a82318b249ddaa00e02995a",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a82318b249ddaa00e02995e",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a82318b249ddaa00e02995c",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a82318b249ddaa00e02995b",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82318e249ddaa00e029978",
+        "name": "Throw A Better Ball",
+        "vacants": [
+          {
+            "_id": "6a82318e249ddaa00e02997d",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82318e249ddaa00e02997c",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82318e249ddaa00e02997b",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82318e249ddaa00e02997a",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82318e249ddaa00e029979",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823191249ddaa00e029994",
+        "name": "Lamorie Painting",
+        "vacants": [
+          {
+            "_id": "6a823191249ddaa00e029995",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a823191249ddaa00e029999",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823191249ddaa00e029998",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823191249ddaa00e029997",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823191249ddaa00e029996",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823194249ddaa00e0299b3",
+        "name": "J. Crew",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a823194249ddaa00e0299b8",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a823194249ddaa00e0299b7",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a823194249ddaa00e0299b6",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a823194249ddaa00e0299b5",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a823194249ddaa00e0299b4",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a823197249ddaa00e0299d2",
+        "name": "SASQUATCHED",
+        "vacants": [
+          {
+            "_id": "6a823197249ddaa00e0299d7",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823197249ddaa00e0299d6",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823197249ddaa00e0299d5",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823197249ddaa00e0299d4",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a823197249ddaa00e0299d3",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82319a249ddaa00e0299f1",
+        "name": "Mother Chuckers",
+        "vacants": [
+          {
+            "_id": "6a82319a249ddaa00e0299f6",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a82319a249ddaa00e0299f5",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82319a249ddaa00e0299f4",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82319a249ddaa00e0299f3",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82319a249ddaa00e0299f2",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82319d249ddaa00e029a10",
+        "name": "Corpse Crew",
+        "vacants": [
+          {
+            "_id": "6a82319d249ddaa00e029a15",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a82319d249ddaa00e029a13",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a82319d249ddaa00e029a12",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a82319d249ddaa00e029a14",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82319d249ddaa00e029a11",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a82319f249ddaa00e029a26",
+        "name": "Panetta Heating",
+        "vacants": [
+          {
+            "_id": "6a82319f249ddaa00e029a2b",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a82319f249ddaa00e029a27",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a82319f249ddaa00e029a2a",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82319f249ddaa00e029a29",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a82319f249ddaa00e029a28",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231a2249ddaa00e029a42",
+        "name": "Better Than Gold",
+        "vacants": [
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231a2249ddaa00e029a46",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231a2249ddaa00e029a47",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231a2249ddaa00e029a45",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231a2249ddaa00e029a44",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231a2249ddaa00e029a43",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231a4249ddaa00e029a5e",
+        "name": "Mike Litzwet",
+        "vacants": [
+          {
+            "_id": "6a8231a4249ddaa00e029a63",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a8231a4249ddaa00e029a62",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231a4249ddaa00e029a61",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231a4249ddaa00e029a60",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231a4249ddaa00e029a5f",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231a7249ddaa00e029a7a",
+        "name": "No Llores",
+        "vacants": [
+          {
+            "_id": "6a8231a7249ddaa00e029a7d",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a8231a7249ddaa00e029a7f",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231a7249ddaa00e029a7e",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231a7249ddaa00e029a7c",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231a7249ddaa00e029a7b",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231aa249ddaa00e029a99",
+        "name": "Rocky Mountain High",
+        "vacants": [
+          {
+            "_id": "6a8231aa249ddaa00e029a9d",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a8231aa249ddaa00e029a9b",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a8231aa249ddaa00e029a9a",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a8231aa249ddaa00e029a9e",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231aa249ddaa00e029a9c",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231ad249ddaa00e029ab6",
+        "name": "SHARKS",
+        "vacants": [
+          {
+            "_id": "6a8231ad249ddaa00e029abb",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ad249ddaa00e029aba",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ad249ddaa00e029ab9",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ad249ddaa00e029ab8",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ad249ddaa00e029ab7",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231b1249ddaa00e029ad5",
+        "name": "Aftermath",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231b1249ddaa00e029ada",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231b1249ddaa00e029ad9",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231b1249ddaa00e029ad8",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231b1249ddaa00e029ad7",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231b1249ddaa00e029ad6",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231b3249ddaa00e029af1",
+        "name": "Buzz Roofing",
+        "vacants": [
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231b3249ddaa00e029af4",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231b3249ddaa00e029af6",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231b3249ddaa00e029af5",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231b3249ddaa00e029af3",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231b3249ddaa00e029af2",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231b5249ddaa00e029b0a",
+        "name": "Last Minute",
+        "vacants": [
+          {
+            "_id": "6a8231b5249ddaa00e029b0f",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b5249ddaa00e029b0e",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b5249ddaa00e029b0d",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b5249ddaa00e029b0c",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b5249ddaa00e029b0b",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231b7249ddaa00e029b29",
+        "name": "Over the Line",
+        "vacants": [
+          {
+            "_id": "6a8231b7249ddaa00e029b2e",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b7249ddaa00e029b2d",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b7249ddaa00e029b2c",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b7249ddaa00e029b2b",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231b7249ddaa00e029b2a",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231ba249ddaa00e029b48",
+        "name": "Sloppy Hookers",
+        "vacants": [
+          {
+            "_id": "6a8231ba249ddaa00e029b4d",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ba249ddaa00e029b4c",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ba249ddaa00e029b4b",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ba249ddaa00e029b4a",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231ba249ddaa00e029b49",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231be249ddaa00e029b64",
+        "name": "The Money Team",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231be249ddaa00e029b69",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231be249ddaa00e029b68",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231be249ddaa00e029b67",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231be249ddaa00e029b66",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231be249ddaa00e029b65",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231c1249ddaa00e029b86",
+        "name": "Multiple Scorgasms",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231c1249ddaa00e029b8b",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231c1249ddaa00e029b87",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231c1249ddaa00e029b8a",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231c1249ddaa00e029b89",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231c1249ddaa00e029b88",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231c3249ddaa00e029ba5",
+        "name": "Rocky Mountain Tap & Garden",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231c3249ddaa00e029baa",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231c3249ddaa00e029ba9",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231c3249ddaa00e029ba8",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231c3249ddaa00e029ba7",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231c3249ddaa00e029ba6",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231c6249ddaa00e029bc1",
+        "name": "THE DEN",
+        "vacants": [
+          {
+            "_id": "6a8231c6249ddaa00e029bc6",
+            "customPos": 0,
+            "vacantId": 0,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a8231c6249ddaa00e029bc3",
+            "customPos": 3,
+            "vacantId": 3,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "_id": "6a8231c6249ddaa00e029bc5",
+            "customPos": 1,
+            "vacantId": 1,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231c6249ddaa00e029bc4",
+            "customPos": 2,
+            "vacantId": 2,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "_id": "6a8231c6249ddaa00e029bc2",
+            "customPos": 4,
+            "vacantId": 4,
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231c9249ddaa00e029bda",
+        "name": "Kamikaze Keglers",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231c9249ddaa00e029bdf",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231c9249ddaa00e029bde",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231c9249ddaa00e029bdd",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231c9249ddaa00e029bdc",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231c9249ddaa00e029bdb",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231cc249ddaa00e029bf6",
+        "name": "Busting Nuts",
+        "vacants": [
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231cc249ddaa00e029bf8",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231cc249ddaa00e029bf7",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231cc249ddaa00e029bfb",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231cc249ddaa00e029bfa",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231cc249ddaa00e029bf9",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231cf249ddaa00e029c15",
+        "name": "LET'S GET IT!",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231cf249ddaa00e029c1a",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231cf249ddaa00e029c19",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231cf249ddaa00e029c18",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231cf249ddaa00e029c17",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231cf249ddaa00e029c16",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231d3249ddaa00e029c31",
+        "name": "Suicide Kings",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231d3249ddaa00e029c36",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": true
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231d3249ddaa00e029c35",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231d3249ddaa00e029c34",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231d3249ddaa00e029c33",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231d3249ddaa00e029c32",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231d5249ddaa00e029c4d",
+        "name": "Crippled Khaos",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231d5249ddaa00e029c52",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231d5249ddaa00e029c51",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231d5249ddaa00e029c50",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231d5249ddaa00e029c4f",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231d5249ddaa00e029c4e",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      },
+      {
+        "_id": "6a8231d7249ddaa00e029c63",
+        "name": "Wheelhouse",
+        "vacants": [
+          {
+            "vacantId": 0,
+            "customPos": 0,
+            "_id": "6a8231d7249ddaa00e029c68",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 1,
+            "customPos": 1,
+            "_id": "6a8231d7249ddaa00e029c67",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 2,
+            "customPos": 2,
+            "_id": "6a8231d7249ddaa00e029c66",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 3,
+            "customPos": 3,
+            "_id": "6a8231d7249ddaa00e029c65",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          },
+          {
+            "vacantId": 4,
+            "customPos": 4,
+            "_id": "6a8231d7249ddaa00e029c64",
+            "isJunior": false,
+            "isFemale": false,
+            "isCustomPos": false
+          }
+        ]
+      }
+    ],
+    "gamesPerWeek": 3,
+    "splitGender": false,
+    "splitJunior": false,
+    "oneTeamPairLane": false,
+    "flipGameLane": false,
+    "moveGameLane": false,
+    "skipPairLane": false,
+    "switchDivEvery": 5,
+    "multiEntryLimit": 1,
+    "allowMultiEntryUnlimited": false,
+    "allowMultiEntry": false,
+    "liveStandingsDarkMode": false,
+    "liveStandingsHideAvatar": false,
+    "hasLiveStandings": false,
+    "user_team_ids": {
+      "6a8231d7249ddaa00e029c63": 36,
+      "6a8231d5249ddaa00e029c4d": 31,
+      "6a8231d3249ddaa00e029c31": 19,
+      "6a8231cf249ddaa00e029c15": 35,
+      "6a8231cc249ddaa00e029bf6": 34,
+      "6a8231c9249ddaa00e029bda": 23,
+      "6a8231c6249ddaa00e029bc1": 38,
+      "6a8231c3249ddaa00e029ba5": 37,
+      "6a8231c1249ddaa00e029b86": 40,
+      "6a8231be249ddaa00e029b64": 7,
+      "6a8231ba249ddaa00e029b48": 22,
+      "6a8231b7249ddaa00e029b29": 18,
+      "6a8231b5249ddaa00e029b0a": 16,
+      "6a8231b3249ddaa00e029af1": 8,
+      "6a8231b1249ddaa00e029ad5": 12,
+      "6a8231ad249ddaa00e029ab6": 25,
+      "6a8231aa249ddaa00e029a99": 26,
+      "6a8231a7249ddaa00e029a7a": 27,
+      "6a8231a4249ddaa00e029a5e": 39,
+      "6a8231a2249ddaa00e029a42": 20,
+      "6a82319f249ddaa00e029a26": 21,
+      "6a82319d249ddaa00e029a10": 28,
+      "6a82319a249ddaa00e0299f1": 11,
+      "6a823197249ddaa00e0299d2": 13,
+      "6a823194249ddaa00e0299b3": 9,
+      "6a823191249ddaa00e029994": 24,
+      "6a82318e249ddaa00e029978": 4,
+      "6a82318b249ddaa00e029959": 2,
+      "6a823187249ddaa00e02993d": 29,
+      "6a823185249ddaa00e029924": 14,
+      "6a823183249ddaa00e029905": 17,
+      "6a823181249ddaa00e0298ec": 5,
+      "6a82317e249ddaa00e0298d0": 10,
+      "6a82317c249ddaa00e0298b4": 1,
+      "6a82317a249ddaa00e029898": 30,
+      "6a823178249ddaa00e02987c": 6,
+      "6a823175249ddaa00e02985d": 32,
+      "6a823174249ddaa00e02983e": 33,
+      "6a823171249ddaa00e02981f": 15,
+      "6a82316f249ddaa00e029803": 3,
+      "6a84b109098097666e7d51b2": 7999
+    },
+    "sponsors": [],
+    "centerInfo": {
+      "_id": "62d98f124cfb92201338336a",
+      "logo": "https://leaguepals-images.s3.us-east-1.amazonaws.com/Lucky+Strike.png",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "bowlMor": true,
+      "isMainEventCenter": false
+    },
+    "dateStart": "2026-08-18T00:00:00.000Z",
+    "dateEnd": "2027-04-27T00:00:00.000Z",
+    "seasonType": "Full Season"
+  }
+}

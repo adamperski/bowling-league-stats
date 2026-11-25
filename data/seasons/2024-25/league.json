@@ -1,0 +1,4088 @@
+{
+  "data": {
+    "_id": "66b407e25dbb6ac34d152150",
+    "againstBlindScore": 10,
+    "againstBlindScorePct": 0,
+    "seasonName": "winter",
+    "lockWeek": 4,
+    "teamsOnLane": 2,
+    "dues": 0,
+    "entryFee": 0,
+    "entryFeeLineage": 0,
+    "leagueType": "Mixed",
+    "lineage": 0,
+    "minGamesforAvg": 12,
+    "name": "Pioneer I 2024  2025",
+    "numLanes": 40,
+    "numPlayers": 5,
+    "paymentWeeks": 36,
+    "previousGamesMin": 21,
+    "positionRounds": "Every other night",
+    "sanction": 1,
+    "startingLane": "1",
+    "time": "6:45 PM",
+    "timeMeeting": "6:00 PM",
+    "weekday": "Tuesday",
+    "startingLaneShift": "1",
+    "teamsOnShift": 10,
+    "totalShift": 2,
+    "prizeFundsInd": {
+      "topTeamSeriesHandicap": {
+        "team": []
+      },
+      "topTeamSeries": {
+        "team": []
+      },
+      "topTeamGameHandicap": {
+        "team": []
+      },
+      "topTeamGame": {
+        "team": []
+      },
+      "topIndividualSeriesHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualSeries": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualPoints": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGameHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGame": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topImprovedAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      }
+    },
+    "prizeFundsDivInd": {
+      "topTeamSeriesHandicap": {
+        "team": []
+      },
+      "topTeamSeries": {
+        "team": []
+      },
+      "topTeamGameHandicap": {
+        "team": []
+      },
+      "topTeamGame": {
+        "team": []
+      },
+      "topIndividualSeriesHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualSeries": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualPoints": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGameHandicap": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topIndividualGame": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topImprovedAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      },
+      "topAvgs": {
+        "all": [],
+        "adult": [],
+        "junior": [],
+        "male": [],
+        "female": [],
+        "adultMale": [],
+        "adultFemale": [],
+        "juniorMale": [],
+        "juniorFemale": []
+      }
+    },
+    "standingsQualifyList": [
+      {
+        "name": "High Series Scratch",
+        "id": "topIndividualSeries"
+      },
+      {
+        "name": "High Games Scratch",
+        "id": "topIndividualGame"
+      },
+      {
+        "name": "High Series Handicap",
+        "id": "topIndividualSeriesHandicap"
+      },
+      {
+        "name": "High Games Handicap",
+        "id": "topIndividualGameHandicap"
+      }
+    ],
+    "NumberOfSplit": 1,
+    "fileName": "Pion-66b407-LP",
+    "cutLineName": "",
+    "isMultiEntryFee": false,
+    "center": "62d98f124cfb92201338336a",
+    "substitutes": [
+      {
+        "_id": "62fc6b936d896de1442c2c31",
+        "sub": "62fc6b8d06521ca104a18caf",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          927
+        ]
+      },
+      {
+        "_id": "630e79a9b7e7194fdbb674fb",
+        "sub": "630ac27681e7e3c15a833bd3",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          936
+        ]
+      },
+      {
+        "_id": "630e79a9b7e7194fdbb674f9",
+        "sub": "630ac4231a93b4732d6e25a5",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          934
+        ]
+      },
+      {
+        "_id": "63181829696991c11453dcce",
+        "sub": "63181735e9bcaf7b04769519",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          942
+        ]
+      },
+      {
+        "_id": "63181829696991c11453dcca",
+        "sub": "6318173ae9bcaf7b0476951c",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          938
+        ]
+      },
+      {
+        "_id": "63181829696991c11453dccd",
+        "sub": "631817d8e1d37c9c04d7bd58",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          941
+        ]
+      },
+      {
+        "_id": "63181829696991c11453dccb",
+        "sub": "631817e6e1d37c9c04d7bd5b",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          939
+        ]
+      },
+      {
+        "_id": "63181829696991c11453dccc",
+        "sub": "631817fbe1d37c9c04d7bd5e",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          940
+        ]
+      },
+      {
+        "_id": "63a26e79572b56e415070ee6",
+        "sub": "63a2009d556a1404241ebe50",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          948
+        ]
+      },
+      {
+        "_id": "63aa3c49ed72b03df23d2b1b",
+        "sub": "63aa383ef7259d630d428c56",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          953
+        ]
+      },
+      {
+        "_id": "63aa3c49ed72b03df23d2b18",
+        "sub": "63aa3a8fb969f4123b2b8622",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          950
+        ]
+      },
+      {
+        "_id": "63aa3c49ed72b03df23d2b19",
+        "sub": "63aa3aafb969f4123b2b8626",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          951
+        ]
+      },
+      {
+        "_id": "63d9ab0ee98f42f6e58a87f5",
+        "sub": "63d9a6cb7a2b636613cba05a",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          959
+        ]
+      },
+      {
+        "_id": "63d9ab0ee98f42f6e58a87f6",
+        "sub": "63d9a6d83d47f63e048856ea",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          960
+        ]
+      },
+      {
+        "_id": "63d9ab0ee98f42f6e58a87f4",
+        "sub": "63d9a6df7a2b636613cba05d",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          958
+        ]
+      },
+      {
+        "_id": "63d9ab0ee98f42f6e58a87f2",
+        "sub": "63d9a6ec7a2b636613cba060",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          956
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a33",
+        "sub": "64d2bb19a9304a7d2dc031a8",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1002
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a15",
+        "sub": "64d2bb20a9304a7d2dc031c6",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          972
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a11",
+        "sub": "64d2bb53a9304a7d2dc031cc",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          968
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a58",
+        "sub": "64d2bb67a9304a7d2dc031d0",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1039
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a12",
+        "sub": "64d2bb88a9304a7d2dc031d6",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          969
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a0f",
+        "sub": "64d2bbd9a9304a7d2dc031e8",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          966
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a4d",
+        "sub": "64d2bbdca9304a7d2dc031eb",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1028
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a6c",
+        "sub": "64d2bc1ca9304a7d2dc031ee",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1059
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a1a",
+        "sub": "64d2bc29a9304a7d2dc031f4",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          977
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a31",
+        "sub": "64d2bc2fa9304a7d2dc031f7",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1000
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a19",
+        "sub": "64d2bc44a9304a7d2dc03200",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          976
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a67",
+        "sub": "64d2bc6da9304a7d2dc03206",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1054
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a1b",
+        "sub": "64d2bc75a9304a7d2dc03209",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          978
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a66",
+        "sub": "64d2bd1a4be126353580d0d7",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1053
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a74",
+        "sub": "64d2be01549e41777edd76c0",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1067
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a22",
+        "sub": "64d2be0f549e41777edd76c3",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          985
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a54",
+        "sub": "64d2be17549e41777edd76ca",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1035
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a6e",
+        "sub": "64d2be1ab18003c033ee1a60",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1061
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a57",
+        "sub": "64d2be1c549e41777edd76cd",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1038
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a2a",
+        "sub": "64d2be20549e41777edd76d0",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          993
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a26",
+        "sub": "64d2be22549e41777edd76d3",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          989
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a72",
+        "sub": "64d2be24549e41777edd76d6",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1065
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a37",
+        "sub": "64d2be62549e41777edd76dc",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1006
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a36",
+        "sub": "64d2be6d549e41777edd76df",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1005
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a13",
+        "sub": "64d2be73549e41777edd76e2",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          970
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a6a",
+        "sub": "64d2be96549e41777edd76e5",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1057
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a2c",
+        "sub": "64d2bea26057fa860b5ba3ed",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          995
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a55",
+        "sub": "64d2bea5549e41777edd76eb",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1036
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a3d",
+        "sub": "64d2bec7549e41777edd76ee",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1012
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a62",
+        "sub": "64d2bedd549e41777edd76f4",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1049
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a50",
+        "sub": "64d2bee6549e41777edd76fd",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1031
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a24",
+        "sub": "64d2bee9549e41777edd7700",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          987
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a63",
+        "sub": "64d2beec549e41777edd7703",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1050
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a53",
+        "sub": "64d2bf33549e41777edd7709",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1034
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a28",
+        "sub": "64d2bf37549e41777edd770c",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          991
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a5f",
+        "sub": "64d2bf5632cac8440cf042fa",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1046
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a76",
+        "sub": "64d2bf5d32cac8440cf04300",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1069
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a30",
+        "sub": "64d2bf7d32cac8440cf04303",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          999
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a71",
+        "sub": "64d2bfb94be126353580d100",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1064
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a5e",
+        "sub": "64d2bfca4be126353580d106",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1045
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a60",
+        "sub": "64d2bfdf133a546f2c868365",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1047
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a3b",
+        "sub": "64d2c0074be126353580d10c",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1010
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a17",
+        "sub": "64d2c00d4be126353580d10f",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          974
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a0e",
+        "sub": "64d2c012133a546f2c868371",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          965
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a21",
+        "sub": "64d2c023133a546f2c868374",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          984
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a4b",
+        "sub": "64d2c027133a546f2c868377",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1026
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a3e",
+        "sub": "64d2c02a4be126353580d114",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1013
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a27",
+        "sub": "64d2c0304be126353580d11a",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          990
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a1f",
+        "sub": "64d2c0324be126353580d11d",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          982
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a6f",
+        "sub": "64d2c0554be126353580d120",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1062
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a38",
+        "sub": "64d2c059133a546f2c86837a",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1007
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a46",
+        "sub": "64d2c0814be126353580d129",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1021
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a25",
+        "sub": "64d2c0894be126353580d12c",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          988
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a0c",
+        "sub": "64d2c08d133a546f2c86837d",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          963
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a47",
+        "sub": "64d2c0aa133a546f2c868380",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1022
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a4a",
+        "sub": "64d2c0ac133a546f2c868383",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1025
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a5d",
+        "sub": "64d2c0e64be126353580d152",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1044
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a56",
+        "sub": "64d2c1074be126353580d171",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1037
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a23",
+        "sub": "64d2c1174be126353580d174",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          986
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a6d",
+        "sub": "64d2c11c4be126353580d177",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1060
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a34",
+        "sub": "64d2c1314be126353580d17c",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1003
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a65",
+        "sub": "64d2c1734be126353580d184",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1052
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a5c",
+        "sub": "64d2c1764be126353580d187",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1043
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a44",
+        "sub": "64d2c17b4be126353580d18d",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1019
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a10",
+        "sub": "64d2c17dd2b36fdf0512e96c",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          967
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a1c",
+        "sub": "64d2c18e68af410e39756ceb",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          979
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a0d",
+        "sub": "64d2c191b9fb7b875034e7dd",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          964
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a70",
+        "sub": "64d2c1bcf79631de7f0f33c8",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1063
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a45",
+        "sub": "64d2c26bf79631de7f0f33db",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1020
+        ]
+      },
+      {
+        "_id": "64da9516bab34b78fa265a41",
+        "sub": "64d7fe81133a546f2c86a7c0",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1016
+        ]
+      },
+      {
+        "_id": "64dc5859065a518352e1739d",
+        "sub": "64dc58537026c1c00fd82f25",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1071
+        ]
+      },
+      {
+        "_id": "64e541481d3461fd15ef936f",
+        "sub": "64dd0a507026c1c00fd83577",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1072
+        ]
+      },
+      {
+        "_id": "64eed2cdab88bafc71c46532",
+        "sub": "64eed2c7b1d38523211bfbee",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1075
+        ]
+      },
+      {
+        "_id": "650a1df155f30c183e3cf8f6",
+        "sub": "650a09600a2c0fb22e9d3917",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1084
+        ]
+      },
+      {
+        "_id": "65135cfea58c40036b595463",
+        "sub": "650bdee6f8f1cfde536a2472",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1085
+        ]
+      },
+      {
+        "_id": "6525ce3ee706bad4cc3442e9",
+        "sub": "65257cbada2c2abf4e732c49",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1086
+        ]
+      },
+      {
+        "_id": "65415ce5178a44aa76b59006",
+        "sub": "6538a41da120bf683def058f",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1087
+        ]
+      },
+      {
+        "_id": "655401e8ca6becb19c0cf735",
+        "sub": "654b26875c7ed66b5573dbb5",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1089
+        ]
+      },
+      {
+        "_id": "65545d87dd50d5693f466061",
+        "sub": "65545d0aa3d80b0c6a2b2078",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1090
+        ]
+      },
+      {
+        "_id": "656fb339fb238e76b5dfd4e4",
+        "sub": "656eb705f2da013e3184b978",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1091
+        ]
+      },
+      {
+        "_id": "65795405f7b4d14d4cca403c",
+        "sub": "657950a28bdbb5c1493bc5ef",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1092
+        ]
+      },
+      {
+        "_id": "65795405f7b4d14d4cca403d",
+        "sub": "657952af9bc5a5d46f83cf62",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1093
+        ]
+      },
+      {
+        "_id": "65d52e5e4127a9cb79eeb65f",
+        "sub": "65cc582bbbc8f87f531dd0ff",
+        "user_team_id": [
+          0
+        ],
+        "user_league_id": [
+          1094
+        ]
+      },
+      {
+        "user_league_id": [
+          1095
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a255",
+        "sub": "66b42783c299a21977d1f6e3"
+      },
+      {
+        "user_league_id": [
+          1096
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a256",
+        "sub": "66b904889a4b0f541be2730d"
+      },
+      {
+        "user_league_id": [
+          1097
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a257",
+        "sub": "66b42ae1707547530644cc80"
+      },
+      {
+        "user_league_id": [
+          1098
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a258",
+        "sub": "66bbeae2db2dac4d4fc5b124"
+      },
+      {
+        "user_league_id": [
+          1099
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a259",
+        "sub": "66b91197314c1ef91899af7e"
+      },
+      {
+        "user_league_id": [
+          1100
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a25a",
+        "sub": "66bbdaecc58f9303670a2ea2"
+      },
+      {
+        "user_league_id": [
+          1101
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a25b",
+        "sub": "66bbe245082e4b6c2cfba12c"
+      },
+      {
+        "user_league_id": [
+          1102
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a25c",
+        "sub": "66b9059f7dc822054db131ee"
+      },
+      {
+        "user_league_id": [
+          1103
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a25d",
+        "sub": "66bbdb7e082e4b6c2cfb9f1b"
+      },
+      {
+        "user_league_id": [
+          1104
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a25e",
+        "sub": "66bbd73f082e4b6c2cfb9e6e"
+      },
+      {
+        "user_league_id": [
+          1105
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a25f",
+        "sub": "66b90ce9996d77b7069bef7b"
+      },
+      {
+        "user_league_id": [
+          1106
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a260",
+        "sub": "66bbe80da345c4934620be7e"
+      },
+      {
+        "user_league_id": [
+          1107
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a261",
+        "sub": "66bbe0ef9964d4e61d86bbdc"
+      },
+      {
+        "user_league_id": [
+          1108
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a262",
+        "sub": "66bbe0ecc54c710131f72c7c"
+      },
+      {
+        "user_league_id": [
+          1109
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a263",
+        "sub": "66b904c49a4b0f541be27319"
+      },
+      {
+        "user_league_id": [
+          1110
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a264",
+        "sub": "66bbe9b72726d48c5c60fbaf"
+      },
+      {
+        "user_league_id": [
+          1111
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a265",
+        "sub": "66b911a4314c1ef91899af81"
+      },
+      {
+        "user_league_id": [
+          1112
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a266",
+        "sub": "66b905b62726d48c5c60ce5a"
+      },
+      {
+        "user_league_id": [
+          1113
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a267",
+        "sub": "66b905bb2726d48c5c60ce5d"
+      },
+      {
+        "user_league_id": [
+          1114
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a268",
+        "sub": "66b905a87dc822054db131f1"
+      },
+      {
+        "user_league_id": [
+          1115
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a269",
+        "sub": "66b425edfdf76a2f7ba7a17f"
+      },
+      {
+        "user_league_id": [
+          1116
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a26a",
+        "sub": "66bbe811a345c4934620be81"
+      },
+      {
+        "user_league_id": [
+          1117
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a26b",
+        "sub": "66b42b32707547530644cc8e"
+      },
+      {
+        "user_league_id": [
+          1118
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a26c",
+        "sub": "66bbe0e8c54c710131f72c79"
+      },
+      {
+        "user_league_id": [
+          1119
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a26d",
+        "sub": "66bbd8c99a4b0f541be295ee"
+      },
+      {
+        "user_league_id": [
+          1120
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a26e",
+        "sub": "66b90ea99a4b0f541be27375"
+      },
+      {
+        "user_league_id": [
+          1121
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a26f",
+        "sub": "66b90d07996d77b7069bef81"
+      },
+      {
+        "user_league_id": [
+          1122
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a270",
+        "sub": "66b90ed39a4b0f541be27378"
+      },
+      {
+        "user_league_id": [
+          1123
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a271",
+        "sub": "66b90d6c996d77b7069bef8c"
+      },
+      {
+        "user_league_id": [
+          1124
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a272",
+        "sub": "66b904be9a4b0f541be27316"
+      },
+      {
+        "user_league_id": [
+          1125
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a273",
+        "sub": "66bbe9bd4073a321286edadc"
+      },
+      {
+        "user_league_id": [
+          1126
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a274",
+        "sub": "66bbdb49db2dac4d4fc5ae7e"
+      },
+      {
+        "user_league_id": [
+          1127
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a275",
+        "sub": "66bbe4a4148a0d541a91d4c8"
+      },
+      {
+        "user_league_id": [
+          1128
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a276",
+        "sub": "66bbe11f9964d4e61d86bbe0"
+      },
+      {
+        "user_league_id": [
+          1129
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a277",
+        "sub": "66bbdae6082e4b6c2cfb9ee6"
+      },
+      {
+        "user_league_id": [
+          1130
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a278",
+        "sub": "66b90cf3996d77b7069bef7e"
+      },
+      {
+        "user_league_id": [
+          1131
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a279",
+        "sub": "66bbe4a7148a0d541a91d4cb"
+      },
+      {
+        "user_league_id": [
+          1132
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a27a",
+        "sub": "66b905c12726d48c5c60ce60"
+      },
+      {
+        "user_league_id": [
+          1133
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a27b",
+        "sub": "66b42ae8707547530644cc83"
+      },
+      {
+        "user_league_id": [
+          1134
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a27c",
+        "sub": "66bbd87d9a4b0f541be295eb"
+      },
+      {
+        "user_league_id": [
+          1135
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a27d",
+        "sub": "66b904b99a4b0f541be27313"
+      },
+      {
+        "user_league_id": [
+          1136
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a27e",
+        "sub": "66b429a65dbb6ac34d1527b6"
+      },
+      {
+        "user_league_id": [
+          1137
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a27f",
+        "sub": "66bbdae1082e4b6c2cfb9ee3"
+      },
+      {
+        "user_league_id": [
+          1138
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a280",
+        "sub": "66bbe4bfc54c710131f72df1"
+      },
+      {
+        "user_league_id": [
+          1139
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a281",
+        "sub": "66b90eeb9a4b0f541be2737b"
+      },
+      {
+        "user_league_id": [
+          1140
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a282",
+        "sub": "66b90432e557428d149ec9ac"
+      },
+      {
+        "user_league_id": [
+          1141
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a283",
+        "sub": "66b904819a4b0f541be2730a"
+      },
+      {
+        "user_league_id": [
+          1142
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a284",
+        "sub": "66b905807dc822054db131e8"
+      },
+      {
+        "user_league_id": [
+          1143
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a285",
+        "sub": "66b4299bd8d48f2f46c87f1f"
+      },
+      {
+        "user_league_id": [
+          1144
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a286",
+        "sub": "66b4278bc299a21977d1f6e6"
+      },
+      {
+        "user_league_id": [
+          1145
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a287",
+        "sub": "66b90d74996d77b7069bef8f"
+      },
+      {
+        "user_league_id": [
+          1146
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a288",
+        "sub": "66bbe815a345c4934620be84"
+      },
+      {
+        "user_league_id": [
+          1147
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a289",
+        "sub": "66b429ab5dbb6ac34d1527b9"
+      },
+      {
+        "user_league_id": [
+          1148
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a28a",
+        "sub": "66b429b45dbb6ac34d1527bf"
+      },
+      {
+        "user_league_id": [
+          1149
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a28b",
+        "sub": "66b42992d8d48f2f46c87f19"
+      },
+      {
+        "user_league_id": [
+          1150
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a28c",
+        "sub": "66b429a1d8d48f2f46c87f22"
+      },
+      {
+        "user_league_id": [
+          1151
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a28d",
+        "sub": "66bbd8bec54c710131f72ac9"
+      },
+      {
+        "user_league_id": [
+          1152
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a28e",
+        "sub": "66b902bde557428d149ec994"
+      },
+      {
+        "user_league_id": [
+          1153
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a28f",
+        "sub": "66b90f429a4b0f541be27381"
+      },
+      {
+        "user_league_id": [
+          1154
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a290",
+        "sub": "66b90db9996d77b7069bef92"
+      },
+      {
+        "user_league_id": [
+          1155
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a291",
+        "sub": "66b902c2e557428d149ec997"
+      },
+      {
+        "user_league_id": [
+          1156
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a292",
+        "sub": "66b906182726d48c5c60ce65"
+      },
+      {
+        "user_league_id": [
+          1157
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a293",
+        "sub": "66b9059a7dc822054db131eb"
+      },
+      {
+        "user_league_id": [
+          1158
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a294",
+        "sub": "66bbe9c24073a321286edaf9"
+      },
+      {
+        "user_league_id": [
+          1159
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a295",
+        "sub": "66b90d65996d77b7069bef88"
+      },
+      {
+        "user_league_id": [
+          1160
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a296",
+        "sub": "66bbdb8a148a0d541a91d3dd"
+      },
+      {
+        "user_league_id": [
+          1161
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a297",
+        "sub": "66bbe4628b65a9a822309b17"
+      },
+      {
+        "user_league_id": [
+          1162
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a298",
+        "sub": "66b42997d8d48f2f46c87f1c"
+      },
+      {
+        "user_league_id": [
+          1163
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a299",
+        "sub": "66bbd653766fd40f0b95a97c"
+      },
+      {
+        "user_league_id": [
+          1164
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a29a",
+        "sub": "66b42aca707547530644cc7d"
+      },
+      {
+        "user_league_id": [
+          1165
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a29b",
+        "sub": "66bbdb31a345c4934620bda7"
+      },
+      {
+        "user_league_id": [
+          1166
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a29c",
+        "sub": "66bbe4379a4b0f541be2969e"
+      },
+      {
+        "user_league_id": [
+          1167
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a29d",
+        "sub": "66bbe1ec5d3c88085c933389"
+      },
+      {
+        "user_league_id": [
+          1168
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a29e",
+        "sub": "66b90ef2314c1ef91899af77"
+      },
+      {
+        "user_league_id": [
+          1169
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a29f",
+        "sub": "66b42b2d707547530644cc8b"
+      },
+      {
+        "user_league_id": [
+          1170
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a0",
+        "sub": "66b42bb8fdf76a2f7ba7a204"
+      },
+      {
+        "user_league_id": [
+          1171
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a1",
+        "sub": "66bbd841148a0d541a91d3a6"
+      },
+      {
+        "user_league_id": [
+          1172
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a2",
+        "sub": "66bbd658766fd40f0b95a97f"
+      },
+      {
+        "user_league_id": [
+          1173
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a3",
+        "sub": "66bbdb5c766fd40f0b95a99e"
+      },
+      {
+        "user_league_id": [
+          1174
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a4",
+        "sub": "66b42bb1fdf76a2f7ba7a201"
+      },
+      {
+        "user_league_id": [
+          1175
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a5",
+        "sub": "66b42a14d8d48f2f46c87f2b"
+      },
+      {
+        "user_league_id": [
+          1176
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a6",
+        "sub": "66b9048d9a4b0f541be27310"
+      },
+      {
+        "user_league_id": [
+          1177
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a7",
+        "sub": "66bbe10ec54c710131f72c81"
+      },
+      {
+        "user_league_id": [
+          1178
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a8",
+        "sub": "66bbe8568b65a9a822309b62"
+      },
+      {
+        "user_league_id": [
+          1179
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2a9",
+        "sub": "66bbd8759964d4e61d86bb71"
+      },
+      {
+        "user_league_id": [
+          1180
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2aa",
+        "sub": "66bbd8799964d4e61d86bb74"
+      },
+      {
+        "user_league_id": [
+          1181
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2ab",
+        "sub": "66b429af5dbb6ac34d1527bc"
+      },
+      {
+        "user_league_id": [
+          1182
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2ac",
+        "sub": "66bbe1168b65a9a822309ae0"
+      },
+      {
+        "user_league_id": [
+          1183
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2ad",
+        "sub": "66b429dc5dbb6ac34d1527c3"
+      },
+      {
+        "user_league_id": [
+          1184
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2ae",
+        "sub": "66b903cfe557428d149ec9a6"
+      },
+      {
+        "user_league_id": [
+          1185
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2af",
+        "sub": "66b903c9e557428d149ec9a3"
+      },
+      {
+        "user_league_id": [
+          1186
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2b0",
+        "sub": "66bbeae6c58f9303670a300b"
+      },
+      {
+        "user_league_id": [
+          1187
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2b1",
+        "sub": "66bbe4aa082e4b6c2cfba24e"
+      },
+      {
+        "user_league_id": [
+          1188
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2b2",
+        "sub": "66b90ef79a4b0f541be2737e"
+      },
+      {
+        "user_league_id": [
+          1189
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2b3",
+        "sub": "66b905b12726d48c5c60ce57"
+      },
+      {
+        "user_league_id": [
+          1190
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66bbed397023348588c0a2b4",
+        "sub": "66bbd8bac54c710131f72ac6"
+      },
+      {
+        "user_league_id": [
+          1191
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "66e9f607b99e19b99799f1a1",
+        "sub": "66e86960e436e8d414ff39f6"
+      },
+      {
+        "user_league_id": [
+          1192
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "671850dd7f1538efa4fecc0b",
+        "sub": "6716b9fb1ace2492264a3d21"
+      },
+      {
+        "user_league_id": [
+          1193
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "67218a8c12f97c3f1929e0c6",
+        "sub": "671ff0025cc2ba9340279159"
+      },
+      {
+        "user_league_id": [
+          1194
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "67237b30f6bc3c94f6d8535c",
+        "sub": "6721c4e7e903da6d459bcac4"
+      },
+      {
+        "user_league_id": [
+          1195
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "67237b30f6bc3c94f6d8535d",
+        "sub": "6721c4ede903da6d459bcac7"
+      },
+      {
+        "user_league_id": [
+          1196
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "675205ac25f5137196d403b4",
+        "sub": "674ff847bcf73ead2e303020"
+      },
+      {
+        "user_league_id": [
+          1197
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "675205ac25f5137196d403b5",
+        "sub": "6750f45e808be9331d69d17f"
+      },
+      {
+        "user_league_id": [
+          1198
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "675205ac25f5137196d403b6",
+        "sub": "6750f4e6808be9331d69d1a6"
+      },
+      {
+        "user_league_id": [
+          1199
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "675205ac25f5137196d403b7",
+        "sub": "6750f46c808be9331d69d182"
+      },
+      {
+        "user_league_id": [
+          1200
+        ],
+        "user_team_id": [
+          0
+        ],
+        "_id": "6785a4c5d1c0e9bcee42bc84",
+        "sub": "67832e18d3414b083d55e9ad"
+      }
+    ],
+    "prizeFundsPaid": false,
+    "wrongCash": [],
+    "splits": [],
+    "maxAvg": 0,
+    "limitAvgMaxTeam": false,
+    "limitAvgMax": false,
+    "minAvg": 0,
+    "limitAvgTeam": false,
+    "limitAvg": false,
+    "prizeFundMessage": "",
+    "signupMessage": "",
+    "message": "",
+    "textRules": "",
+    "allowVacancyStanding": true,
+    "weeksBehindDues": 3,
+    "showDuesBanner": true,
+    "disableDuesEmail": true,
+    "bankFeeAdditionalToggle": false,
+    "noBlindWinIndOpt": "no-award",
+    "noBlindWinInd": false,
+    "noVacantWinIndOpt": "no-award",
+    "noVacantWinInd": false,
+    "allowBlindWinning": true,
+    "status": "blinded",
+    "allowIllegalVacants": true,
+    "allowIllegalSubs": true,
+    "legalLineup": 3,
+    "illegalGender": false,
+    "illegalPins": 10,
+    "countIllegalStats": true,
+    "allowIllegalPins": true,
+    "allowVacancyHandicap": true,
+    "allowBowlerBlindPins": false,
+    "bowlerBlindPins": 0,
+    "allowBowlerVacancyPins": false,
+    "bowlerVacancyPins": 0,
+    "allowVacancyPins": true,
+    "vacants": [
+      {
+        "vacantId": 0,
+        "customPos": 0,
+        "_id": "66b407e25dbb6ac34d152157",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 1,
+        "customPos": 1,
+        "_id": "66b407e25dbb6ac34d152156",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 2,
+        "customPos": 2,
+        "_id": "66b407e25dbb6ac34d152155",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 3,
+        "customPos": 3,
+        "_id": "66b407e25dbb6ac34d152154",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 4,
+        "customPos": 4,
+        "_id": "66b407e25dbb6ac34d152153",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      }
+    ],
+    "vacancyPins": 10,
+    "vacancyScoreGirl": 175,
+    "vacancyScoreBoy": 175,
+    "vacancyScoreFemale": 175,
+    "vacancyScoreMale": 175,
+    "allowDiffVacancyScore": false,
+    "vacancyScore": 175,
+    "dropTeamAvgBelowEnabled": false,
+    "dropRulePins": 10,
+    "dropRuleEnabled": true,
+    "handicapRulesTeam": {
+      "type": "sum",
+      "percentage": 0,
+      "percentageOf": 0,
+      "useAllInclusive": false,
+      "hasLimit": false,
+      "allowNegative": false,
+      "allowNegativeDiff": false
+    },
+    "handicapRules": {
+      "type": "pctOfNumber",
+      "percentage": 90,
+      "percentageOf": 235,
+      "splits": {
+        "juniorFemale": {
+          "percentageOf": 0,
+          "percentage": 0
+        },
+        "juniorMale": {
+          "percentageOf": 0,
+          "percentage": 0
+        },
+        "adultFemale": {
+          "percentageOf": 0,
+          "percentage": 0
+        },
+        "adultMale": {
+          "percentageOf": 0,
+          "percentage": 0
+        },
+        "female": {
+          "percentageOf": 0,
+          "percentage": 0
+        },
+        "male": {
+          "percentageOf": 0,
+          "percentage": 0
+        },
+        "junior": {
+          "percentageOf": 0,
+          "percentage": 0
+        },
+        "adult": {
+          "percentageOf": 0,
+          "percentage": 0
+        }
+      },
+      "splitJunior": false,
+      "splitGender": false,
+      "allowNegativeDiff": false,
+      "allowNegative": false,
+      "hasLimitGender": false,
+      "hasLimit": false,
+      "useAllInclusive": true,
+      "useTeamAverages": false,
+      "capAt300": false
+    },
+    "seasons": [
+      {
+        "paymentStart": "2024-08-13T00:00:00.000Z",
+        "paymentEnd": "2025-04-22T00:00:00.000Z",
+        "dateStart": "2024-08-13T00:00:00.000Z",
+        "seasonType": "Full Season",
+        "_id": "66b407e25dbb6ac34d152151",
+        "teamStats": [
+          {
+            "_id": "66b407e25dbb6ac34d152152",
+            "teams": [
+              {
+                "team": "66b407e35dbb6ac34d1521bb",
+                "_id": "66b407e35dbb6ac34d1521c1",
+                "wins": 23,
+                "losses": 13,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 826.5,
+                "pointsLost": 613.5,
+                "average": 38415,
+                "scratchPins": 115240,
+                "totalPins": 126736,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407e55dbb6ac34d1521da",
+                "_id": "66b407e55dbb6ac34d1521e0",
+                "wins": 19,
+                "losses": 17,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 694.5,
+                "pointsLost": 745.5,
+                "average": 38753,
+                "scratchPins": 116261,
+                "totalPins": 126047,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407e75dbb6ac34d1521f7",
+                "_id": "66b407e75dbb6ac34d1521fd",
+                "wins": 20,
+                "losses": 15,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 751,
+                "pointsLost": 689,
+                "average": 38626,
+                "scratchPins": 115883,
+                "totalPins": 126545,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407e95dbb6ac34d152216",
+                "_id": "66b407e95dbb6ac34d15221c",
+                "wins": 23,
+                "losses": 13,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 844,
+                "pointsLost": 596,
+                "average": 40887,
+                "scratchPins": 122662,
+                "totalPins": 128143,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407eb5dbb6ac34d15222f",
+                "_id": "66b407eb5dbb6ac34d152235",
+                "wins": 16,
+                "losses": 20,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 665,
+                "pointsLost": 775,
+                "average": 33914,
+                "scratchPins": 101743,
+                "totalPins": 124960,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407ec5dbb6ac34d15224b",
+                "_id": "66b407ec5dbb6ac34d152251",
+                "wins": 15,
+                "losses": 21,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 639,
+                "pointsLost": 801,
+                "average": 39077,
+                "scratchPins": 117234,
+                "totalPins": 124266,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407ed5dbb6ac34d152264",
+                "_id": "66b407ed5dbb6ac34d15226a",
+                "wins": 19,
+                "losses": 17,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 724.5,
+                "pointsLost": 715.5,
+                "average": 36664,
+                "scratchPins": 109991,
+                "totalPins": 125548,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407ef5dbb6ac34d152283",
+                "_id": "66b407ef5dbb6ac34d152289",
+                "wins": 16,
+                "losses": 20,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 706.5,
+                "pointsLost": 733.5,
+                "average": 37268,
+                "scratchPins": 111802,
+                "totalPins": 126106,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407f15dbb6ac34d15229c",
+                "_id": "66b407f15dbb6ac34d1522a2",
+                "wins": 20,
+                "losses": 16,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 757.5,
+                "pointsLost": 682.5,
+                "average": 39220,
+                "scratchPins": 117664,
+                "totalPins": 126967,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407f25dbb6ac34d1522b5",
+                "_id": "66b407f25dbb6ac34d1522bb",
+                "wins": 16,
+                "losses": 19,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 663.5,
+                "pointsLost": 776.5,
+                "average": 36285,
+                "scratchPins": 108846,
+                "totalPins": 124701,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407f45dbb6ac34d1522d1",
+                "_id": "66b407f45dbb6ac34d1522d7",
+                "wins": 20,
+                "losses": 16,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 759,
+                "pointsLost": 681,
+                "average": 38488,
+                "scratchPins": 115467,
+                "totalPins": 126249,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407f65dbb6ac34d1522ea",
+                "_id": "66b407f65dbb6ac34d1522f0",
+                "wins": 16,
+                "losses": 20,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 676.5,
+                "pointsLost": 763.5,
+                "average": 35646,
+                "scratchPins": 106936,
+                "totalPins": 124246,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407f75dbb6ac34d152306",
+                "_id": "66b407f75dbb6ac34d15230c",
+                "wins": 23,
+                "losses": 13,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 811.5,
+                "pointsLost": 628.5,
+                "average": 36305,
+                "scratchPins": 108917,
+                "totalPins": 124763,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407f95dbb6ac34d152325",
+                "_id": "66b407f95dbb6ac34d15232b",
+                "wins": 21,
+                "losses": 15,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 792,
+                "pointsLost": 648,
+                "average": 37034,
+                "scratchPins": 111101,
+                "totalPins": 126888,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407fb5dbb6ac34d152344",
+                "_id": "66b407fb5dbb6ac34d15234a",
+                "wins": 18,
+                "losses": 17,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 737.5,
+                "pointsLost": 702.5,
+                "average": 35743,
+                "scratchPins": 107240,
+                "totalPins": 125756,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407fd5dbb6ac34d152363",
+                "_id": "66b407fd5dbb6ac34d152369",
+                "wins": 17,
+                "losses": 18,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 710,
+                "pointsLost": 730,
+                "average": 38469,
+                "scratchPins": 115402,
+                "totalPins": 126391,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b407ff5dbb6ac34d15237f",
+                "_id": "66b407ff5dbb6ac34d152385",
+                "wins": 17,
+                "losses": 19,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 699.5,
+                "pointsLost": 740.5,
+                "average": 34040,
+                "scratchPins": 102116,
+                "totalPins": 124370,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408015dbb6ac34d15239b",
+                "_id": "66b408015dbb6ac34d1523a1",
+                "wins": 19,
+                "losses": 17,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 724.5,
+                "pointsLost": 715.5,
+                "average": 34815,
+                "scratchPins": 104448,
+                "totalPins": 124920,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408035dbb6ac34d1523ba",
+                "_id": "66b408035dbb6ac34d1523c0",
+                "wins": 15,
+                "losses": 21,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 693.5,
+                "pointsLost": 746.5,
+                "average": 36823,
+                "scratchPins": 110467,
+                "totalPins": 125479,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408045dbb6ac34d1523d9",
+                "_id": "66b408045dbb6ac34d1523df",
+                "wins": 13,
+                "losses": 23,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 649,
+                "pointsLost": 791,
+                "average": 36342,
+                "scratchPins": 109022,
+                "totalPins": 124875,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408075dbb6ac34d1523f8",
+                "_id": "66b408075dbb6ac34d1523fe",
+                "wins": 20,
+                "losses": 16,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 800.5,
+                "pointsLost": 639.5,
+                "average": 36093,
+                "scratchPins": 108279,
+                "totalPins": 126219,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408095dbb6ac34d152417",
+                "_id": "66b408095dbb6ac34d15241d",
+                "wins": 19,
+                "losses": 17,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 683,
+                "pointsLost": 757,
+                "average": 36743,
+                "scratchPins": 110225,
+                "totalPins": 125018,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b4080a5dbb6ac34d152436",
+                "_id": "66b4080a5dbb6ac34d15243c",
+                "wins": 20,
+                "losses": 16,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 715.5,
+                "pointsLost": 724.5,
+                "average": 36578,
+                "scratchPins": 109741,
+                "totalPins": 125256,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b4080d5dbb6ac34d152455",
+                "_id": "66b4080d5dbb6ac34d15245b",
+                "wins": 16,
+                "losses": 20,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 671,
+                "pointsLost": 769,
+                "average": 37439,
+                "scratchPins": 112317,
+                "totalPins": 124839,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b4080e5dbb6ac34d152471",
+                "_id": "66b4080e5dbb6ac34d152477",
+                "wins": 16,
+                "losses": 19,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 677.5,
+                "pointsLost": 762.5,
+                "average": 37593,
+                "scratchPins": 112782,
+                "totalPins": 125676,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408105dbb6ac34d152490",
+                "_id": "66b408105dbb6ac34d152496",
+                "wins": 17,
+                "losses": 18,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 716.5,
+                "pointsLost": 723.5,
+                "average": 33298,
+                "scratchPins": 99894,
+                "totalPins": 124965,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408125dbb6ac34d1524a9",
+                "_id": "66b408125dbb6ac34d1524af",
+                "wins": 17,
+                "losses": 19,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 729,
+                "pointsLost": 711,
+                "average": 37963,
+                "scratchPins": 113887,
+                "totalPins": 125269,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408165dbb6ac34d1524c8",
+                "_id": "66b408165dbb6ac34d1524ce",
+                "wins": 21,
+                "losses": 15,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 823,
+                "pointsLost": 617,
+                "average": 39000,
+                "scratchPins": 117005,
+                "totalPins": 126944,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408195dbb6ac34d1524e7",
+                "_id": "66b408195dbb6ac34d1524ed",
+                "wins": 16,
+                "losses": 19,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 706,
+                "pointsLost": 734,
+                "average": 36910,
+                "scratchPins": 110726,
+                "totalPins": 124373,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b4081b5dbb6ac34d152506",
+                "_id": "66b4081b5dbb6ac34d15250c",
+                "wins": 13,
+                "losses": 23,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 644.5,
+                "pointsLost": 795.5,
+                "average": 36420,
+                "scratchPins": 109263,
+                "totalPins": 125172,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b4081e5dbb6ac34d152525",
+                "_id": "66b4081e5dbb6ac34d15252b",
+                "wins": 18,
+                "losses": 18,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 685,
+                "pointsLost": 755,
+                "average": 35845,
+                "scratchPins": 107542,
+                "totalPins": 125227,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b4081f5dbb6ac34d15253e",
+                "_id": "66b4081f5dbb6ac34d152544",
+                "wins": 21,
+                "losses": 15,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 776,
+                "pointsLost": 664,
+                "average": 39200,
+                "scratchPins": 117608,
+                "totalPins": 126152,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408225dbb6ac34d15255d",
+                "_id": "66b408225dbb6ac34d152563",
+                "wins": 18,
+                "losses": 18,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 727.5,
+                "pointsLost": 712.5,
+                "average": 38474,
+                "scratchPins": 115414,
+                "totalPins": 126502,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408245dbb6ac34d15257c",
+                "_id": "66b408245dbb6ac34d152582",
+                "wins": 14,
+                "losses": 22,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 631.5,
+                "pointsLost": 808.5,
+                "average": 34943,
+                "scratchPins": 104831,
+                "totalPins": 124307,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408265dbb6ac34d152595",
+                "_id": "66b408265dbb6ac34d15259b",
+                "wins": 13,
+                "losses": 22,
+                "ties": 1,
+                "games": 108,
+                "pointsWon": 676.5,
+                "pointsLost": 763.5,
+                "average": 34949,
+                "scratchPins": 104847,
+                "totalPins": 125439,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408285dbb6ac34d1525b1",
+                "_id": "66b408285dbb6ac34d1525b7",
+                "wins": 19,
+                "losses": 17,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 755,
+                "pointsLost": 685,
+                "average": 36832,
+                "scratchPins": 110506,
+                "totalPins": 125899,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b4082b5dbb6ac34d1525ca",
+                "_id": "66b4082b5dbb6ac34d1525d0",
+                "wins": 23,
+                "losses": 13,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 828.5,
+                "pointsLost": 611.5,
+                "average": 40345,
+                "scratchPins": 121047,
+                "totalPins": 127239,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408305dbb6ac34d1525e9",
+                "_id": "66b408305dbb6ac34d1525ef",
+                "wins": 12,
+                "losses": 24,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 591,
+                "pointsLost": 849,
+                "average": 34332,
+                "scratchPins": 102997,
+                "totalPins": 124126,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408345dbb6ac34d152605",
+                "_id": "66b408345dbb6ac34d15260b",
+                "wins": 20,
+                "losses": 16,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 743.5,
+                "pointsLost": 696.5,
+                "average": 35447,
+                "scratchPins": 106352,
+                "totalPins": 125964,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              },
+              {
+                "team": "66b408385dbb6ac34d15261b",
+                "_id": "66b408385dbb6ac34d152621",
+                "wins": 17,
+                "losses": 19,
+                "ties": 0,
+                "games": 108,
+                "pointsWon": 670,
+                "pointsLost": 770,
+                "average": 35557,
+                "scratchPins": 106673,
+                "totalPins": 124550,
+                "bowlerInfos": [],
+                "bonusPins": 0
+              }
+            ]
+          }
+        ],
+        "weeks": [
+          {
+            "weekNum": 20,
+            "date": "2025-01-07T00:00:00.000Z",
+            "_id": "66b424555dbb6ac34d1527ad"
+          }
+        ],
+        "highScores": [],
+        "lineagePaidToDate": 0,
+        "matches": [
+          "66bcbe840da85fc4c84b279b",
+          "66bcbe880da85fc4c84b27ed",
+          "66bcbe8c0da85fc4c84b284a",
+          "66bcbe900da85fc4c84b289e",
+          "66bcbe930da85fc4c84b28f1",
+          "66bcbe970da85fc4c84b2944",
+          "66bcbe9b0da85fc4c84b299f",
+          "66bcbe9e0da85fc4c84b29ef",
+          "66bcbea20da85fc4c84b2a46",
+          "66bcbea50da85fc4c84b2a9d",
+          "66bcbea80da85fc4c84b2aed",
+          "66bcbeac0da85fc4c84b2b42",
+          "66bcbeaf0da85fc4c84b2b99",
+          "66bcbeb20da85fc4c84b2bef",
+          "66bcbeb60da85fc4c84b2c41",
+          "66bcbeba0da85fc4c84b2c9d",
+          "66bcbebd0da85fc4c84b2cee",
+          "66bcbec00da85fc4c84b2d40",
+          "66bcbec40da85fc4c84b2d99",
+          "66bcbec70da85fc4c84b2def",
+          "66bcc3a70da85fc4c84b2f57",
+          "66bcc3ab0da85fc4c84b2fa9",
+          "66bcc3ae0da85fc4c84b3006",
+          "66bcc3b10da85fc4c84b305a",
+          "66bcc3b50da85fc4c84b30ad",
+          "66bcc3b80da85fc4c84b3100",
+          "66bcc3bb0da85fc4c84b315b",
+          "66bcc3be0da85fc4c84b31ab",
+          "66bcc3c20da85fc4c84b3202",
+          "66bcc3c50da85fc4c84b3259",
+          "66bcc3c80da85fc4c84b32a9",
+          "66bcc3cc0da85fc4c84b32fe",
+          "66bcc3cf0da85fc4c84b3355",
+          "66bcc3d20da85fc4c84b33ab",
+          "66bcc3d50da85fc4c84b33fd",
+          "66bcc3d90da85fc4c84b3459",
+          "66bcc3dc0da85fc4c84b34a9",
+          "66bcc3e00da85fc4c84b34fb",
+          "66bcc3e30da85fc4c84b3554",
+          "66bcc3e70da85fc4c84b35aa",
+          "66c615ed49f49b0ebde17243",
+          "66c615f249f49b0ebde17291",
+          "66c615f749f49b0ebde172e4",
+          "66c615fd49f49b0ebde17336",
+          "66c6160249f49b0ebde17385",
+          "66c6160749f49b0ebde173d0",
+          "66c6160d49f49b0ebde17420",
+          "66c6161349f49b0ebde17471",
+          "66c6161849f49b0ebde174c1",
+          "66c6161e49f49b0ebde1750a",
+          "66c6162349f49b0ebde17558",
+          "66c6162949f49b0ebde175a6",
+          "66c6162f49f49b0ebde175ec",
+          "66c6163449f49b0ebde1763a",
+          "66c6163949f49b0ebde17688",
+          "66c6163f49f49b0ebde176d1",
+          "66c6164449f49b0ebde1771c",
+          "66c6164a49f49b0ebde17769",
+          "66c6164f49f49b0ebde177b5",
+          "66c6165549f49b0ebde17800",
+          "66ce95e47adee4a122444ff7",
+          "66ce96797adee4a1224450a6",
+          "66ce97a57adee4a122445116",
+          "66ce97a97adee4a122445169",
+          "66ce981b7adee4a122445288",
+          "66ce98387adee4a1224452e4",
+          "66ce99837adee4a122445347",
+          "66ce9b447adee4a122445404",
+          "66ce9b477adee4a122445455",
+          "66ce9b7f7adee4a1224454c0",
+          "66ce9b9d7adee4a12244551e",
+          "66ce9c337adee4a1224455c3",
+          "66ce9c507adee4a122445625",
+          "66ce9c8c7adee4a122445682",
+          "66ce9d227adee4a1224456f6",
+          "66ce9e2f7adee4a12244583f",
+          "66ce9e337adee4a122445889",
+          "66ce9e897adee4a122445926",
+          "66cea0ff7adee4a1224459b1",
+          "66cea4be7adee4a122445c90",
+          "66d7f0c39a00e4df7279a828",
+          "66d7f0c79a00e4df7279a879",
+          "66d7f0cb9a00e4df7279a8d2",
+          "66d7f0cf9a00e4df7279a921",
+          "66d7f0d39a00e4df7279a971",
+          "66d7f0d79a00e4df7279a9bd",
+          "66d7f0db9a00e4df7279aa08",
+          "66d7f0df9a00e4df7279aa55",
+          "66d7f0e39a00e4df7279aaa2",
+          "66d7f0e69a00e4df7279aaef",
+          "66d7f0ea9a00e4df7279ab3a",
+          "66d7f0ee9a00e4df7279ab84",
+          "66d7f0f29a00e4df7279abd5",
+          "66d7f0f69a00e4df7279ac1d",
+          "66d7f0fa9a00e4df7279ac6b",
+          "66d7f0fd9a00e4df7279acb9",
+          "66d7f1019a00e4df7279ad07",
+          "66d7f1059a00e4df7279ad55",
+          "66d7f1099a00e4df7279ad9d",
+          "66d7f10d9a00e4df7279aded",
+          "66e104c0bbbc1b47c0aad01e",
+          "66e10a7fbbbc1b47c0aad2da",
+          "66e10c80bbbc1b47c0aad4c1",
+          "66e10d2dbbbc1b47c0aad5a3",
+          "66e10d33bbbc1b47c0aad5f0",
+          "66e10da4bbbc1b47c0aad71c",
+          "66e10e95bbbc1b47c0aad7f6",
+          "66e10fa1bbbc1b47c0aad907",
+          "66e11055bbbc1b47c0aad9b3",
+          "66e11090bbbc1b47c0aada3b",
+          "66e110adbbbc1b47c0aada99",
+          "66e11125bbbc1b47c0aadb19",
+          "66e1112bbbbc1b47c0aadb62",
+          "66e11131bbbc1b47c0aadbaa",
+          "66e11198bbbc1b47c0aadc2a",
+          "66e1122ebbbc1b47c0aadca4",
+          "66e1124cbbbc1b47c0aadd06",
+          "66e112fdbbbc1b47c0aadf7d",
+          "66e11485bbbc1b47c0aae07d",
+          "66e11556bbbc1b47c0aae11f",
+          "66ea64612541ccea258ffff8",
+          "66ea64632541ccea25900043",
+          "66ea64662541ccea25900095",
+          "66ea64682541ccea259000df",
+          "66ea646b2541ccea25900129",
+          "66ea646e2541ccea2590017a",
+          "66ea64702541ccea259001cc",
+          "66ea64742541ccea2590021d",
+          "66ea64772541ccea2590026b",
+          "66ea64792541ccea259002b7",
+          "66ea647c2541ccea25900300",
+          "66ea647e2541ccea2590034d",
+          "66ea64812541ccea259003a3",
+          "66ea64842541ccea259003ee",
+          "66ea64862541ccea25900435",
+          "66ea64892541ccea2590047f",
+          "66ea648d2541ccea259004ca",
+          "66ea648f2541ccea2590051b",
+          "66ea64922541ccea25900561",
+          "66ea64942541ccea259005ac",
+          "66f399a0c7f5355f90bc928b",
+          "66f399a3c7f5355f90bc92d7",
+          "66f399a6c7f5355f90bc9320",
+          "66f399a9c7f5355f90bc9370",
+          "66f399acc7f5355f90bc93bb",
+          "66f399aec7f5355f90bc940f",
+          "66f399b2c7f5355f90bc945f",
+          "66f399b5c7f5355f90bc94ac",
+          "66f399b8c7f5355f90bc94f1",
+          "66f399bbc7f5355f90bc9541",
+          "66f399bec7f5355f90bc958c",
+          "66f399c1c7f5355f90bc95d9",
+          "66f399c4c7f5355f90bc9629",
+          "66f399c7c7f5355f90bc9673",
+          "66f399cac7f5355f90bc96c0",
+          "66f399cec7f5355f90bc970c",
+          "66f399d0c7f5355f90bc9756",
+          "66f399d3c7f5355f90bc97a9",
+          "66f399d6c7f5355f90bc97f7",
+          "66f399d9c7f5355f90bc9842",
+          "66fcd56757c5b6cebbe33436",
+          "66fcd56a57c5b6cebbe33483",
+          "66fcd56d57c5b6cebbe334d0",
+          "66fcd57057c5b6cebbe3351d",
+          "66fcd57257c5b6cebbe33568",
+          "66fcd57557c5b6cebbe335b4",
+          "66fcd57757c5b6cebbe335fd",
+          "66fcd57a57c5b6cebbe3364e",
+          "66fcd57d57c5b6cebbe33698",
+          "66fcd58057c5b6cebbe336e1",
+          "66fcd58257c5b6cebbe3372c",
+          "66fcd58557c5b6cebbe33778",
+          "66fcd58757c5b6cebbe337bf",
+          "66fcd58a57c5b6cebbe33806",
+          "66fcd58d57c5b6cebbe33850",
+          "66fcd59057c5b6cebbe3389b",
+          "66fcd59257c5b6cebbe338ec",
+          "66fcd59557c5b6cebbe33939",
+          "66fcd59857c5b6cebbe33988",
+          "66fcd59b57c5b6cebbe339d9",
+          "6705f30f8536c1126264e4c8",
+          "6705f6578536c1126264e5d2",
+          "6705f6908536c1126264e642",
+          "6705f8178536c1126264e7c6",
+          "6705f8538536c1126264e82d",
+          "6705f8ac8536c1126264e89f",
+          "6705f8cd8536c1126264e94d",
+          "6705f8e88536c1126264e9b4",
+          "6705f9068536c1126264ea27",
+          "6705f9bb8536c1126264ea91",
+          "6705fa4f8536c1126264eb4d",
+          "6705faaa8536c1126264ebbb",
+          "6705fb7d8536c1126264ecc5",
+          "6705fc128536c1126264ed90",
+          "6705fc898536c1126264ee8c",
+          "6705fd208536c1126264ef95",
+          "6705fd228536c1126264efdf",
+          "6705fd258536c1126264f02a",
+          "6705fd3d8536c1126264f08c",
+          "6705fd978536c1126264f142",
+          "670f297797de8c7d7af5cd9a",
+          "670f2ea197de8c7d7af5d524",
+          "670f2ebd97de8c7d7af5d5a1",
+          "670f2fca97de8c7d7af5d72b",
+          "670f325d97de8c7d7af5daa0",
+          "670f32d497de8c7d7af5db6b",
+          "670f32f397de8c7d7af5dbda",
+          "670f341f97de8c7d7af5dd6a",
+          "670f342297de8c7d7af5ddbb",
+          "670f345b97de8c7d7af5de59",
+          "670f34d397de8c7d7af5dfab",
+          "670f358697de8c7d7af5e0d8",
+          "670f35c397de8c7d7af5e14b",
+          "670f361d97de8c7d7af5e1c7",
+          "670f363c97de8c7d7af5e23c",
+          "670f37a297de8c7d7af5e402",
+          "670f37dd97de8c7d7af5e497",
+          "670f385697de8c7d7af5e5e9",
+          "670f39be97de8c7d7af5e7c2",
+          "670f3d2397de8c7d7af5ed1f",
+          "671864217f1538efa4fee54b",
+          "671867677f1538efa4fee898",
+          "67186a1b7f1538efa4feec80",
+          "67186a387f1538efa4feecee",
+          "67186ace7f1538efa4feee7a",
+          "67186b647f1538efa4feef3c",
+          "67186bbd7f1538efa4feefe9",
+          "67186c197f1538efa4fef0af",
+          "67186cae7f1538efa4fef17f",
+          "67186df57f1538efa4fef2b0",
+          "67186e157f1538efa4fef31c",
+          "67186e8c7f1538efa4fef3d9",
+          "67186f7f7f1538efa4fef501",
+          "67186fb87f1538efa4fef596",
+          "671870147f1538efa4fef641",
+          "671870e47f1538efa4fef791",
+          "671872117f1538efa4fef9c1",
+          "671872a57f1538efa4fefa42",
+          "6718744a7f1538efa4fefaa9",
+          "671875937f1538efa4fefb52",
+          "6721c13c5f22ce650dff00dc",
+          "6721c13f5f22ce650dff0121",
+          "6721c1425f22ce650dff0177",
+          "6721c1465f22ce650dff01c1",
+          "6721c1495f22ce650dff0210",
+          "6721c14b5f22ce650dff0258",
+          "6721c14f5f22ce650dff02a0",
+          "6721c1525f22ce650dff02f2",
+          "6721c1555f22ce650dff033b",
+          "6721c1585f22ce650dff0388",
+          "6721c15c5f22ce650dff03d5",
+          "6721c1605f22ce650dff041f",
+          "6721c1625f22ce650dff046a",
+          "6721c1655f22ce650dff04b6",
+          "6721c1685f22ce650dff04ff",
+          "6721c16b5f22ce650dff0549",
+          "6721c16d5f22ce650dff0594",
+          "6721c1705f22ce650dff05e7",
+          "6721c1745f22ce650dff0635",
+          "6721c1775f22ce650dff0680",
+          "672b0a042f8664a628252263",
+          "672b0a072f8664a6282522b1",
+          "672b0a0a2f8664a6282522fb",
+          "672b0a0d2f8664a62825234c",
+          "672b0a0f2f8664a628252398",
+          "672b0a122f8664a6282523e4",
+          "672b0a152f8664a628252430",
+          "672b0a172f8664a62825247c",
+          "672b0a1a2f8664a6282524c4",
+          "672b0a1d2f8664a628252510",
+          "672b0a202f8664a62825255c",
+          "672b0a232f8664a6282525a9",
+          "672b0a262f8664a6282525f4",
+          "672b0a292f8664a628252644",
+          "672b0a2b2f8664a62825268f",
+          "672b0a2e2f8664a6282526d7",
+          "672b0a312f8664a628252728",
+          "672b0a342f8664a628252778",
+          "672b0a372f8664a6282527bf",
+          "672b0a3a2f8664a628252808",
+          "673441cd718ada2c877a77b2",
+          "673441d0718ada2c877a77fe",
+          "673441d3718ada2c877a784d",
+          "673441d6718ada2c877a789f",
+          "673441d9718ada2c877a78e7",
+          "673441dd718ada2c877a7934",
+          "673441e0718ada2c877a7984",
+          "673441e4718ada2c877a79d3",
+          "673441e7718ada2c877a7a20",
+          "673441ea718ada2c877a7a6e",
+          "673441ed718ada2c877a7aaf",
+          "673441f0718ada2c877a7afa",
+          "673441f3718ada2c877a7b46",
+          "673441f7718ada2c877a7b8e",
+          "673441fa718ada2c877a7bde",
+          "673441fd718ada2c877a7c27",
+          "67344200718ada2c877a7c76",
+          "67344203718ada2c877a7cc3",
+          "67344207718ada2c877a7d10",
+          "6734420b718ada2c877a7d5c",
+          "673d7c471f0029e3418ed579",
+          "673d7c4b1f0029e3418ed5c5",
+          "673d7c4f1f0029e3418ed614",
+          "673d7c531f0029e3418ed664",
+          "673d7c561f0029e3418ed6b2",
+          "673d7c5a1f0029e3418ed70c",
+          "673d7c5d1f0029e3418ed760",
+          "673d7c611f0029e3418ed7b3",
+          "673d7c641f0029e3418ed800",
+          "673d7c681f0029e3418ed859",
+          "673d7c6b1f0029e3418ed8a1",
+          "673d7c6f1f0029e3418ed8fa",
+          "673d7c721f0029e3418ed94b",
+          "673d7c761f0029e3418ed9a0",
+          "673d7c7a1f0029e3418ed9f1",
+          "673d7c7e1f0029e3418eda40",
+          "673d7c821f0029e3418eda94",
+          "673d7c861f0029e3418edae4",
+          "673d7c8a1f0029e3418edb37",
+          "673d7c8e1f0029e3418edb84",
+          "6746b7814be077000845ca31",
+          "6746b7854be077000845ca7c",
+          "6746b7884be077000845cac8",
+          "6746b78c4be077000845cb20",
+          "6746b7914be077000845cb7a",
+          "6746b7954be077000845cbce",
+          "6746b7984be077000845cc2c",
+          "6746b79c4be077000845cc82",
+          "6746b79f4be077000845ccd0",
+          "6746b7a34be077000845cd1e",
+          "6746b7a84be077000845cd6e",
+          "6746b7ab4be077000845cdbf",
+          "6746b7af4be077000845ce10",
+          "6746b7b34be077000845ce63",
+          "6746b7b64be077000845ceb0",
+          "6746b7ba4be077000845cf01",
+          "6746b7bf4be077000845cf55",
+          "6746b7c34be077000845cfa7",
+          "6746b7c64be077000845cff5",
+          "6746b7ca4be077000845d045",
+          "674ff6cc3fef980bacc9387a",
+          "674ff6d03fef980bacc938ce",
+          "674ff6d43fef980bacc93923",
+          "674ff6d93fef980bacc9397c",
+          "674ff6dd3fef980bacc939cd",
+          "674ff6e03fef980bacc93a1a",
+          "674ff6e43fef980bacc93a72",
+          "674ff6e73fef980bacc93abf",
+          "674ff6ec3fef980bacc93b13",
+          "674ff6f13fef980bacc93b64",
+          "674ff6f53fef980bacc93bb4",
+          "674ff6f93fef980bacc93c00",
+          "674ff6fd3fef980bacc93c4c",
+          "674ff7003fef980bacc93c98",
+          "674ff7043fef980bacc93cef",
+          "674ff7083fef980bacc93d3a",
+          "674ff70c3fef980bacc93d93",
+          "674ff70f3fef980bacc93de4",
+          "674ff7133fef980bacc93e35",
+          "674ff7163fef980bacc93e86",
+          "675b5b7e9ceb73b5731b3392",
+          "675b5cc3dddf42ed5d5f4a5c",
+          "675b5dbe9d8ff03039d5a4ae",
+          "675b5e1c856057c36cb27741",
+          "675b5ec19eb078bc6d2fb5d7",
+          "675b5fa49eb078bc6d2fb62f",
+          "675b6049856057c36cb2780c",
+          "675b60e8f88495ec5e89813d",
+          "675b61b91765cd1950e7dd34",
+          "675b6330856057c36cb278a5",
+          "675b6400cf932dee737c4805",
+          "675b644d9d8ff03039d5a543",
+          "675b64b11765cd1950e7ddec",
+          "675b65fe53b204712f6ca619",
+          "675b668cba8ca64d5dec9e4b",
+          "675b6771f88495ec5e8982b2",
+          "675b68522ef02cf44f6e7844",
+          "675b68e9f88495ec5e89832b",
+          "675b6934856057c36cb27912",
+          "675b6a1235c99b036b12c144",
+          "67624b09e887c727dd0b56e6",
+          "67624cabe887c727dd0b57cc",
+          "67624e32e887c727dd0b588f",
+          "67624e8ce887c727dd0b5903",
+          "67625089e887c727dd0b59c3",
+          "676250e8e887c727dd0b5a46",
+          "67625107e887c727dd0b5ab7",
+          "67625120e887c727dd0b5b1f",
+          "676252a5e887c727dd0b5ce2",
+          "6762533fe887c727dd0b5d93",
+          "6762535ae887c727dd0b5df6",
+          "67625399e887c727dd0b5ecc",
+          "6762539fe887c727dd0b5f25",
+          "676253f0e887c727dd0b5f94",
+          "676253f6e887c727dd0b5fe5",
+          "6762540fe887c727dd0b606a",
+          "67625468e887c727dd0b60de",
+          "67625501e887c727dd0b6221",
+          "67625576e887c727dd0b6344",
+          "67625645e887c727dd0b63f1",
+          "677df5e0e99f1c2fd49434f6",
+          "677df7dce99f1c2fd494376a",
+          "677df9f8e99f1c2fd4943b03",
+          "677dfdb7e99f1c2fd49443fb",
+          "677dfe12e99f1c2fd49444c1",
+          "677dfe6ce99f1c2fd494454c",
+          "677dfe71e99f1c2fd494459d",
+          "677dfe75e99f1c2fd49445ec",
+          "677dfec7e99f1c2fd4944673",
+          "677dff3de99f1c2fd4944716",
+          "677e0088e99f1c2fd4944902",
+          "677e0159e99f1c2fd49449d5",
+          "677e01b3e99f1c2fd4944a5e",
+          "677e020fe99f1c2fd4944aef",
+          "677e0213e99f1c2fd4944b41",
+          "677e0248e99f1c2fd4944e2f",
+          "677e0429e99f1c2fd4944f25",
+          "677e0482e99f1c2fd4944fd3",
+          "677e04a0e99f1c2fd4945037",
+          "677e0591e99f1c2fd494513b",
+          "67802fd28ba821f0e19b5770",
+          "67802fd68ba821f0e19b57c0",
+          "67802fdb8ba821f0e19b5803",
+          "67802fe28ba821f0e19b585a",
+          "67802fe78ba821f0e19b58a9",
+          "67802fec8ba821f0e19b5908",
+          "67802ff08ba821f0e19b595c",
+          "67802ff58ba821f0e19b59aa",
+          "67802ffb8ba821f0e19b59fa",
+          "678030008ba821f0e19b5a5a",
+          "678030058ba821f0e19b5ab4",
+          "6780300a8ba821f0e19b5b05",
+          "6780300f8ba821f0e19b5b57",
+          "678030148ba821f0e19b5bab",
+          "6780301a8ba821f0e19b5bf8",
+          "678030218ba821f0e19b5c4b",
+          "678030258ba821f0e19b5c9a",
+          "6780302b8ba821f0e19b5d38",
+          "678030308ba821f0e19b5d84",
+          "678030358ba821f0e19b5dd4",
+          "67872d183652332d17428302",
+          "678735ca3652332d17428c7c",
+          "678737ff3652332d17429266",
+          "6787383c3652332d174292df",
+          "6787392e3652332d174293bc",
+          "67873bc13652332d17429450",
+          "67873c183652332d17429502",
+          "67873c743652332d1742957c",
+          "67873c8f3652332d174295e4",
+          "67873c933652332d17429630",
+          "67873cae3652332d1742969f",
+          "67873d263652332d17429764",
+          "67873d2b3652332d174297b6",
+          "67873dd93652332d17429886",
+          "67873e343652332d174298ff",
+          "67873e513652332d17429969",
+          "67873ee83652332d174299fc",
+          "67873f413652332d17429a83",
+          "67873f9a3652332d17429aff",
+          "6787406d3652332d17429bd9",
+          "67906a92bfb7c602eb96ebeb",
+          "67906dd7bfb7c602eb96ee2f",
+          "679071b4bfb7c602eb96f021",
+          "679071f2bfb7c602eb96f08a",
+          "67907286bfb7c602eb96f23b",
+          "679073b0bfb7c602eb96f3ba",
+          "67907428bfb7c602eb96f4b3",
+          "6790742cbfb7c602eb96f503",
+          "67907468bfb7c602eb96f5a3",
+          "67907607bfb7c602eb96f661",
+          "67907644bfb7c602eb96f71d",
+          "6790767ebfb7c602eb96f786",
+          "679076d9bfb7c602eb96f82d",
+          "67907863bfb7c602eb96f9ac",
+          "679078babfb7c602eb96fa58",
+          "679079a8bfb7c602eb96fbaf",
+          "67907a1fbfb7c602eb96fca1",
+          "67907ad5bfb7c602eb96fdb9",
+          "67907be5bfb7c602eb96fedd",
+          "67907c9bbfb7c602eb96ffd8",
+          "6799a82e67d005510b6d8955",
+          "6799ad1a67d005510b6d8a8a",
+          "6799ad9067d005510b6d8af1",
+          "6799ae0867d005510b6d8b52",
+          "6799ae9e67d005510b6d8bb7",
+          "6799aea567d005510b6d8c05",
+          "6799aef567d005510b6d8c6a",
+          "6799af6f67d005510b6d8d00",
+          "6799af7667d005510b6d8d54",
+          "6799afa667d005510b6d8db4",
+          "6799b01f67d005510b6d8e15",
+          "6799b09767d005510b6d8e7b",
+          "6799b32a67d005510b6d8f88",
+          "6799b33167d005510b6d8fdb",
+          "6799b36467d005510b6d903e",
+          "6799b3a367d005510b6d90a3",
+          "6799b3f967d005510b6d9103",
+          "6799b40067d005510b6d9151",
+          "6799b54067d005510b6d9267",
+          "6799b54867d005510b6d92c2",
+          "67a2e81a1cc4fac901d84ff1",
+          "67a2e8231cc4fac901d8503b",
+          "67a2e8731cc4fac901d850bb",
+          "67a2e8ac1cc4fac901d85133",
+          "67a2e8b41cc4fac901d85183",
+          "67a2e8be1cc4fac901d851d4",
+          "67a2ea701cc4fac901d852ba",
+          "67a2eae11cc4fac901d85325",
+          "67a2eae91cc4fac901d85377",
+          "67a2ebd01cc4fac901d853f1",
+          "67a2ec0d1cc4fac901d85464",
+          "67a2ec671cc4fac901d85537",
+          "67a2ec701cc4fac901d85590",
+          "67a2eca21cc4fac901d85654",
+          "67a2ed551cc4fac901d856f7",
+          "67a2ed5f1cc4fac901d85745",
+          "67a2ee441cc4fac901d8586d",
+          "67a2ee4c1cc4fac901d858c3",
+          "67a2efc81cc4fac901d85a2f",
+          "67a2f2041cc4fac901d85dbd",
+          "67ac197febb5d22ed7de7864",
+          "67ac1bd9ebb5d22ed7de7d16",
+          "67ac1d02ebb5d22ed7de7ee4",
+          "67ac2087ebb5d22ed7de8589",
+          "67ac21ccebb5d22ed7de8855",
+          "67ac2227ebb5d22ed7de890d",
+          "67ac2265ebb5d22ed7de89dc",
+          "67ac22d8ebb5d22ed7de8adb",
+          "67ac22e2ebb5d22ed7de8b31",
+          "67ac230febb5d22ed7de8ba8",
+          "67ac236bebb5d22ed7de8c93",
+          "67ac24b3ebb5d22ed7de8e44",
+          "67ac24f5ebb5d22ed7de8ebc",
+          "67ac25c7ebb5d22ed7de90ce",
+          "67ac2692ebb5d22ed7de926b",
+          "67ac269eebb5d22ed7de92dc",
+          "67ac270aebb5d22ed7de93e9",
+          "67ac279debb5d22ed7de94ec",
+          "67ac2a17ebb5d22ed7de9a78",
+          "67ac2ae4ebb5d22ed7de9bbc",
+          "67b557ed2e5972b089fda8f0",
+          "67b559732e5972b089fdab81",
+          "67b55a642e5972b089fdacce",
+          "67b55a6d2e5972b089fdad2a",
+          "67b55a762e5972b089fdad7e",
+          "67b55b8e2e5972b089fdaf43",
+          "67b55b972e5972b089fdafce",
+          "67b55b9f2e5972b089fdb021",
+          "67b55cf02e5972b089fdb159",
+          "67b55e5e2e5972b089fdb363",
+          "67b55e962e5972b089fdb3da",
+          "67b55e9e2e5972b089fdb430",
+          "67b55f0a2e5972b089fdb4ca",
+          "67b55fa02e5972b089fdb576",
+          "67b55fa92e5972b089fdb5d0",
+          "67b5606f2e5972b089fdb6d9",
+          "67b5619d2e5972b089fdb77b",
+          "67b561a62e5972b089fdb7cc",
+          "67b562322e5972b089fdb82f",
+          "67b5646c2e5972b089fdb966",
+          "67be8fc6e7ce187c5b6cb56a",
+          "67be94d0e7ce187c5b6cbbc9",
+          "67be950ce7ce187c5b6cbc42",
+          "67be9632e7ce187c5b6cbd79",
+          "67be968fe7ce187c5b6cbdf9",
+          "67be9699e7ce187c5b6cbe4b",
+          "67be97f4e7ce187c5b6cbf7f",
+          "67be9996e7ce187c5b6cc070",
+          "67be99d2e7ce187c5b6cc0e3",
+          "67be99dde7ce187c5b6cc13a",
+          "67be9abde7ce187c5b6cc23b",
+          "67be9be8e7ce187c5b6cc318",
+          "67be9bf2e7ce187c5b6cc36d",
+          "67be9c23e7ce187c5b6cc3d3",
+          "67be9d12e7ce187c5b6cc473",
+          "67be9d1ce7ce187c5b6cc4d6",
+          "67be9d52e7ce187c5b6cc547",
+          "67be9d5ce7ce187c5b6cc5a0",
+          "67be9d66e7ce187c5b6cc5ee",
+          "67bea02ee7ce187c5b6cca04",
+          "67c7c975d36a1c7d2166aa18",
+          "67c7c9d2d36a1c7d2166aa82",
+          "67c7d132d36a1c7d2166b25e",
+          "67c7d208d36a1c7d2166b349",
+          "67c7d216d36a1c7d2166b398",
+          "67c7d225d36a1c7d2166b3eb",
+          "67c7d25ad36a1c7d2166b45c",
+          "67c7d388d36a1c7d2166b591",
+          "67c7d396d36a1c7d2166b5e1",
+          "67c7d497d36a1c7d2166b675",
+          "67c7d529d36a1c7d2166b6dd",
+          "67c7d583d36a1c7d2166b747",
+          "67c7d600d36a1c7d2166b7bc",
+          "67c7d635d36a1c7d2166b82a",
+          "67c7d643d36a1c7d2166b878",
+          "67c7d6add36a1c7d2166b8ec",
+          "67c7d818d36a1c7d2166b998",
+          "67c7d827d36a1c7d2166b9ef",
+          "67c7d836d36a1c7d2166ba46",
+          "67c7d998d36a1c7d2166bcbb",
+          "67d0f78da4388f827948da85",
+          "67d0fb69a4388f827948e2a2",
+          "67d0fc1ba4388f827948e32d",
+          "67d0fcb3a4388f827948e448",
+          "67d0fcc0a4388f827948e4a2",
+          "67d0fd0ba4388f827948e519",
+          "67d0fe18a4388f827948e66a",
+          "67d0fe70a4388f827948e6ea",
+          "67d0feeaa4388f827948e75c",
+          "67d0ffbba4388f827948e7e5",
+          "67d100aca4388f827948e909",
+          "67d1017ba4388f827948ea40",
+          "67d101b7a4388f827948eaa8",
+          "67d102e2a4388f827948ebaf",
+          "67d1035ba4388f827948ec1a",
+          "67d10369a4388f827948ec6f",
+          "67d104fda4388f827948ed68",
+          "67d1050ba4388f827948edbf",
+          "67d105cea4388f827948ee8f",
+          "67d10662a4388f827948ef13",
+          "67da32064f829edf1e0e774d",
+          "67da33e74f829edf1e0e7931",
+          "67da365e4f829edf1e0e7c43",
+          "67da36994f829edf1e0e7cc9",
+          "67da37124f829edf1e0e7dc7",
+          "67da371c4f829edf1e0e7e1e",
+          "67da37684f829edf1e0e7ecd",
+          "67da38f24f829edf1e0e804e",
+          "67da3ab14f829edf1e0e8336",
+          "67da3aed4f829edf1e0e83c2",
+          "67da3b7f4f829edf1e0e8523",
+          "67da3bbd4f829edf1e0e8631",
+          "67da3d9a4f829edf1e0e888b",
+          "67da3df54f829edf1e0e8982",
+          "67da3e2f4f829edf1e0e8a4c",
+          "67da3e894f829edf1e0e8b23",
+          "67da3e944f829edf1e0e8b6f",
+          "67da3ec44f829edf1e0e8be9",
+          "67da41944f829edf1e0e8ed7",
+          "67da420c4f829edf1e0e8ffd",
+          "67e36aef501d6b2327f84c6f",
+          "67e36fbb501d6b2327f8540a",
+          "67e3706b501d6b2327f854e3",
+          "67e37160501d6b2327f855ac",
+          "67e372e9501d6b2327f857a0",
+          "67e37376501d6b2327f8583c",
+          "67e373b1501d6b2327f858c3",
+          "67e373ef501d6b2327f85942",
+          "67e37427501d6b2327f859b0",
+          "67e374c0501d6b2327f85a89",
+          "67e37624501d6b2327f85c35",
+          "67e37660501d6b2327f85cbd",
+          "67e376a0501d6b2327f85d2e",
+          "67e37715501d6b2327f85da7",
+          "67e37724501d6b2327f85e04",
+          "67e3794e501d6b2327f85f63",
+          "67e3795b501d6b2327f85fb3",
+          "67e37a01501d6b2327f8609f",
+          "67e37a95501d6b2327f861fc",
+          "67e37b0c501d6b2327f862bb",
+          "67eca69ba673d24a5dd44790",
+          "67eca6a8a673d24a5dd447d4",
+          "67eca9a5f5e14a4a63f77afc",
+          "67ecabfef5e14a4a63f77c1f",
+          "67ecac3aa673d24a5dd44b76",
+          "67ecaceea673d24a5dd44c20",
+          "67ecadbdf5e14a4a63f77d9d",
+          "67ecadc9f5e14a4a63f77dec",
+          "67ecae36a673d24a5dd44d61",
+          "67ecae8ef5e14a4a63f77f37",
+          "67ecaf22f5e14a4a63f78017",
+          "67ecaf5fa673d24a5dd44ee2",
+          "67ecb011f5e14a4a63f78158",
+          "67ecb01ef5e14a4a63f781b3",
+          "67ecb17af5e14a4a63f782ac",
+          "67ecb230f5e14a4a63f78388",
+          "67ecb23df5e14a4a63f783dd",
+          "67ecb665f5e14a4a63f7873b",
+          "67ecb673f5e14a4a63f78791",
+          "67ecb826a673d24a5dd45476",
+          "67f5e606cdf68c94163c3e7b",
+          "67f5e7e7157922940842602b",
+          "67f5ea5b5f38a8940f9170ad",
+          "67f5ea675f38a8940f9170fe",
+          "67f5eb4a5f38a8940f91718f",
+          "67f5eba45f38a8940f9171fa",
+          "67f5ec5685649f9402cd8564",
+          "67f5ecb0cdf68c94163c4111",
+          "67f5ecbccdf68c94163c4161",
+          "67f5ecc8cdf68c94163c41b4",
+          "67f5ed2585649f9402cd85ce",
+          "67f5ee705f38a8940f9172be",
+          "67f5ee7c5f38a8940f91730a",
+          "67f5eea9cdf68c94163c42d4",
+          "67f5eeb5cdf68c94163c4324",
+          "67f5ef9985649f9402cd86b4",
+          "67f5efa585649f9402cd8708",
+          "67f5f0c4157922940842640e",
+          "67f5f19485649f9402cd87b3",
+          "67f5f3b35f38a8940f9174ba",
+          "67ff1b4326a27ac6c3b99e85",
+          "67ff1eca592a64c6bd780fee",
+          "67ff22c326a27ac6c3b9a2df",
+          "67ff2360592a64c6bd78127f",
+          "67ff23b5592a64c6bd7812e6",
+          "67ff23ef592a64c6bd78135a",
+          "67ff23fb592a64c6bd7813aa",
+          "67ff2408592a64c6bd78140b",
+          "67ff2482592a64c6bd78152e",
+          "67ff25ae26a27ac6c3b9a4a9",
+          "67ff25bd26a27ac6c3b9a513",
+          "67ff2644592a64c6bd781756",
+          "67ff267f592a64c6bd78180f",
+          "67ff27e5592a64c6bd781ab8",
+          "67ff27f4592a64c6bd781b1a",
+          "67ff2802592a64c6bd781b68",
+          "67ff28b526a27ac6c3b9a84d",
+          "67ff2a02592a64c6bd781f4d",
+          "67ff2a3c26a27ac6c3b9a9cf",
+          "67ff2a9526a27ac6c3b9aa63",
+          "68085a218c3b91a484b87af3",
+          "68085af28d1747a47e89c413",
+          "68085c1c8d1747a47e89c4df",
+          "68085cd18c3b91a484b87c67",
+          "68085d498d1747a47e89c572",
+          "68085e748d1747a47e89c615",
+          "68085e838d1747a47e89c663",
+          "68085ece8c3b91a484b87d23",
+          "68085edd8c3b91a484b87d75",
+          "68085f258c3b91a484b87ddd",
+          "68085f348c3b91a484b87e2e",
+          "68085f7d8c3b91a484b87e8f",
+          "68085f8c8c3b91a484b87ede",
+          "6808624f8c3b91a484b87ff8",
+          "6808633d8c3b91a484b880bc",
+          "680863d28c3b91a484b88125",
+          "680863e08c3b91a484b88176",
+          "680864678d1747a47e89c8f8",
+          "680865ee8d1747a47e89c95e",
+          "680866fa8c3b91a484b881dc",
+          "681186939b48be16ab867af7",
+          "68119052090b49169dfdf227",
+          "6811940bc328281697b82fb1",
+          "681195ec9b48be16ab868051",
+          "681196256bb34516a40766ec",
+          "681197136bb34516a407673f",
+          "6811976ec328281697b83015",
+          "6811977cc328281697b83064",
+          "681197c76bb34516a4076795",
+          "681198d7c328281697b830fb",
+          "681199c6090b49169dfdf47d",
+          "68119a01090b49169dfdf4d3",
+          "68119a77c328281697b8315a",
+          "68119a86c328281697b831a9",
+          "68119b83c328281697b83209",
+          "68119b93c328281697b83266",
+          "68119bfc6bb34516a40768ee",
+          "68119c909b48be16ab86822e",
+          "68119d06090b49169dfdf5e9",
+          "68119f7d6bb34516a4076a24"
+        ],
+        "dateEnd": "2025-04-29T00:00:00.000Z"
+      }
+    ],
+    "pointsAwardedHS": 0,
+    "seriesPointsAwardedHS": 0,
+    "teamSeriesPointsAwardedHS": 0,
+    "teamPointsAwardedHS": 0,
+    "pointsAwardedHH": 0,
+    "seriesPointsAwardedHH": 0,
+    "teamSeriesPointsAwardedHH": 0,
+    "teamPointsAwardedHH": 0,
+    "pointsAwardedAvg": [],
+    "seriesPointsAwardedAvg": [],
+    "teamSeriesPointsAwardedAvg": [],
+    "teamPointsAwardedAvg": [],
+    "teamPointsAwardedWoodScratch": 0,
+    "teamPointsAwardedGameScratch": 0,
+    "pointsAwardedWoodScratch": 0,
+    "pointsAwardedGameScratch": 0,
+    "teamPointsAwardedWood": 6,
+    "teamPointsAwardedGame": 3,
+    "pointsAwardedWood": 2,
+    "pointsAwardedGame": 1,
+    "regressivePointsType": "series",
+    "regressivePoints": false,
+    "pointsQualifyPrePost": true,
+    "blindConsecutivePins": 1,
+    "blindConsecutiveAddPins": false,
+    "blindConsecutiveOpt": "whole",
+    "blindConsecutiveWeeks": 1,
+    "blindConsecutive": false,
+    "useBlindPct": false,
+    "fixedAvgGirl": 0,
+    "fixedAvgBoy": 0,
+    "fixedAvgFemale": 0,
+    "fixedAvgMale": 0,
+    "fixedAvg": 0,
+    "useDiffFixedAvg": false,
+    "useFixedAvg": false,
+    "entAvg369": false,
+    "holdNightAvg": false,
+    "holdAvg": false,
+    "blindTeamCantWinPoints": true,
+    "bankLP": false,
+    "feeToggle": true,
+    "canOverpay": false,
+    "allowJoinInvite": false,
+    "requireEntryFee": false,
+    "weekEntryDue": 1,
+    "discountedEntries": [],
+    "creationNotified": false,
+    "members": [],
+    "standingsBowlerDivisions": [],
+    "standingsDivisions": [],
+    "individualPrizeAwarded": true,
+    "prizeFundsDiv": [],
+    "prizeFunds": [],
+    "dateMeeting": "2024-08-13T06:00:00.000Z",
+    "hasMeeting": true,
+    "shiftTime": [],
+    "oppPerWeek": 2,
+    "diffMultiShift": false,
+    "sendMultiShiftReminder": false,
+    "useMultiStartLane": false,
+    "isMultiShift": false,
+    "isFeatured": false,
+    "isAutomated": false,
+    "proAm": false,
+    "onlyBowleroTournament": false,
+    "maxEntrySquad": 1,
+    "tournamentMessage": "",
+    "tournamentDetails": "",
+    "potentialPrize": 0,
+    "allowsTournament": false,
+    "numShootout": 1,
+    "useBlindTrueAvg": false,
+    "allowsShootout": false,
+    "ratioTo": 0,
+    "ratioFrom": 0,
+    "isRatioPrize": false,
+    "duesByTeam": true,
+    "allBowlersOwe": false,
+    "payAsYouGo": false,
+    "hideVacants": true,
+    "assignByWraparound": false,
+    "multipleTeamLanes": false,
+    "splitDoubles": false,
+    "customAgreementDisplay": false,
+    "ageRestrictedAsOf": "2024-01-03T07:00:00.000Z",
+    "ageRestrictedAge": 1,
+    "ageRestrictedOp": "gt",
+    "ageRestricted": false,
+    "allowsRoster": true,
+    "cloudScoring": true,
+    "isVirtual": false,
+    "wholePos": false,
+    "showThisWeek": false,
+    "cutLinePos": 1,
+    "cutLineStandings": false,
+    "showCarryOn": false,
+    "teams": [
+      "66b407e35dbb6ac34d1521bb",
+      "66b407e55dbb6ac34d1521da",
+      "66b407e75dbb6ac34d1521f7",
+      "66b407e95dbb6ac34d152216",
+      "66b407eb5dbb6ac34d15222f",
+      "66b407ec5dbb6ac34d15224b",
+      "66b407ed5dbb6ac34d152264",
+      "66b407ef5dbb6ac34d152283",
+      "66b407f15dbb6ac34d15229c",
+      "66b407f25dbb6ac34d1522b5",
+      "66b407f45dbb6ac34d1522d1",
+      "66b407f65dbb6ac34d1522ea",
+      "66b407f75dbb6ac34d152306",
+      "66b407f95dbb6ac34d152325",
+      "66b407fb5dbb6ac34d152344",
+      "66b407fd5dbb6ac34d152363",
+      "66b407ff5dbb6ac34d15237f",
+      "66b408015dbb6ac34d15239b",
+      "66b408035dbb6ac34d1523ba",
+      "66b408045dbb6ac34d1523d9",
+      "66b408075dbb6ac34d1523f8",
+      "66b408095dbb6ac34d152417",
+      "66b4080a5dbb6ac34d152436",
+      "66b4080d5dbb6ac34d152455",
+      "66b4080e5dbb6ac34d152471",
+      "66b408105dbb6ac34d152490",
+      "66b408125dbb6ac34d1524a9",
+      "66b408165dbb6ac34d1524c8",
+      "66b408195dbb6ac34d1524e7",
+      "66b4081b5dbb6ac34d152506",
+      "66b4081e5dbb6ac34d152525",
+      "66b4081f5dbb6ac34d15253e",
+      "66b408225dbb6ac34d15255d",
+      "66b408245dbb6ac34d15257c",
+      "66b408265dbb6ac34d152595",
+      "66b408285dbb6ac34d1525b1",
+      "66b4082b5dbb6ac34d1525ca",
+      "66b408305dbb6ac34d1525e9",
+      "66b408345dbb6ac34d152605",
+      "66b408385dbb6ac34d15261b"
+    ],
+    "gamesPerWeek": 3,
+    "entireCenter": false,
+    "createdOn": "2024-08-07T23:48:50.631Z",
+    "allowPacers": false,
+    "frameBowler": 4,
+    "gameSwitch": true,
+    "foulLights": true,
+    "singleLaneMode": false,
+    "dropAvgBelowEnabled": false,
+    "practiceBefore": true,
+    "practiceTime": 15,
+    "shadow": false,
+    "splitDivision": false,
+    "splitGender": false,
+    "gamesForAvgImprove": 9,
+    "avgAfterImprove": false,
+    "minGamesImprove": 9,
+    "standingsBowlerDiv": false,
+    "standingsDiv": false,
+    "standingsPct": false,
+    "displayGamesCol": false,
+    "standingsGamesSort": false,
+    "standingsScratchSort": false,
+    "standingsPinSplitSort": false,
+    "standingsPinSplit": false,
+    "standingsQualifyHigher": false,
+    "standingsQualifyOne": false,
+    "standingsQualifySub": false,
+    "standingsQualify": true,
+    "teamBlindVacantDisqualify": false,
+    "leaderboardReset": false,
+    "poaGameLeaderboard": false,
+    "poaSeriesLeaderboard": false,
+    "showScratchLeaderboard": true,
+    "showHdcpLeaderboard": true,
+    "standingsQualifyPrePost": true,
+    "standingsHighs": true,
+    "allowBye": false,
+    "reportBoardPositions": 5,
+    "webBoardPositions": 10,
+    "splitJunior": false,
+    "bowlsOnEvenLanes": false,
+    "oneTeamPairLane": false,
+    "moveGameLane": false,
+    "skipPairLane": false,
+    "disableRegister": false,
+    "bowlersOtherGamesCount": true,
+    "noTapPins": 9,
+    "noTap": false,
+    "isLinkedEvent": false,
+    "switchDivEvery": 5,
+    "multiEntryLimit": 1,
+    "allowMultiEntryUnlimited": false,
+    "allowMultiEntry": false,
+    "hasLiveStandings": false,
+    "user_team_ids": {
+      "66b408385dbb6ac34d15261b": 33,
+      "66b408345dbb6ac34d152605": 31,
+      "66b408305dbb6ac34d1525e9": 34,
+      "66b4082b5dbb6ac34d1525ca": 4,
+      "66b408285dbb6ac34d1525b1": 15,
+      "66b408265dbb6ac34d152595": 36,
+      "66b408245dbb6ac34d15257c": 23,
+      "66b408225dbb6ac34d15255d": 22,
+      "66b4081f5dbb6ac34d15253e": 8,
+      "66b4081e5dbb6ac34d152525": 20,
+      "66b4081b5dbb6ac34d152506": 21,
+      "66b408195dbb6ac34d1524e7": 13,
+      "66b408165dbb6ac34d1524c8": 7,
+      "66b408125dbb6ac34d1524a9": 29,
+      "66b408105dbb6ac34d152490": 40,
+      "66b4080e5dbb6ac34d152471": 37,
+      "66b4080d5dbb6ac34d152455": 17,
+      "66b4080a5dbb6ac34d152436": 39,
+      "66b408095dbb6ac34d152417": 14,
+      "66b408075dbb6ac34d1523f8": 25,
+      "66b408045dbb6ac34d1523d9": 35,
+      "66b408035dbb6ac34d1523ba": 2,
+      "66b408015dbb6ac34d15239b": 19,
+      "66b407ff5dbb6ac34d15237f": 30,
+      "66b407fd5dbb6ac34d152363": 16,
+      "66b407fb5dbb6ac34d152344": 12,
+      "66b407f95dbb6ac34d152325": 27,
+      "66b407f75dbb6ac34d152306": 38,
+      "66b407f65dbb6ac34d1522ea": 32,
+      "66b407f45dbb6ac34d1522d1": 9,
+      "66b407f25dbb6ac34d1522b5": 24,
+      "66b407f15dbb6ac34d15229c": 18,
+      "66b407ef5dbb6ac34d152283": 1,
+      "66b407ed5dbb6ac34d152264": 10,
+      "66b407ec5dbb6ac34d15224b": 3,
+      "66b407eb5dbb6ac34d15222f": 28,
+      "66b407e95dbb6ac34d152216": 26,
+      "66b407e75dbb6ac34d1521f7": 6,
+      "66b407e55dbb6ac34d1521da": 11,
+      "66b407e35dbb6ac34d1521bb": 5
+    },
+    "__v": 61,
+    "customAgreementText": "",
+    "teamsPerPair": 3,
+    "locked": null,
+    "laneShiftOnScheduleRepeat": false,
+    "leagueFrequency": "weekly",
+    "allowNicknames": true,
+    "rotateIndividual": false,
+    "allowBowlWith": true,
+    "allowBonusPins": false,
+    "allowBrackets": false,
+    "bonusPins": 0,
+    "cutLineNameSplit": [],
+    "cutLinePosSplit": [],
+    "cutLineWinTeamSplit": [],
+    "pbaAnnualFee": 0,
+    "pbaEvent": false,
+    "pbaEventType": 0,
+    "pbaHasRegFee": false,
+    "pbaMemberReg": false,
+    "pbaMemberType": 2,
+    "pbaMonthlyFee": 0,
+    "pbaRegFee": 0,
+    "pbaReqVerification": false,
+    "standingsPinSplitTotalSort": false,
+    "standingsPlusMinus": false,
+    "tieSelectBrackets": false,
+    "awarded": true,
+    "minGamesImproveQualify": false,
+    "pbaEventRegions": [],
+    "diffOppsLastGameAvg": false
+  }
+}

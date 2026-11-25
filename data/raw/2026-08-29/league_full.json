@@ -1,0 +1,1044 @@
+{
+  "data": {
+    "_id": "6a82316f249ddaa00e0297fb",
+    "teamsOnLane": 2,
+    "name": "Pioneer I 2026-2027",
+    "numLanes": 40,
+    "numPlayers": 5,
+    "startingLane": "1",
+    "time": "6:30 PM",
+    "teamsOnShift": 10,
+    "totalShift": 2,
+    "center": "62d98f124cfb92201338336a",
+    "splits": [],
+    "vacants": [
+      {
+        "vacantId": 0,
+        "customPos": 0,
+        "_id": "6a82316f249ddaa00e029802",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 1,
+        "customPos": 1,
+        "_id": "6a82316f249ddaa00e029801",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 2,
+        "customPos": 2,
+        "_id": "6a82316f249ddaa00e029800",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 3,
+        "customPos": 3,
+        "_id": "6a82316f249ddaa00e0297ff",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      },
+      {
+        "vacantId": 4,
+        "customPos": 4,
+        "_id": "6a82316f249ddaa00e0297fe",
+        "isJunior": false,
+        "isFemale": false,
+        "isCustomPos": false
+      }
+    ],
+    "dropRuleEnabled": true,
+    "handicapRulesTeam": {
+      "type": "sum",
+      "percentage": 0,
+      "percentageOf": 0,
+      "useAllInclusive": false,
+      "hasLimit": false,
+      "allowNegative": false,
+      "allowNegativeDiff": false
+    },
+    "handicapRules": {
+      "type": "pctOfNumber",
+      "percentage": 90,
+      "percentageOf": 235,
+      "splits": {
+        "adult": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "junior": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "male": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "female": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "adultMale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "adultFemale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "juniorMale": {
+          "percentage": 0,
+          "percentageOf": 0
+        },
+        "juniorFemale": {
+          "percentage": 0,
+          "percentageOf": 0
+        }
+      },
+      "splitJunior": false,
+      "splitGender": false,
+      "allowNegativeDiff": false,
+      "allowNegative": false,
+      "hasLimitGender": false,
+      "hasLimit": false,
+      "useAllInclusive": true,
+      "useTeamAverages": false,
+      "baseCapValue": 300,
+      "capIndividualBase": false,
+      "capAt300": false
+    },
+    "seasons": [
+      {
+        "paymentStart": "2026-08-18T00:00:00.000Z",
+        "paymentEnd": "2027-04-27T00:00:00.000Z",
+        "dateStart": "2026-08-18T00:00:00.000Z",
+        "seasonType": "Full Season",
+        "_id": "6a82316f249ddaa00e0297fc",
+        "teamStats": [
+          {
+            "_id": "6a82316f249ddaa00e0297fd",
+            "teams": [
+              {
+                "team": "6a82316f249ddaa00e029803",
+                "_id": "6a82316f249ddaa00e029809",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 34,
+                "pointsLost": 46,
+                "average": 2034,
+                "scratchPins": 6102,
+                "totalPins": 6558,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823171249ddaa00e02981f",
+                "_id": "6a823171249ddaa00e029825",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 60,
+                "pointsLost": 20,
+                "average": 2221,
+                "scratchPins": 6663,
+                "totalPins": 7245,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823174249ddaa00e02983e",
+                "_id": "6a823174249ddaa00e029844",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 22,
+                "pointsLost": 58,
+                "average": 2095,
+                "scratchPins": 6284,
+                "totalPins": 6836,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823175249ddaa00e02985d",
+                "_id": "6a823175249ddaa00e029863",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 26,
+                "pointsLost": 54,
+                "average": 2056,
+                "scratchPins": 6168,
+                "totalPins": 6768,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823178249ddaa00e02987c",
+                "_id": "6a823178249ddaa00e029882",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 39,
+                "pointsLost": 41,
+                "average": 1985,
+                "scratchPins": 5955,
+                "totalPins": 6975,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317a249ddaa00e029898",
+                "_id": "6a82317a249ddaa00e02989e",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 50.5,
+                "pointsLost": 29.5,
+                "average": 2061,
+                "scratchPins": 6182,
+                "totalPins": 7073,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317c249ddaa00e0298b4",
+                "_id": "6a82317c249ddaa00e0298ba",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 24.5,
+                "pointsLost": 55.5,
+                "average": 1999,
+                "scratchPins": 5995,
+                "totalPins": 6691,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82317e249ddaa00e0298d0",
+                "_id": "6a82317e249ddaa00e0298d6",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 27,
+                "pointsLost": 53,
+                "average": 2072,
+                "scratchPins": 6218,
+                "totalPins": 6914,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823181249ddaa00e0298ec",
+                "_id": "6a823181249ddaa00e0298f2",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 43.5,
+                "pointsLost": 36.5,
+                "average": 2174,
+                "scratchPins": 6521,
+                "totalPins": 7049,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823183249ddaa00e029905",
+                "_id": "6a823183249ddaa00e02990b",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 41,
+                "pointsLost": 39,
+                "average": 2116,
+                "scratchPins": 6349,
+                "totalPins": 7045,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823185249ddaa00e029924",
+                "_id": "6a823185249ddaa00e02992a",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 19,
+                "pointsLost": 61,
+                "average": 1997,
+                "scratchPins": 5992,
+                "totalPins": 6826,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823187249ddaa00e02993d",
+                "_id": "6a823187249ddaa00e029943",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 46.5,
+                "pointsLost": 33.5,
+                "average": 2098,
+                "scratchPins": 6293,
+                "totalPins": 7055,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82318b249ddaa00e029959",
+                "_id": "6a82318b249ddaa00e02995f",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 55,
+                "pointsLost": 25,
+                "average": 1999,
+                "scratchPins": 5995,
+                "totalPins": 6817,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82318e249ddaa00e029978",
+                "_id": "6a82318e249ddaa00e02997e",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 62.5,
+                "pointsLost": 17.5,
+                "average": 2054,
+                "scratchPins": 6163,
+                "totalPins": 6973,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823191249ddaa00e029994",
+                "_id": "6a823191249ddaa00e02999a",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 47,
+                "pointsLost": 33,
+                "average": 2157,
+                "scratchPins": 6470,
+                "totalPins": 7184,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823194249ddaa00e0299b3",
+                "_id": "6a823194249ddaa00e0299b9",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 56,
+                "pointsLost": 24,
+                "average": 2178,
+                "scratchPins": 6533,
+                "totalPins": 7295,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a823197249ddaa00e0299d2",
+                "_id": "6a823197249ddaa00e0299d8",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 55,
+                "pointsLost": 25,
+                "average": 2052,
+                "scratchPins": 6158,
+                "totalPins": 6965,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319a249ddaa00e0299f1",
+                "_id": "6a82319a249ddaa00e0299f7",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 68,
+                "pointsLost": 12,
+                "average": 2172,
+                "scratchPins": 6518,
+                "totalPins": 7277,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319d249ddaa00e029a10",
+                "_id": "6a82319d249ddaa00e029a16",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 22,
+                "pointsLost": 58,
+                "average": 1749,
+                "scratchPins": 5248,
+                "totalPins": 6646,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a82319f249ddaa00e029a26",
+                "_id": "6a82319f249ddaa00e029a2c",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 51,
+                "pointsLost": 29,
+                "average": 2067,
+                "scratchPins": 6200,
+                "totalPins": 7034,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a2249ddaa00e029a42",
+                "_id": "6a8231a2249ddaa00e029a48",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 58,
+                "pointsLost": 22,
+                "average": 2099,
+                "scratchPins": 6298,
+                "totalPins": 7036,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a4249ddaa00e029a5e",
+                "_id": "6a8231a4249ddaa00e029a64",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 24,
+                "pointsLost": 56,
+                "average": 1972,
+                "scratchPins": 5915,
+                "totalPins": 6671,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231a7249ddaa00e029a7a",
+                "_id": "6a8231a7249ddaa00e029a80",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 38,
+                "pointsLost": 42,
+                "average": 1977,
+                "scratchPins": 5930,
+                "totalPins": 6932,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231aa249ddaa00e029a99",
+                "_id": "6a8231aa249ddaa00e029a9f",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 57,
+                "pointsLost": 23,
+                "average": 1970,
+                "scratchPins": 5911,
+                "totalPins": 7099,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231ad249ddaa00e029ab6",
+                "_id": "6a8231ad249ddaa00e029abc",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 45,
+                "pointsLost": 35,
+                "average": 2093,
+                "scratchPins": 6280,
+                "totalPins": 6970,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b1249ddaa00e029ad5",
+                "_id": "6a8231b1249ddaa00e029adb",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 11,
+                "pointsLost": 69,
+                "average": 2061,
+                "scratchPins": 6184,
+                "totalPins": 6994,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b3249ddaa00e029af1",
+                "_id": "6a8231b3249ddaa00e029af7",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 13.5,
+                "pointsLost": 66.5,
+                "average": 1981,
+                "scratchPins": 5941,
+                "totalPins": 6826,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b5249ddaa00e029b0a",
+                "_id": "6a8231b5249ddaa00e029b10",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 25,
+                "pointsLost": 55,
+                "average": 1988,
+                "scratchPins": 5965,
+                "totalPins": 6820,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231b7249ddaa00e029b29",
+                "_id": "6a8231b7249ddaa00e029b2f",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 17,
+                "pointsLost": 63,
+                "average": 1996,
+                "scratchPins": 5987,
+                "totalPins": 6749,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231ba249ddaa00e029b48",
+                "_id": "6a8231ba249ddaa00e029b4e",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 26,
+                "pointsLost": 54,
+                "average": 1913,
+                "scratchPins": 5737,
+                "totalPins": 6817,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231be249ddaa00e029b64",
+                "_id": "6a8231be249ddaa00e029b6a",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 64,
+                "pointsLost": 16,
+                "average": 1984,
+                "scratchPins": 5953,
+                "totalPins": 6967,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c1249ddaa00e029b86",
+                "_id": "6a8231c1249ddaa00e029b8c",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 33,
+                "pointsLost": 47,
+                "average": 1947,
+                "scratchPins": 5841,
+                "totalPins": 6729,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c3249ddaa00e029ba5",
+                "_id": "6a8231c3249ddaa00e029bab",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 48,
+                "pointsLost": 32,
+                "average": 1928,
+                "scratchPins": 5784,
+                "totalPins": 6765,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c6249ddaa00e029bc1",
+                "_id": "6a8231c6249ddaa00e029bc7",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 46,
+                "pointsLost": 34,
+                "average": 1859,
+                "scratchPins": 5576,
+                "totalPins": 6800,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231c9249ddaa00e029bda",
+                "_id": "6a8231c9249ddaa00e029be0",
+                "wins": 0,
+                "losses": 2,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 21,
+                "pointsLost": 59,
+                "average": 1997,
+                "scratchPins": 5991,
+                "totalPins": 6861,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231cc249ddaa00e029bf6",
+                "_id": "6a8231cc249ddaa00e029bfc",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 56,
+                "pointsLost": 24,
+                "average": 1682,
+                "scratchPins": 5044,
+                "totalPins": 6934,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231cf249ddaa00e029c15",
+                "_id": "6a8231cf249ddaa00e029c1b",
+                "wins": 2,
+                "losses": 0,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 55,
+                "pointsLost": 25,
+                "average": 1937,
+                "scratchPins": 5811,
+                "totalPins": 6978,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d3249ddaa00e029c31",
+                "_id": "6a8231d3249ddaa00e029c37",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 41,
+                "pointsLost": 39,
+                "average": 2084,
+                "scratchPins": 6252,
+                "totalPins": 6702,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d5249ddaa00e029c4d",
+                "_id": "6a8231d5249ddaa00e029c53",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 33,
+                "pointsLost": 47,
+                "average": 1962,
+                "scratchPins": 5888,
+                "totalPins": 6830,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              },
+              {
+                "team": "6a8231d7249ddaa00e029c63",
+                "_id": "6a8231d7249ddaa00e029c69",
+                "wins": 1,
+                "losses": 1,
+                "ties": 0,
+                "games": 6,
+                "pointsWon": 39,
+                "pointsLost": 41,
+                "average": 1904,
+                "scratchPins": 5711,
+                "totalPins": 7019,
+                "bonusPins": 0,
+                "bowlerInfos": []
+              }
+            ]
+          }
+        ],
+        "weeks": [
+          {
+            "weekNum": 20,
+            "date": "2027-01-05T00:00:00.000Z",
+            "_id": "6a84b2deef0762626e1ab346"
+          }
+        ],
+        "highScores": [],
+        "lineagePaidToDate": 0,
+        "matches": [
+          "6a8538052fe9873e6c628922",
+          "6a8538062fe9873e6c628978",
+          "6a8538082fe9873e6c6289cf",
+          "6a85380a2fe9873e6c628a30",
+          "6a85380c2fe9873e6c628a84",
+          "6a85380e2fe9873e6c628ae2",
+          "6a8538102fe9873e6c628b3d",
+          "6a8538122fe9873e6c628b9a",
+          "6a8538142fe9873e6c628bf7",
+          "6a8538162fe9873e6c628c4f",
+          "6a8538182fe9873e6c628ca6",
+          "6a85381a2fe9873e6c628d03",
+          "6a85381c2fe9873e6c628d61",
+          "6a85381e2fe9873e6c628dc2",
+          "6a8538202fe9873e6c628e16",
+          "6a8538222fe9873e6c628e73",
+          "6a8538252fe9873e6c628eca",
+          "6a8538272fe9873e6c628f24",
+          "6a8538292fe9873e6c628f7a",
+          "6a85382c2fe9873e6c628fcd",
+          "6a8e673fe5295daed70cf109",
+          "6a8e6741e5295daed70cf151",
+          "6a8e6743e5295daed70cf19f",
+          "6a8e6745e5295daed70cf1f2",
+          "6a8e6748e5295daed70cf23d",
+          "6a8e674ae5295daed70cf292",
+          "6a8e674de5295daed70cf2e6",
+          "6a8e674fe5295daed70cf33c",
+          "6a8e6752e5295daed70cf38d",
+          "6a8e6754e5295daed70cf3dc",
+          "6a8e6757e5295daed70cf431",
+          "6a8e675ae5295daed70cf486",
+          "6a8e675de5295daed70cf4d7",
+          "6a8e6760e5295daed70cf52e",
+          "6a8e6763e5295daed70cf57e",
+          "6a8e6766e5295daed70cf5cc",
+          "6a8e6769e5295daed70cf624",
+          "6a8e676ce5295daed70cf678",
+          "6a8e676fe5295daed70cf6cd",
+          "6a8e6772e5295daed70cf727"
+        ],
+        "dateEnd": "2027-04-27T00:00:00.000Z"
+      }
+    ],
+    "standingsBowlerDivisions": [],
+    "standingsDivisions": [],
+    "oppPerWeek": 2,
+    "diffMultiShift": false,
+    "useMultiStartLane": false,
+    "isMultiShift": false,
+    "pbaEventRegions": [],
+    "pbaEventType": 0,
+    "fullPointsAmongTeammates": false,
+    "pbaTier": 1,
+    "pbaMemberType": 2,
+    "pbaReqVerification": false,
+    "pbaRegFee": 0,
+    "pbaHasRegFee": false,
+    "pbaMonthlyFee": 0,
+    "pbaAnnualFee": 0,
+    "pbaMemberReg": false,
+    "pbaEvent": false,
+    "proAm": false,
+    "onlyBowleroTournament": false,
+    "maxEntrySquad": 200,
+    "tournamentMessage": "",
+    "tournamentDetails": "",
+    "potentialPrize": 0,
+    "allowsTournament": false,
+    "allowsShootout": false,
+    "splitDoubles": false,
+    "allowBrackets": true,
+    "isVirtual": false,
+    "teams": [
+      {
+        "_id": "6a82316f249ddaa00e029803",
+        "name": "Leave Your Mark Pro Shop"
+      },
+      {
+        "_id": "6a823171249ddaa00e02981f",
+        "name": "The Bowler Depot"
+      },
+      {
+        "_id": "6a823174249ddaa00e02983e",
+        "name": "Luxury Box Sports"
+      },
+      {
+        "_id": "6a823175249ddaa00e02985d",
+        "name": "Light 'Em Up"
+      },
+      {
+        "_id": "6a823178249ddaa00e02987c",
+        "name": "Hot XXX"
+      },
+      {
+        "_id": "6a82317a249ddaa00e029898",
+        "name": "Denver Vibrator"
+      },
+      {
+        "_id": "6a82317c249ddaa00e0298b4",
+        "name": "Bowlscore.com"
+      },
+      {
+        "_id": "6a82317e249ddaa00e0298d0",
+        "name": "StarDust Lounge"
+      },
+      {
+        "_id": "6a823181249ddaa00e0298ec",
+        "name": "PIN-A-TRATORS"
+      },
+      {
+        "_id": "6a823183249ddaa00e029905",
+        "name": "Chicken Nuggies"
+      },
+      {
+        "_id": "6a823185249ddaa00e029924",
+        "name": "Matrix Auto Body"
+      },
+      {
+        "_id": "6a823187249ddaa00e02993d",
+        "name": "Apex Auto Glass"
+      },
+      {
+        "_id": "6a82318b249ddaa00e029959",
+        "name": "Motiv"
+      },
+      {
+        "_id": "6a82318e249ddaa00e029978",
+        "name": "Throw A Better Ball"
+      },
+      {
+        "_id": "6a823191249ddaa00e029994",
+        "name": "Lamorie Painting"
+      },
+      {
+        "_id": "6a823194249ddaa00e0299b3",
+        "name": "J. Crew"
+      },
+      {
+        "_id": "6a823197249ddaa00e0299d2",
+        "name": "SASQUATCHED"
+      },
+      {
+        "_id": "6a82319a249ddaa00e0299f1",
+        "name": "Pocket Pounders"
+      },
+      {
+        "_id": "6a82319d249ddaa00e029a10",
+        "name": "Corpse Crew"
+      },
+      {
+        "_id": "6a82319f249ddaa00e029a26",
+        "name": "Panetta Heating"
+      },
+      {
+        "_id": "6a8231a2249ddaa00e029a42",
+        "name": "Better Than Gold"
+      },
+      {
+        "_id": "6a8231a4249ddaa00e029a5e",
+        "name": "Schissler's Army"
+      },
+      {
+        "_id": "6a8231a7249ddaa00e029a7a",
+        "name": "No Llores"
+      },
+      {
+        "_id": "6a8231aa249ddaa00e029a99",
+        "name": "Rocky Mountain High"
+      },
+      {
+        "_id": "6a8231ad249ddaa00e029ab6",
+        "name": "SHARKS"
+      },
+      {
+        "_id": "6a8231b1249ddaa00e029ad5",
+        "name": "Aftermath"
+      },
+      {
+        "_id": "6a8231b3249ddaa00e029af1",
+        "name": "Buzz Roofing"
+      },
+      {
+        "_id": "6a8231b5249ddaa00e029b0a",
+        "name": "Last Minute"
+      },
+      {
+        "_id": "6a8231b7249ddaa00e029b29",
+        "name": "Over the Line"
+      },
+      {
+        "_id": "6a8231ba249ddaa00e029b48",
+        "name": "Sloppy Hookers"
+      },
+      {
+        "_id": "6a8231be249ddaa00e029b64",
+        "name": "The Money Team"
+      },
+      {
+        "_id": "6a8231c1249ddaa00e029b86",
+        "name": "Multiple Scorgasms"
+      },
+      {
+        "_id": "6a8231c3249ddaa00e029ba5",
+        "name": "Rocky Mountain Tap & Garden"
+      },
+      {
+        "_id": "6a8231c6249ddaa00e029bc1",
+        "name": "Sweetman Racing"
+      },
+      {
+        "_id": "6a8231c9249ddaa00e029bda",
+        "name": "Kamikaze Keglers"
+      },
+      {
+        "_id": "6a8231cc249ddaa00e029bf6",
+        "name": "Busting Nuts"
+      },
+      {
+        "_id": "6a8231cf249ddaa00e029c15",
+        "name": "LET'S GET IT!"
+      },
+      {
+        "_id": "6a8231d3249ddaa00e029c31",
+        "name": "Pocket Aces"
+      },
+      {
+        "_id": "6a8231d5249ddaa00e029c4d",
+        "name": "Crippled Khaos"
+      },
+      {
+        "_id": "6a8231d7249ddaa00e029c63",
+        "name": "Wheelhouse"
+      }
+    ],
+    "gamesPerWeek": 3,
+    "splitGender": false,
+    "splitJunior": false,
+    "oneTeamPairLane": false,
+    "flipGameLane": false,
+    "moveGameLane": false,
+    "skipPairLane": false,
+    "switchDivEvery": 5,
+    "multiEntryLimit": 1,
+    "allowMultiEntryUnlimited": false,
+    "allowMultiEntry": false,
+    "liveStandingsDarkMode": false,
+    "liveStandingsHideAvatar": false,
+    "hasLiveStandings": false,
+    "user_team_ids": {
+      "6a8231d7249ddaa00e029c63": 36,
+      "6a8231d5249ddaa00e029c4d": 31,
+      "6a8231d3249ddaa00e029c31": 19,
+      "6a8231cf249ddaa00e029c15": 35,
+      "6a8231cc249ddaa00e029bf6": 34,
+      "6a8231c9249ddaa00e029bda": 23,
+      "6a8231c6249ddaa00e029bc1": 38,
+      "6a8231c3249ddaa00e029ba5": 37,
+      "6a8231c1249ddaa00e029b86": 40,
+      "6a8231be249ddaa00e029b64": 7,
+      "6a8231ba249ddaa00e029b48": 22,
+      "6a8231b7249ddaa00e029b29": 18,
+      "6a8231b5249ddaa00e029b0a": 16,
+      "6a8231b3249ddaa00e029af1": 8,
+      "6a8231b1249ddaa00e029ad5": 12,
+      "6a8231ad249ddaa00e029ab6": 25,
+      "6a8231aa249ddaa00e029a99": 26,
+      "6a8231a7249ddaa00e029a7a": 27,
+      "6a8231a4249ddaa00e029a5e": 39,
+      "6a8231a2249ddaa00e029a42": 20,
+      "6a82319f249ddaa00e029a26": 21,
+      "6a82319d249ddaa00e029a10": 28,
+      "6a82319a249ddaa00e0299f1": 11,
+      "6a823197249ddaa00e0299d2": 13,
+      "6a823194249ddaa00e0299b3": 9,
+      "6a823191249ddaa00e029994": 24,
+      "6a82318e249ddaa00e029978": 4,
+      "6a82318b249ddaa00e029959": 2,
+      "6a823187249ddaa00e02993d": 29,
+      "6a823185249ddaa00e029924": 14,
+      "6a823183249ddaa00e029905": 17,
+      "6a823181249ddaa00e0298ec": 5,
+      "6a82317e249ddaa00e0298d0": 10,
+      "6a82317c249ddaa00e0298b4": 1,
+      "6a82317a249ddaa00e029898": 30,
+      "6a823178249ddaa00e02987c": 6,
+      "6a823175249ddaa00e02985d": 32,
+      "6a823174249ddaa00e02983e": 33,
+      "6a823171249ddaa00e02981f": 15,
+      "6a82316f249ddaa00e029803": 3,
+      "6a84b109098097666e7d51b2": 7999
+    },
+    "centerInfo": {
+      "_id": "62d98f124cfb92201338336a",
+      "logo": "https://leaguepals-images.s3.us-east-1.amazonaws.com/Lucky+Strike.png",
+      "centerName": "Lucky Strike Wheat Ridge - 831",
+      "bowlMor": true,
+      "isMainEventCenter": false
+    },
+    "dateStart": "2026-08-18T00:00:00.000Z",
+    "dateEnd": "2027-04-27T00:00:00.000Z",
+    "seasonType": "Full Season",
+    "vacancyScore": 175
+  }
+}
